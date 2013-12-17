@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Index</title>
+	<meta charset="utf-8">
+	<link href="css/tabulous.css" rel="stylesheet" media="screen" />
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+	<header>
+		<nav id='nav'>
+			<div id="nav-right">
+				<ul class="nav">
+					<li><a href="#tab-login" class="tab-a" title="">登录</a></li>
+				</ul>
+			</div>
+			<div id="nav-center">
+				<ul class="nav">
+					<li><a href="#tab-course" class="tab-a active-a">课程资源</a></li>
+					<li><a href="#tab-train" class="tab-a">实训资源</a></li>
+					<li class="about-btn"><a href="#tab-about" class="tab-a">关于我们</a></li>
+				</ul>
+			</div>
+		</nav>
+		<article id="logo">
+			<div id="flip">
+				<div id="tab-course-logo" class="tab-logo active-logo" style="background-image:url('img/logo-course.png')"></div>
+				<div id="tab-train-logo" class="tab-logo hidenext" style="background-image:url('img/logo-training.png')"></div>
+				<div id="tab-about-logo" class="tab-logo hidenext" style="background-image:url('img/logo-course.png')"></div>
+				<div id="tab-login-logo" class="tab-logo hidenext" style="background-image:url('img/logo-training.png')"></div>
+			</div>
+			<!--div class="back-btn" style="margin-left: 0px; display: none;"><div><a href="#/work"></a></div></div-->
+		</article>
+	</header>
+	<div id="tab-container">
+		<div id="tab-course-content" class="tab make_transist show">
+			<div id="subtab-course">
+				<!--ul>
+					<li><a href="#subtab-courselist" class="subtab-course-a">courselist</a></li>
+					<li><a href="#subtab-courseinfo" class="subtab-course-a">courseinfo</a></li>
+				</ul-->
+
+				<div class="subtab-container">
+					<div id="subtab-courseinfo" class="subtab hideleft">
+					</div>
+					<div id="subtab-courselist" class="subtab show">
+						<article>
+							<p>我们提供的课程</p>
+						</article>
+						<section>
+							<ul>
+								<li><a>
+									<img src="img/course-android.png" />
+									<img class="cover" src="img/course-android-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-linux.png" />
+									<img class="cover" src="img/course-linux-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-design.png" />
+									<img class="cover" src="img/course-design-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-html5.png" />
+									<img class="cover" src="img/course-html5-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-flash.png" />
+									<img class="cover" src="img/course-flash-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-mysql.png" />
+									<img class="cover" src="img/course-mysql-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-php.png" />
+									<img class="cover" src="img/course-php-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-python.png" />
+									<img class="cover" src="img/course-python-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-cs.png" />
+									<img class="cover" src="img/course-cs-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-java.png" />
+									<img class="cover" src="img/course-java-g.png" />
+								</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="tab-train-content" class="tab make_transist hideright">
+			<div id="subtab-train">
+				<!--ul>
+					<li><a href="#subtab-trainlist" class="subtab-train-a">trainlist</a></li>
+					<li><a href="#subtab-traininfo" class="subtab-train-a">traininfo</a></li>
+				</ul-->
+
+				<div class="subtab-container">
+					<div id="subtab-traininfo" class="subtab hideleft">
+						
+					</div>
+					<div id="subtab-trainlist" class="subtab show">
+						<article>
+							<p>我们提供的实训</p>
+						</article>
+						<section>
+							<ul>
+								<li><a>
+									<img src="img/course-android.png" />
+									<img class="cover" src="img/course-android-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-linux.png" />
+									<img class="cover" src="img/course-linux-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-design.png" />
+									<img class="cover" src="img/course-design-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-html5.png" />
+									<img class="cover" src="img/course-html5-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-flash.png" />
+									<img class="cover" src="img/course-flash-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-mysql.png" />
+									<img class="cover" src="img/course-mysql-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-php.png" />
+									<img class="cover" src="img/course-php-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-python.png" />
+									<img class="cover" src="img/course-python-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-cs.png" />
+									<img class="cover" src="img/course-cs-g.png" />
+								</a></li>
+								<li><a>
+									<img src="img/course-java.png" />
+									<img class="cover" src="img/course-java-g.png" />
+								</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="tab-about-content" class="tab make_transist hideright">
+			<div id="aboutus">
+				<h1>Here is something about us.</h1>
+			</div>
+		</div>
+
+		<div id="tab-login-content" class="tab make_transist hideright">
+			<form id="login">
+				<input type="text" name="username" id="username" placeholder="Username"/>
+				<input type="password" name="password" id="password" placeholder="Password"/>
+				<a href="register.html" id="btn-register">注册</a>
+				<button type="submit" id="btn-login">登录</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

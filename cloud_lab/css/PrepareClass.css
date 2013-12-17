@@ -1,0 +1,195 @@
+body{
+	background: url("../img/bg.jpg") repeat;
+	font-family: 微软雅黑;
+}
+
+a,a:hover{
+	color:inherit;
+	text-decoration: none;
+}
+#header {
+	width: 100%;
+	height:70px;
+	background: url("../img/headerbg.png") repeat-x;
+	z-index:2;
+	margin-bottom:10px;
+	position: fixed;
+	top:0;
+}
+#title {
+	width: 360px;
+	height: inherit;
+	float: left;
+}
+#topmenu {
+	width: 603px;
+	background: url("../img/menubg.png") repeat-x;
+	height: 50px;
+	margin: 6px auto;
+	padding-top:1px;
+}
+#topmenu ul {
+	list-style: none;
+	width: 640px;
+	height: 40px;
+	-webkit-padding-start: 0px;
+	-webkit-margin-before: 5px;
+}
+#preclass {
+	height: 40px;
+	width: 150px;
+	background: url("../img/preclass.png");
+	outline: none;
+	float: left;
+	list-sytle-type: none;
+}
+#onclass {
+	height: 40px;
+	width: 150px;
+	background: url("../img/onclass.png");
+	outline: none;
+	border-style: none;
+	float: left;
+}
+#exp {
+	height: 40px;
+	width: 150px;
+	background: url("../img/expriment.png");
+	outline: none;
+	border-style: none;
+	float: left;
+}
+#task {
+	height: 40px;
+	width: 150px;
+	background: url("../img/task.png");
+	outline: none;
+	border-style: none;
+	float: left;
+	list-sytle-type: none;
+}
+#line {
+	width: 1px;
+	height: 25px;
+	margin-top: 7.5px;
+	background: url("../img/line.png");
+	float: left;
+}
+#prepare-class{
+	margin-top: 70px;
+}
+.class-list,#accordion,#environment,.exer-list{
+	width: 85%;
+	margin: 20px auto;
+}
+.class-list{
+	background-color: #eee;
+	padding:1px 50px 20px 50px;
+	border-radius: 10px;
+	font-size:18px;
+}
+.class-list .btn{
+	vertical-align: baseline;
+}
+#carousel-inner-pc{
+	width:75%;
+	margin:0 auto;
+}
+#carousel-indicators-pc {
+	position:relative;
+	width:999px;
+	height:59px;
+	left: 0;
+	bottom: 0;
+	margin:0 auto;
+	background: url(../img/progress.png);
+}
+
+#carousel-indicators-pc li{
+	background-color: rgba(0,0,0,0);
+	height:24px;
+	width:24px;
+	border:none;
+	border-radius:24px; 
+	margin: 19px 86px;
+	cursor: default;
+}
+#carousel-indicators-pc .active{
+	background-color: #aed94d;
+	height:24px;
+	width:24px;
+	border:none;
+	border-radius:24px; 
+	margin: 19px 86px;
+}
+.words{
+	width:999px;
+	margin:0 auto;
+	text-align: center;
+	padding: 0;
+	position: relative;
+	top: -10px;
+}
+.words li{
+	display: inline-block;
+	width:196px;
+	cursor: default;
+}
+.class-progress{
+	float:right;
+	position: relative;
+}
+canvas{
+	margin-top:12px;
+}
+#environment{
+	position: relative;
+	min-height:150px;
+	background-color: #eee;
+	border-radius: 10px;
+}
+#environment .btn{
+	position: absolute;
+	bottom:5px;
+	right:5px;
+}
+.exer-list{
+	min-height: 100px;
+	background-color: #eee;
+	padding:10px 50px;
+	border-radius: 10px;
+	font-size:16px;
+}
+.exer-list .btn{
+	float: right;
+}
+.exer-list p{
+	margin-top:10px;
+	display: none;
+}
+.pc-left{
+	float:left;
+	width:62%;
+	margin:20px 1% 20px 3%;
+}
+.pc-right{
+	position: relative;
+	float: right;
+	width:29%;
+	margin:33px 3% 33px 2%;
+}
+.pc-right .btn{
+	position:absolute;
+	bottom:5px;
+	right:5px;
+}
+#pagenote{
+	height:120px;
+	background-color: #eee;
+	margin-bottom:20px;
+}
+#classnote{
+	height:300px;
+	background-color: #eee;
+}
+}
