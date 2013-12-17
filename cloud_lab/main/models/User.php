@@ -59,16 +59,6 @@ class User
     public function save($arr)
     {
         $arr = $this->beforeSave($arr);
-       /* $sql = 'INSERT INTO t_user_info(user_name,password,id_type,id_value,user_type,email,birthday) VALUES('.$arr['USER_NAME'].',"'.$arr['PASSWORD'].'","'.$arr['ID_TYPE'].'","'.$arr['ID_VALUE'].'",'.$arr['USER_TYPE'].',"'.$arr['EMAIL'].'",'.$arr['BIRTHDAY'].')';
-        echo $sql;
-        //$mysql  = new Mysql;
-        $link = mysql_connect('localhost','root','root');
-        mysql_select_db('cloud_lab',$link);
-        if(!mysql_query($sql))
-        {
-            die('Error: ' . mysql_error());
-        }
-          return true;*/
         $mysql=new Mysql;
         return $mysql->insert($this->tableName(),$arr);
     }
@@ -82,5 +72,41 @@ class User
        $arr['PASSWORD']=$this->encypt($arr['PASSWORD']);  
        return $arr;
     }
+    /**
+     * 使用正则验证数据
+     * @access public
+     * @param string $value  要验证的数据
+     * @param string $rule 验证规则
+     * @return boolean
+     */
+    protected function regex($value,$rule) {
+        $validate = array(
+            'require'   =>  '/.+/',
+            'email'     =>  '/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/',
+            'integer'   =>  '/^[-\+]?\d+$/',
+            'date'      =>  '/^\d{4}\-\d{1,2}-\d{1,2}$/',
+            'idcard'    =>  '/^\d{14}(\d{4}|(\d{3}[xX])|\d{1}$/'
+        );
+        // 检查是否有内置的正则表达式
+        if(isset($validate[strtolower($rule)]))
+            $rule       =   $validate[strtolower($rule)];
+        return preg_match($rule,$value)===1;
+    }
+    /**
+    *@return true 验证数据成功否则false
+    */
+    public function rules($arr)
+    {
+       if(regex($arr['USER_NAME'],'require')&&regex($arr['PASSWORD'],'require')&&regex($arr['EMAIL'],'require'))
+        {
+            return false;
+        }   
+        elseif(regex($arr['ID_VALUE'],'idcard'))
+            return false;
+        elseif(regex($arr['BIRTHDAY'],'date'))
+            return false;
+        elseif(regex($arr['EMAIL'],'email'))
+            return false;
+        }
 }
 ?>
