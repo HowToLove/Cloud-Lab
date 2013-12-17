@@ -2,9 +2,8 @@
 <html>
 <head>
 	<title>Index</title>
-	<meta charset="utf-8">
-	<link href="css/tabulous.css" rel="stylesheet" media="screen" />
-	<script src="js/jquery-1.10.2.min.js"></script>
+	<link href="css/index.css" rel="stylesheet" media="screen" />
+	<script src="js/jquery-1.8.2.min.js"></script>
 	<script src="js/index.js"></script>
 </head>
 <body>
@@ -36,57 +35,180 @@
 	<div id="tab-container">
 		<div id="tab-course-content" class="tab make_transist show">
 			<div id="subtab-course">
-				<!--ul>
-					<li><a href="#subtab-courselist" class="subtab-course-a">courselist</a></li>
-					<li><a href="#subtab-courseinfo" class="subtab-course-a">courseinfo</a></li>
-				</ul-->
-
 				<div class="subtab-container">
-					<div id="subtab-courseinfo" class="subtab hideleft">
+					<div id="subtab-courseinfo" class="subtab make_transist hideleft">
+						<div class="next"><a class="btn-next"></a>
+						</div>
+						<div class="prev"><a class="btn-prev"></a>
+						</div>
+						<div class="close"><a class="btn-close"></a>
+						</div>
+						<div>
+							<div id="course-android-info" class="images make_transist">
+								<p>Here is something about Android Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-linux-info" class="images make_transist">
+								<p>Here is something about Linux Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-design-info" class="images make_transist">
+								<p>Here is something about Design Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-html5-info" class="images make_transist">
+								<p>Here is something about HTML5 Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-flash-info" class="images make_transist">
+								<p>Here is something about Flash Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-mysql-info" class="images make_transist">
+								<p>Here is something about MySQL Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-php-info" class="images make_transist">
+								<p>Here is something about PHP Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-python-info" class="images make_transist">
+								<p>Here is something about Python Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-cs-info" class="images make_transist">
+								<p>Here is something about C# Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+							<div id="course-java-info" class="images make_transist">
+								<p>Here is something about Java Course</p>
+								<div class="image img-f">
+									<img src="img/course-android/1.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/2.jpg" />
+								</div>
+								<div class="image">
+									<img src="img/course-android/3.jpg" />
+								</div>
+							</div>
+						</div>
 					</div>
-					<div id="subtab-courselist" class="subtab show">
+					<div id="subtab-courselist" class="subtab make_transist show">
 						<article>
 							<p>我们提供的课程</p>
 						</article>
 						<section>
 							<ul>
-								<li><a>
+								<li><a href="#course-android" class="subtab-a">
 									<img src="img/course-android.png" />
 									<img class="cover" src="img/course-android-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-linux" class="subtab-a">
 									<img src="img/course-linux.png" />
 									<img class="cover" src="img/course-linux-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-design" class="subtab-a">
 									<img src="img/course-design.png" />
 									<img class="cover" src="img/course-design-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-html5" class="subtab-a">
 									<img src="img/course-html5.png" />
 									<img class="cover" src="img/course-html5-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-flash" class="subtab-a">
 									<img src="img/course-flash.png" />
 									<img class="cover" src="img/course-flash-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-mysql" class="subtab-a">
 									<img src="img/course-mysql.png" />
 									<img class="cover" src="img/course-mysql-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-php" class="subtab-a">
 									<img src="img/course-php.png" />
 									<img class="cover" src="img/course-php-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-python" class="subtab-a">
 									<img src="img/course-python.png" />
 									<img class="cover" src="img/course-python-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-cs" class="subtab-a">
 									<img src="img/course-cs.png" />
 									<img class="cover" src="img/course-cs-g.png" />
 								</a></li>
-								<li><a>
+								<li><a href="#course-java" class="subtab-a">
 									<img src="img/course-java.png" />
 									<img class="cover" src="img/course-java-g.png" />
 								</a></li>
@@ -99,11 +221,6 @@
 
 		<div id="tab-train-content" class="tab make_transist hideright">
 			<div id="subtab-train">
-				<!--ul>
-					<li><a href="#subtab-trainlist" class="subtab-train-a">trainlist</a></li>
-					<li><a href="#subtab-traininfo" class="subtab-train-a">traininfo</a></li>
-				</ul-->
-
 				<div class="subtab-container">
 					<div id="subtab-traininfo" class="subtab hideleft">
 						
@@ -168,12 +285,28 @@
 		</div>
 
 		<div id="tab-login-content" class="tab make_transist hideright">
-			<form id="login">
-				<input type="text" name="username" id="username" placeholder="Username"/>
-				<input type="password" name="password" id="password" placeholder="Password"/>
-				<a href="register.html" id="btn-register">注册</a>
-				<button type="submit" id="btn-login">登录</button>
-			</form>
+			<div id="form-login" class="subtab make_transist show">
+				<form id="login">
+					<input type="text" name="username" id="username" placeholder="Username"/>
+					<input type="password" name="password" id="password" placeholder="Password"/>
+					<button type="button" id="btn-register">注册</button>
+					<button type="submit" id="btn-login">登录</button>
+				</form>
+			</div>
+			<div id="form-register" class="subtab make_transist hideright">
+				<form id="register">
+					<input type="text" name="remail" id="remail" class="register" placeholder="邮箱"/>
+					<input type="text" name="rusername" id="rusername" class="register" placeholder="用户名"/>
+					<input type="password" name="rpassword" id="rpassword" class="register" placeholder="密码"/>
+					<input type="password" name="rpassword-confirm" id="rpassword-confirm" class="register" placeholder="确认密码"/>
+					<input type="text" name="ridnumber" id="ridnumber" class="register" placeholder="证件号"/>
+					<input type="text" name="rbirthday" id="rbirthday" class="register" placeholder="生日"/>
+					<input type="text" name="rcaptcha" id="rcaptcha" class="register" placeholder="验证码"/>
+
+					<button type="button" id="rbtn-back">返回</button>
+					<button type="submit" id="rbtn-register">注册</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>
