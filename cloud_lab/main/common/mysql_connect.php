@@ -6,13 +6,30 @@ class Mysql{
    /**
    *@return 一个非持久链接
    */
+   public function __construct()
+   {
+      try{
+         $this->conn=mysql_connect(host,username,password);
+         if($this->conn)
+            $this->db = mysql_select_db(dbname,$this->conn);
+      }catch(Exception $e)
+      {
+          var_dump($e->getTrace());
+      }
+   }
    public  function connection($p=false)
    { 
-       if(!$p){
-           $this->conn=mysql_connect(host,username,password) or die("连接数据库失败！");
-       }else{
-           $this->conn=mysql_pconnect(host,username,password) or die("连接数据库失败！");
-       }   
+      try{
+         if(!$p){
+           $this->conn=mysql_connect(host,username,password) ;
+         }else{
+           $this->conn=mysql_pconnect(host,username,password); 
+         }   
+      }catch(Exception $e)
+      {
+         var_dump($e->getTrace());
+      }
+       
        return $this->conn;
         
    }
@@ -32,7 +49,9 @@ class Mysql{
        if($this->conn==null){
           $this->connection();
        }
-       $this->db = mysql_select_db('cloud_lab',$this->conn) or die ("不能连接到DB".mysql_error());
+       if($this->db==null){
+           $this->db = mysql_select_db(dbname,$this->conn) or die ("不能连接到DB".mysql_error());
+       }   
        return $this->db;
    }
    /**
@@ -51,6 +70,29 @@ class Mysql{
         }
         $this->close();
         return $return;
+   }
+   /**
+   *@param $tablename
+   *@param $condition 
+   */
+   public function find($tablename,$condition=null,$arr='*'){
+        $sql='';
+        if($arr=='*'){
+        $sql ='SELECT * FROM '.$tablename.' ';
+        }else{
+        $sql ='SELECT  ';
+           foreach ($arr as $key => $value) {
+             $sql=$sql.' '.$value.' ,';
+           }
+           $sql = substr($sql,0,strlen($sql)-1);
+           $sql=$sql.' FROM'.$tablename.' ';
+        }
+        if($condition==null){
+          
+        }else{
+           $sql=$sql.' WHERE ';
+           //
+        }
    }
    /**
    * @param $string tablename 表名
@@ -112,7 +154,7 @@ class Mysql{
    */
    public function update($tablename,$arr,$columns)
    {
-   
+       
    }
    
 }	

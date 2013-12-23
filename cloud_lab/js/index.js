@@ -168,18 +168,18 @@ $(document).ready(function () {
 				},
 				success : function(data) {
 					switch(data.loginStatus){
-						case -1:
+					case -1:
 						break;
-						case 0:
+					case 0:
 						alert("用户名不能为空！");
 						break;
-						case 1:
+					case 1:
 						alert("密码不能为空！");
 						break;
-						case 2:
+					case 2:
 						alert("登陆成功！");
 						break;
-						case 3:
+					case 3:
 						alert("用户名或密码错误！");
 						break;
 					}
@@ -210,12 +210,35 @@ $(document).ready(function () {
 					birthday : $("#rbirthday").val(),
 					captcha : $("#rcaptcha").val()
 				},
-				dataType : 'text',
+				dataType : 'json',
 				beforeSend: function(XMLHttpRequest){
 				},
 				success : function(data) {
-					if(data == "register success") {
-						alert("注册成功！")
+					switch(data.registerStatus){
+					case -2:
+					   alert('注册失败');
+						break;
+					case -1:
+					   alert('验证码错误');
+						break;
+					case 0:
+						alert("用户名或者密码错误");
+						break;
+					case 1:
+						alert("注册成功！");
+						break;
+					case 2:
+						alert("用户名或密码不能为空");
+						break;
+					case 3:
+						alert("身份证号错误");
+						break;
+					case 4:
+						alert("生日格式为1999-09-10");
+						break;
+					case 5:
+						alert("邮箱错误");
+						break;
 					}
 				},
 				complete: function(XMLHttpRequest, textStatus){
