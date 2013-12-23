@@ -30,7 +30,7 @@ html{
 body{
 	background: url("../img/indexbg.png") center no-repeat;
 	background-attachment:fixed;
-	background-size: 100% 100%
+	background-size: 100% 100%;
 	height:100%;
 }
 header{
@@ -138,6 +138,7 @@ ul.nav li a:hover{
 
 #tab-container {
 	position:relative;
+	overflow: hidden;
 }
 .tab{
 	width:100%;
@@ -365,15 +366,18 @@ ul.nav li a:hover{
 	padding: 5px;
 }
 .next,.close {
-	right: -6%;
+	right: -70px;
 	border-bottom-left-radius: 50px;
 	border-top-left-radius: 50px;
 }
 .next,.prev{
-	top:100px;
+	top:300px;
+}
+.close{
+	top:150px;
 }
 .prev {
-	left: -6%;
+	left: -70px;
 	border-bottom-right-radius: 50px;
 	border-top-right-radius: 50px;
 }

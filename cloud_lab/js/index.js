@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var height = $('.tab.show').height()+50;
+	var height = $('#subtab-courselist').height()+50;
 	$('#tab-container').height(height);
 
 	//主Tab切换
@@ -20,10 +20,17 @@ $(document).ready(function () {
 		$(content).prevAll().addClass('hideleft');
 		$(content).nextAll().addClass('hideright');
 		$(content).addClass('show');
-		height = $(content).height()+50;
-		$('#tab-container').height(height);
-
-
+		supersubtab();
+		
+		if(content=='#tab-about-content'){
+			height = $(content).height()+100;
+			$('#tab-container').height(height);
+		}else{
+			height = $(content).find('.show').height()+100;
+			$(content).height(height);
+			$('#tab-container').height(height);
+		}
+		
 	});
 
 	//图片灰色和彩色切换
@@ -47,6 +54,8 @@ $(document).ready(function () {
 		$(info).prevAll().addClass('hideleft');
 		$(info).nextAll().addClass('hideright');
 
+		button_show();
+
 		if($(info).prevAll().length==0){
 			$('.btn-prev').css('opacity','.2');
 		}
@@ -56,15 +65,14 @@ $(document).ready(function () {
 
 		height=$(info).height()+50;
 		$('.subtab-container').height(height);
+		$('#tab-container').height(height);
 	});
 
 	$('.btn-close').click(function(){
-		var parent = $(this).parents('.subtab');
-		parent.addClass('hideleft').removeClass('show');
-		parent.next().addClass('show').removeClass('hideright');
-		$('.btn-prev').css('opacity','1');
-		$('.btn-next').css('opacity','1');
-		$('.images').removeClass('hideright').removeClass('hideleft').removeClass('show');
+		supersubtab();
+		height=$('#subtab-courselist').height()+50;
+		$('.subtab-container').height(height);
+		$('#tab-container').height(height);
 	});
 
 	//课程详情之间切换
@@ -115,7 +123,34 @@ $(document).ready(function () {
 			$('.btn-next').css('opacity','.2');
 		}
 	}
-
+	//show the close,next,prev buttons
+	function button_hide(){
+		$('.next,.close').animate({
+			right:'-70px',
+		});
+		$('.prev').animate({
+			left:'-70px',
+		});
+	}
+	//hide the close,next,prev buttons
+	function button_show(){
+		$('.next,.close').animate({
+			right:'0px',
+		});
+		$('.prev').animate({
+			left:'0px',
+		});
+	}
+	//show the list page and hide the info page of subtabs
+	function supersubtab(){
+		$('#subtab-courseinfo').removeClass('show').addClass('hideleft');
+		$('#subtab-courseinfo').next().addClass('show').removeClass('hideright');
+		button_hide();
+		$('.btn-prev').css('opacity','1');
+		$('.btn-next').css('opacity','1');
+		$('.images').removeClass('hideright').removeClass('hideleft').removeClass('show');
+	}
+	
 	//AJAX请求
 	$.ajaxSetup({timeout : 6000});
 	// 登录ajax请求
@@ -133,18 +168,18 @@ $(document).ready(function () {
 				},
 				success : function(data) {
 					switch(data.loginStatus){
-					case -1:
+						case -1:
 						break;
-					case 0:
+						case 0:
 						alert("用户名不能为空！");
 						break;
-					case 1:
+						case 1:
 						alert("密码不能为空！");
 						break;
-					case 2:
+						case 2:
 						alert("登陆成功！");
 						break;
-					case 3:
+						case 3:
 						alert("用户名或密码错误！");
 						break;
 					}

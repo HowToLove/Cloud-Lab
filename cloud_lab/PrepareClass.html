@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>备课</title>
+	<link href="css/bootstrap.css" rel="stylesheet" media="screen"/>
+	<link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/PrepareClass.js"></script>
+</head>
+<body>
+ <div id="header">
+  <div id="title"> <img src="img/logo.png" style="margin-left:30px;margin-top:10px;"/> </div>
+  <div id="topmenu">
+    <ul>
+      <li id="preclass"> </li>
+      <li id="line"></li>
+      <li id="onclass"> </li>
+      <li id="line"></li>
+      <li id="exp"> </li>
+      <li id="line"></li>
+      <li id="task"> </li>
+    </ul>
+  </div>
+</div>
+
+ <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
+  <ol class="carousel-indicators" id="carousel-indicators-pc">
+    <li data-target="#prepare-class" data-toggle="tab" data-slide-to="0" class="active"></li>
+    <li data-target="#prepare-class" data-toggle="tab" data-slide-to="1"></li>
+    <li data-target="#prepare-class" data-toggle="tab" data-slide-to="2"></li>
+    <li data-target="#prepare-class" data-toggle="tab" data-slide-to="3"></li>
+    <li data-target="#prepare-class" data-toggle="tab" data-slide-to="4"></li>
+  </ol>
+  <ul class="words">
+    <li>选择课程</li>
+    <li>选择章节</li>
+    <li>环境准备</li>
+    <li>准备PPT</li>
+    <li>布置作业</li>
+  </ul>
+  <div class="carousel-inner" id="carousel-inner-pc">
+    <div class="item active">
+      <div class="class-list">
+        <div class="class-progress">
+          <canvas width="90px" height="90px">30%</canvas>
+        </div>
+        <a clas="carousel-control" href="#prepare-class" data-slide="next" data-toggle="tab"><h2>Java面向对象程序设计</h2></a>
+        当前已备课至第三章第三节
+        <a class="btn btn-warning" href="#prepare-class" role="button" data-toggle="tab" data-slide-to="3">立即准备PPT</a>
+      </div>
+      <div class="class-list">
+        <div class="class-progress">
+          <canvas width="90px" height="90px">45%</canvas>
+        </div>
+        <a clas="carousel-control" href="#prepare-class" data-slide="next" data-toggle="tab"><h2>Java面向对象程序设计</h2></a>
+        当前已备课至第三章第三节
+        <a class="btn btn-warning" href="#prepare-class" role="button" data-toggle="tab" data-slide-to="3">立即准备PPT</a>
+      </div>
+      <div class="class-list">
+        <div class="class-progress">
+          <canvas width="90px" height="90px">70%</canvas>
+        </div>
+        <a clas="carousel-control" href="#prepare-class" data-slide="next" data-toggle="tab"><h2>Java面向对象程序设计</h2></a>
+        当前已备课至第三章第三节
+        <a class="btn btn-warning" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="3">立即准备PPT</a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                第一章
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <ul>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第一节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第二节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第三节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第四节</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                第二章
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第一节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第二节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第三节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第四节</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                第三章
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第一节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第二节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第三节</a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab">第四节</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div id="environment">
+        <p>本课需xx环境</p>
+        <a class="btn btn-primary" href="#prepare-class" data-slide="next" role="button" data-toggle="tab">我知道了</a>
+      </div>
+    </div>
+    <div class="item">
+      <div id="ppt">
+        <div class="pc-left">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#show-ppt" data-toggle="tab">PPT</a></li>
+            <li><a href="#show-video" data-toggle="tab">视频</a></li>
+            <li><a href="#show-others" data-toggle="tab">其他资源</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="show-ppt">
+              <img src="img/dd.jpg" width="100%"/>
+            </div>
+            <div class="tab-pane fade" id="show-video">
+              <video src="HiTrip.mp4" width="100%" controls="controls">Your browser does not support the video tag.</video>
+            </div>
+            <div class="tab-pane fade" id="show-others">这里是其他资源</div>
+          </div>
+        </div>
+        <div class="pc-right">
+          <label for="pagenote">本页PPT备注</label>
+          <textarea class="form-control right-top" id="pagenote"></textarea>
+          <label for="classnote">教学教案</label>
+          <textarea class="form-control right-bottom" id="classnote"></textarea>
+          <a class="btn btn-primary" href="#prepare-class" data-slide="next" role="button" data-toggle="tab">完成PPT</a>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox exer-list">
+        <label>
+          <input type="checkbox" value="">
+          Option one is this and that be sure to include why it's great啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+        </label>
+        <button class="btn btn-info">查看答案</button>
+        <p>解答：<span>我是答案啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</span></p>
+      </div>
+      <div class="checkbox exer-list">
+        <label>
+          <input type="checkbox" value="">
+          Option one is this and that be sure to include why it's great啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+        </label>
+        <button class="btn btn-info">查看答案</button>
+        <p>解答：<span>我是答案啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</span></p>
+      </div>
+      <div class="checkbox exer-list">
+        <label>
+          <input type="checkbox" value="">
+          Option one is this and that be sure to include why it's great啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+        </label>
+        <button class="btn btn-info">查看答案</button>
+        <p>解答：<span>我是答案啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</span></p>
+      </div>
+      <div style="text-align:center">
+        <button class="btn btn-warning">完成备课</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
