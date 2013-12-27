@@ -1,5 +1,5 @@
 body{
-	background: url("../img/bg.jpg") repeat;
+	background-color:#e2e2e2;
 	font-family: 微软雅黑;
 }
 
@@ -7,89 +7,75 @@ a,a:hover{
 	color:inherit;
 	text-decoration: none;
 }
-#header {
-	width: 100%;
-	height:70px;
-	background: url("../img/headerbg.png") repeat-x;
-	z-index:2;
-	margin-bottom:10px;
+nav{
 	position: fixed;
 	top:0;
+	width: 100%;
+	height: 55px;
+	background: #333745;
+	z-index: 999;
+	text-align: center;
+	box-shadow: 0 1px 22px rgba(0,0,0,0.3);
+	color:white;
 }
-#title {
-	width: 360px;
-	height: inherit;
+#nav-left{
+	float:left;
+	height: 55px;
+	padding: 8px 0 0 8px;
+}
+#nav-left img,#nav-left h4{
+	float:left;
+	margin-left: 10px;
+}
+#nav-center{
+	width:600px;
+	margin:0 auto;
+}
+#nav-center ul{
+	height:55px;
+	width:600px;
+}
+ul.nav li {
 	float: left;
+	position: relative;
+	width: 148px;
+	height: 55px;
+	padding-left: 2px;
+	background: url("../img/divider.png") left no-repeat;
+	text-align: left;
+	transition: background-color 0.1s ease-out;
 }
-#topmenu {
-	width: 603px;
-	background: url("../img/menubg.png") repeat-x;
-	height: 50px;
-	margin: 6px auto;
-	padding-top:1px;
+
+ul.nav li a {
+	font-size: 16px;
+	line-height: 3.5;
+	width: 148px;
+	height: 55px;
+	display: block;
+	text-decoration: none;
+	padding:0;
+	text-align: center;
+	cursor: pointer;
+	transition: background-color 0.2s ease-out;
 }
-#topmenu ul {
-	list-style: none;
-	width: 603px;
-	height: 40px;
-	-webkit-padding-start: 0px;
-	-webkit-margin-before: 5px;
+ul.nav li a:hover{
+	background-color: #05b9dc;
+	transition: background-color 0.2s ease-out;
 }
-#preclass {
-	height: 40px;
-	width: 150px;
-	background: url("../img/preclass.png");
-	outline: none;
-	float: left;
-	list-sytle-type: none;
+#nav-center .nav li a img{
+	padding-right:16px;
 }
-#onclass {
-	height: 40px;
-	width: 150px;
-	background: url("../img/onclass.png");
-	outline: none;
-	border-style: none;
-	float: left;
+#nav-right{
+	float: right;
 }
-#exp {
-	height: 40px;
-	width: 150px;
-	background: url("../img/expriment.png");
-	outline: none;
-	border-style: none;
-	float: left;
+#nav-right,#nav-right ul,#nav-right li,#nav-right a {
+	width: 60px;
 }
-#task {
-	height: 40px;
-	width: 150px;
-	background: url("../img/task.png");
-	outline: none;
-	border-style: none;
-	float: left;
-	list-sytle-type: none;
+.last-btn{
+	background: url("../img/divider.png") top right no-repeat;
 }
-#line {
-	width: 1px;
-	height: 25px;
-	margin-top: 7.5px;
-	background: url("../img/line.png");
-	float: left;
-}
-#prepare-class{
-	margin-top: 70px;
-}
-.class-list,#accordion,#environment,.exer-list{
-	width: 85%;
-	margin: 20px auto;
-}
-.class-list{
-	background-color: #eee;
-	padding:1px 50px 20px 50px;
-	border-radius: 10px;
-	font-size:18px;
-}
-.class-list .btn{
-	vertical-align: baseline;
+.active-a {
+	box-shadow: 0px -5px #05b9dc inset;
 }
 #carousel-inner-pc{
 	width:75%;
@@ -127,26 +113,124 @@ a,a:hover{
 	margin:0 auto;
 	text-align: center;
 	padding: 0;
-	position: relative;
-	top: -10px;
 }
 .words li{
 	display: inline-block;
 	width:196px;
 	cursor: default;
 }
-.class-progress{
-	float:right;
-	position: relative;
-}
 canvas{
 	margin-top:12px;
+}
+#prepare-class{
+	margin-top: 70px;
+}
+.class-list,#accordion,#environment,.exer-list{
+	width: 85%;
+	margin: 20px auto;
+}
+.class-list{
+	background-color: #fff;
+	border-radius: 8px;
+	font-size:18px;
+	position:relative;
+	height:200px;
+	box-shadow: #b7b7b7 8px 5px 5px;
+}
+.class-list .btn{
+	vertical-align: baseline;
+}
+.class-list-left{
+	float: left;
+	width:50%;
+	height:160px;
+	padding-right: 30px;
+}
+.class-list-right{
+	float:right;
+	width:50%;
+	height:160px;
+	background-color: #87dc99;
+	color: white;
+	padding-left: 30px;
+}
+.class-img{
+	float: left;
+	height:160px;
+	background-color: #4c4c4c;
+	margin-right: 20px;
+}
+.class-img img{
+	max-height: 100%;
+	padding:10%;
+}
+.class-questions{
+	float: right;
+	height: 100px;
+	width: 120px;
+	background-color: #4c4c4c;
+	text-align: center;
+	padding-top: 15px;
+}
+.class-questions span{
+	font-size: 25px;
+}
+.class-progress{
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	bottom: 0;
+	background-color: #f0f0f0;
+	border-radius: 0 0 8px 8px;
+}
+.class-progress p{
+	line-height: 2.3;
+	color:#6dd9aa;
+}
+.progress-cover{
+background-color: #6dd9aa;
+height: 40px;
+float: left;
+border-radius: 0 0 0 8px;
+}
+h3.underline{
+	border-bottom: 1px solid #d5d5d5;
+	margin-left: 170px;
+	line-height: 1.5;
+}
+p.underline{
+	border-bottom: 1px solid whitesmoke;
+	line-height: 2;
+	margin: 20px 150px 10px 0;
+}
+#accordion .panel-title{
+	font-size: 24px;
+	color:#333;
+}
+#accordion .panel-body{
+	padding:0;
+	font-size: 18px;
+}
+#accordion ul{
+	margin:0;
+	padding:0;
+}
+#accordion li{
+	list-style: none;
+}
+#accordion li:hover{
+	background-color:#72c8fa;
+	color:white;
+}
+#accordion li p{
+	margin:0;
+	padding:10px 36px;
 }
 #environment{
 	position: relative;
 	min-height:150px;
 	background-color: #eee;
-	border-radius: 10px;
+	border-radius: 8px;
 }
 #environment .btn{
 	position: absolute;
@@ -157,7 +241,7 @@ canvas{
 	min-height: 100px;
 	background-color: #eee;
 	padding:10px 50px;
-	border-radius: 10px;
+	border-radius: 8px;
 	font-size:16px;
 }
 .exer-list .btn{
@@ -191,5 +275,4 @@ canvas{
 #classnote{
 	height:300px;
 	background-color: #eee;
-}
 }
