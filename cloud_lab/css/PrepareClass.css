@@ -83,30 +83,47 @@ ul.nav li a:hover{
 }
 #carousel-indicators-pc {
 	position:relative;
-	width:999px;
-	height:59px;
+	width:1225px;
+	height:70px;
 	left: 0;
 	bottom: 0;
 	margin:0 auto;
-	background: url(../img/progress.png);
 }
 
 #carousel-indicators-pc li{
-	background-color: rgba(0,0,0,0);
-	height:24px;
-	width:24px;
+	position:relative;
+	height:70px;
+	width:290px;
 	border:none;
-	border-radius:24px; 
-	margin: 19px 86px;
 	cursor: default;
+	text-indent:0;	
+	font-size: 20px;
+	margin:-2px;
+}
+#carousel-indicators-pc li.li-last{
+	width:40px;
+}
+#carousel-indicators-pc li.li-last span{
+	width:80px;
+}
+#carousel-indicators-pc .prev{
+	background: url('../img/pb-prev.png') no-repeat;
+	background-position: bottom left;
+	color:#6dd9aa;
 }
 #carousel-indicators-pc .active{
-	background-color: #aed94d;
-	height:24px;
-	width:24px;
-	border:none;
-	border-radius:24px; 
-	margin: 19px 86px;
+	background: url('../img/pb-now.png') no-repeat;
+	background-position: bottom left;
+	color:#72c8fa;
+}
+#carousel-indicators-pc .next{
+	background: url('../img/pb-next.png') no-repeat;
+	background-position: bottom left;
+	color:#a4adb8;
+}
+#carousel-indicators-pc span{
+	position: absolute;
+	left: -20px;
 }
 .words{
 	width:999px;

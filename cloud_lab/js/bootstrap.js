@@ -290,7 +290,7 @@
     return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
   }
 
-  Carousel.prototype.pause = function (e) {
+  /*Carousel.prototype.pause = function (e) {
     e || (this.paused = true)
 
     if (this.$element.find('.next, .prev').length && $.support.transition.end) {
@@ -301,7 +301,7 @@
     this.interval = clearInterval(this.interval)
 
     return this
-  }
+  }*/
 
   Carousel.prototype.next = function () {
     if (this.sliding) return
@@ -335,10 +335,10 @@
     if ($next.hasClass('active')) return
 
     if (this.$indicators.length) {
-      this.$indicators.find('.active').removeClass('active')
+      this.$indicators.find('.active').removeClass('active').addClass('prev')
       this.$element.one('slid.bs.carousel', function () {
         var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
-        $nextIndicator && $nextIndicator.addClass('active')
+        $nextIndicator && $nextIndicator.addClass('active').removeClass('next').prevAll().addClass('prev').removeClass('next')
       })
     }
 

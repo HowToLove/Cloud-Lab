@@ -30,19 +30,12 @@
   </nav>
 
   <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
-    <ul class="words">
-      <li>选择课程</li>
-      <li>选择章节</li>
-      <li>环境准备</li>
-      <li>准备PPT</li>
-      <li>布置作业</li>
-    </ul>
     <ol class="carousel-indicators" id="carousel-indicators-pc">
-      <li data-target="#prepare-class" data-toggle="tab" data-slide-to="0" class="active"></li>
-      <li data-target="#prepare-class" data-toggle="tab" data-slide-to="1"></li>
-      <li data-target="#prepare-class" data-toggle="tab" data-slide-to="2"></li>
-      <li data-target="#prepare-class" data-toggle="tab" data-slide-to="3"></li>
-      <li data-target="#prepare-class" data-toggle="tab" data-slide-to="4"></li>
+      <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
+      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
+      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>环境准备</span></li>
+      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>准备PPT</span></li>
+      <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>布置作业</span></li>
     </ol>
     
     <div class="carousel-inner" id="carousel-inner-pc">
@@ -50,7 +43,7 @@
         <div class="class-list">
           <div class="class-list-left">
             <div class="class-img"><img src="img/course-html5.png"></div>
-            <h3 class="underline">HTML5基础</h3>
+            <a href="#prepare-class" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
             <p>已上至第x章第x节xxxxxx</p>
             <a class="btn btn-primary" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="3">立即准备PPT</a>
           </div>
@@ -71,7 +64,7 @@
         <div class="class-list">
           <div class="class-list-left">
             <div class="class-img"><img src="img/course-html5.png"></div>
-            <h3 class="underline">HTML5基础</h3>
+            <a href="#prepare-class" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
             <p>已上至第x章第x节xxxxxx</p>
             <a class="btn btn-primary" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="3">立即准备PPT</a>
           </div>
