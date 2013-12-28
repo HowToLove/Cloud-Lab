@@ -338,7 +338,7 @@
       this.$indicators.find('.active').removeClass('active').addClass('prev')
       this.$element.one('slid.bs.carousel', function () {
         var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
-        $nextIndicator && $nextIndicator.addClass('active').removeClass('next').prevAll().addClass('prev').removeClass('next')
+        $nextIndicator && $nextIndicator.addClass('active').removeClass('next').prev().addClass('prev').removeClass('next').prevAll().addClass('pprev').removeClass('next prev')
       })
     }
 
