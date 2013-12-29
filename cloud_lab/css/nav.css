@@ -1,7 +1,3 @@
-a,a:hover{
-	color:inherit;
-	text-decoration: none;
-}
 #nav{
 	position: fixed;
 	top:0;
@@ -41,34 +37,75 @@ ul.nav li {
 	transition: background-color 0.1s ease-out;
 }
 
-ul.nav li a {
-	font-size: 16px;
-	line-height: 3.5;
+#nav-center .tab-a {
+	font-size: 18px;
+	line-height: 3;
 	width: 148px;
 	height: 55px;
 	display: block;
 	text-decoration: none;
 	padding:0;
-	text-align: center;
 	cursor: pointer;
 	transition: background-color 0.2s ease-out;
 }
-ul.nav li a:hover{
+#nav-center .tab-a:hover,#nav-right .tab-a:hover{
+	color:white;
 	background-color: #05b9dc;
 	transition: background-color 0.2s ease-out;
 }
-#nav-center .nav li a img{
-	padding-right:16px;
+.active-a {
+	box-shadow: 0px -5px #05b9dc inset;
+	color:white;
+}
+.tab-a-logo{
+	height:32px;
+	width:40px;
+	float: left;
+	margin: 11px 15px 0 23px;
+}
+#nav-right .tab-a-logo{
+	height:32px;
+	width:40px;
+	margin: 0;
 }
 #nav-right{
 	float: right;
 }
 #nav-right,#nav-right ul,#nav-right li,#nav-right a {
-	width: 60px;
+	width: 70px;
+	height: 55px;
+	cursor: pointer;
 }
 .last-btn{
 	background: url("../img/divider.png") top right no-repeat;
 }
-.active-a {
-	box-shadow: 0px -5px #05b9dc inset;
+.tab-a-logo-0{
+	background: url(../img/toolkit-b.png) center center no-repeat;
+}
+.tab-a:hover .tab-a-logo-0,.active-a .tab-a-logo-0{
+	background: url(../img/toolkit.png) center center no-repeat;
+}
+.tab-a-logo-1{
+	background: url(../img/logo-pc-b.png) center center no-repeat;
+}
+.tab-a:hover .tab-a-logo-1,.active-a .tab-a-logo-1{
+	background: url(../img/logo-pc.png) center center no-repeat;
+}
+.tab-a-logo-2{
+	background: url(../img/logo-oc-b.png) center center no-repeat;
+}
+.tab-a:hover .tab-a-logo-2,.active-a .tab-a-logo-2{
+	background: url(../img/logo-oc.png) center center no-repeat;
+}
+.tab-a-logo-3{
+	background: url(../img/logo-ex-b.png) center center no-repeat;
+}
+.tab-a:hover .tab-a-logo-3,.active-a .tab-a-logo-3{
+	background: url(../img/logo-ex.png) center center no-repeat;
+}
+.tab-a-logo-4{
+	background: url(../img/logo-hw-b.png) center center no-repeat;
+}
+.tab-a:hover .tab-a-logo-4,.active-a .tab-a-logo-4{
+	background: url(../img/logo-hw.png) center center no-repeat;
 }
