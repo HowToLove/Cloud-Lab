@@ -1,0 +1,29 @@
+.bb-custom-wrapper, .bb-bookblock {
+	width: 100%;
+	height: 100%;
+}
+
+.bb-custom-wrapper nav {
+	float: right;
+	position: relative;
+	margin-top: -100px;
+	margin-right: 100px;
+	z-index: 1000;
+}
+.bb-custom-wrapper nav span, .menu-button {
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	top: 0;
+	left: 0;
+	background: #0F85F1;
+	border-radius: 50%;
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+	speak: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+

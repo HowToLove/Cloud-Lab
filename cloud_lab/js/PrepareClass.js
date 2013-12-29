@@ -1,5 +1,6 @@
 $(document).ready(function(){
-      $(".exer-list button").click(function(){
-            $(this).parent().find("p").toggle("normal");
+      $(".show-answer").click(function(){
+            $(this).next().toggle("normal");
+            ($(this).html()=='查看答案') ? ($(this).html('隐藏答案')) : ($(this).html('查看答案'));
       });
 });

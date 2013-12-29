@@ -1,0 +1,271 @@
+
+#mp-menu ul li a {
+	text-decoration: none;
+	color:rgb(58, 157, 235);
+	
+}
+#mp-menu ul li  {
+background: url("../img/dividert.png") top repeat-x;
+}
+#mp-menu ul li a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+#mp-menu ul li a.active {
+	text-decoration: none;
+	color: #fff;
+}
+.mp-menu {
+	position: absolute; /* we can't use fixed here :( */
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 200px;
+	height: 100%;
+	-webkit-transform: translate3d(-100%, 0, 0);
+	-moz-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+}
+.mp-level {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #333745;
+	-webkit-transform: translate3d(-100%, 0, 0);
+	-moz-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+}
+.mp-level::after {
+	z-index: -1;
+}
+.mp-level h2 {
+	line-height: 80px;
+	margin-left: 35px;
+	color: rgb(58, 157, 235);
+	font-family: 微软雅黑;
+}
+.mp-pusher.mp-pushed::after, .mp-level.mp-level-overlay::after {
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	-webkit-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+.mp-level.mp-level-overlay {
+	cursor: pointer;
+}
+.mp-level.mp-level-overlay.mp-level::before {
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	opacity: 1;
+}
+.mp-pusher, .mp-level {
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+}
+/* overlap */
+.mp-overlap .mp-level.mp-level-open {
+	box-shadow: 1px 0 2px rgba(0,0,0,0.2);
+	-webkit-transform: translate3d(-300px, 0, 0);
+
+}
+/* First level */
+.mp-menu > .mp-level, .mp-menu > .mp-level.mp-level-open, .mp-menu.mp-overlap > .mp-level, .mp-menu.mp-overlap > .mp-level.mp-level-open {
+	box-shadow: none;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+/* cover */
+.mp-cover .mp-level.mp-level-open {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+.mp-cover .mp-level.mp-level-open > ul > li > .mp-level:not(.mp-level-open) {
+	-webkit-transform: translate3d(-100%, 0, 0);
+	-moz-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+}
+/* content style */
+.mp-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.mp-menu.mp-overlap h2::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 8px;
+	font-size: 75%;
+	line-height: 1.8;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.1s 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.1s 0.3s;
+	transition: opacity 0.3s, transform 0.1s 0.3s;
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+.mp-overlap .mp-level.mp-level-overlay > h2::before {
+	opacity: 1;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	transform: translateX(0);
+}
+.mp-menu ul li > a {
+	display: block;
+	padding: 0.7em 1em 0.7em 1.8em;
+	outline: none;
+	text-shadow: 0 0 1px rgba(255,255,255,0.1);
+	font-size: 1.4em;
+	-webkit-transition: background 0.3s, box-shadow 0.3s;
+	-moz-transition: background 0.3s, box-shadow 0.3s;
+	transition: background 0.3s, box-shadow 0.3s;
+}
+
+
+.mp-level > ul > li:first-child > a {
+	/*box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);*/
+}
+
+.mp-menu ul li a:hover {
+background: #05b9dc;
+	box-shadow: inset 0 -1px rgba(0,0,0,0);
+}
+
+
+.mp-menu .mp-level.mp-level-overlay > ul > li > a, .mp-level.mp-level-overlay > ul > li:first-child > a {
+	box-shadow: inset 0 -1px rgba(0,0,0,0);
+}
+.mp-back {
+	background: rgba(0,0,0,0.1);
+	outline: none;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	display: block;
+	font-size: 0.8em;
+	padding: 1em;
+	position: relative;
+	box-shadow: inset 0 1px rgba(0,0,0,0.1);
+	-webkit-transition: background 0.3s;
+	-moz-transition: background 0.3s;
+	transition: background 0.3s;
+}
+.mp-back::after {
+	font-family: 'linecons';
+	position: absolute;
+	content: "\e037";
+	right: 10px;
+	font-size: 1.3em;
+	color: rgba(0,0,0,0.3);
+}
+.mp-menu .mp-level.mp-level-overlay > .mp-back, .mp-menu .mp-level.mp-level-overlay > .mp-back::after {
+	background: transparent;
+	box-shadow: none;
+	color: transparent;
+}
+/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
+/* We'll show the first level only */
+.no-csstransforms3d .mp-pusher, .no-js .mp-pusher {
+	padding-left: 200px;
+}
+.no-csstransforms3d .mp-menu .mp-level, .no-js .mp-menu .mp-level {
+	display: none;
+}
+.no-csstransforms3d .mp-menu > .mp-level, .no-js .mp-menu > .mp-level {
+	display: block;
+}
+.mp-menu-act {
+	position: fixed;
+	left: 10px;
+	top: 10px;
+	width: 40px;
+	height: 40px;
+	z-index: 101;
+	background: url('../img/menu.png') no-repeat;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+	display:none;
+}
+.mp-menu-act:hover {
+	opacity: 1;
+}
+.function_icon {
+	width: 28px;
+	height: 28px;
+	margin-right: 10px;
+	float: left;
+		-webkit-transition: all 0.3s;
+
+}
+.function_icon1{
+background:url(../img/search_b.png);
+}
+.function_icon2{
+background:url(../img/ppt_b.png);
+}
+.function_icon3{
+background:url(../img/program_b.png);
+}
+.function_icon4{
+background:url(../img/video_b.png);
+}
+.function_icon5{
+background:url(../img/taskexplain_b.png);
+}
+.function_icon6{
+background:url(../img/book_b.png);
+}
+.function_icon7{
+background:url(../img/coding_b.png);
+}
+
+ .function1:hover  .function_icon1,.function1.active .function_icon1{
+background:url(../img/search.png);
+}
+ .function2:hover  .function_icon2,.function2.active .function_icon2{
+background:url(../img/ppt.png);
+}
+
+ .function3:hover  .function_icon3,.function3.active .function_icon3{
+background:url(../img/program.png);
+}
+
+ .function4:hover  .function_icon4,.function4.active .function_icon4{
+background:url(../img/video.png);
+}
+
+ .function5:hover  .function_icon5,.function5.active .function_icon5{
+background:url(../img/taskexplain.png);
+}
+
+ .function6:hover  .function_icon6,.function6.active .function_icon6{
+background:url(../img/book.png);
+}
+
+ .function7:hover  .function_icon7 ,.function7.active .function_icon7{
+background:url(../img/coding.png);
+}
+.function-act{
+color:#fff;
+box-shadow: -8px 0px #05b9dc inset;
+}
+.choose-chapter{
+width:400px;
+}
+
+
+
