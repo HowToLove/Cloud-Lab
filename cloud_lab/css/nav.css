@@ -26,7 +26,7 @@
 	height:55px;
 	width:600px;
 }
-ul.nav li {
+#nav ul.nav li {
 	float: left;
 	position: relative;
 	width: 148px;
