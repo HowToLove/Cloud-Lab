@@ -210,28 +210,6 @@ p.underline{
 #environment .button-blue{
 	float:right;
 }
-.exer-list{
-	background-color: #fff;
-	padding:10px 50px 50px;
-	font-size:16px;
-	box-shadow: #b7b7b7 6px 6px 3px;
-}
-.exer-list .button-blue{
-	float: right;
-}
-.exer-list p{
-	line-height:2;
-	font-size:16px;
-}
-.exer-list p.exer-question{
-	margin-top:5px;
-	padding-top:5px;
-	border-top: 1px solid #d5d5d5;
-}
-.exer-list p.exer-answer{
-	display: none;
-	margin-top:55px;
-}
 .pc-left{
 	float:left;
 	width:62%;
@@ -288,4 +266,48 @@ p.underline{
 }
 a.button-blue:hover{
 	color:white;
+}
+.exer-list{
+	position:relative;
+	background-color: #fff;
+	padding:10px 50px 50px;
+	font-size:16px;
+	box-shadow: #b7b7b7 6px 6px 3px;
+}
+.exer-list .button-blue,#ppt .button-blue{
+	float: right;
+}
+.exer-list p.exer-question,.exer-list p.exer-answer{
+	line-height:2;
+	font-size:16px;
+}
+.exer-list p.exer-question{
+	margin-top:5px;
+	padding-top:5px;
+	border-top: 1px solid #d5d5d5;
+}
+.exer-list p.exer-answer{
+	display: none;
+	margin-top:55px;
+}
+.exer-list-header{
+	font-size: 23px;
+}
+.exer-list-header span{	
+	margin-right: 20px;
+}
+.exer-list input{
+	display: none;
+}
+.check{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.checkmark{
+	position: absolute;
+	top: 18px;
+	left: 18px;
+	width:0px;
+	overflow: hidden;
 }
