@@ -6,7 +6,7 @@ a,a:hover{
 	text-decoration: none;
 }
 #carousel-inner-pc{
-	width:75%;
+	width:100%;
 	margin:0 auto;
 }
 #carousel-indicators-pc {
@@ -69,14 +69,11 @@ a,a:hover{
 	width:196px;
 	cursor: default;
 }
-canvas{
-	margin-top:12px;
-}
 #prepare-class{
 	margin-top: 70px;
 }
 .class-list,#accordion,#environment,.exer-list{
-	width: 85%;
+	width: 60%;
 	margin: 20px auto;
 }
 .class-list{
@@ -210,21 +207,94 @@ p.underline{
 #environment .button-blue{
 	float:right;
 }
-.pc-left{
+#ppt{
+	position:relative;
+	width: 98%;
+	margin: 0 auto;
+}
+#pbtoggle{
+	position: absolute;
+	top:8px;
+	right:8px;
+	cursor: pointer;
+}
+#pbtoggle span{
+	font-size: 18px;
+	color:#a4adb8;
+}
+#pbtoggle img{
+	transition: all 0.5s ease-in-out;
+}
+#ppt ul{
+	font-size: 16px;
+}
+#ppt ul>li.active>a{
+	color: white;
+	background-color: #504e5a;
+	border: 1px solid #504e5a;
+}
+#ppt ul>li.active>a:hover{
+	border: 1px solid #504e5a;
+	border-bottom-color: transparent;
+}
+#ppt ul>li>a{
+	background-color: #393442;
+	color:#ab9cc6;
+}
+#ppt ul>li>a:hover{
+	border:1px solid #000;
+	border-bottom-color: transparent;
+	color:white;
+}
+#ppt .tab-content{
+	background-color: #504e5a;
+	border-radius: 0 8px 8px 8px;
+	height:500px;
+}
+#ppt .tab-pane{
+	width:98%;
+	margin:0 auto;
+	padding:2%;
+	height:100%;
+}
+#ppt li{
+	list-style: none;
+}
+#show-ppt-left,#show-ppt-middle,#show-ppt-right{
 	float:left;
-	width:62%;
-	margin:20px 1% 20px 3%;
 }
-.pc-right{
-	position: relative;
-	float: right;
-	width:29%;
-	margin:33px 3% 33px 2%;
+#show-ppt-left{
+	width:15%;
+	height:96%;
+	overflow-y: scroll;
 }
-.pc-right .btn{
-	position:absolute;
-	bottom:5px;
-	right:5px;
+#show-ppt-left ul{
+	padding:0;
+}
+#show-ppt-left li{
+	border:1px solid;
+	margin:2px 0;
+}
+#show-ppt-left img{
+	width:100%;
+}
+#show-ppt-middle{
+	width:569px;
+	height:96%;
+	overflow: hidden;
+}
+#show-ppt-middle ul{
+	height:100%;
+	padding:0;
+	width:1000000px;
+}
+#show-ppt-middle li{
+	height:100%;
+	padding:0;
+	float: left;
+}
+#show-ppt-middle img{
+	height:100%;
 }
 #pagenote{
 	height:120px;
