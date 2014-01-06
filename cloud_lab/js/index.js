@@ -107,10 +107,16 @@ $(document).ready(function () {
 	$('#btn-register').click(function(){
 		$('#form-login').removeClass('show').addClass('hideleft');
 		$('#form-register').removeClass('hideright').addClass('show');
+		height = $('#form-register').height()+100;
+		$('#tab-login-content').height(height);
+		$('#tab-container').height(height);
 	})
 	$('#rbtn-back').click(function(){
 		$('#form-login').removeClass('hideleft').addClass('show');
 		$('#form-register').removeClass('show').addClass('hideright');
+		height = $('#form-login').height()+100;
+		$('#tab-login-content').height(height);
+		$('#tab-container').height(height);
 	})
 
 	//判断左右箭头是否为灰
