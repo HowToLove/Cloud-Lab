@@ -107,14 +107,16 @@ $(function() {
 
 	// 点击对应章节时请求
 	$('.start-lesson').live('click', function() {
+		charpter = $(this).attr('data-charpter');
+		lesson = $(this).attr('data-lesson');
 		$.ajax({
 			type : 'POST',
 			url : 'main/onclassppt.php',
 			timeout : 6000,
 			data : {
 				'classid' : classid,
-				'charpter' : $(this).attr('data-charpter'),
-				'lesson' : $(this).attr('data-lesson')
+				'charpter' : charpter,
+				'lesson' : lesson
 			},
 			dataType : 'json',
 			beforeSend : function(XMLHttpRequest) {
