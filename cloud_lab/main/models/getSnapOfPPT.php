@@ -78,6 +78,43 @@
 			
 		}
 	}
+
+
+	/**
+	*@param $classid 	当前课程的信息之班级
+	*@param $charpterId 当前课程的信息之章节
+	*@param $lessonId 	当前课程的信息之课时
+	*@return 			上一节课的信息
+	*用来获取上一节课的信息
+	*/
+	function getPrev($classId,$charpterId,$lessonId)
+	{
+		$prev;
+		//首先判断最后一节课是否>1
+		if($lessonId>1){
+			$prev['charpter'] = $charpterId;
+			$prev['lesson'] = $lessonId-1;
+		} else if($charper == 1){//最初的一节
+			$prev['charpter'] = 1;
+			$prev['lesson'] = 1;
+		}else{
+			$prev['charpter'] = $charpterId - 1;
+			$temp = $charpterId - 1;
+			//从数据库中找到上一章最大的一节
+			$sql = "SELECT D.LESSON_SEQ
+			FROM t_class_info C, t_course_det D
+			WHERE C.COURSE_ID = D.COURSE_ID 
+			AND C.CLASS_ID = "."$classId".
+			" AND D.CHARPTER_ID = "."$temp";
+			$result = mysql_query($sql);
+			$row = mysql_fetch_array($result);
+			$prev['lesson'] = $row['LESSON_SEQ'];
+			//echo $sql;
+		}
+		//var_dump($prev);		
+		return $prev;
+	}
+
 	/**
 	 *@param $classid 	当前课程的信息之班级
 	 *@param $charpterId 当前课程的信息之章节

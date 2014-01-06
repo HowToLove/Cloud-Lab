@@ -1,6 +1,7 @@
 <?php
 header('Content-type: text/json');
 session_start();
+require_once('../main/models/saveProgress.php');
 require_once('../main/models/getSnapOfPPT.php');
 require_once('../main/common/mysql_connect.php');
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
@@ -47,13 +48,25 @@ if(isset($_SESSION['USER_ID']))
 				}
 			    */
 				break;
-			case 'next(prev)':
+			case 'next':
 				$next= getNext($classId,$charpter,$lesson);
 				$result = getSnapOfPPT($classId,$next['charpter'],$next['lesson']);
 				//数据组装
 				$pptStatu = array('snap'=>$result);
 				//返回请求结果
 		    	echo json_encode($pptStatu);
+				break;
+			case 'prev':
+				$prev= getPrev($classId,$charpter,$lesson);				
+				$result = getSnapOfPPT($classId,$prev['charpter'],$prev['lesson']);
+				//数据组装
+				$pptStatu = array('snap'=>$result);
+				//返回请求结果
+		    	echo json_encode($pptStatu);
+				break;
+			case 'over'://下课，储存当前进度
+				$status = saveProgress($classId,$charpter,$lesson);
+				$ret = array('status',$status);
 				break;
 			case 'codeexample':
 				$result = getCodeExample($classId,$charpter,$lesson);
