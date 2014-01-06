@@ -49,7 +49,7 @@ class User
 		return User::$tablename;
 	}
 
-	//¸øÃÜÂë½øĞĞmd5¼ÓÃÜ
+	//ç»™å¯†ç è¿›è¡Œmd5åŠ å¯†
     public function encypt($pass)
     {
        return md5($pass);
@@ -57,10 +57,10 @@ class User
     /**
     *@param $username 
     *@param $password 
-    *@return true :¸ÃÓÃ»§ÓĞÈ¨·ÃÎÊ ·´Ö®Îªfalse
+    *@return true :è¯¥ç”¨æˆ·æœ‰æƒè®¿é—® åä¹‹ä¸ºfalse
     */
     public function hasRight($username,$password){      
-        $sql=$this->sql['USER'].'"'.trim($username).'" limit 1';//"$username" ÊÇ±ØÒªµÄ 
+        $sql=$this->sql['USER'].'"'.trim($username).'" limit 1';//"$username" æ˜¯å¿…è¦çš„ 
         $row = $this->mysqlController->query($sql);
         if($row!=null && trim($row[0]['PASSWORD'])==$this->encypt($password)){
            // var_dump($row[0]);
@@ -102,10 +102,10 @@ class User
        
     }
     /**
-     * Ê¹ÓÃÕıÔòÑéÖ¤Êı¾İ
+     * ä½¿ç”¨æ­£åˆ™éªŒè¯æ•°æ®
      * @access public
-     * @param string $value  ÒªÑéÖ¤µÄÊı¾İ
-     * @param string $rule ÑéÖ¤¹æÔò
+     * @param string $value  è¦éªŒè¯çš„æ•°æ®
+     * @param string $rule éªŒè¯è§„åˆ™
      * @return boolean
      */
     protected function regex($value,$rule)
@@ -117,13 +117,13 @@ class User
             'date'      =>  '/^\d{4}\-\d{1,2}-\d{1,2}$/',
             'idcard'    =>  '/^\d{14}(\d{4}|(\d{3}[xX])|\d{1})$/'
         );
-        // ¼ì²éÊÇ·ñÓĞÄÚÖÃµÄÕıÔò±í´ïÊ½
+        // æ£€æŸ¥æ˜¯å¦æœ‰å†…ç½®çš„æ­£åˆ™è¡¨è¾¾å¼
         if(isset($validate[strtolower($rule)]))
             $rule       =   $validate[strtolower($rule)];
         return preg_match($rule,$value)===1;
     }
     /**
-    *@return true ÑéÖ¤Êı¾İ³É¹¦·ñÔòfalse
+    *@return true éªŒè¯æ•°æ®æˆåŠŸå¦åˆ™false
     */
     protected function rules($arr)
     {
@@ -146,8 +146,8 @@ class User
         return true;
     }
     /**
-    *@param $key ÊôĞÔÃû³Æ
-    *@param $value ÊôĞÔÖµ
+    *@param $key å±æ€§åç§°
+    *@param $value å±æ€§å€¼
     */
     public function find($value,$key='')
     {

@@ -4,7 +4,6 @@ require_once('../main/common/function.php');
 session_start();
 $_SESSION['captcha']=$_POST['captcha'];
 //比较验证码是否正确
-
 $state=-3;
 if(strtoupper($_POST['captcha'])==strtoupper($_SESSION['captcha'])){
 	$arr['USER_NAME']=$_POST['username'];
@@ -26,23 +25,39 @@ if(strtoupper($_POST['captcha'])==strtoupper($_SESSION['captcha'])){
 		$state=4;
 	elseif(!regex($arr['EMAIL'],'email'))
 	    $state=5;
+	    
 	require_once ("../main/models/User.php");
+	
+    $user = new User;
+	if($user->find($arr['USER_NAME'],'USER_NAME'))
+	{
+	    
+		$state=6;
+	}elseif($user->find($arr['EMAIL'],'EMAIL'))
+	{
+		$state=7;
+	}elseif($user->find($arr['ID_VALUE'],'ID_VALUE'))
+	{
+		$state=8;
+	}
+
 	if($state===-3){
-		$user = new User;
 		try{
-		    if($user->save($arr)){
+		    if($user->save($arr))
+		    {
 			  $state=1;
 		    }else{
 			  $state=0;
 		    }
 		 }catch(Exception $e)
-		{
+		 {
 		   $state = -2;
-		}
+		 }
 	} 
 }else{
 	$state=-1;
 }
 $registerStatus = array("registerStatus" => $state);
 echo json_encode($registerStatus);
+
 ?>

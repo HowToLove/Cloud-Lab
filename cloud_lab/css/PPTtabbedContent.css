@@ -1,0 +1,57 @@
+.ppt_slide_content {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.ppt_tabslider {
+	width: 200%;
+	height: 100%;
+}
+.ppt_tabslider .ppt_content_notfull {
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+.ppt_content_full {
+	float: left;
+	width: 50%;
+	height: 100%;
+	background: #000;
+}
+.ppt_content_full .bubble, .bt_fullsreen, .bt_notfullsreen {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	z-index: 101;
+	border: none;
+	list-style: none;
+	float: right;
+	margin-top: -50px;
+	opacity: 0.5;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+	outline: none;
+}
+.ppt_content_full .bubble:hover, .bt_fullsreen:hover, .bt_notfullsreen:hover {
+	opacity: 1;
+}
+.ppt_content_full .bubble {
+	margin-right: 60px;
+	width: 48px;
+	height: 48px;
+	font-size: 20px;
+	color: #fff;
+	background: url(../img/bubble.png) no-repeat;
+}
+.bt_notfullsreen {
+	background: url(../img/notfullscreen.png) no-repeat;
+}
+.bt_fullsreen {
+	background: url(../img/fullscreen.png) no-repeat;
+	margin-top: -50px;
+}
+.Pconf {
+	width: 100%;
+	height: 0px;
+}

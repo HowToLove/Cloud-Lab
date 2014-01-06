@@ -1,8 +1,8 @@
 <?php
 require_once('../main/config/dbconfig.php');
 class Mysql{
-   private  $conn;//一个非持久链接
-   private  $db;  //一个数据库实例
+   protected  $conn;//一个非持久链接
+   protected  $db;  //一个数据库实例
    /**
    *@return 一个非持久链接
    */
@@ -29,7 +29,6 @@ class Mysql{
       {
          var_dump($e->getTrace());
       }
-       
        return $this->conn;
         
    }
@@ -38,7 +37,13 @@ class Mysql{
    */
    public  function close()
    {
-       return mysql_close($this->conn);
+      try {
+        mysql_close($this->conn);
+        return true;
+      } catch (Exception $e) {
+        echo json_encode($e->getTrace());
+      }
+       
    }
    /**
    *@param void
@@ -63,36 +68,47 @@ class Mysql{
    */
    public function query($sql){
         $this->getDatabase();
-        $result = mysql_query($sql,$this->conn);
-        $return =array();
-        while($row=mysql_fetch_array($result)){
-            array_push($return,$row);
+        $query=null;
+        try {
+          $result = mysql_query($sql,$this->conn);
+          if($result){
+              $query=array();
+              while($row=mysql_fetch_array($result))
+              {
+               array_push($query,$row);
+              }
+              mysql_free_result($result);
+          }
+          return $query;
+        } catch (Exception $e) {
+            echo json_encode($e->getTrace()); 
         }
-        $this->close();
-        return $return;
+        return $query;
+        
    }
    /**
    *@param $tablename
-   *@param $condition 
+   *@param $condition =array('column1='=>'1','column2 like'=>'3')
    */
    public function find($tablename,$condition=null,$arr='*'){
         $sql='';
-        if($arr=='*'){
+        if($arr==='*'){
         $sql ='SELECT * FROM '.$tablename.' ';
         }else{
-        $sql ='SELECT  ';
-           foreach ($arr as $key => $value) {
-             $sql=$sql.' '.$value.' ,';
-           }
-           $sql = substr($sql,0,strlen($sql)-1);
-           $sql=$sql.' FROM'.$tablename.' ';
+        $sql ='SELECT '.implode(",",$arr).'';
+          // $sql = substr($sql,0,strlen($sql)-1);
+           $sql=$sql.' FROM '.$tablename.' ';
         }
         if($condition==null){
-          
+        
         }else{
            $sql=$sql.' WHERE ';
-           //
+           foreach ($condition as $key => $value) {
+             $sql=$sql.' '.$key.' \''.$value.'\'';
+           }
         }
+        var_dump($sql);
+        return $this->query($sql);
    }
    /**
    * @param $string tablename 表名
@@ -106,33 +122,25 @@ class Mysql{
       //construct the sql sentence
        $sql='';
        if($columns==null){
-          $sql ='INSERT INTO '.$tablename.' (';
-          foreach ($arr as $key => $value) 
+          $sql ='INSERT INTO '.$tablename.'(';
+          $key=array_keys($arr);
+          $value = array_values($arr);
+          $sql ='INSERT INTO '.$tablename.'(';
+          foreach($arr as $key => $value) 
           {
-              $sql=$sql.' '.$key.',';
+              $sql=$sql.$key.',';
           }
           $sql = substr($sql,0,strlen($sql)-1);
-          $sql=$sql.' ) VALUES('.' ';
+          $sql=$sql.')VALUES(';
           foreach ($arr as $key => $value) 
           {
-              $sql=$sql.'" '.$value.'",';
+              $sql=$sql.'"'.$value.'",';
           }
           $sql = substr($sql,0,strlen($sql)-1);
-          $sql=$sql.' )';
+          $sql=$sql.')';
        }else{
-          $sql ='INSERT INTO '.$tablename.' (';
-          foreach ($columns as $key => $value) 
-          {
-              $sql=$sql.' '.$value.',';
-          }
-          $sql = substr($sql,0,strlen($sql)-1);
-          $sql=$sql.' ) VALUES('.' ';
-          foreach ($arr as $key => $value) 
-          {
-              $sql=$sql.'" '.$value.'",';
-          }
-          $sql = substr($sql,0,strlen($sql)-1);
-          $sql=$sql.' )';
+          $sql ='INSERT INTO '.$tablename.'('.implode(",",$columns).')VALUES('.implode(',',$arr).');';
+          echo $sql;
        }
        if($this->db==null){
          $this->getDatabase();
@@ -152,7 +160,7 @@ class Mysql{
    *如果columns为null，那么必须是key与value的键值对的形式,而且key是table表中的属性名称
    * @return true 更新成功else 更新失败
    */
-   public function update($tablename,$arr,$columns)
+   public function update($tablename,$columns,$arr)
    {
        
    }
