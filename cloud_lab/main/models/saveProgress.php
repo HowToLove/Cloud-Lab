@@ -14,14 +14,14 @@
 			(CLASS_ID,PRE_CHARPTER_ID,PRE_LESSON_ID,ON_CHARPTER_ID,ON_LESSON_ID)
 			VALUES ("."$classId".",1,1,1,1)";
 			mysql_query($sql);
-			echo $sql;
+			//echo $sql;
 		}
 		$sql = "UPDATE t_progress 
 		SET ON_CHARPTER_ID = "."$charpter".
 		" , ON_LESSON_ID = "."$lesson".
 		" WHERE CLASS_ID = "."$classId";
 		$result = mysql_query($sql);
-		echo $sql;
+		//echo $sql;
 		return $result;
 	}
 ?>

@@ -51,18 +51,14 @@ if(isset($_SESSION['USER_ID']))
 			case 'next':
 				$next= getNext($classId,$charpter,$lesson);
 				$result = getSnapOfPPT($classId,$next['charpter'],$next['lesson']);
-				//数据组装
-				$pptStatu = array('snap'=>$result);
 				//返回请求结果
-		    	echo json_encode($pptStatu);
+		    	echo json_encode($result);
 				break;
 			case 'prev':
 				$prev= getPrev($classId,$charpter,$lesson);				
 				$result = getSnapOfPPT($classId,$prev['charpter'],$prev['lesson']);
-				//数据组装
-				$pptStatu = array('snap'=>$result);
 				//返回请求结果
-		    	echo json_encode($pptStatu);
+		    	echo json_encode($result);
 				break;
 			case 'over'://下课，储存当前进度
 				$status = saveProgress($classId,$charpter,$lesson);

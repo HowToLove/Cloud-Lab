@@ -94,7 +94,7 @@
 		if($lessonId>1){
 			$prev['charpter'] = $charpterId;
 			$prev['lesson'] = $lessonId-1;
-		} else if($charper == 1){//最初的一节
+		} else if($charpterId == 1){//最初的一节
 			$prev['charpter'] = 1;
 			$prev['lesson'] = 1;
 		}else{
