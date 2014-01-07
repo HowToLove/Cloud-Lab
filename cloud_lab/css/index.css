@@ -17,6 +17,7 @@
 }
 ::-webkit-scrollbar-thumb {
 	background: #05b9dc;
+	border-radius: 10px;
 }
 ::-webkit-input-placeholder{
 	color:#666;
