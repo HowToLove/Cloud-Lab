@@ -365,7 +365,7 @@ p.underline{
 	margin:0;
 }
 #pagenote{
-	height:35%;
+	height:30%;
 	margin-bottom:5%;
 	background-color: #fff;
 	border-radius: 8px;
@@ -375,22 +375,31 @@ p.underline{
 	height:85%;
 }
 #pagenote textarea,#classnote textarea{
-	height:85%;
+	height:90%;
 	resize:none;
 	margin-bottom: 3%;
 	border:none;
 }
 #pagenote input{
-	float: right;
-	margin-left: 10px;
 	position: absolute;
-	bottom: 10px;
+	bottom: 5px;
+}
+#pagenote input.btn-primary{
+	right:10px;
+}
+#pagenote input.btn-success{
+	right:70px;
 }
 #classnote{
-	height:60%;
+	height:68%;
 	background-color: #fff;
 	border-radius: 8px;
 	position: relative;
+}
+#classnote .button-blue{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
 }
 .arrow-right{
 	position: absolute;
