@@ -1,6 +1,9 @@
 var classes;
 var urls, videos, remarks;
 var classid, classname, imgurl, charpter, coursename, lesson, description, studentsnum, percent;
+classid = 1;
+charpter = 1;
+lesson = 1;
 $(function() {
 	// 请求ppt、remark、video节点
 	$.ajax({
@@ -86,7 +89,7 @@ $(function() {
 				'charpter' : charpter,
 				'lesson' : lesson,
 				'action' : 'homework',
-				'questionid' :
+				'questionid' : ""
 			},
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data) {
