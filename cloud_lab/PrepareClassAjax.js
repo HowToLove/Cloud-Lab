@@ -30,7 +30,7 @@ $(function() {
 	});
 
 	// 提交本页ppt备注
-	$(document).on("click", "", function() {
+	$(document).on("click", "1", function() {
 		$.ajax({
 			url: 'main/prepareclass.php',
 			type: 'POST',
@@ -57,7 +57,7 @@ $(function() {
 	});
 
 	// 请求题目
-	$(document).on("click", "", function() {
+	$(document).on("click", "1", function() {
 		$.ajax({
 			url: 'main/prepareclass.php',
 			type: 'POST',
@@ -79,7 +79,7 @@ $(function() {
 	});
 
 	// 布置作业
-	$(document).on("click", "", function() {
+	$(document).on("click", "1", function() {
 		$.ajax({
 			url: 'main/prepareclass.php',
 			type: 'POST',
@@ -113,4 +113,29 @@ $(function() {
 			console.log()
 		}
 	}
+
+	var video = document.getElementById("pptvideo");
+
+	// 暂停、开始视频
+	$("#pptvideo").click(function() {
+		video.currentTime = 200;
+		if(video.paused) {
+			video.play();
+		} else {
+			video.pause();
+		}
+	});
+	// $("#btn_prepare").click(function() {
+	// 	video.currentTime = 200;
+	// 	console.log(video.currentTime);
+	// });
+	// $("#btn_onclass").click(function() {
+	// 	video.currentTime = 200;
+	// });
+	// $("#btn_lab").click(function() {
+	// 	video.currentTime = 400;
+	// });
+	// $("#btn_homework").click(function() {
+	// 	video.currentTime = 500;
+	// });
 });
