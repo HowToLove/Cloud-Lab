@@ -62,7 +62,7 @@ if(isset($_SESSION['USER_ID']))
 				break;
 			case 'over'://下课，储存当前进度
 				$status = saveProgress($classId,$charpter,$lesson);
-				$ret = array('status',$status);
+				$ret = array('status'=>$status);
 				echo json_encode($ret);
 				break;
 			case 'codeexample':
