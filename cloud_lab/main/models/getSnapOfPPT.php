@@ -1,9 +1,9 @@
 <?php
 	/**
-	@param $charpter
-	@param $classId
-	@param $lesson
-	@return ppt和video的播放号序列
+	*@param $charpter
+	*@param $classId
+	*@param $lesson
+	*@return ppt和video的播放号序列
 	*/
 	function getSnapOfPPT($classid,$charpter,$lesson)
 	{

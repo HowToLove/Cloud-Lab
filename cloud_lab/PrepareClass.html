@@ -151,7 +151,7 @@
           <a class="button-blue indicator-hide" href="#prepare-class" data-slide="next" role="button" data-toggle="tab">我知道了</a>
         </div>
       </div>
-      <div class="item active">
+      <div class="item">
         <div id="ppt">
             <div id="pbtoggle">
               <span>显示流程</span>
@@ -166,17 +166,19 @@
               <div class="tab-pane fade in active" id="show-ppt">
                 <div id="show-ppt-left">
                   <ul id="ppt-list">
-                    <li><img src="img/ppt01.PNG"></li>
-                    <li><img src="img/ppt02.PNG"></li>
-                    <li><img src="img/ppt03.PNG"></li>
-                    <li><img src="img/ppt04.PNG"></li>
-                    <li><img src="img/ppt05.PNG"></li>
-                    <li><img src="img/ppt01.PNG"></li>
-                    <li><img src="img/ppt02.PNG"></li>
-                    <li><img src="img/ppt03.PNG"></li>
+                    <li id="ppt-list-01" class="ppt-list-active"><a href="#ppt-list-01"><img src="img/ppt01.PNG"></a></li>
+                    <li id="ppt-list-02"><a href="#ppt-list-02"><img src="img/ppt02.PNG"></a></li>
+                    <li id="ppt-list-03"><a href="#ppt-list-03"><img src="img/ppt03.PNG"></a></li>
+                    <li id="ppt-list-04"><a href="#ppt-list-04"><img src="img/ppt04.PNG"></a></li>
+                    <li id="ppt-list-05"><a href="#ppt-list-05"><img src="img/ppt05.PNG"></a></li>
+                    <li id="ppt-list-06"><a href="#ppt-list-06"><img src="img/ppt01.PNG"></a></li>
+                    <li id="ppt-list-07"><a href="#ppt-list-07"><img src="img/ppt02.PNG"></a></li>
+                    <li id="ppt-list-08"><a href="#ppt-list-08"><img src="img/ppt03.PNG"></a></li>
                   </ul>
                 </div>
                 <div id="show-ppt-middle">
+                  <a href="" class="ppt-prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                  <a href="#ppt-list-02" class="ppt-next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                   <ul id="ppt-content">
                     <li><img src="img/ppt01.PNG"></li>
                     <li><img src="img/ppt02.PNG"></li>
@@ -189,6 +191,20 @@
                   </ul>
                 </div>
                 <div id="show-ppt-right">
+                  <div id="pagenote">
+                    <p>本页PPT备注</p>
+                    <form>
+                      <textarea class="form-control"></textarea>
+                      <input type="submit" value="保存" class="btn btn-primary">
+                      <input type="reset" value="重置" class="btn btn-success">
+                    </form>
+                  </div>
+                  <div id="classnote">
+                    <p>教案</p>
+                    <textarea class="form-control"></textarea>
+                    <a class="button-blue" href="#prepare-class" data-slide="next" role="button" data-toggle="tab">完成PPT</a>
+                  </div>
+                  
                 </div>
               </div>
               <div class="tab-pane fade" id="show-video">
@@ -198,7 +214,7 @@
             </div>
         </div>
       </div>
-      <div class="item">
+      <div class="item active">
         <div class="checkbox exer-list">
           <input type="checkbox" name="" value="" id="exer1">
           <label for="exer1">
