@@ -1,78 +1,84 @@
 <?php
 header('Content-type: text/json');
 session_start();
+require_once('../main/models/prepareClassModel.php');
+require_once('../main/common/mysql_connect.php');
+//当单独测试的时候本行需要使用，集成测试的时候注释掉
+$_SESSION['USER_ID']='12345';
 
-@require_once('../main/models/prepareClassModel.php');
-@require_once('../main/common/mysql_connect.php');
-
+//关闭自动输出error或者警告
 ini_set("display_errors", "Off");
-if(isset($_SESSION['USER_ID']) && isset($_POST['preparation']))//判断用户是否已经已经登录
+
+if(isset($_SESSION['USER_ID']))
 {
-	//获取请求参数数据
-	$classId   		=	$_POST['classid'];
-	$charpter  		=	$_POST['charpter'];
-	$lesson    		=	$_POST['lesson'];
-	$preparation	=	$_POST['preparation'];
-	
+	//获取数据
+	$classId   =	$_POST['classid'];
+	$charpter  =	$_POST['charpter'];
+	$lesson    =	$_POST['lesson'];
+	$action	   =	$_POST['action'];
 	try {
-		//创建数据库连接和选择数据库
-	    $mysql = new Mysql;    
-		//调用API获取数据
-		savePreparationPreClass($classId,$charpter,$lesson,$preparation);
-		//关闭数据库
+		$mysql = new Mysql;
+		//invoke API
+		switch ($action) {
+			case 'getPPTandRemark':
+				$result = getSnapAndRemarkOfPPT($classId,$charpter,$lesson);
+				echo json_encode($result);
+				break;
+			case 'commitRemark':
+				$result = savePPTRemarkPreClass($classId,$charpter,$lesson,$_POST['pagenum'],$_POST['remark']);
+				echo json_encode(array('status'=>$result));
+				break;			
+			case 'next':
+				$next= getNext($classId,$charpter,$lesson);
+				$result = getSnapOfPPT($classId,$next['charpter'],$next['lesson']);
+				//返回请求结果
+		    	echo json_encode($result);
+				break;
+			case 'prev':
+				$prev= getPrev($classId,$charpter,$lesson);				
+				$result = getSnapOfPPT($classId,$prev['charpter'],$prev['lesson']);
+				//返回请求结果
+		    	echo json_encode($result);
+				break;
+			case 'over'://下课，储存当前进度
+				$status = saveProgress($classId,$charpter,$lesson);
+				$ret = array('status'=>$status);
+				echo json_encode($ret);
+				break;
+			case 'codeexample':
+				$result = getCodeExample($classId,$charpter,$lesson);
+				//返回请求结果
+		    	echo json_encode($result);
+				break;
+			case 'video':
+				$result = getVideoUrl($classId,$charpter,$lesson);
+				//返回请求结果
+				$videourl = array("url"=>$result);
+		    	echo json_encode($videourl);
+				break;
+			case 'homework':
+				$result = 
+				getHomeworkOfLesson($classId,$charpter,$lesson);
+				//返回请求结果
+		    	echo json_encode($result);
+				break;
+			case 'recbooks':
+				
+				echo 'recbook';
+				break;
+			default:
+				
+				break;
+		}
 		$mysql->close();
-		//数据组装
-		$charpter = array('status'=>"success");
-		//返回请求结果
-   	 	echo json_encode($charpter);
-   	 	/**例子
-		{
-	    "charpter": 
-	       [
-		        3,
-		        4,
-		        2
-	       ]
-		}	
-   	 	*/
+		
 	} catch (Exception $e) {
 		echo json_encode($e->getTrace());
 	}
-}elseif(isset($_SESSION['USER_ID']) && 
-		isset($_POST['remark'])){
-	//获取请求参数数据
-	$classId   		=	$_POST['classid'];
-	$charpter  		=	$_POST['charpter'];
-	$lesson    		=	$_POST['lesson'];
-	$url			=	$_POST['url'];
-	$remark			=	$_POST['remark'];
-	try {
-		//创建数据库连接和选择数据库
-	    $mysql = new Mysql;    
-		//调用API获取数据
-		savePPTRemarkPreClass($classId,$charpter,$lesson,$url,$remark);
-		//关闭数据库
-		$mysql->close();
-		//数据组装
-		$charpter = array('status'=>"success");
-		//返回请求结果
-   	 	echo json_encode($charpter);
-   	 	/**例子
-		{
-	    "charpter": 
-	       [
-		        3,
-		        4,
-		        2
-	       ]
-		}	
-   	 	*/
-	} catch (Exception $e) {
-		echo json_encode($e->getTrace());
-	}	
-	
 }else{
-	header("Location: http://localhost/cloud_lab/#tab-login");
+	header("Location: http://localhost/cloud_lab/index.html");
 }
+
+//打开自动输出错误与警告
 ini_set("display_errors", "On");
 ?>
