@@ -10,13 +10,14 @@ $_SESSION['USER_ID']='12345';
 ini_set("display_errors", "Off");
 
 if(isset($_SESSION['USER_ID']))
-{
+{		
 	//获取数据
 	$classId   =	$_POST['classid'];
 	$charpter  =	$_POST['charpter'];
 	$lesson    =	$_POST['lesson'];
 	$action	   =	$_POST['action'];
 	try {
+		//var_dump($_POST);
 		$mysql = new Mysql;
 		//invoke API
 		switch ($action) {
@@ -26,8 +27,16 @@ if(isset($_SESSION['USER_ID']))
 				break;
 			case 'commitRemark':
 				$result = savePPTRemarkPreClass($classId,$charpter,$lesson,$_POST['pagenum'],$_POST['remark']);
+				//echo $_POST['remark'];
 				echo json_encode(array('status'=>$result));
-				break;			
+				break;	
+			case 'homeworklist':
+				$result = getRelatedQuestions($classId,$charpter,$lesson);
+				echo json_encode(array('questions'=>$result));
+				break;
+			case 'homework'://储存教师布置的作业			
+				$result = saveHomeworkList($classId,$charpter,$lesson,$_POST['questionids'],$_POST['deadline']);
+				echo json_encode(array('status'=>$result));
 			case 'next':
 				$next= getNext($classId,$charpter,$lesson);
 				$result = getSnapOfPPT($classId,$next['charpter'],$next['lesson']);
