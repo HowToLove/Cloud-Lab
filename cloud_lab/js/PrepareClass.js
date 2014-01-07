@@ -11,7 +11,12 @@ $(document).ready(function(){
             setTimeout(function(){
                   $('#carousel-indicators-pc').slideUp()
                   changeheight()
-            },500)
+            },800)
+      })
+      $('.indicator-show').click(function(){
+            setTimeout(function(){
+                  $('#carousel-indicators-pc').slideDown()
+            },800)
       })
       $('#pbtoggle').click(function(){
             if($('#pbtoggle span').html()=='显示流程'){
