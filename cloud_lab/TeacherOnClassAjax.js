@@ -1,5 +1,5 @@
 var classes;
-var urls;
+var urls, videos;
 var classid, classname, imgurl, charpter, coursename, lesson, description, studentsnum, percent;
 $(function() {
 
@@ -9,8 +9,7 @@ $(function() {
 		url : 'main/classofteacher.php',
 		timeout : 6000,
 		dataType : 'json',
-		beforeSend : function(XMLHttpRequest) {
-		},
+		beforeSend : function(XMLHttpRequest) {},
 		success : function(data) {
 			classes = data.classes;
 			$("#classes-container").empty();
@@ -48,8 +47,7 @@ $(function() {
 				$("#classes-container").append(classdiv);
 			}
 		},
-		complete : function(XMLHttpRequest, textStatus) {
-		},
+		complete : function(XMLHttpRequest, textStatus) {},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 		}
@@ -66,8 +64,7 @@ $(function() {
 				'classid' : classid
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				$('#accordion').empty();
 				for(var i=1;i<=data.charpter.length;i++) {
@@ -97,8 +94,7 @@ $(function() {
 					}
 				}
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -119,14 +115,13 @@ $(function() {
 				'lesson' : lesson
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				urls = data.snap;
+				videos = data.video;
 				createppts();
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -148,14 +143,13 @@ $(function() {
 				'lesson' : lesson
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				urls = data.snap;
+				videos = data.video;
 				createppts();
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -175,14 +169,12 @@ $(function() {
 				'action' : 'prev'
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				urls = data.snap;
 				createppts();
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -202,14 +194,12 @@ $(function() {
 				'action' : 'next'
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				urls = data.snap;
 				createppts();
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -229,15 +219,13 @@ $(function() {
 				'action' : 'over'
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
-				if(data.status == 'success') {
-					location.reload();
+				if(data.status == true) {
+					window.location.reload();
 				}
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -257,16 +245,14 @@ $(function() {
 				'action' : 'codeexample'
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				for(var i=0;i<data.source.length;i++) {
 					alert(data.source[i].sourcename);
 					alert(data.source[i].source);
 				}
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -286,13 +272,11 @@ $(function() {
 				'action' : 'video'
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				alert(data.url);
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -312,16 +296,14 @@ $(function() {
 				'action' : 'homework'
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				for(var i=0;i<data.questions.length;i++) {
 					alert(data.questions[i].question);
 					alert(data.questions[i].answer);
 				}
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -341,15 +323,13 @@ $(function() {
 				'action' : 'recbooks'
 			},
 			dataType : 'json',
-			beforeSend : function(XMLHttpRequest) {
-			},
+			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				for(var i=0;i<data.bookname.length;i++) {
 					alert(data.questions[i]);
 				}
 			},
-			complete : function(XMLHttpRequest, textStatus) {
-			},
+			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
@@ -364,7 +344,6 @@ $(function() {
 		for(var i=0;i<urls.length;i++) {
 			var snapppt = 
 				"<div class='tab_item tab_item"+(i+1)+"'></div>"
-			console.log(snapppt);
 			$('.nfull_ppt_tabs').append(snapppt);
 
 			var normalppt = 
