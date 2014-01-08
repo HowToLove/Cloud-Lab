@@ -183,7 +183,11 @@ $(document).ready(function () {
 						alert("密码不能为空！");
 						break;
 					case 2:
-						alert("登陆成功！");
+						if(data.userType == 1) {
+							window.location.href = 'TeacherOnClass.html';
+						} else {
+							window.location.href = 'PrepareClass.html';
+						}
 						break;
 					case 3:
 						alert("用户名或密码错误！");
