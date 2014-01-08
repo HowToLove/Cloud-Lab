@@ -16,6 +16,7 @@ $(function() {
 		beforeSend : function(XMLHttpRequest) {},
 		success : function(data) {
 			$("#class_container").empty();
+			classes = data.classes;
 			for(var i=0; i<classes.length; i++) {
 				classid = classes[i].classid;
 				classname = classes[i].coursename;
@@ -64,10 +65,11 @@ $(function() {
 		classid = $(this).attr('data-classid');
 		$.ajax({
 			type : 'POST',
-			url : 'main/prepareclass.php',
+			url : 'main/courseDetail.php',
 			timeout : 6000,
 			data : {
-				'classid' : classid
+				'classid' : classid,
+				'action' : 'courseDetail'
 			},
 			dataType : 'json',
 			beforeSend : function(XMLHttpRequest) {},
