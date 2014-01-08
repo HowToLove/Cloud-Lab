@@ -4,6 +4,7 @@ session_start();
 require_once('../main/models/prepareClassModel.php');
 require_once('../main/common/mysql_connect.php');
 require_once('../main/models/getPrepareClassInfoById.php');
+require_once('../main/models/coursedetailModel.php');
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
 $_SESSION['USER_ID']='5';
 
@@ -27,6 +28,12 @@ if(isset($_SESSION['USER_ID']))
 				$result = getPrepareClassInfoById($_SESSION['USER_ID']);	
 						
 				echo json_encode(array('classes'=>$result));
+				break;
+			case 'courseDetail'://获取课程章节详细信息
+				$result = getCourseDetail($classId);
+				$charpter = array('charpter'=>$result);
+				//返回请求结果
+   	 			echo json_encode($charpter);
 				break;
 			case 'getPPTandRemark':
 				$result = getSnapAndRemarkOfPPT($classId,$charpter,$lesson);
