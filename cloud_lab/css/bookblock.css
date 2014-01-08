@@ -2,6 +2,20 @@
 	width: 100%;
 	height: 100%;
 }
+
+.bottommenu:hover  .bubble,.bottommenu:hover  .bt_notfullsreen,
+.bottommenu:hover #bb-nav-next,.bottommenu:hover #bb-nav-prev{
+opacity: 1;
+}
+#trigger:hover {
+opacity: 1;
+}
+.bottommenu{
+margin-top:-50px;
+width:100%;
+height:50px;
+position:absolute;
+}
 .ppt_content_full span, .menu-button {
 	float: right;
 	width: 32px;
@@ -14,16 +28,16 @@
 	speak: none;
 	font-weight: bold;
 	cursor: pointer;
-	margin-top: -40px;
-	margin-right: 125px;
+
+	margin-right: 10px;
 	position: relative;
-	opacity: 0.5;
+	opacity: 0;
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 0.5s;
 	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
 }
 .ppt_content_full #bb-nav-prev {
-	margin-right: 165px;
+
 }
 .ppt_content_full span:hover {
 	opacity: 1;
