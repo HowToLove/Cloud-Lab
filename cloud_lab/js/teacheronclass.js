@@ -72,7 +72,7 @@ $(".bb-item img").css("height",sreenheight+"px");
 	$(".topmenu").removeClass("topmenu-to-show");
 	$(".topmenu").addClass("topmenu-to-hide");
 		$(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-		
+		//$(".mp-menu-act").css("opacity",0.5);
 		var margin = $(".ppt_slide_content").width();
 		margin = margin * (1);
 		margin = margin * -1;
@@ -88,11 +88,11 @@ $(".topmenu").addClass("topmenu-to-show");
 	$(".topmenu").removeClass("topmenu-to-hide");
 		
 		$(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
-		var margin = $(obj).parent().parent().parent().parent().parent().find(".ppt_slide_content").width();
+		var margin = $(".ppt_slide_content").width();
 		margin = margin * (0);
 		margin = margin * 1;
 		
-		$(obj).parent().parent().parent().parent().find(".ppt_tabslider").stop().animate({
+		$(".ppt_tabslider").stop().animate({
 			marginLeft: margin+ "px"
 		}, {
 			duration: 600
