@@ -29,6 +29,6 @@ else
         
     }
 }
-$loginStatus = array("loginStatus" => $stat,"userType"=>$_SESSION['USER_TYPE']);
+$loginStatus = array("loginStatus" => $stat,"userType"=>@$_SESSION['USER_TYPE']);
 echo json_encode($loginStatus);
 ?>
