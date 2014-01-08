@@ -3,8 +3,9 @@ header('Content-type: text/json');
 session_start();
 require_once('../main/models/prepareClassModel.php');
 require_once('../main/common/mysql_connect.php');
+require_once('../main/models/getPrepareClassInfoById.php');
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
-$_SESSION['USER_ID']='12345';
+$_SESSION['USER_ID']='5';
 
 //关闭自动输出error或者警告
 ini_set("display_errors", "Off");
@@ -21,6 +22,12 @@ if(isset($_SESSION['USER_ID']))
 		$mysql = new Mysql;
 		//invoke API
 		switch ($action) {
+			case null://拉取该教师所教课程的列表
+
+				$result = getPrepareClassInfoById($_SESSION['USER_ID']);	
+						
+				echo json_encode(array('classes'=>$result));
+				break;
 			case 'getPPTandRemark':
 				$result = getSnapAndRemarkOfPPT($classId,$charpter,$lesson);
 				echo json_encode($result);
