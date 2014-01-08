@@ -331,12 +331,14 @@ opacity: 0.5;
 }
 /* /ppttabbedcontent */
 /* codeexample */
-#code_exp,#video,#taskeva,#bookreq{
+#code_exp,#video,#taskeva,#bookreq,#stuquestion{
 width: 100%;
 	overfllow:hidden;
 }
 #video{
 background:pink;
+}
+#qa{
 }
 #taskeva{
 background:#3da1d1;
