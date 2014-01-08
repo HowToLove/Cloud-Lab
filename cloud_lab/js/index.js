@@ -232,6 +232,7 @@ $(document).ready(function () {
 						break;
 					case 1:
 						alert("注册成功！");
+						window.location.href = 'index.html'
 						break;
 					case 2:
 						alert("用户名或密码不能为空");

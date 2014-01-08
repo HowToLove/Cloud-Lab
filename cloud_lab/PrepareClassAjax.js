@@ -1,6 +1,6 @@
 var classes;
 var urls, videos, remarks;
-var classid, classname, imgurl, charpter, coursename, lesson, description, studentsnum, percent, pageid;
+var classid, classname, imgurl, charpter, coursename, lesson, description, studentsnum, percent, pptid;
 classid = 1;
 charpter = 1;
 lesson = 1;
@@ -30,7 +30,7 @@ $(function() {
 				var classdiv = 
 					"<div class='class-list'>\
 						<div class='class-list-left'>\
-							<div class='class-img'><img src="+imgurl+"><div class='arrow-right'></div>\
+							<div class='class-img'><img src=main/"+imgurl+"><div class='arrow-right'></div>\
 							</div>\
 							<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
 								<h3 class='underline class_h' data-classid='"+classid+"'>"+coursename+"</h3>\
@@ -157,12 +157,12 @@ $(function() {
 		$('#ppt-content').empty();
 		for(var i=0;i<urls.length;i++) {
 			var snapppt =
-				"<li id='ppt-list-"+(i+1)+"''>\
-					<a class='snapppt' data-pptid='"+(i+1)+"' href='#ppt-list-"+(i+1)+"'>\
-					<img src="+urls[i]+">\
+				"<li id='ppt-list-0"+(i+1)+"'>\
+					<a class='snapppt' data-pptid="+(i+1)+" href='#ppt-list-0"+(i+1)+"'>\
+					<img src=main/"+urls[i]+">\
 				</li>"
 			var normalppt = 
-				"<li><img src="+urls[i]+"></li>"
+				"<li><img src=main/"+urls[i]+"></li>"
 			$('#ppt-list').append(snapppt);
 			$('#ppt-content').append(normalppt);
 		}
@@ -171,7 +171,7 @@ $(function() {
 	// 点击相应snapppt
 	$(document).on("click", ".snapppt", function() {
 		pptid = $(this).attr("data-pptid");
-		$('#classnote').empty();
+		$('#pagenote').empty();
 		var classnote = 
 			"<p>本页PPT备注</p>\
         	<form>\
@@ -179,8 +179,8 @@ $(function() {
               	<input type='button' id='btn_saveremark' value='保存' class='btn btn-primary'>\
               	<input type='reset' value='重置' class='btn btn-success'>\
             </form>"
-        $('#classnote').append(classnote);
-        video.currentTime = videos[pptid];
+        $('#pagenote').append(classnote);
+        // video.currentTime = videos[pptid];
 	});
 
 	// 提交本页ppt备注

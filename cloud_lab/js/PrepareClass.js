@@ -48,7 +48,7 @@ $(document).ready(function(){
             var rwidth = $('#show-ppt').width() - $('#show-ppt-left').width() - $('#show-ppt-middle').width() - 15
             $('#show-ppt-right').width(rwidth)
       }
-      $('ul#ppt-list li a,a.ppt-prev,a.ppt-next').click(function(){
+      $(document).on('click', 'ul#ppt-list li a,a.ppt-prev,a.ppt-next', function(){
             var href=$(this).attr('href')
             $(href).addClass('ppt-list-active')
             $(href).prevAll().removeClass('ppt-list-active')
