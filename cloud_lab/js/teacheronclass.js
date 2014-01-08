@@ -2,12 +2,12 @@
 /*full mask tabbed content*/
 var TabbedContent = {
 	init: function() {	
-		$(".tab_item").mousedown(function() {
+		$(".mp-menu .mp-level .tab_item").mousedown(function() {
 
 			TabbedContent.slideContent($(this));
 			
 		});
-		$(".mp-menu ul li > a ").mousedown( function() {
+		$(".mp-menu ul li > a ").mousedown(function() {
 $(".mp-menu ul li > a").removeClass('function-act');
 $(".mp-menu ul li > a").removeClass('active');
 		$(this).addClass('function-act');
@@ -34,16 +34,11 @@ $('.ppt_slide_content').css('height', sreenHeight+'px');
 	},
 	
 	slideContent: function(obj) {
-		
 		var margin = $(obj).parent().parent().parent().parent().find(".slide_content").height();
 		margin = margin * ($(obj).prevAll().length-1 );
 		margin = margin * -1;
 		$(obj).parent().parent().parent().parent().find(".fullmask").stop(true, true).delay(280).animate({marginTop: margin + "px"}, {duration: 600});
-		
 	}
-	
-
-
 }
 /*nfull ppt tabbed content*/
 var PPTTabbedContent = {
@@ -125,12 +120,19 @@ $(".nfull_tabbed_content").css("height",pptheight+"px");
 		$(".bt-to-ppt").live('click', function() {
 	     	
 			$(".progress_bar").addClass("progress-to-hide");
-			$(".mp-menu-act").css("display","block");
+			$(".mp-menu-act").css("margin-left",0+"px");
+			$("#nav-left").css("margin-left",30+"px");
+			$(".mp-menu ul li .function2").addClass('function-act');
+		$(".mp-menu ul li .function2").addClass('active');
+		$("#prepare-class").css("marginTop",55+"px");
 		});
 		$(".choose-to-ppt ul li").live('click', function() {
 	     	
 			$(".progress_bar").addClass("progress-to-hide");
-			$(".mp-menu-act").css("display","block");
+			$(".mp-menu-act").css("margin-left",0+"px");
+			$("#nav-left").css("margin-left",30+"px");
+			$(".mp-menu ul li .function2").addClass('function-act');
+		$(".mp-menu ul li .function2").addClass('active');
 			
 		});
 	},
@@ -150,6 +152,11 @@ $(".nfull_tabbed_content").css("height",pptheight+"px");
 }
 
 $(document).ready(function() {
+new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+var sreenheight = document.body.clientHeight;
+$(".bb-item img").css("height",sreenheight+"px");
+				Page.init();
+				
 var sreenHeight= document.body.clientHeight;
 document.getElementById( "code_exp").style.height =sreenHeight+"px";
 document.getElementById( "video").style.height =sreenHeight+"px";

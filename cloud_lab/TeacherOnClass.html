@@ -10,11 +10,13 @@
 <script src="js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
+<link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/teacheronclass.css" />
 <link rel="stylesheet" type="text/css" href="css/leftmenu.css" />
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
-<link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
 
+  <link href="css/nav.css" rel="stylesheet" media="screen"/>
+  
 <script src="js/teacheronclass.js"></script>
 <script type="text/javascript" src="TeacherOnClassAjax.js"></script>
 
@@ -85,15 +87,26 @@
   <a href="#" id="trigger" class="mp-menu-act"></a>
   <div class="Pconf">
     <div class="topmenu" >
-       <div id="nav-center">
+ <nav id='nav'>
+    <div id="nav-left">
+      <img src="img/logo.png">
+      <h4>Oracle 云教学实验室</h4>
+    </div>
+    <div id="nav-right">
       <ul class="nav">
-        <li><a class="tab-a active-a"><img src="img/logo-pc.png">备课</a></li>
-        <li><a class="tab-a"><img src="img/logo-oc.png">上课</a></li>
-        <li><a class="tab-a"><img src="img/logo-ex.png">实验</a></li>
-        <li><a class="tab-a last-btn"><img src="img/logo-hw.png">作业</a></li>
+        <li><a class="tab-a"><div class="tab-a-logo tab-a-logo-0"></div></a></li>
       </ul>
     </div>
- 
+    <div id="nav-center">
+      <ul class="nav">
+        <li><a class="tab-a "><div class="tab-a-logo tab-a-logo-1"></div>备课</a></li>
+        <li><a class="tab-a active-a"><div class="tab-a-logo tab-a-logo-2"></div>上课</a></li>
+        <li><a class="tab-a"><div class="tab-a-logo tab-a-logo-3"></div>实验</a></li>
+        <li><a class="tab-a last-btn"><div class="tab-a-logo tab-a-logo-4"></div>作业</a></li>
+      </ul>
+    </div>
+  </nav>
+
     </div>
   </div>
   <div class='slide_content'>
@@ -219,10 +232,14 @@
                       <div class='tab_item tab_item8'> </div>
                     </div>
                     <div class='nfull_slide_content' >
-                      <div class="Pconf">
+                      <div class="Pconf" style="text-align: left;">
                         <button class="bt_preclass btn btn-primary " id="btn_prevlesson">上一节</button>
-                        <button class="bt_preclass btn btn-primary " id="btn_nextlesson">下一节</button>
-                        <button class="bt_preclass btn btn-primary " id="btn_over">下课</button>
+                      
+                      </div>
+					  <div class="Pconf"  style="text-align: right;">
+         
+                        <button class="bt_nextclass btn btn-primary " id="btn_nextlesson">下一节</button>
+                      
                       </div>
                       <div class='nfull_tabslider'>
                         <div class="pptm" > <img src="img/ppt01.PNG" class="pptm_img"></img> </div>
@@ -234,18 +251,27 @@
                         <div class="pptm "> <img src="img/ppt02.PNG" class="pptm_img"></img> </div>
                         <div class="pptm "> <img src="img/ppt03.PNG" class="pptm_img"></img> </div>
                       </div>
+					   <div class="Pconf">
+                        <button class="bt_preclass btn btn-primary " id="btn_over">下课</button>
+                      </div>
+                    
                       <div class="Pconf">
                         <button class="bt_fullsreen"></button>
                       </div>
                     </div>
                     <div class="nfullr">
                       <div class="nfullnote">
-                        <ul class="nav nav-pills nav-stacked" style="margin-top: 5px;">
+					  <div class="Pconf">
+                        <ul class="nav nav-pills nav-stacked notetitle" >
                           <li class="active" > <a href="#" style="font-size: 16px;"> 备注 </a> </li>
                         </ul>
-                        <textarea class="form-control" rows="6">This is the html named 'teacherOnClass' with version 0.9.6.In order to derive tribute at my deficiencies please correct me criticism.This page is powered by Jan Du(qq:526097589).</textarea>
-                        <button type="button" class="btn btn-primary testt" style="float:right;margin-top: 10px;">提交</button>
-                        <button type="button" class="btn btn-info" style="float:right;margin-top: 10px;margin-right: 15px;">重置</button>
+						</div>
+            <textarea class="form-control notearea"></textarea>
+						<div class="Pconf btdiv">
+                        <button type="button" class="btn btn-primary notesubmit" id="notesubmit" >提交</button>
+                        <button type="button" class="btn btn-info notereset" id="notereset ">重置</button>
+						</div>
+						
                       </div>
                       <div class="nfullqa">
                         <ul class="nav nav-pills nav-stacked">
@@ -329,16 +355,10 @@
 		</script> 
 
 <!--pptfullsreenjs--> 
-<script src="js/jquery.jscrollpane.min.js"></script> 
-<script src="js/jquery.bookblock.js"></script> 
-<script src="js/page.js"></script> 
-<script>
-			$(function() {
-var sreenheight = document.body.clientHeight;
-$(".bb-item img").css("height",sreenheight+"px");
-				Page.init();
+		<script src="js/jquery.jscrollpane.min.js"></script>
+		<script src="js/jquerypp.custom.js"></script>
+		<script src="js/jquery.bookblock.js"></script>
+		<script src="js/page.js"></script>
 
-			});
-		</script>
 </body>
 </html>

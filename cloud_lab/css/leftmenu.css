@@ -188,6 +188,7 @@ background: #05b9dc;
 	display: block;
 }
 .mp-menu-act {
+margin-left:-40px;
 	position: fixed;
 	left: 10px;
 	top: 10px;
@@ -198,7 +199,6 @@ background: #05b9dc;
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 0.5s;
 	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
-	display:none;
 }
 .mp-menu-act:hover {
 	opacity: 1;

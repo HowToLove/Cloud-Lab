@@ -92,48 +92,6 @@ body {
 	text-align: center;
 	box-shadow: 0 1px 22px rgba(0,0,0,0.3);
 }
-.topmenu ul {
-	width: 800px;
-	margin: 0 auto;
-}
-#nav-center {
-	width: 500px;
-	margin: 0 auto;
-}
-#nav-center ul {
-	height: 55px;
-	width: 452px;
-}
-.topmenu ul.nav li {
-	float: left;
-	position: relative;
-	width: 113px;
-	height: 55px;
-	padding-left: 2px;
-	background: url("../img/divider.png") left no-repeat;
-	text-align: left;
-	transition: background-color 0.1s ease-out;
-	list-style-type: none;
-}
-.topmenu ul.nav li a {
-	padding: 0px 0px;
-	font-size: 16px;
-	font-weight: bold;
-	line-height: 3.5;
-	width: 113px;
-	height: 55px;
-	display: block;
-	text-decoration: none;
-	text-align: center;
-	transition: background-color 0.2s ease-out;
-}
-.topmenu ul.nav li a:hover {
-	background-color: #05b9dc;
-	transition: background-color 0.2s ease-out;
-}
-.topmenu ul.nav li .active-a {
-	box-shadow: 0px -5px #05b9dc inset;
-}
 /* /fullmask */
 /* nfulltabbedcontent */
 .nfull_tabbed_content {
@@ -145,7 +103,7 @@ body {
 .nfull_ppt_tabs {
 	height: 100%;
 	position: relative;
-	width: 200px;
+	width: 190px;
 	float: left;
 	background: #ACAEB4;
 	overflow-y: scroll;
@@ -229,8 +187,9 @@ background:#FFF;
 margin-left:10px;
 	}
 	.nfullnote{
-		width:95%;
+		width:100%;
 		height:40%;
+		overflow:hidden;
 		}
 .nfullqa{
 	width:95%;
@@ -249,8 +208,58 @@ margin-left:10px;
 	.item-to-top{
 	padding-top:0px;
 	}
-	.bt_preclass,.bt_nextclass{
+	.bt_preclass{
+	margin-left: 5px;
+margin-top: 5px;
 	}
+	.bt_nextclass{
+	margin-right: 5px;
+margin-top: 5px;
+	}
+	#btn_over{
+	margin-top: -40px;
+margin-right: 60px;
+float: right;
+	}
+
+	.nfullnote .notearea{
+	margin-top:42px;
+	height:100%;
+	width:100%;
+		-webkit-transition-property: all;
+	-webkit-transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+	}
+	.nfullnote .notesubmit{
+	float:right;
+	margin-top: 10px;
+
+	}
+	.nfullnote .notereset{
+	float:right;margin-top: 10px;margin-right: 15px;
+
+	}
+	.nfullnote .notetitle{
+	margin-top:-42px;
+		-webkit-transition-property: all;
+	-webkit-transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+	}
+	.btdiv{
+			-webkit-transition-property: all;
+	-webkit-transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+	}
+		.nfullnote:hover .notetitle{
+margin-top:0px;
+	}
+	.nfullnote:hover .notearea{
+ height:80%;
+	}
+	.nfullnote:hover .btdiv{
+margin-top:-50px;
+	}
+
 /* /nfulltabbedcontent */
 /* ppttabbedcontent */
 
@@ -345,3 +354,7 @@ height:100%;
 float:left;
 }
 /* /codeexample */
+::-webkit-scrollbar {
+width: 10px;
+background: #2a2e3a;
+}

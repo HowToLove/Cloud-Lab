@@ -13,6 +13,9 @@
 	float:left;
 	height: 55px;
 	padding: 8px 0 0 8px;
+		-webkit-transition-property: all;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
 }
 #nav-left img,#nav-left h4{
 	float:left;
