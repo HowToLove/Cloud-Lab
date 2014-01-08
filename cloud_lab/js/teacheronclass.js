@@ -170,10 +170,24 @@ $('.ppt_slide_content').css('height', sreenHeight+'px');
 	NotFullScreenTabbedContent.init();
 	 var pptheight = $('.ppt_tabslider').height()-55;
 	 var sreenwidth = document.body.clientWidth;
-$(".nfull_tabbed_content").css("height",pptheight+"px"); 
+ $(".nfull_tabbed_content").css("height",pptheight+"px"); 
 	 var pptwidth = $('.nfull_tabbed_content').height()*4/3;
-	$(".nfull_slide_content").css("width",pptwidth+"px");  
-	$(".pptm").css("width",pptwidth+"px");  
+	  var pptwidth1 = $('.nfull_tabbed_content').width()-190;
+	  var pptheight1 = pptwidth1*3/4;
+	 $(".nfull_slide_content").css("width",pptwidth+"px");  
+	  $(".pptm").css("width",pptwidth+"px");  	
+
+	if(pptwidth1>pptwidth)
+	  {
+	  
+	
+	  }
+	  else{
+	//  $(".nfull_slide_content").css("width",pptwidth1+"px");  
+	  //$(".pptm").css("width",pptwidth1+"px"); 
+		
+	 }
+	   
 	 var nfullrwidth=sreenwidth-pptwidth-210;
 	$(".nfullr").css("width",nfullrwidth+"px");  
 });

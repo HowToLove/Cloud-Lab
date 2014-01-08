@@ -232,6 +232,9 @@ background:url(../img/book_b.png);
 .function_icon7{
 background:url(../img/coding_b.png);
 }
+.function_icon8{
+background:url(../img/stuques_b.png);
+}
 
  .function1:hover  .function_icon1,.function1.active .function_icon1{
 background:url(../img/search.png);
@@ -258,6 +261,9 @@ background:url(../img/book.png);
 
  .function7:hover  .function_icon7 ,.function7.active .function_icon7{
 background:url(../img/coding.png);
+}
+ .function8:hover  .function_icon8 ,.function8.active .function_icon8{
+background:url(../img/stuques.png);
 }
 .function-act{
 color:#fff;
