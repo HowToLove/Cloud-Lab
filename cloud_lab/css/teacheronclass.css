@@ -33,6 +33,7 @@ body {
 	font-weight: 300;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	overflow-x: hidden;
+	min-height: 560px;
 }
 .clearfix:before, .clearfix:after {
 	display: table;
@@ -44,6 +45,7 @@ body {
 .mp-pusher {
 	width: 100%;
 	height: 100%;
+
 }
 /* overlays for pusher and for level that gets covered */
 .mp-pusher::after, .mp-level::after, .mp-level::before {
@@ -333,36 +335,44 @@ opacity: 0.5;
 /* codeexample */
 #code_exp,#video,#taskeva,#bookreq,#stuquestion{
 width: 100%;
-	overfllow:hidden;
+	overflow:hidden;
 }
 #video{
-background:pink;
+background:#000;
 }
 #qa{
 }
 #taskeva{
-background:#3da1d1;
+background:#CFCFCF;
 }
 #bookreq{
 background:#ADEC3C;
 }
 .taskq{
-width:50%;
+width:80%;
 height:100%;
-float:left;
+margin:0 auto;
+
 }
 .taskq1{
 width:100%;
-height:30%;
+height: 150px;
 }
-.taskq2{
-width:100%;
-height:70%;
-}
+
 .taska{
-width:50%;
+width:100%;
 height:100%;
-float:left;
+
+}
+.codearea{
+width:100%;
+height:95%;
+overflow-y:auto;
+float: left;
+}
+#code_exp .nav-tabs{
+margin-top: 60px;
+margin-left: 10px ;
 }
 /* /codeexample */
 ::-webkit-scrollbar {
