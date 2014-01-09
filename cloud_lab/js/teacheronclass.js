@@ -88,7 +88,9 @@ $("#code_exp .nav-tabs").css("margin-left",50+"px");
 	slideToNotFull: function(obj) {
 $(".topmenu").addClass("topmenu-to-show");
 	$(".topmenu").removeClass("topmenu-to-hide");
-		
+		$("#code_exp .nav-tabs").css("margin-left",10+"px");
+		$("#code_exp .nav-tabs").css("margin-top",70+"px");
+		$("#taskeva .taskq").css("margin-top",70+"px");
 		$(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
 		var margin = $(".ppt_slide_content").width();
 		margin = margin * (0);
