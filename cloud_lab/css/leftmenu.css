@@ -254,6 +254,6 @@
 	color: #fff;
 	box-shadow: -8px 0px #05b9dc inset;
 }
-.choose-chapter {
+.choose-chapter ,.choose-lesson{
 	width: 400px;
 }

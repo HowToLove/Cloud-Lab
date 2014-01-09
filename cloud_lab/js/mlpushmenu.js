@@ -120,7 +120,7 @@
 					bodyClickFn( this );
 });
 $( ".choose-chapter ul ul li" ).mousedown(function() {
-					bodyClickFn( this );
+				bodyClickFn( this );
 });
 				}
 			} );
