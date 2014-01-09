@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/jquery-1.8.2.min.js"></script>
 <script src="js/modernizr.custom.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/book.css" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 <link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/teacheronclass.css" />
 <link rel="stylesheet" type="text/css" href="css/leftmenu.css" />
@@ -17,7 +17,6 @@
 <script src="js/teacheronclass.js"></script>
 <script type="text/javascript" src="TeacherOnClassAjax.js"></script>
 <script src="js/PrepareClass.js"></script>
-<script src="js/modernizr.custom.js"></script>
 <title>教师上课</title>
 </head>
 <body>
@@ -527,7 +526,54 @@ $(".topmenu").addClass("topmenu-to-show");
         <source src="../1.mp4" type="video/mp4">
         Your browser does not support the video tag. </video>
     </div>
-    <div id="stuquestion"> </div>
+    <div id="stuquestion"> 
+	<div class="qinfo"></div>
+	<div class="qchat" style="margin-top:60px;">
+	
+                      <ul class="nav nav-pills nav-stacked">
+                        <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 讨论区 </a> </li>
+                      </ul>
+                      <div class="chatbubble">
+                        <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
+                        <div class="talkbubble"> 
+						
+						<textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						</textarea>
+						</div>
+                        </div>
+                        <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
+                          <div class="talkbubble2"> 
+							<textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						</textarea>
+						</div>
+                       
+                        </div>
+                       <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
+                        <div class="talkbubble"> 
+						
+						<textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						</textarea>
+						</div>
+                        </div>
+                        <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
+                          <div class="talkbubble2"> 
+							<textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+						</textarea>
+						</div>
+                       
+                        </div>
+                       
+					  </div>
+					  <div class="chatpost">
+                      <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
+                      <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">发送</button>
+					  </div>
+                    </div>
+                 
+	
+	
+
+	</div>
     <div id="taskeva">
       <div class="taskq" style="margin-top:55px">
         <div class="taskq1" >

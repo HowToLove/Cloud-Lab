@@ -363,6 +363,82 @@ body {
 	margin-top: 60px;
 	margin-left: 10px;
 }
+#stuquestion .qinfo,#stuquestion .qchat{
+width:50%;
+height:100%;
+float:left;
+}
+#stuquestion .qchat{
+
+}
+
+.talkbubble {
+   width: 80%;
+height: 80px;
+background: rgb(167, 235, 113);
+position: relative;
+-moz-border-radius: 10px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+margin-left: 80px;
+}
+.talkbubble:before {
+text-align:left;
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 26px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+ border-right: 18px solid rgb(167, 235, 113);
+   border-bottom: 13px solid transparent;
+}
+.talkbubble2 {
+   width: 80%;
+height: 80px;
+background: rgb(167, 235, 113);
+position: relative;
+-moz-border-radius: 10px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+margin-left: 60px;
+}
+.talkbubble2:after {
+right: -18px;
+   content:"";
+   position: absolute;
+   top: 26px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+ border-left: 18px solid rgb(167, 235, 113);
+   border-bottom: 13px solid transparent;
+}
+.chatbubble{
+width: 99%;
+height: 60%;
+}
+.chatpost{
+width:99%;
+height:40%;
+}
+.singleb{
+margin-top:10px;
+}
+.bubbletext{
+width: 95%;
+height: 95%;
+margin: 0 auto;
+text-align: left;
+margin-top: 5px;
+background: none;
+border: none;
+overflow: hidden;
+outline:none;
+
+resize: none; 
+}
 /* /codeexample */
 ::-webkit-scrollbar {
 width: 10px;
