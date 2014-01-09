@@ -138,6 +138,7 @@ $(".nfull_tabbed_content").css("height",pptheight+"px");
 			$("#nav-left").css("margin-left",30+"px");
 			$(".mp-menu ul li .function2").addClass('function-act');
 		$(".mp-menu ul li .function2").addClass('active');
+		$("#prepare-class").css("marginTop",55+"px");
 			
 		});
 	},
