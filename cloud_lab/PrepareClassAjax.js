@@ -211,7 +211,7 @@ $(function() {
 	});
 
 	// 请求题目
-	$(document).on("click", "1", function() {
+	$("#btn_completeppt").click(function() {
 		$.ajax({
 			url: 'main/prepareclass.php',
 			type: 'POST',
@@ -224,6 +224,7 @@ $(function() {
 			},
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data) {
+
 			},
 			complete: function(XMLHttpRequest, textStatus) {},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
