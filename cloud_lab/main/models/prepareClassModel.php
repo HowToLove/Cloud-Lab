@@ -8,7 +8,7 @@
 	function getSnapAndRemarkOfPPT($classId,$charpter,$lesson)
 	{
 		$slides;
-		$vedio;
+		$video;
 		$remarkTemp;
 		$remark;
 		$sql = "SELECT Detail.PIC_URL AS url,Detail.VIDEO_SECTION AS section 
@@ -21,7 +21,7 @@
 		$i = 0;
 		while($row = mysql_fetch_array($result)){
 			$slides[$i] = $row['url'];
-			$vedio[$i++] = $row['section'];			
+			$video[$i++] = $row['section'];			
 		}
 		$sql = "SELECT Remark.PPT_PAGE_NUM AS page,Remark.REMARK AS remark 
 		FROM t_ppt_remark Remark,t_ppt_info Info,t_class_info Class
@@ -42,7 +42,7 @@
 		}
 
 		$ret['snap'] = $slides;
-		$ret['vedio'] = $vedio;
+		$ret['video'] = $video;
 		$ret['remark'] = $remark;
 		mysql_free_result($result);	
 		return $ret;
