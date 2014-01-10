@@ -206,6 +206,8 @@ p.underline{
 	min-height: 100px;
 	border-radius: 0 0 8px 8px;
 	box-shadow: #aaa 3px 5px 10px;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 #environment-body p{
 	font-size:16px;
