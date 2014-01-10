@@ -1,10 +1,11 @@
 
 /*full mask tabbed content*/
+var fullindex=0;
 var TabbedContent = {
 	init: function() {	
 		$(".mp-menu .mp-level .tab_item").mousedown(function() {
 
-			TabbedContent.slideContent($(this));
+			TabbedContent.slideContent($(this),280,600);
 			
 		});
 		$(".mp-menu ul li > a ").mousedown(function() {
@@ -21,23 +22,21 @@ $(".mp-menu ul li > a").removeClass('active');
    var sreenHeight= document.body.clientHeight;
 document.getElementById( "code_exp").style.height =sreenHeight+"px";
 document.getElementById( "video").style.height =sreenHeight+"px";
+document.getElementById( "stuquestion").style.height =sreenHeight+"px";
 document.getElementById( "taskeva").style.height =sreenHeight+"px";
 document.getElementById( "bookreq").style.height =sreenHeight+"px";
 $('.ppt_slide_content').css('height', sreenHeight+'px');
-	if($(".fullmask").css("marginTop")!=0+"px")
-	{
-	
-	 $(".fullmask").css("marginTop",-sreenHeight+"px");
-	}
+	TabbedContent.slideContent($(fullindex),0,0);
 });
 	
 	},
 	
-	slideContent: function(obj) {
+	slideContent: function(obj,delaytime,durationtime) {
+	 fullindex=obj;
 		var margin = $(obj).parent().parent().parent().parent().find(".slide_content").height();
 		margin = margin * ($(obj).prevAll().length-1 );
 		margin = margin * -1;
-		$(obj).parent().parent().parent().parent().find(".fullmask").stop(true, true).delay(280).animate({marginTop: margin + "px"}, {duration: 600});
+		$(obj).parent().parent().parent().parent().find(".fullmask").stop(true, true).delay(delaytime).animate({marginTop: margin + "px"}, {duration: durationtime});
 	}
 }
 /*nfull ppt tabbed content*/
@@ -72,7 +71,10 @@ $(".bb-item img").css("height",sreenheight+"px");
 	$(".topmenu").removeClass("topmenu-to-show");
 	$(".topmenu").addClass("topmenu-to-hide");
 		$(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-		//$(".mp-menu-act").css("opacity",0.5);
+$("#code_exp .nav-tabs").css("margin-left",50+"px");
+		$("#code_exp .nav-tabs").css("margin-top",10+"px");
+		$("#taskeva .taskq").css("margin-top",0+"px");
+		
 		var margin = $(".ppt_slide_content").width();
 		margin = margin * (1);
 		margin = margin * -1;
@@ -86,7 +88,9 @@ $(".bb-item img").css("height",sreenheight+"px");
 	slideToNotFull: function(obj) {
 $(".topmenu").addClass("topmenu-to-show");
 	$(".topmenu").removeClass("topmenu-to-hide");
-		
+		$("#code_exp .nav-tabs").css("margin-left",10+"px");
+		$("#code_exp .nav-tabs").css("margin-top",70+"px");
+		$("#taskeva .taskq").css("margin-top",70+"px");
 		$(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
 		var margin = $(".ppt_slide_content").width();
 		margin = margin * (0);
@@ -100,6 +104,7 @@ $(".topmenu").addClass("topmenu-to-show");
 	}
 }
 /*nfull mask tabbed content*/
+var nfullpptindex=0;
 var NotFullScreenTabbedContent = {
 	init: function() {	
 $( window ).resize(function() {
@@ -111,11 +116,12 @@ $(".nfull_tabbed_content").css("height",pptheight+"px");
 	var sreenwidth = document.body.clientWidth;
 	var nfullrwidth=sreenwidth-pptwidth-210;
 	$(".nfullr").css("width",nfullrwidth+"px");  
-	
+		NotFullScreenTabbedContent.slideContent($(nfullpptindex),0);
 });
 	
 		$(".nfull_ppt_tabs .tab_item").live('click', function() {
-			NotFullScreenTabbedContent.slideContent($(this));
+		nfullpptindex=this;
+			NotFullScreenTabbedContent.slideContent($(this),500);
 		});
 		$(".bt-to-ppt").live('click', function() {
 	     	
@@ -127,17 +133,17 @@ $(".nfull_tabbed_content").css("height",pptheight+"px");
 		$("#prepare-class").css("marginTop",55+"px");
 		});
 		$(".choose-to-ppt ul li").live('click', function() {
-	     	
 			$(".progress_bar").addClass("progress-to-hide");
 			$(".mp-menu-act").css("margin-left",0+"px");
 			$("#nav-left").css("margin-left",30+"px");
 			$(".mp-menu ul li .function2").addClass('function-act');
 		$(".mp-menu ul li .function2").addClass('active');
+		$("#prepare-class").css("marginTop",55+"px");
 			
 		});
 	},
 	
-	slideContent: function(obj){
+	slideContent: function(obj,durationtime){
 		
 		var margin = $(obj).parent().parent().find(".nfull_slide_content").width();
 		margin = margin * $(obj).prevAll().size();
@@ -146,7 +152,7 @@ $(".nfull_tabbed_content").css("height",pptheight+"px");
 		$(obj).parent().parent().find(".nfull_tabslider").stop().animate({
 			marginLeft: margin + "px"
 		}, {
-			duration: 500
+			duration: durationtime
 		});
 	}
 }
@@ -160,6 +166,7 @@ $(".bb-item img").css("height",sreenheight+"px");
 var sreenHeight= document.body.clientHeight;
 document.getElementById( "code_exp").style.height =sreenHeight+"px";
 document.getElementById( "video").style.height =sreenHeight+"px";
+document.getElementById( "stuquestion").style.height =sreenHeight+"px";
 document.getElementById( "taskeva").style.height =sreenHeight+"px";
 document.getElementById( "bookreq").style.height =sreenHeight+"px";
 $('.ppt_slide_content').css('height', sreenHeight+'px');
@@ -168,10 +175,24 @@ $('.ppt_slide_content').css('height', sreenHeight+'px');
 	NotFullScreenTabbedContent.init();
 	 var pptheight = $('.ppt_tabslider').height()-55;
 	 var sreenwidth = document.body.clientWidth;
-$(".nfull_tabbed_content").css("height",pptheight+"px"); 
+ $(".nfull_tabbed_content").css("height",pptheight+"px"); 
 	 var pptwidth = $('.nfull_tabbed_content').height()*4/3;
-	$(".nfull_slide_content").css("width",pptwidth+"px");  
-	$(".pptm").css("width",pptwidth+"px");  
+	  var pptwidth1 = $('.nfull_tabbed_content').width()-190;
+	  var pptheight1 = pptwidth1*3/4;
+	 $(".nfull_slide_content").css("width",pptwidth+"px");  
+	  $(".pptm").css("width",pptwidth+"px");  	
+
+	if(pptwidth1>pptwidth)
+	  {
+	  
+	
+	  }
+	  else{
+	//  $(".nfull_slide_content").css("width",pptwidth1+"px");  
+	  //$(".pptm").css("width",pptwidth1+"px"); 
+		
+	 }
+	   
 	 var nfullrwidth=sreenwidth-pptwidth-210;
 	$(".nfullr").css("width",nfullrwidth+"px");  
 });

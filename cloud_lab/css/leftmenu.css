@@ -1,11 +1,9 @@
-
 #mp-menu ul li a {
 	text-decoration: none;
-	color:rgb(58, 157, 235);
-	
+	color: rgb(58, 157, 235);
 }
-#mp-menu ul li  {
-background: url("../img/dividert.png") top repeat-x;
+#mp-menu ul li {
+	background: url("../img/dividert.png") top repeat-x;
 }
 #mp-menu ul li a:hover {
 	text-decoration: none;
@@ -72,7 +70,6 @@ background: url("../img/dividert.png") top repeat-x;
 .mp-overlap .mp-level.mp-level-open {
 	box-shadow: 1px 0 2px rgba(0,0,0,0.2);
 	-webkit-transform: translate3d(-240px, 0, 0);
-
 }
 /* First level */
 .mp-menu > .mp-level, .mp-menu > .mp-level.mp-level-open, .mp-menu.mp-overlap > .mp-level, .mp-menu.mp-overlap > .mp-level.mp-level-open {
@@ -132,18 +129,13 @@ background: url("../img/dividert.png") top repeat-x;
 	-moz-transition: background 0.3s, box-shadow 0.3s;
 	transition: background 0.3s, box-shadow 0.3s;
 }
-
-
 .mp-level > ul > li:first-child > a {
-	/*box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);*/
+/*box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);*/
 }
-
 .mp-menu ul li a:hover {
-background: #05b9dc;
+	background: #05b9dc;
 	box-shadow: inset 0 -1px rgba(0,0,0,0);
 }
-
-
 .mp-menu .mp-level.mp-level-overlay > ul > li > a, .mp-level.mp-level-overlay > ul > li:first-child > a {
 	box-shadow: inset 0 -1px rgba(0,0,0,0);
 }
@@ -188,7 +180,7 @@ background: #05b9dc;
 	display: block;
 }
 .mp-menu-act {
-margin-left:-40px;
+	margin-left: -40px;
 	position: fixed;
 	left: 10px;
 	top: 10px;
@@ -208,64 +200,60 @@ margin-left:-40px;
 	height: 28px;
 	margin-right: 10px;
 	float: left;
-		-webkit-transition: all 0.3s;
-
+	-webkit-transition: all 0.3s;
 }
-.function_icon1{
-background:url(../img/search_b.png);
+.function_icon1 {
+	background: url(../img/search_b.png);
 }
-.function_icon2{
-background:url(../img/ppt_b.png);
+.function_icon2 {
+	background: url(../img/ppt_b.png);
 }
-.function_icon3{
-background:url(../img/program_b.png);
+.function_icon3 {
+	background: url(../img/program_b.png);
 }
-.function_icon4{
-background:url(../img/video_b.png);
+.function_icon4 {
+	background: url(../img/video_b.png);
 }
-.function_icon5{
-background:url(../img/taskexplain_b.png);
+.function_icon5 {
+	background: url(../img/taskexplain_b.png);
 }
-.function_icon6{
-background:url(../img/book_b.png);
+.function_icon6 {
+	background: url(../img/book_b.png);
 }
-.function_icon7{
-background:url(../img/coding_b.png);
+.function_icon7 {
+	background: url(../img/coding_b.png);
 }
-
- .function1:hover  .function_icon1,.function1.active .function_icon1{
-background:url(../img/search.png);
+.function_icon8 {
+	background: url(../img/stuques_b.png);
 }
- .function2:hover  .function_icon2,.function2.active .function_icon2{
-background:url(../img/ppt.png);
+.function1:hover .function_icon1, .function1.active .function_icon1 {
+	background: url(../img/search.png);
 }
-
- .function3:hover  .function_icon3,.function3.active .function_icon3{
-background:url(../img/program.png);
+.function2:hover .function_icon2, .function2.active .function_icon2 {
+	background: url(../img/ppt.png);
 }
-
- .function4:hover  .function_icon4,.function4.active .function_icon4{
-background:url(../img/video.png);
+.function3:hover .function_icon3, .function3.active .function_icon3 {
+	background: url(../img/program.png);
 }
-
- .function5:hover  .function_icon5,.function5.active .function_icon5{
-background:url(../img/taskexplain.png);
+.function4:hover .function_icon4, .function4.active .function_icon4 {
+	background: url(../img/video.png);
 }
-
- .function6:hover  .function_icon6,.function6.active .function_icon6{
-background:url(../img/book.png);
+.function5:hover .function_icon5, .function5.active .function_icon5 {
+	background: url(../img/taskexplain.png);
 }
-
- .function7:hover  .function_icon7 ,.function7.active .function_icon7{
-background:url(../img/coding.png);
+.function6:hover .function_icon6, .function6.active .function_icon6 {
+	background: url(../img/book.png);
 }
-.function-act{
-color:#fff;
-box-shadow: -8px 0px #05b9dc inset;
+.function7:hover .function_icon7, .function7.active .function_icon7 {
+	background: url(../img/coding.png);
 }
-.choose-chapter{
-width:400px;
+.function8:hover .function_icon8, .function8.active .function_icon8 {
+	background: url(../img/stuques.png);
 }
-
-
-
+.function-act {
+	color: #fff;
+	box-shadow: -8px 0px #05b9dc inset;
+}
+.choose-chapter ,.choose-lesson{
+	width: 400px;
+}

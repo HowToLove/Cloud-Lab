@@ -6,20 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/jquery-1.8.2.min.js"></script>
 <script src="js/modernizr.custom.js"></script>
-  <script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="css/book.css" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 <link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
-<link rel="stylesheet" type="text/css" href="css/teacheronclass.css" />
+<link rel="stylesheet" type="text/css" href="css/studentonclass.css" />
 <link rel="stylesheet" type="text/css" href="css/leftmenu.css" />
+<link rel="stylesheet" type="text/css" href="css/PrepareClass.css" />
 <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
 <link href="css/nav.css" rel="stylesheet" media="screen"/>
 <script src="js/teacheronclass.js"></script>
 <script type="text/javascript" src="TeacherOnClassAjax.js"></script>
 <script src="js/PrepareClass.js"></script>
-
-  <script src="js/PrepareClass.js"></script>
-<title>教师上课</title>
+<title>学生复习</title>
 </head>
 <body>
 <div class="onclasscontainer">
@@ -34,34 +33,51 @@
       <li class="icon icon-arrow-left " > <a class="function1">
         <div class="function_icon function_icon1" ></div>
         检索课程</a>
-        <div class="mp-level choose-chapter">
+        <div class="mp-level choose-lesson">
           <h2 >检索课程</h2>
           <a class="mp-back" href="#">返回</a>
           <ul>
-            <li class="icon icon-arrow-left"> <a  href="#">第一章 </a>
-              <div class="mp-level">
+            <li class="icon icon-arrow-left"> <a  href="#">数据库原理 </a>
+              <div class="mp-level  choose-chapter">
+                <h2>数据库原理</h2>
+                <a  class="mp-back" href="#">返回</a>
+                <ul>
+                  <li>
+				  <a href="#">第一章</a>
+				  <div class="mp-level">
                 <h2>第一章</h2>
                 <a  class="mp-back" href="#">返回</a>
                 <ul>
-                  <li><a href="#">第一节</a></li>
+                  <li>
+				  <a href="#">第一节</a></li>
                 </ul>
               </div>
-            </li>
-            <li class="icon icon-arrow-left"> <a href="#">第二章</a>
-              <div class="mp-level">
+           
+				  </li>
+ <li>
+				  <a href="#">第二章</a>
+				  <div class="mp-level">
                 <h2>第二章</h2>
                 <a  class="mp-back" href="#">返回</a>
                 <ul>
-                  <li><a href="#">第一节</a></li>
+                  <li>
+				  <a href="#">第一节</a></li>
+				  <li>
+				  <a href="#">第二节</a></li>
                 </ul>
               </div>
+           
+				  </li>
+                             
+			   </ul>
+              </div>
             </li>
-          </ul>
+            </ul>
         </div>
       </li>
       <li class="tab_item"><a class="function2">
         <div class="function_icon function_icon2"  ></div>
-        PPT演示</a></li>
+        PPT复习</a></li>
       <li class="tab_item"><a class="function3">
         <div class="function_icon function_icon3" ></div>
         示例程序</a></li>
@@ -77,10 +93,7 @@
       <li class="tab_item"><a class="function6">
         <div class="function_icon function_icon6" ></div>
         推荐书目</a></li>
-      <li ><a class="function7">
-        <div class="function_icon function_icon7" ></div>
-        现场编程</a></li>
-    </ul>
+       </ul>
   </div>
 </nav>
 <!-- /mp-menu --> 
@@ -101,11 +114,11 @@
       <div id="nav-center">
         <ul class="nav">
           <li><a class="tab-a ">
-            <div class="tab-a-logo tab-a-logo-1"></div>
-            备课</a></li>
-          <li><a class="tab-a active-a">
             <div class="tab-a-logo tab-a-logo-2"></div>
             上课</a></li>
+          <li><a class="tab-a active-a">
+            <div class="tab-a-logo tab-a-logo-1"></div>
+            复习</a></li>
           <li><a class="tab-a">
             <div class="tab-a-logo tab-a-logo-3"></div>
             实验</a></li>
@@ -142,8 +155,8 @@
                     <a href="#prepare-class" data-slide="next" data-toggle="tab">
                     <h3 class="underline">HTML5基础</h3>
                     </a>
-                    <p style="color:#000;">已上至第x章第x节xxxxxx</p>
-                    <a class="button-blue indicator-hide bt-to-ppt" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="2">立即上课</a> </div>
+                    <p style="color:#000;">已复习至第x章第x节xxxxxx</p>
+                    <a class="button-blue indicator-hide bt-to-ppt" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="2">立即复习</a> </div>
                   <div class="class-list-right">
                     <div class="class-questions">
                       <p>未解答提问</p>
@@ -263,39 +276,18 @@
                       <div class="pptm "> <img src="img/ppt03.PNG" class="pptm_img"></img> </div>
                     </div>
                     <div class="Pconf">
-                      <button class="bt_preclass btn btn-primary " id="btn_over">下课</button>
+                      <button class="bt_preclass btn btn-primary " id="btn_over">下载课件</button>
                     </div>
                     <div class="Pconf">
                       <button class="bt_fullsreen"></button>
                     </div>
                   </div>
                   <div class="nfullr">
-                    <div class="nfullnote">
-                      <div class="Pconf">
-                        <ul class="nav nav-pills nav-stacked notetitle" >
-                          <li class="active" > <a href="#" style="font-size: 16px;"> 备注 </a> </li>
-                        </ul>
-                      </div>
-                      <textarea class="form-control notearea"></textarea>
-                      <div class="Pconf btdiv">
-                        <button type="button" class="btn btn-primary notesubmit" id="notesubmit" >提交</button>
-                        <button type="button" class="btn btn-info notereset" id="notereset ">重置</button>
-                      </div>
-                    </div>
                     <div class="nfullqa">
                       <ul class="nav nav-pills nav-stacked">
-                        <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 学生提问 </a> </li>
+                        <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 讨论区 </a> </li>
                       </ul>
-                      <div class="stuqa">
-                        <div style="margin-top:5px;text-align:left;height:70px;"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:15px;">
-                          <div  style=" width:300px;height:70px;background:url(img/tdialog.png) no-repeat;background-size:contain;float:left;margin-left:10px;"> </div>
-                        </div>
-                        <div style="margin-top:5px;text-align:right;height:70px;"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-                          <div  style=" width:300px;height:70px;background:url(img/sdialog.png) no-repeat right;background-size:contain;float:right;margin-right:10px;"> </div>
-                        </div>
-                      </div>
-                      <textarea class="form-control" rows="4" style="margin-top:5px;">This is the html named 'teacherOnClass' with version 0.9.6.In order to derive tribute at my deficiencies please correct me criticism.This page is powered by Jan Du(qq:526097589).</textarea>
-                      <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">提交</button>
+                      
                     </div>
                   </div>
                 </div>
