@@ -52,16 +52,5 @@ $(document).ready(function(){
             var rwidth = $('#show-ppt').width() - $('#show-ppt-left').width() - $('#show-ppt-middle').width() - 15
             $('#show-ppt-right').width(rwidth)
       }
-      $(document).on('click', 'ul#ppt-list li a,a.ppt-prev,a.ppt-next', function(){
-            var href=$(this).attr('href')
-            $(href).addClass('ppt-list-active')
-            $(href).prevAll().removeClass('ppt-list-active')
-            $(href).nextAll().removeClass('ppt-list-active')
-            var str=parseInt($(href).attr('id').substring(9))-1
-            $('#ppt-content').css('margin-left',-$('#ppt-content li').width()*str)
-            setTimeout(function(){
-                  $('.ppt-prev').attr('href','#'+$('li.ppt-list-active').prev().attr('id'))
-                  $('.ppt-next').attr('href','#'+$('li.ppt-list-active').next().attr('id'))
-            },500)
-      })
+
 })
