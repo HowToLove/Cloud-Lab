@@ -359,4 +359,8 @@ $(function() {
 			$('#bb-bookblock').append(fullppt);
 		}
 	}
+
+	$("#btn_prepare").click(function() {
+		window.location.href = "PrepareClass.html";
+	});
 });

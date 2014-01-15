@@ -5,9 +5,9 @@ session_start();
 @require_once('../main/models/getClassInfoById.php');
 @require_once('../main/common/mysql_connect.php');
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
-$_SESSION['USER_ID']='5';
-$_SESSION['USER_TYPE']=2;
-
+// $_SESSION['USER_ID']='5';
+// $_SESSION['USER_TYPE']=2;
+// var_dump($_SESSION);
 
 ini_set("display_errors", "Off");
 

@@ -6,7 +6,8 @@ require_once('../main/common/mysql_connect.php');
 require_once('../main/models/getPrepareClassInfoById.php');
 require_once('../main/models/coursedetailModel.php');
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
-$_SESSION['USER_ID']='5';
+// $_SESSION['USER_ID']='5';
+// var_dump($_SESSION);
 
 //关闭自动输出error或者警告
 ini_set("display_errors", "Off");
