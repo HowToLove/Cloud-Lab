@@ -364,83 +364,159 @@ body {
 	margin-left: 10px;
 }
 #stuquestion .qinfo,#stuquestion .qchat{
-width:50%;
-height:100%;
-float:left;
+	width:45%;
+	margin:70px 2.5% 0 2.5%;
+	height:100%;
+	float:left;
 }
 #stuquestion .qchat{
 
 }
 
 .talkbubble {
-   width: 80%;
-height: 80px;
-background: rgb(167, 235, 113);
-position: relative;
--moz-border-radius: 10px;
--webkit-border-radius: 5px;
-border-radius: 5px;
-margin-left: 80px;
+	width: 80%;
+	height: 80px;
+	background: rgb(167, 235, 113);
+	position: relative;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: 80px;
 }
 .talkbubble:before {
-text-align:left;
-   content:"";
-   position: absolute;
-   right: 100%;
-   top: 26px;
-   width: 0;
-   height: 0;
-   border-top: 13px solid transparent;
- border-right: 18px solid rgb(167, 235, 113);
-   border-bottom: 13px solid transparent;
+	text-align:left;
+	content:"";
+	position: absolute;
+	right: 100%;
+	top: 26px;
+	width: 0;
+	height: 0;
+	border-top: 13px solid transparent;
+	border-right: 18px solid rgb(167, 235, 113);
+	border-bottom: 13px solid transparent;
 }
 .talkbubble2 {
-   width: 80%;
-height: 80px;
-background: rgb(167, 235, 113);
-position: relative;
--moz-border-radius: 10px;
--webkit-border-radius: 5px;
-border-radius: 5px;
-margin-left: 60px;
+	width: 80%;
+	height: 80px;
+	background: rgb(167, 235, 113);
+	position: relative;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-left: 60px;
 }
 .talkbubble2:after {
-right: -18px;
-   content:"";
-   position: absolute;
-   top: 26px;
-   width: 0;
-   height: 0;
-   border-top: 13px solid transparent;
- border-left: 18px solid rgb(167, 235, 113);
-   border-bottom: 13px solid transparent;
+	right: -18px;
+	content:"";
+	position: absolute;
+	top: 26px;
+	width: 0;
+	height: 0;
+	border-top: 13px solid transparent;
+	border-left: 18px solid rgb(167, 235, 113);
+	border-bottom: 13px solid transparent;
 }
 .chatbubble{
-width: 99%;
-height: 60%;
+	width: 99%;
+	height: 60%;
 }
 .chatpost{
-width:99%;
-height:40%;
+	width:99%;
+	height:40%;
 }
 .singleb{
-margin-top:10px;
+	margin-top:10px;
 }
 .bubbletext{
-width: 95%;
-height: 95%;
-margin: 0 auto;
-text-align: left;
-margin-top: 5px;
-background: none;
-border: none;
-overflow: hidden;
-outline:none;
+	width: 95%;
+	height: 95%;
+	margin: 0 auto;
+	text-align: left;
+	margin-top: 5px;
+	background: none;
+	border: none;
+	overflow: hidden;
+	outline:none;
 
-resize: none; 
+	resize: none; 
 }
 /* /codeexample */
 ::-webkit-scrollbar {
-width: 10px;
-background: #2a2e3a;
+	width: 10px;
+	background: #2a2e3a;
+}
+.qinfo-header{
+	height: 7%;
+	background-color: #97ce68;
+	border-radius: 8px 8px 0 0;
+}
+.qinfo-header p{
+	font-size: 16px;
+	padding-top: 2%;
+	padding-left: 20px;
+	margin: 0;
+	text-align: left;
+	color: #000;
+	font-weight: bold;
+}
+ul.qinfo-body{
+	height:80%;
+	background-color: #fff;
+	border-radius: 0 0 8px 8px;
+	color:#333;
+	text-align: left;
+	overflow-y: auto;
+}
+ul.qinfo-body li{
+	box-shadow: none;
+}
+.qinfo-item-icon{
+	height:38px;
+	width:38px;
+	margin-top: 6px;
+	float: right;
+}
+li.bgc1{
+	background-color: #fff;
+}
+li.solved .qinfo-item-icon{
+	background: url(../img/solved.png) center no-repeat;
+}
+li.bgc2{
+	background-color: #fffac2;
+}
+li.unsolved .qinfo-item-icon{
+	background: url(../img/unsolved.png) center no-repeat;
+}
+li.bgc3{
+	background-color: #f2f2ec;
+}
+li.solving .qinfo-item-icon{
+	background: url(../img/solving.png) center no-repeat;
+}
+.qinfo-item-header{
+	height:50px;
+	padding: 0 20px;
+	cursor: pointer;
+}
+.qinfo-item-header p{
+	font-size: 16px;
+	line-height: 3;
+}
+.qinfo-item-body{
+	display: none;
+}
+.qinfo-item-body textarea{
+	width:95%;
+	height:100px;
+	resize:none;
+	margin: 0 auto;
+}
+.qinfo-item-body button{
+	float: right;
+	margin: 10px 20px;
+}
+.qinfo-item-answer{
+	font-size: 15px;
+	padding: 10px 20px;
 }
