@@ -83,6 +83,6 @@ require_once('getClassInfoById.php');
 		$row = mysql_fetch_array($result);
 		$currentLessonNum += $row[0];
 		mysql_free_result($result);	
-		return $currentLessonNum/$totalNum;
+		return round($currentLessonNum/$totalNum,2);
 	}
 ?>
