@@ -218,6 +218,12 @@ $(document).ready(function(){
 			}else{
 				parent.css('box-shadow','none')
 			}
+		}else if(parent.attr('class')=='submitted'){
+			if(parent.css('box-shadow')=='none'){
+				parent.css('box-shadow','6px 0 #94846e inset')
+			}else{
+				parent.css('box-shadow','none')
+			}
 		}else{
 			if(parent.css('box-shadow')=='none'){
 				parent.css('box-shadow','6px 0 #95b4fa inset')
