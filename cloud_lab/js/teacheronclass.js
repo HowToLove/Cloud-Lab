@@ -196,3 +196,49 @@ $('.ppt_slide_content').css('height', sreenHeight+'px');
 	 var nfullrwidth=sreenwidth-pptwidth-210;
 	$(".nfullr").css("width",nfullrwidth+"px");  
 });
+//Added by zr
+$(document).ready(function(){
+	$(".qinfo-body li").each(function(){
+		if($(this).attr('id').substring(6)%3==1){
+			$(this).css('background-color','#fff')
+		}else if($(this).attr('id').substring(6)%3==2){
+			$(this).css('background-color','#fffac2')
+		}else{
+			$(this).css('background-color','#f2f2ec')
+		}
+	})
+	
+	$('.qinfo-item-header').click(function(){
+		var mythis = $(this)
+		var parent = $(this).parent()
+		mythis.next().toggle('normal');
+		if(parent.attr('class')=='solved'){
+			if(parent.css('box-shadow')=='none'){
+				parent.css('box-shadow','6px 0 #97ce68 inset')
+			}else{
+				parent.css('box-shadow','none')
+			}
+		}else if(parent.attr('class')=='submitted'){
+			if(parent.css('box-shadow')=='none'){
+				parent.css('box-shadow','6px 0 #94846e inset')
+			}else{
+				parent.css('box-shadow','none')
+			}
+		}else{
+			if(parent.css('box-shadow')=='none'){
+				parent.css('box-shadow','6px 0 #95b4fa inset')
+			}else{
+				parent.css('box-shadow','none')
+			}
+			if(parent.attr('class')=='unsolved'){
+				parent.removeClass('unsolved').addClass('solving')
+			}else{
+				parent.removeClass('solving').addClass('unsolved')
+			}
+		}
+	})
+	$('.qinfo-item-body button').click(function(){//数据应与后台交互
+		$(this).parent().parent().removeClass('solving unsolved').addClass('solved').css('box-shadow','6px 0 #97ce68 inset')
+		$(this).parent().html('<p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>')
+	})
+})
