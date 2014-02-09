@@ -241,4 +241,8 @@ $(document).ready(function(){
 		$(this).parent().parent().removeClass('solving unsolved').addClass('solved').css('box-shadow','6px 0 #97ce68 inset')
 		$(this).parent().html('<p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>')
 	})
+
+	$(document).on("click", "#btn_prepare", function() {
+		window.location.href="PrepareClass.html";
+	});
 })

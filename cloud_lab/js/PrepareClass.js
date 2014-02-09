@@ -63,5 +63,9 @@ $(document).ready(function(){
                   $('.ppt-prev').attr('href','#'+$('li.ppt-list-active').prev().attr('id'))
                   $('.ppt-next').attr('href','#'+$('li.ppt-list-active').next().attr('id'))
             },500)
-      })
+      });
+
+      $(document).on("click", "#btn_onclass", function() {
+            window.location.href="TeacherOnClass.html";
+      });
 })

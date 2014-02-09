@@ -118,7 +118,7 @@ $(function() {
 
 	// 点击立即备课时
 	$(document).on("click", ".start_now", function() {
-		classid = $(this).prevAll('h3').attr('data-classid');
+		classid = $(this).prevAll('#prepare-class').child().attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
 		getPRVs();

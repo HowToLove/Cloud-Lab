@@ -186,7 +186,7 @@ $(document).ready(function () {
 						if(data.userType == 1) {
 							window.location.href = 'TeacherOnClass.html';
 						} else {
-							window.location.href = 'PrepareClass.html';
+							window.location.href = 'TeacherHomepage.html';
 						}
 						break;
 					case 3:

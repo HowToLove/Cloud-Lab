@@ -48,4 +48,11 @@ window.onload = function(){
 	});
 
 	//re_loop = setInterval(draw,2000);
+	$(document).on("click", "#btn_onclass", function() {
+		window.location.href="TeacherOnClass.html";
+	});
+
+	$(document).on("click", "#btn_prepare", function() {
+		window.location.href="PrepareClass.html";
+	});
 }
