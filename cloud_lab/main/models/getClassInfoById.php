@@ -89,11 +89,11 @@
 				$result = mysql_query($sql);
 				$row = mysql_fetch_array($result);
 				if($row[0]>0){
-					$next['charpter'] = $charpterId + 1;
-					$next['lesson'] = 1;				
-				}else{
 					$next['charpter'] = $charpterId;
-					$next['lesson'] = $lessonId;
+					$next['lesson'] = $lessonId;									
+				}else{
+					$next['charpter'] = $charpterId + 1;
+					$next['lesson'] = 1;
 				}
 			}
 			

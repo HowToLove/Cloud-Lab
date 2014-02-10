@@ -22,12 +22,12 @@
 	margin-left: 10px;
 }
 #nav-center{
-	width:600px;
+	width:750px;
 	margin:0 auto;
 }
 #nav-center ul{
 	height:55px;
-	width:600px;
+	width:750px;
 }
 #nav ul.nav li {
 	float: left;
@@ -111,4 +111,10 @@
 }
 .tab-a:hover .tab-a-logo-4,.active-a .tab-a-logo-4{
 	background: url(../img/logo-hw.png) center center no-repeat;
+}
+.tab-a-logo-5{
+	background: url(../img/logo-home-b.png) center center no-repeat;
+}
+.tab-a:hover .tab-a-logo-5,.active-a .tab-a-logo-5{
+	background: url(../img/logo-home.png) center center no-repeat;
 }

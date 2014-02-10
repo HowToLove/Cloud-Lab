@@ -36,7 +36,7 @@ $(function() {
 								<h3 class='underline class_h' data-classid='"+classid+"'>"+coursename+"</h3>\
 							</a>\
 							<p data-charpter="+charpter+" data-lesson="+lesson+">已备至第"+charpter+"章第"+lesson+"节</p>\
-							<a class='button-blue indicator-hide start_now' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='3'>立即准备PPT</a>\
+							<a class='button-blue indicator-hide start_now' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='3' data-classid='"+classid+"'>立即准备PPT</a>\
 						</div>\
 						<div class='class-list-right'>\
 							<div class='class-questions'>\
@@ -118,7 +118,7 @@ $(function() {
 
 	// 点击立即备课时
 	$(document).on("click", ".start_now", function() {
-		classid = $(this).prevAll('h3').attr('data-classid');
+		classid = $(this).attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
 		getPRVs();

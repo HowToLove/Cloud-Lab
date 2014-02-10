@@ -1,0 +1,79 @@
+/* TeacherExperiment.html */
+*{
+font-family:"微软雅黑";
+}
+ul, ol {
+list-style: none;
+}
+
+.step-nav{
+width: 32px;
+visibility: visible;
+position: fixed;
+top: 55px;
+left: 10%;
+}
+.step-content{
+width:80%;
+margin:0 auto;
+}
+.step-content-list{
+display: block;
+position: relative;
+min-height: 31px;
+_height: 31px;
+}
+.step-content ol .list-item-1 {
+margin-top: 20px;
+padding-top: 0;
+}
+.list-icon-link:hover {
+background-position: 0 0;
+text-decoration: none;
+color:#fff;
+}
+.list-icon-link {
+width: 32px;
+height: 34px;
+display: block;
+font-size: 16px;
+text-decoration: none;
+cursor: pointer;
+color: #fff;
+text-align: center;
+line-height: 32px;
+background: url(../img/step_ico_bg.png) no-repeat 0 -68px;
+visibility:hidden;
+}
+.list-icon {
+width: 32px;
+height: 32px;
+position: absolute;
+left: -18px;
+top: -6px;
+font-size: 16px;
+color: #efe;
+text-align: center;
+line-height: 32px;
+background: url(../img/step_ico_bg.png) no-repeat;
+_background: 0;
+}
+.list-item{
+width: 95%;
+
+}
+.task-title{
+display: block;
+text-decoration: none;
+border-bottom: 1px solid #000;
+width: 100%;
+padding-bottom: 10px;
+}
+.task-answer{
+overflow-y:visible;
+}
+.step-content ol li {
+border-left: 2px dotted #999;
+margin-left: -24px;
+padding:0 0 0 35px;
+}

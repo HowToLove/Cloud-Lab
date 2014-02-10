@@ -1,5 +1,5 @@
 $(document).ready(function(){
-      $(document).on("click", ".show-answer", function() {
+      $(".show-answer").click(function(){
             $(this).next().toggle("normal")
             if($(this).html()=='查看答案') {
                   $(this).html('隐藏答案')
@@ -7,7 +7,7 @@ $(document).ready(function(){
                   $(this).html('查看答案')
             }
       })
-      $(document).on("click", ".exer-list label", function() {
+      $('.exer-list label').click(function(){
             var checkmark = $(this).find('.checkmark')
             checkmark.width()==0 ? checkmark.animate({width:"22px"}) : checkmark.animate({width:"0px"})
       })
@@ -52,5 +52,20 @@ $(document).ready(function(){
             var rwidth = $('#show-ppt').width() - $('#show-ppt-left').width() - $('#show-ppt-middle').width() - 15
             $('#show-ppt-right').width(rwidth)
       }
+      $(document).on('click', 'ul#ppt-list li a,a.ppt-prev,a.ppt-next', function(){
+            var href=$(this).attr('href')
+            $(href).addClass('ppt-list-active')
+            $(href).prevAll().removeClass('ppt-list-active')
+            $(href).nextAll().removeClass('ppt-list-active')
+            var str=parseInt($(href).attr('id').substring(9))-1
+            $('#ppt-content').css('margin-left',-$('#ppt-content li').width()*str)
+            setTimeout(function(){
+                  $('.ppt-prev').attr('href','#'+$('li.ppt-list-active').prev().attr('id'))
+                  $('.ppt-next').attr('href','#'+$('li.ppt-list-active').next().attr('id'))
+            },500)
+      });
 
+      $(document).on("click", "#btn_onclass", function() {
+            window.location.href="TeacherOnClass.html";
+      });
 })

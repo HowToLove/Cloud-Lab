@@ -24,11 +24,15 @@ $(function() {
 				studentsnum = classes[i].studentsnum;
 				percent = classes[i].progress.percent;
 				var classdiv = 
-					"<div class='class-list'>\
+					"<div class='class-list' style='text-align:left'>\
 						<div class='class-list-left'>\
-							<div class='class-img'><img src=main/"+imgurl+"></div>\
-							<h3 class='underline classes_h' href='#prepare-class' data-slide-to='1' role='button' data-toggle='tab' data-classid='"+classid+"'>"+coursename+"</h3>\
-							<p data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
+							<div class='class-img'><img src=main/"+imgurl+">\
+								<div class='arrow-right'></div>\
+							</div>\
+							<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
+								<h3 class='underline classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
+							</a>\
+							<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
 							<a class='btn btn-primary bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2'>开始上课</a>\
 						</div>\
 						<div class='class-list-right'>\
