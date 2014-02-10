@@ -1,0 +1,232 @@
+::-webkit-scrollbar {
+	width: 8px;
+	background: #2a2e3a;
+}
+::-webkit-scrollbar-thumb {
+	background: #05b9dc;
+	border-radius: 10px;
+}
+a:hover{
+	cursor: pointer;
+}
+#teacher-homework{
+	margin-top: 70px
+}
+.button-blue{
+	display: inline-block;
+	width: 98px;
+	color: white;
+	background: url(../img/button-blue.png) no-repeat;
+	background-size: 100%;
+	line-height: 1.7;
+	text-align: center;
+	font-size: 18px;
+	cursor: pointer;
+}
+.button-grey{
+	display: inline-block;
+	width: 128px;
+	color: white;
+	background: url(../img/button-grey.png) no-repeat;
+	background-size: 100%;
+	line-height: 1.7;
+	text-align: center;
+	font-size: 18px;
+	cursor: pointer;
+}
+a.button-grey:hover{
+	color:white;
+}
+#carousel-indicators-pc li.li-last span {
+	width: 209px;
+	left: -85px;
+}
+ul, ol {
+	list-style: none;
+}
+.step-nav{
+	width: 32px;
+	visibility: visible;
+	position: fixed;
+	top: 55px;
+	left: 5%;
+}
+.step-content{
+	width:65%;
+	margin-left: 5%;
+	float:left;
+}
+.step-content-list{
+	display: block;
+	position: relative;
+	min-height: 31px;
+	_height: 31px;
+}
+.step-content ol .list-item-1 {
+	margin-top: 20px;
+	padding-top: 0;
+}
+.list-icon-link:hover {
+	background-position: 0 0;
+	text-decoration: none;
+	color:#fff;
+}
+.list-icon-link {
+	width: 32px;
+	height: 34px;
+	display: block;
+	font-size: 16px;
+	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	line-height: 32px;
+	background: url(../img/step_ico_bg.png) no-repeat 0 -68px;
+	visibility:hidden;
+}
+.list-icon {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: -18px;
+	top: -6px;
+	font-size: 16px;
+	color: #efe;
+	text-align: center;
+	line-height: 32px;
+	background: url(../img/step_ico_bg.png) no-repeat;
+	_background: 0;
+}
+.list-item{
+	width: 95%;
+
+}
+.task-title{
+	display: block;
+	text-decoration: none;
+	border-bottom: 1px solid #000;
+	width: 100%;
+	padding-bottom: 10px;
+}
+.task-answer{
+	overflow-y:visible;
+}
+.step-content ol li {
+	border-left: 2px dotted #999;
+	margin-left: -24px;
+	padding:0 0 0 35px;
+}
+.header-blue,.header-orange{
+	background-size: 100%;
+	background-repeat: no-repeat;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+}
+.header-blue{
+	background-image: url(../img/button-blue.png);
+	width: 100px;
+	height: 30px;
+}
+.header-orange{
+	background-image: url(../img/button-orange.png);
+	width: 80px;
+	height: 32px;
+}
+.question-block .header-blue,.question-block .header-orange{
+	float: left;
+}
+.question-block span{
+	font-size: 18px;
+	line-height: 30px;
+	padding-left: 10px;
+	font-weight: bold;
+}
+.solution-block{
+	background-color: #fff;
+	border-radius: 5px;
+	height: 150px;
+	margin: 10px 0;
+	overflow: auto;
+}
+.solution-block.answer{
+	height:250px;
+}
+.question-block.comment{
+	background-color: #fff;
+	display: block;
+	width: 20%;
+	border-radius: 5px;
+}
+.solution-block span{
+	font-size: 16px;
+	padding:15px;
+}
+.question-block textarea{
+	border: none;
+	resize: none;
+	width: 45%;
+	height: 30px;
+}
+.solution-block textarea{
+	border: none;
+	resize: none;
+	width: 100%;
+	height: 80px;
+}
+.solution-block button{
+	float: right;
+	margin-right: 10px;
+}
+.stanswer,.comment{
+	display: none;
+}
+.buttons{
+	height: 40px;
+	text-align: center;
+	width: 230px;
+	margin: 0 auto;
+}
+.button-stanswer,.button-comment{
+	background-color: #7ef49f;
+	float: left;
+	padding: 5px 10px;
+	font-size: 16px;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 0 10px;
+}
+.student-list{
+	position: fixed;
+	right: 0;
+	top: 55px;
+	width: 25%;
+	margin-left: 5%;
+	padding:0 20px;
+	height: 100%;
+	background-color: #d2d2d2;
+}
+table{
+	width:100%;
+	text-align: center;
+}
+tr{
+	height:40px;
+	border-bottom: 1px solid #eee;
+}
+tr:first-child{
+	background-color: #eee;
+}
+td.uncorrected{
+	color:#fa5050;
+}
+td.corrected{
+	color:#6dd9aa;
+}
+.back{
+	position: absolute;
+	left: -12%;
+	top: 50%;
+}
