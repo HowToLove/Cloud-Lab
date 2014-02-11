@@ -52,6 +52,7 @@ $(function() {
 						</div>\
 					</div>"
 				$("#class_container").append(classdiv);
+				prepare_class()
 			}
 		},
 		complete : function(XMLHttpRequest, textStatus) {},
@@ -100,6 +101,7 @@ $(function() {
 							</li>"
 						$(".charpter"+i).append(lessonpanel);
 					}
+					prepare_class()
 				}
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
@@ -148,6 +150,7 @@ $(function() {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
+		prepare_class()
 	}
 
 	// 生成PPT
@@ -166,6 +169,7 @@ $(function() {
 			$('#ppt-list').append(snapppt);
 			$('#ppt-content').append(normalppt);
 		}
+		prepare_class()
 	}
 
 	// 点击相应snapppt
@@ -181,6 +185,7 @@ $(function() {
             </form>"
         $('#pagenote').append(classnote);
         // video.currentTime = videos[pptid];
+        prepare_class()
 	});
 
 	// 提交本页ppt备注
@@ -253,6 +258,7 @@ $(function() {
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
+			prepare_class()
 		});
 	});
 

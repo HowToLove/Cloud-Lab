@@ -1,4 +1,7 @@
 $(document).ready(function(){
+      prepare_class()
+})
+function prepare_class(){
       $(".show-answer").click(function(){
             $(this).next().toggle("normal")
             if($(this).html()=='查看答案') {
@@ -68,4 +71,4 @@ $(document).ready(function(){
       $(document).on("click", "#btn_onclass", function() {
             window.location.href="TeacherOnClass.html";
       });
-})
+}
