@@ -27,15 +27,14 @@
 
 $(window).bind("scroll",function() {  
 var count=0;
-$(".step-nav a").css("visibility","hidden");
-$( ".step-content ol li .list-icon" ).css( "visibility", "visible" );
- $( ".step-content ol li" ).each(function( index, element ) {
-
+$(".item.active .step-nav a").css("visibility","hidden");
+$( ".item.active .step-content ol li .list-icon" ).css( "visibility", "visible" );
+ $( ".item.active .step-content ol li" ).each(function( index, element ) {
 count=$(element).prevAll().size();
 var topPos = element.offsetTop+27-count*32;
 if ($(document).scrollTop() > topPos) {
 var temp=count;  
-          $( ".step-nav a" ).each(function( index, element ) {
+          $( ".item.active .step-nav a" ).each(function( index, element ) {
     // element == this
         $( element ).css( "visibility", "visible" );
 		
@@ -43,7 +42,7 @@ var temp=count;
 		 return false;
 		 count--;
     })
-$( ".step-content ol li .list-icon" ).each(function( index, element ) {
+$( ".item.active .step-content ol li .list-icon" ).each(function( index, element ) {
 		  $( element ).css( "visibility", "hidden" );
 		
 		if(temp==0)

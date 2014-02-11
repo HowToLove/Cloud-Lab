@@ -73,7 +73,7 @@ ul, ol {
 }
 .list-icon-link {
 	width: 32px;
-	height: 34px;
+	height: 32px;
 	display: block;
 	font-size: 16px;
 	text-decoration: none;
@@ -81,7 +81,8 @@ ul, ol {
 	color: #fff;
 	text-align: center;
 	line-height: 32px;
-	background: url(../img/step_ico_bg.png) no-repeat 0 -68px;
+	background-color: #6dd9aa;
+	border-radius: 50%;
 	visibility:hidden;
 }
 .list-icon {
@@ -94,8 +95,8 @@ ul, ol {
 	color: #efe;
 	text-align: center;
 	line-height: 32px;
-	background: url(../img/step_ico_bg.png) no-repeat;
-	_background: 0;
+	background-color:#8fd1f7;
+	border-radius: 50%;
 }
 .list-item{
 	width: 95%;

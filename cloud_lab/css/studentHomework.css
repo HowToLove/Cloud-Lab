@@ -1,0 +1,14 @@
+.step-content{
+	width:70%;
+	margin:0 auto;
+	float: none;
+}
+.solution-block textarea {
+	height: 220px;
+}
+.step-nav{
+	left:15%;
+}
+.back{
+	left:7%;
+}
