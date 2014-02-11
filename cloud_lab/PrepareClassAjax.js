@@ -253,12 +253,13 @@ $(function() {
 						<a class='btn btn-warning' id='btn_completeprepare'>完成备课</a>\
 					</form>"
 				$('#homeworklist').append(from);
+				prepare_class()
 			},
 			complete: function(XMLHttpRequest, textStatus) {},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
-			prepare_class()
+			
 		});
 	});
 
