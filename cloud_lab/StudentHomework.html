@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>教师作业</title>
+  <title>学生作业</title>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
   <link href="css/nav.css" rel="stylesheet" media="screen"/>
   <link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
   <link href="css/teacherHomework.css" rel="stylesheet" media="screen"/>
+  <link href="css/studentHomework.css" rel="stylesheet" media="screen"/>
   <script src="js/jquery-1.9.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/teacherHomework.js"></script>
@@ -37,7 +38,7 @@
     <ol class="carousel-indicators" id="carousel-indicators-pc">
       <li data-target="#teacher-homework" data-toggle="tab" class="active"><span>选择课程</span></li>
       <li data-target="#teacher-homework" data-toggle="tab" class="next"><span>选择章节</span></li>
-      <li data-target="#teacher-homework" data-toggle="tab" class="next  li-last"><span>批改作业/查看历史分数</span></li>
+      <li data-target="#teacher-homework" data-toggle="tab" class="next  li-last"><span>完成作业/查看历史分数</span></li>
     </ol>
     
     <div class="carousel-inner" id="carousel-inner-pc">
@@ -47,7 +48,7 @@
             <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
             <a href="#teacher-homework" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
             <p>已布置至第x章第x节xxxxxx</p>
-            <a class="button-blue indicator-hide" href="#teacher-homework" role="button" data-toggle="tab" data-slide-to="2">立即批改</a>
+            <a class="button-blue indicator-hide" href="#teacher-homework" role="button" data-toggle="tab" data-slide-to="2">立即完成</a>
             <a class="button-grey indicator-hide" href="#teacher-homework" role="button" data-toggle="tab" data-slide-to="3">查看历史分数</a>
           </div>
           <div class="class-list-right">
@@ -133,30 +134,66 @@
               </div>
               <div class="solution-block answer">
                 <div class="header-blue">解答</div>
-                <span>这是解答</span>
-              </div>
-              <div class="solution-block stanswer">
-                <div class="close"><img src="img/close.png"/></div>
-                <div class="header-blue">标准答案</div>
-                <span>这是标准答案</span>
-              </div>
-              <div class="solution-block comment">
-                <div class="close"><img src="img/close.png"/></div>
-                <div class="header-blue">评价</div>
                 <textarea ></textarea>
-                <button class="btn btn-success">确定</button>
-              </div>
-              <div class="buttons">
-                <div class="button-stanswer">
-                  <img src="img/standard-answer.png"/>标准答案
-                </div>
-                <div class="button-comment">
-                  <img src="img/comment.png"/>评价
-                </div>
               </div>
             </li>
             <li class="step-content-list" id="step-2">
               <div class="list-icon" style="visibility: visible;">2</div>
+              <div class="question-block">
+                <div class="header-blue">题目</div>
+                <span>求1-100之间的素数</span>
+              </div>
+              <div class="solution-block answer">
+                <div class="header-blue">解答</div>
+                <textarea ></textarea>
+              </div>
+            </li>
+            <li class="step-content-list" id="step-3" style="text-align:center;">
+              <div class="list-icon" style="visibility: visible;">End</div>
+              <button class="btn btn-success"><img src="img/submit.png"/>提交</button>
+            </li>
+          </ol>
+          <div class="step-nav" >
+            <a class="list-icon-link link1" title="点击返回第1步" onclick="$('#step-1').animatescroll();">1</a>
+            <a class="list-icon-link link2" title="点击返回第2步" onclick="$('#step-2').animatescroll();">2</a>
+            <a class="list-icon-link link3" title="点击返回第3步" onclick="$('#step-3').animatescroll();" >3</a>
+            <a class="list-icon-link link4" title="点击返回第4步" onclick="$('#step-4').animatescroll();">4</a>
+            <a class="list-icon-link link5" title="点击返回第5步" onclick="$('#step-5').animatescroll();">5</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="class-list" style="height:auto">
+          <div class="class-list-left">
+            <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
+            <h3 class="underline">HTML5基础</h3>
+            <p>共<span>x</span>次作业</p>
+            <p>已交<span>x</span>次作业</p>
+          </div>
+          <table>
+            <tr>
+              <td>作业列表</td>
+              <td>成绩</td>
+              <td>评价</td>
+            </tr>
+            <tr>
+              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next">第x次作业</a></td>
+              <td>90</td>
+              <td>这是评价嘿</td>
+            </tr>
+            <tr>
+              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next">第x次作业</a></td>
+              <td>90</td>
+              <td>这是评价嘿</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="item">
+        <div class="step-content">
+          <ol>
+            <li class="step-content-list list-item-1 " id="astep-1">
+              <div class="list-icon" style="visibility: visible;">1</div>
               <div class="question-block">
                 <div class="header-blue">题目</div>
                 <span>求1-100之间的素数</span>
@@ -173,8 +210,7 @@
               <div class="solution-block comment">
                 <div class="close"><img src="img/close.png"/></div>
                 <div class="header-blue">评价</div>
-                <textarea ></textarea>
-                <button class="btn btn-success">确定</button>
+                <span>这是评价</span>
               </div>
               <div class="buttons">
                 <div class="button-stanswer">
@@ -185,88 +221,58 @@
                 </div>
               </div>
             </li>
-            <li class="step-content-list" id="step-3">
+            <li class="step-content-list" id="astep-2">
+              <div class="list-icon" style="visibility: visible;">2</div>
+              <div class="question-block">
+                <div class="header-blue">题目</div>
+                <span>求1-100之间的素数</span>
+              </div>
+              <div class="solution-block answer">
+                <div class="header-blue">我的解答</div>
+                <span>这是解答</span>
+              </div>
+              <div class="solution-block stanswer">
+                <div class="close"><img src="img/close.png"/></div>
+                <div class="header-blue">标准答案</div>
+                <span>这是标准答案</span>
+              </div>
+              <div class="solution-block comment">
+                <div class="close"><img src="img/close.png"/></div>
+                <div class="header-blue">评价</div>
+                <span>这是评价</span>
+              </div>
+              <div class="buttons">
+                <div class="button-stanswer">
+                  <img src="img/standard-answer.png"/>标准答案
+                </div>
+                <div class="button-comment">
+                  <img src="img/comment.png"/>评价
+                </div>
+              </div>
+            </li>
+            <li class="step-content-list" id="astep-3">
               <div class="list-icon" style="visibility: visible;">End</div>
               <div class="question-block comment">
                 <div class="header-orange">评分</div>
-                <textarea></textarea>
+                <span>90</span>
               </div>
               <div class="solution-block">
                 <div class="header-orange">总评</div>
-                <textarea ></textarea>
-                <button class="btn btn-success">提交</button>
+                <span>这是总评</span>
               </div>
             </li>
           </ol>
           <div class="step-nav" >
-            <a class="list-icon-link link1" title="点击返回第1步" onclick="$('#step-1').animatescroll();">1</a>
-            <a class="list-icon-link link2" title="点击返回第2步" onclick="$('#step-2').animatescroll();">2</a>
-            <a class="list-icon-link link3" title="点击返回第3步" onclick="$('#step-3').animatescroll();" >3</a>
-            <a class="list-icon-link link4" title="点击返回第4步" onclick="$('#step-4').animatescroll();">4</a>
-            <a class="list-icon-link link5" title="点击返回第5步" onclick="$('#step-5').animatescroll();">5</a>
+            <a class="list-icon-link link1" title="点击返回第1步" onclick="$('#astep-1').animatescroll();">1</a>
+            <a class="list-icon-link link2" title="点击返回第2步" onclick="$('#astep-2').animatescroll();">2</a>
+            <a class="list-icon-link link3" title="点击返回第3步" onclick="$('#astep-3').animatescroll();" >3</a>
+            <a class="list-icon-link link4" title="点击返回第4步" onclick="$('#astep-4').animatescroll();">4</a>
+            <a class="list-icon-link link5" title="点击返回第5步" onclick="$('#astep-5').animatescroll();">5</a>
           </div>
+
         </div>
-        <div class="student-list">
-          <h3><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next" style="float:right">查看成绩</a></h3>
-          <h3>学生列表</h3>
-        </div>
-      </div>
-      <div class="item">
-        <div class="class-list" style="height:auto">
-          <div class="class-list-left">
-            <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
-            <h3 class="underline">HTML5基础</h3>
-            <p>选课人数：<span>60</span></p>
-          </div>
-          <table>
-            <tr>
-              <td>作业列表</td>
-              <td>截止时间</td>
-              <td>已交人数</td>
-              <td>批改状态</td>
-            </tr>
-            <tr>
-              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next">第x次作业</a></td>
-              <td>2014.2.20</td>
-              <td>58</td>
-              <td class="uncorrected">未批改</td>
-            </tr>
-            <tr>
-              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next">第x次作业</a></td>
-              <td>2014.2.20</td>
-              <td>58</td>
-              <td class="corrected">已批改</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="item">
-        <div class="class-list" style="height:auto">
-          <div class="class-list-left">
-            <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
-            <h3 class="underline">HTML5基础</h3>
-            <p>选课人数：<span>60</span></p>
-          </div>
-          <div class="back">
-            <a href="#teacher-homework" title="返回成绩列表" role="button" data-toggle="tab" data-slide="prev"><img src="img/back.png"/></a>
-          </div>
-          <table>
-            <tr>
-              <td>姓名</td>
-              <td>成绩</td>
-              <td>评价</td>
-            </tr>
-            <tr>
-              <td>张三</td>
-              <td>90</td>
-              <td>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</td>
-            </tr>
-            <tr>
-              <td>李四</td>
-              <td>90</td>
-              <td>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</td>
-            </tr>
-          </table>
+        <div class="back">
+          <a href="#teacher-homework" title="返回成绩列表" role="button" data-toggle="tab" data-slide="prev"><img src="img/back.png"/></a>
         </div>
       </div>
     </div>
