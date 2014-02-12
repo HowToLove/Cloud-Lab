@@ -197,7 +197,7 @@ body {
 	overflow: hidden;
 }
 .nfullqa {
-	width: 95%;
+	width: 100%;
 	height: 55%;
 }
 .qatitle {
@@ -216,6 +216,14 @@ body {
 .bt_preclass {
 	margin-left: 5px;
 	margin-top: 5px;
+   position:relative;
+}
+.bt_preclass::before{
+background: url(../img/close.png);
+width: 10px;
+height: 10px;
+position: absolute;
+content: "";
 }
 .bt_nextclass {
 	margin-right: 5px;
