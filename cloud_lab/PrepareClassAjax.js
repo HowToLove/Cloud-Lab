@@ -325,8 +325,4 @@ $(function() {
 		var video = document.getElementById("pptvideo");
 		video.currentTime = videos[pptid];
 	});
-
-	$("#btn_onclass").click(function() {
-		window.location.href = "TeacherOnClass.html";
-	});
 });
