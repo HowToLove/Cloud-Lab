@@ -111,7 +111,7 @@ a,a:hover{
 }
 .class-img{
 	float: left;
-	height: inherit;
+	height:160px;
 	background-color: #4c4c4c;
 	margin-right: 20px;
 	position: relative;
@@ -152,7 +152,7 @@ a,a:hover{
 }
 h3.underline{
 	border-bottom: 1px solid #d5d5d5;
-	margin-left:170px;
+	margin-left: 170px;
 	line-height: 1.5;
 }
 p.underline{

@@ -197,7 +197,7 @@ body {
 	overflow: hidden;
 }
 .nfullqa {
-	width: 100%;
+	width: 95%;
 	height: 55%;
 }
 .qatitle {
@@ -216,14 +216,6 @@ body {
 .bt_preclass {
 	margin-left: 5px;
 	margin-top: 5px;
-   position:relative;
-}
-.bt_preclass::before{
-background: url(../img/close.png);
-width: 10px;
-height: 10px;
-position: absolute;
-content: "";
 }
 .bt_nextclass {
 	margin-right: 5px;
@@ -527,8 +519,4 @@ li.solving .qinfo-item-icon{
 .qinfo-item-answer{
 	font-size: 15px;
 	padding: 10px 20px;
-}
-.textadjust{
-height:40px;
-overflow:srcoll;
 }

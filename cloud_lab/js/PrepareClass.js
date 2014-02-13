@@ -71,8 +71,4 @@ function prepare_class(){
       $(document).on("click", "#btn_onclass", function() {
             window.location.href="TeacherOnClass.html";
       });
-
-      $(document).on("click", "#btn_home", function() {
-            window.location.href="TeacherHomepage.html";
-      });
 }

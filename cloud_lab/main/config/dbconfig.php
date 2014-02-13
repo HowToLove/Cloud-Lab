@@ -2,7 +2,7 @@
 define('host','localhost');
 define('dbname','cloud_lab');
 define('username','root');
-define('password','');
+define('password','root');
 define('charset','utf-8');
 define('tablePrefix','t_');
 define('dbms','mysql');

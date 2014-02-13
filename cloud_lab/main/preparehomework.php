@@ -4,7 +4,7 @@ session_start();
 @require_once('../main/models/prepareHomeworkModel.php');
 @require_once('../main/common/mysql_connect.php');
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
-$_SESSION['USER_ID']='12345';
+//$_SESSION['USER_ID']='12345';
 
 //关闭自动输出error或者警告
 ini_set("display_errors", "Off");
@@ -22,7 +22,6 @@ if(isset($_SESSION['USER_ID']))
 		switch ($action) {
 			case 'homework':
 				$question = $_POST['questionid'];
-				
 				TsaveAssignHomework($classId,$charpter,$lesson,$question);
 				//数据组装
 				$pptStatu = array('status'=>"success");

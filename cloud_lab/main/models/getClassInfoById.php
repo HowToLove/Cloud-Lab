@@ -1,9 +1,9 @@
 <?php
-/**
-*@usertype teacher
-*@param $userId 用户的ID号
-*@return array 包含该用户所教授的课程
-*/
+	/**
+	*@usertype teacher
+	*@param $userId 用户的ID号
+	*@return array 包含该用户所教授的课程
+	*/
 	function getClassInfoById($userId)
 	{
 		$classInfo;

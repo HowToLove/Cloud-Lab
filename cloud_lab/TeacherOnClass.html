@@ -7,17 +7,18 @@
   <script src="js/jquery-1.8.2.min.js"></script>
   <script src="js/modernizr.custom.js"></script>
   <script src="js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/book.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="css/book.css" />
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
-  <link rel="stylesheet" type="text/css" href="css/teacheronclass.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="css/leftmenu.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="css/bookblock.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="css/teacheronclass.css" />
+  <link rel="stylesheet" type="text/css" href="css/leftmenu.css" />
+  <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
   <link href="css/nav.css" rel="stylesheet" media="screen"/>
   <script src="js/teacheronclass.js"></script>
   <script type="text/javascript" src="TeacherOnClassAjax.js"></script>
   <script src="js/PrepareClass.js"></script>
 
+  <script src="js/PrepareClass.js"></script>
   <title>教师上课</title>
 </head>
 <body>
@@ -32,9 +33,9 @@
           <ul>
             <li class="icon icon-arrow-left " > <a class="function1">
               <div class="function_icon function_icon1" ></div>
-              检索章节</a>
+              检索课程</a>
               <div class="mp-level choose-chapter">
-                <h2 >检索章节</h2>
+                <h2 >检索课程</h2>
                 <a class="mp-back" href="#">返回</a>
                 <ul>
                   <li class="icon icon-arrow-left"> <a  href="#">第一章 </a>
@@ -99,7 +100,6 @@
                           </div>
                           <div id="nav-center">
                             <ul class="nav">
-							 <li><a class="tab-a" id="btn_home"><div class="tab-a-logo tab-a-logo-5"></div>主页</a></li>
                               <li><a class="tab-a " id="btn_prepare">
                                 <div class="tab-a-logo tab-a-logo-1"></div>
                                 备课</a></li>
@@ -140,9 +140,7 @@
                                                   <div class="arrow-right"></div>
                                                 </div>
                                                 <a href="#prepare-class" data-slide="next" data-toggle="tab">
-											
-                                                  <h3 class="underline textadjust">HTML5基础 xxxxxxxxxxxxxxx</h3>
-												
+                                                  <h3 class="underline">HTML5基础</h3>
                                                 </a>
                                                 <p style="color:#000;">已上至第x章第x节xxxxxx</p>
                                                 <a class="button-blue indicator-hide bt-to-ppt" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="2">立即上课</a> </div>
@@ -296,7 +294,7 @@
                                                         <div  style=" width:300px;height:70px;background:url(img/sdialog.png) no-repeat right;background-size:contain;float:right;margin-right:10px;"> </div>
                                                       </div>
                                                     </div>
-                                                    <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
+                                                    <textarea class="form-control" rows="4" style="margin-top:5px;">This is the html named 'teacherOnClass' with version 0.9.6.In order to derive tribute at my deficiencies please correct me criticism.This page is powered by Jan Du(qq:526097589).</textarea>
                                                     <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">提交</button>
                                                   </div>
                                                 </div>
@@ -333,17 +331,194 @@
                                       <div class="tab-content" style="height:100%;margin: 0 10px;">
                                         <div class="tab-pane fade in active" id="exp1" style="height:100%;">
                                           <textarea class="codearea form-control " style="height:95%;">
-                                           
+                                            /*nfull ppt tabbed content*/
+                                            var PPTTabbedContent = {
+                                            init: function() {	
+                                            $( window ).resize(function() {
+                                            var sreenwidth = document.body.clientWidth;
+                                            var initmargin=0;
+                                            var sreenheight = document.body.clientHeight;
+                                            $(".bb-item img").css("height",sreenheight+"px");
+
+                                            if($(".ppt_tabslider").css("marginLeft")!=0+"px")
+                                            {
+
+                                            $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
+                                          }
+                                        });
+                                        $(".bt_fullsreen").live('click', function() {
+
+                                        PPTTabbedContent.slideToFull($(this));
+
+                                      });
+                                      $(".bt_notfullsreen").live('click', function() {
+
+                                      PPTTabbedContent.slideToNotFull($(this));
+
+                                    });
+                                  },
+
+
+                                  slideToFull: function(obj) {
+                                  $(".topmenu").removeClass("topmenu-to-show");
+                                  $(".topmenu").addClass("topmenu-to-hide");
+                                  $(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
+                                  //$(".mp-menu-act").css("opacity",0.5);
+                                  var margin = $(".ppt_slide_content").width();
+                                  margin = margin * (1);
+                                  margin = margin * -1;
+
+                                  $(".ppt_tabslider").stop().animate({
+                                  marginLeft: margin+ "px"
+                                }, {
+                                duration: 600
+                              });
+                            },
+                            slideToNotFull: function(obj) {
+                            $(".topmenu").addClass("topmenu-to-show");
+                            $(".topmenu").removeClass("topmenu-to-hide");
+
+                            $(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
+                            var margin = $(".ppt_slide_content").width();
+                            margin = margin * (0);
+                            margin = margin * 1;
+
+                            $(".ppt_tabslider").stop().animate({
+                            marginLeft: margin+ "px"
+                          }, {
+                          duration: 600
+                        });
+                      }
+                    }
+                    /*nfull mask tabbed content*/
                   </textarea>
                 </div>
                 <div class="tab-pane fade" id="exp2" style="height:100%;">
                   <textarea class="codearea form-control " style="height:95%;">
-                   s
+                    /*nfull ppt tabbed content*/
+                    var PPTTabbedContent = {
+                    init: function() {	
+                    $( window ).resize(function() {
+                    var sreenwidth = document.body.clientWidth;
+                    var initmargin=0;
+                    var sreenheight = document.body.clientHeight;
+                    $(".bb-item img").css("height",sreenheight+"px");
+
+                    if($(".ppt_tabslider").css("marginLeft")!=0+"px")
+                    {
+
+                    $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
+                  }
+                });
+                $(".bt_fullsreen").live('click', function() {
+
+                PPTTabbedContent.slideToFull($(this));
+
+              });
+              $(".bt_notfullsreen").live('click', function() {
+
+              PPTTabbedContent.slideToNotFull($(this));
+
+            });
+          },
+
+
+          slideToFull: function(obj) {
+          $(".topmenu").removeClass("topmenu-to-show");
+          $(".topmenu").addClass("topmenu-to-hide");
+          $(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
+          //$(".mp-menu-act").css("opacity",0.5);
+          var margin = $(".ppt_slide_content").width();
+          margin = margin * (1);
+          margin = margin * -1;
+
+          $(".ppt_tabslider").stop().animate({
+          marginLeft: margin+ "px"
+        }, {
+        duration: 600
+      });
+    },
+    slideToNotFull: function(obj) {
+    $(".topmenu").addClass("topmenu-to-show");
+    $(".topmenu").removeClass("topmenu-to-hide");
+
+    $(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
+    var margin = $(".ppt_slide_content").width();
+    margin = margin * (0);
+    margin = margin * 1;
+
+    $(".ppt_tabslider").stop().animate({
+    marginLeft: margin+ "px"
+  }, {
+  duration: 600
+});
+}
+}
+/*nfull mask tabbed content*/
 </textarea>
 </div>
 <div class="tab-pane fade" id="exp3" style="height:100%;">
   <textarea class="codearea form-control " style="height:95%;">
-    
+    /*nfull ppt tabbed content*/
+    var PPTTabbedContent = {
+    init: function() {	
+    $( window ).resize(function() {
+    var sreenwidth = document.body.clientWidth;
+    var initmargin=0;
+    var sreenheight = document.body.clientHeight;
+    $(".bb-item img").css("height",sreenheight+"px");
+
+    if($(".ppt_tabslider").css("marginLeft")!=0+"px")
+    {
+
+    $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
+  }
+});
+$(".bt_fullsreen").live('click', function() {
+
+PPTTabbedContent.slideToFull($(this));
+
+});
+$(".bt_notfullsreen").live('click', function() {
+
+PPTTabbedContent.slideToNotFull($(this));
+
+});
+},
+
+
+slideToFull: function(obj) {
+$(".topmenu").removeClass("topmenu-to-show");
+$(".topmenu").addClass("topmenu-to-hide");
+$(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
+//$(".mp-menu-act").css("opacity",0.5);
+var margin = $(".ppt_slide_content").width();
+margin = margin * (1);
+margin = margin * -1;
+
+$(".ppt_tabslider").stop().animate({
+marginLeft: margin+ "px"
+}, {
+duration: 600
+});
+},
+slideToNotFull: function(obj) {
+$(".topmenu").addClass("topmenu-to-show");
+$(".topmenu").removeClass("topmenu-to-hide");
+
+$(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
+var margin = $(".ppt_slide_content").width();
+margin = margin * (0);
+margin = margin * 1;
+
+$(".ppt_tabslider").stop().animate({
+marginLeft: margin+ "px"
+}, {
+duration: 600
+});
+}
+}
+/*nfull mask tabbed content*/
 </textarea>
 </div>
 </div>
