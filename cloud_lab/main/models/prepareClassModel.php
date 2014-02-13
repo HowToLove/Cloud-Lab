@@ -230,32 +230,49 @@
 	*/
 	function savePreparationPreClass($classId,$charpter,$lesson,$preparation)
 	{
-		//判断保存remark的编码方式
-		if(mb_detect_encoding($preparation)=='UTF-8')
-		{
-			$remark2 = iconv('UTF-8','gb2312//IGNORE',$remark);
-		}else{
-			$remark2 = iconv(mb_detect_encoding($remark),'gb2312//IGNORE',$remark);
-		}
+		$preparation = addslashes($preparation);
+		$sql =  "SELECT Class.COURSE_ID AS courseId
+		    	FROM t_class_info Class 
+		    	WHERE CLASS_ID = '$classId'  
+		    	Limit 1";
+			
+			$result = mysql_query($sql);
+			$courseId ='';
+			if(mysql_num_rows($result)<1)
+			{
+				var_dump("++++++++".mysql_num_rows($result)."++++++++");
+			}else
+			{
+				$row = mysql_fetch_array($result);
+				$courseId = $row['courseId'];
+				//var_dump('courseId '.$courseId);	
+			}
 		//查询是否已经有相应的备注了
-		$sql = "SELECT Presentation.ID AS PresentationId FROM t_ppt_info Info,t_class_info Class 
-		WHERE Class.CLASS_ID = "."$classId"." AND Class.COURSE_ID = Info.COURSE_ID  AND Info.COURSE_CHARPTER = "."$charpter".
-		" AND Info.LESSON_SEQ = "."$lesson";
-		
+		$sql = "SELECT Presatation.PREPARATION_ID AS ID 
+		FROM t_preparation Presatation
+		WHERE  Presatation.COURSE_ID= '$courseId'
+		AND Presatation.COURSE_CHARPTER = '$charpter' 
+		AND Presatation.LESSON_SEQ = '$lesson'
+		Limit 1";
+		//echo "SELECT PREPARATION_ID: ".$sql."<br/>";
 		try {
 			$result = mysql_query($sql);
+			$formalsql='';
+			//var_dump("SELECT PREPARATION_ID RESULT: ".$result."<br/>");
 			if(mysql_num_rows($result)<1){//没有记录要新插入一条记录
-			
-				$sql = "INSERT INTO t_ppt_remark (CLASS_ID,PPT_ID,PPT_PAGE_NUM,REMARK) 
-				VALUES ($classId, $pptId, $pagenum, '$remark2')";			
+				$formalsql = "INSERT INTO t_preparation
+				(COURSE_ID,COURSE_CHARPTER,LESSON_SEQ,CONTENT) 
+				 		VALUES ('$courseId', '$charpter', '$lesson', '$preparation')";	
 			} else{//有记录只要更新就行
-				$sql = "UPDATE t_ppt_remark SET REMARK = "."'$remark2'".
-				" WHERE PPT_ID = "."$pptId"." AND CLASS_ID = "."$classId".
-				" AND PPT_PAGE_NUM = "."$pagenum";			
+				$row = mysql_fetch_array($result);
+				$presatationid = $row['ID'];
+				$formalsql = "UPDATE t_preparation SET CONTENT ='$preparation'
+				WHERE PREPARATION_ID = $presatationid ";
+				//echo $formalsql;			
 			}
-			
+			mysql_free_result($result);
 			try {
-				$status = mysql_query($sql);
+				$status = mysql_query($formalsql);
 				return $status;
 			} catch (Exception $e) {
 				var_dump('Presatation 插入或者更新失败');
@@ -265,3 +282,4 @@
 		}
 	}
 ?>
+

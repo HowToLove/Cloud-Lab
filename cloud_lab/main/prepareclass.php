@@ -10,7 +10,7 @@ if(!isset($_SESSION))
 }
 
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
-//$_SESSION['USER_ID']='5';
+$_SESSION['USER_ID']='5';
 
 //关闭自动输出error或者警告
 ini_set("display_errors", "Off");
@@ -83,11 +83,17 @@ if(isset($_SESSION['USER_ID'])&&isset($_POST['action']))
 		//创建数据库连接和选择数据库
 	    $mysql = new Mysql;    
 		//调用API获取数据
-		savePreparationPreClass($classId,$charpter,$lesson,$preparation);
+		$status = savePreparationPreClass($classId,$charpter,$lesson,$preparation);
 		//关闭数据库
 		$mysql->close();
 		//数据组装
-		$charpter = array('status'=>"success");
+		if($status)
+		{
+			$charpter = array('status'=>"success");
+		}else{
+			$charpter = array('status'=>"failure");
+		}
+		
 		//返回请求结果
    	 	echo json_encode($charpter);
 	} catch (Exception $e) {
