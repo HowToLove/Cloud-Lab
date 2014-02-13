@@ -30,13 +30,13 @@ $(function() {
 								<div class='arrow-right'></div>\
 							</div>\
 							<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
-								<h3 class='underline classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
+								<h3 class='underline' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
 							</a>\
 							<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
 							<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即上课</a>\
 						</div>\
 						<div class='class-list-right'>\
-							<div class='class-question'>\
+							<div class='class-questions'>\
 								<p>未解答疑问</p>\
 								<span>1</span>\
 								<div class='arrow-bottom'></div>\
@@ -44,7 +44,7 @@ $(function() {
 							<p class='underline'>"+description+"</p>\
 							<p>上课人数："+studentsnum+"人</p>\
 						</div>\
-						<div class=''class-progress'>\
+						<div class='class-progress'>\
 							<div class='progress-cover' style='width:"+percent+"%'></div>\
 							<p>"+percent+"%</p>\
 						</div>\
@@ -59,7 +59,7 @@ $(function() {
 	});
 
 	// 点击课程名时请求
-	$(".classes_h").live('click', function() {
+	$("#classes_h").live('click', function() {
 		classid = $(this).attr('data-classid');
 		$.ajax({
 			type : 'POST',
