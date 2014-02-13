@@ -256,4 +256,7 @@ $(document).ready(function(){
 	$(document).on("click", "#btn_prepare", function() {
 		window.location.href="PrepareClass.html";
 	});
+	$(document).on("click", "#btn_home", function() {
+	    window.location.href="TeacherHomepage.html";
+	});
 })
