@@ -528,3 +528,7 @@ li.solving .qinfo-item-icon{
 	font-size: 15px;
 	padding: 10px 20px;
 }
+.textadjust{
+height:40px;
+overflow:srcoll;
+}
