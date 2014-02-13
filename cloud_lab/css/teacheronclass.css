@@ -217,22 +217,80 @@ body {
 	margin-left: 5px;
 	margin-top: 5px;
    position:relative;
+   width:30px;
+   height:30px;
+   background: url(../img/arrow-l.png);
+   border:none;
+   outline:none;
+   opacity:0.4;
 }
-.bt_preclass::before{
-background: url(../img/close.png);
-width: 10px;
-height: 10px;
+.bt_preclass:hover {
+ opacity:1;
+}
+.bt_preclass:hover::before{
+background: #000;
+width: 50px;
+height: 25px;
 position: absolute;
-content: "";
+color: #fff;
+content: "上一节";
+border-radius: 5px;
+left: 0px;
+top: 35px;
 }
 .bt_nextclass {
 	margin-right: 5px;
 	margin-top: 5px;
+	   position:relative;
+   width:30px;
+   height:30px;
+   background: url(../img/arrow-r.png);
+   border:none;
+   outline:none;
+   opacity:0.4;
 }
-#btn_over {
-	margin-top: -40px;
+.bt_nextclass:hover {
+ opacity:1;
+}
+.bt_nextclass:hover::before{
+background: #000;
+width: 50px;
+height: 25px;
+position: absolute;
+color: #fff;
+content: "下一节";
+border-radius: 5px;
+left: -20px;
+top: 35px;
+}
+.btn_over {
+-webkit-transition-property: all;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+	margin-top: -50px;
 	margin-right: 60px;
 	float: right;
+  width:50px;
+  height:50px;
+  position:relative;
+   background: url(../img/classover.png) no-repeat;
+   outline:none;
+   border:none;
+   opacity: 0.5;
+}
+.btn_over:hover{
+ opacity:1;
+}
+.btn_over:hover::before{
+background: #2AA6DF;
+width: 50px;
+height: 25px;
+position: absolute;
+color: #fff;
+content: "下课";
+border-radius: 5px;
+left: -3px;
+top: -30px;
 }
 .nfullnote .notearea {
 	margin-top: 42px;
@@ -310,9 +368,18 @@ content: "";
 	margin-right: 5px;
 	margin-top: -5px;
 }
-.bt_fullsreen {
-	opacity: 0.5;
+.bt_fullsreen:hover::before{
+background: #2AA6DF;
+width: 50px;
+height: 25px;
+position: absolute;
+color: #fff;
+content: "全屏";
+border-radius: 5px;
+left: -3px;
+top: -30px;
 }
+
 .ppt_content_full .bubble {
 	width: 48px;
 	height: 48px;
@@ -322,10 +389,13 @@ content: "";
 }
 .bt_notfullsreen {
 	background: url(../img/notfullscreen.png) no-repeat;
+	 position:relative;
 }
 .bt_fullsreen {
 	background: url(../img/fullscreen.png) no-repeat;
 	margin-top: -50px;
+	 position:relative;
+	 opacity: 0.5;
 }
 .Pconf {
 	width: 100%;
