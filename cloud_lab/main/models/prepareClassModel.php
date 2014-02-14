@@ -73,7 +73,7 @@
 		AND Remark.PPT_ID = Info.PPT_ID AND Info.COURSE_CHARPTER = "."$charpter".
 		" AND Info.LESSON_SEQ = "."$lesson"." AND Remark.PPT_PAGE_NUM = "."$pagenum";
 		try {
-			mysql_query("set names 'gbk'");
+			//mysql_query("set names 'gbk'");
 			$result = mysql_query($sql);
 			if(mysql_num_rows($result)<1){//没有记录要新插入一条记录
 				$sql = "SELECT Info.PPT_ID AS PPT_ID FROM t_ppt_info Info,t_class_info Class 

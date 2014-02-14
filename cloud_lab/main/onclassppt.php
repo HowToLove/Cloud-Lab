@@ -10,7 +10,7 @@ $_SESSION['USER_ID']='5';
 //关闭自动输出error或者警告
 ini_set("display_errors", "Off");
 
-if(isset($_SESSION['USER_ID'])))
+if(isset($_SESSION['USER_ID']))
 {
 		//获取数据
 	$classId   =	$_POST['classid'];
