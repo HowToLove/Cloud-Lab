@@ -250,6 +250,17 @@ $(document).ready(function () {
 					case 5:
 						alert("邮箱错误");
 						break;
+					case 6:
+						alert("用户名已经被占用");
+						break;
+					case 7:
+						alert("邮箱已经被占用");
+						break;
+					case 8:
+						alert("该身份证已经被使用");
+						break;
+					default:
+						alert("请检查注册信息");
 					}
 				},
 				complete: function(XMLHttpRequest, textStatus){

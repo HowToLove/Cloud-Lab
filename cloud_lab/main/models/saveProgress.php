@@ -1,9 +1,11 @@
 <?php
+	/**本文件用来保存教师用户的备课进度情况
+	*/
 	/**
-	@param $charpter
-	@param $classId
-	@param $lesson
-	@return $status (boolean)是否存储成功
+	 *@param $charpter
+	 *@param $classId
+	 *@param $lesson
+	 *@return $status (boolean)是否存储成功
 	*/
 	function saveProgress($classId,$charpter,$lesson)
 	{
