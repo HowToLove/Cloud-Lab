@@ -1,8 +1,10 @@
 <?php
 header('Content-type: text/json');
 require_once('../main/common/function.php');
-session_start();
-$_SESSION['captcha']=$_POST['captcha'];
+if(!isset($_SESSION))
+{
+	session_start();	
+}
 //比较验证码是否正确
 $state=-3;
 if(strtoupper($_POST['captcha'])==strtoupper($_SESSION['captcha'])){
@@ -31,7 +33,6 @@ if(strtoupper($_POST['captcha'])==strtoupper($_SESSION['captcha'])){
     $user = new User;
 	if($user->find($arr['USER_NAME'],'USER_NAME'))
 	{
-	    
 		$state=6;
 	}elseif($user->find($arr['EMAIL'],'EMAIL'))
 	{

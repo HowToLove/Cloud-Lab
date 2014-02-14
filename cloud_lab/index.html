@@ -300,7 +300,7 @@
 					<input type="text" name="ridnumber" id="ridnumber" class="register" placeholder="证件号"/>
 					<input type="text" name="rbirthday" id="rbirthday" class="register" placeholder="生日"/>
 					<input type="text" name="rcaptcha" id="rcaptcha" class="register" placeholder="验证码"/>
-
+					<img src="./main/models/validateCode.php" onclick="javascript:this.src='./main/models/validateCode.php?tm='+Math.random();" /> 
 					<button type="button" id="rbtn-back">返回</button>
 					<button type="submit" id="rbtn-register">注册</button>
 				</form>
