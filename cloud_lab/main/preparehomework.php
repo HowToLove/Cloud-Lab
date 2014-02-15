@@ -24,7 +24,8 @@ if(isset($_SESSION['USER_ID']))
 				$question = $_POST['questionid'];
 				TsaveAssignHomework($classId,$charpter,$lesson,$question);
 				//数据组装
-				$pptStatu = array('status'=>"success");
+				$pptStatu = array('status'=>
+"success");
 				//返回请求结果
 		    	echo json_encode($pptStatu);
 				break;

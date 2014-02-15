@@ -3,7 +3,7 @@
  * 本文件用来产生验证码
  *@filename: ./maim/common/validateCode.php
  *@author :<cwlseu@qq.com>
- **/
+**/
  
 /**
  *function：random
@@ -13,7 +13,8 @@
 function random($num)
 {
 	$code='';
-	for($i=0;$i<$num;$i++)//生成验证码
+	for($i=0;$i
+<$num;$i++)//生成验证码
 	{
 		switch(rand(0,2))
 		{
@@ -74,4 +75,4 @@ function printCode()
 	imagedestroy($image);//释放资源
 }
 printCode();
-?> 
+?>

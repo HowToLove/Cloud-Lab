@@ -25,6 +25,7 @@ class User
 {
     //tablename
     private static  $tablename='t_user_info';
+
     //sql array
     private $sql =array(
     'USER'      =>  "SELECT * from t_user_info WHERE USER_NAME =",
