@@ -39,7 +39,9 @@ if(isset($_SESSION['USER_ID']))
 		   	 			echo json_encode($charpter);
 						break;
 					case 'getPPTandRemark':
-						$result = getSnapAndRemarkOfPPT($classId,$charpter,$lesson);
+						$resultOfPPT = getSnapAndRemarkOfPPT($classId,$charpter,$lesson);
+						$resultOfPreparation = getPreparationByClassIdCharpterLession($classId,$charpter,$lesson);
+						$result=array_merge($resultOfPPT,$resultOfPreparation);
 						echo json_encode($result);
 						break;
 					case 'commitRemark'://提交ppt备注

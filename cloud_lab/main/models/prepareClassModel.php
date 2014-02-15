@@ -3,7 +3,7 @@
 	*@param $charpter
 	*@param $classId
 	*@param $lesson
-	*@return pptå’Œvideoçš„æ’­æ”¾å·åºåˆ—,ä»¥åŠæ¯é¡µpptè€å¸ˆçš„å¤‡æ³¨ä¿¡æ¯
+	*@return pptºÍvideoµÄ²¥·ÅºÅĞòÁĞ,ÒÔ¼°Ã¿Ò³pptÀÏÊ¦µÄ±¸×¢ĞÅÏ¢
 	*/
 	function getSnapAndRemarkOfPPT($classId,$charpter,$lesson)
 	{
@@ -50,24 +50,24 @@
 
 
 	/**
-	*@param $classid 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç­çº§
-	*@param $charpterId å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç« èŠ‚
-	*@param $lessonId 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹è¯¾æ—¶
-	*@param $pagenum 	å½“å‰ppt å¯¹åº”çš„é¡µå·
-	*@param $remark     å½“å‰pptçš„å¤‡æ³¨
+	*@param $classid 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®°à¼¶
+	*@param $charpterId µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®ÕÂ½Ú
+	*@param $lessonId 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®¿ÎÊ±
+	*@param $pagenum 	µ±Ç°ppt ¶ÔÓ¦µÄÒ³ºÅ
+	*@param $remark     µ±Ç°pptµÄ±¸×¢
 	*@return 	true :save success false :save failed	
-	*ç”¨æ¥ä¿å­˜å½“å‰pptçš„å¤‡æ³¨
+	*ÓÃÀ´±£´æµ±Ç°pptµÄ±¸×¢
 	*/
 	function savePPTRemarkPreClass($classId,$charpter,$lesson,$pagenum,$remark)
 	{		
-		//åˆ¤æ–­ä¿å­˜remarkçš„ç¼–ç æ–¹å¼
+		//ÅĞ¶Ï±£´æremarkµÄ±àÂë·½Ê½
 		if(mb_detect_encoding($remark)=='UTF-8')
 		{
 			$remark2 = iconv('UTF-8','gb2312//IGNORE',$remark);
 		}else{
 			$remark2 = iconv(mb_detect_encoding($remark),'gb2312//IGNORE',$remark);
 		}
-		//æŸ¥è¯¢æ˜¯å¦å·²ç»æœ‰ç›¸åº”çš„å¤‡æ³¨äº†
+		//²éÑ¯ÊÇ·ñÒÑ¾­ÓĞÏàÓ¦µÄ±¸×¢ÁË
 		$sql = "SELECT Remark.PPT_ID AS PPT_ID FROM t_ppt_remark Remark,t_ppt_info Info,t_class_info Class 
 		WHERE Class.CLASS_ID = "."$classId"." AND Class.COURSE_ID = Info.COURSE_ID 
 		AND Remark.PPT_ID = Info.PPT_ID AND Info.COURSE_CHARPTER = "."$charpter".
@@ -75,7 +75,7 @@
 		try {
 			mysql_query("set names 'gbk'");
 			$result = mysql_query($sql);
-			if(mysql_num_rows($result)<1){//æ²¡æœ‰è®°å½•è¦æ–°æ’å…¥ä¸€æ¡è®°å½•
+			if(mysql_num_rows($result)<1){//Ã»ÓĞ¼ÇÂ¼ÒªĞÂ²åÈëÒ»Ìõ¼ÇÂ¼
 				$sql = "SELECT Info.PPT_ID AS PPT_ID FROM t_ppt_info Info,t_class_info Class 
 				WHERE Class.CLASS_ID = "."$classId"." AND Class.COURSE_ID = Info.COURSE_ID 
 				 AND Info.COURSE_CHARPTER = "."$charpter".
@@ -85,7 +85,7 @@
 				$pptId = $row['PPT_ID'];
 				$sql = "INSERT INTO t_ppt_remark (CLASS_ID,PPT_ID,PPT_PAGE_NUM,REMARK) 
 				VALUES ($classId, $pptId, $pagenum, '$remark2')";			
-			} else{//æœ‰è®°å½•åªè¦æ›´æ–°å°±è¡Œ
+			} else{//ÓĞ¼ÇÂ¼Ö»Òª¸üĞÂ¾ÍĞĞ
 				$row = mysql_fetch_array($result);
 				$pptId = $row['PPT_ID'];
 				$sql = "UPDATE t_ppt_remark SET REMARK = "."'$remark2'".
@@ -99,7 +99,7 @@
 				$status = mysql_query($sql);
 				return $status;
 			} catch (Exception $e) {
-				var_dump('Remark æ’å…¥æˆ–è€…æ›´æ–°å¤±è´¥');
+				var_dump('Remark ²åÈë»òÕß¸üĞÂÊ§°Ü');
 			}
 		} catch (Exception $e) {
 			var_dump($e->getTrace());
@@ -109,11 +109,11 @@
 
 
 	/**
-	*@param $classid 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç­çº§
-	*@param $charpterId å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç« èŠ‚
-	*@param $lessonId 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹è¯¾æ—¶
-	*@return 	é—®é¢˜:[1,2,3],ç­”æ¡ˆ:[1,2,3]
-	*ç”¨æ¥è·å¾—ç›¸åº”è¯¾ç¨‹çš„ä½œä¸šé—®é¢˜ä»¥åŠå‚è€ƒç­”æ¡ˆ	
+	*@param $classid 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®°à¼¶
+	*@param $charpterId µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®ÕÂ½Ú
+	*@param $lessonId 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®¿ÎÊ±
+	*@return 	ÎÊÌâ:[1,2,3],´ğ°¸:[1,2,3]
+	*ÓÃÀ´»ñµÃÏàÓ¦¿Î³ÌµÄ×÷ÒµÎÊÌâÒÔ¼°²Î¿¼´ğ°¸	
 	*/
 	function getRelatedQuestions($classId,$charpter,$lesson)
 	{
@@ -136,17 +136,17 @@
 		return $ret;
 	}
 	/**
-	 *@param $classid 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç­çº§
-	 *@param $charpterId å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç« èŠ‚
-	 *@param $lessonId 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹è¯¾æ—¶
-	 *@return 		[{é—®é¢˜,ç­”æ¡ˆ},{é—®é¢˜,ç­”æ¡ˆ},{é—®é¢˜,ç­”æ¡ˆ}]
+	 *@param $classid 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®°à¼¶
+	 *@param $charpterId µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®ÕÂ½Ú
+	 *@param $lessonId 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®¿ÎÊ±
+	 *@return 		[{ÎÊÌâ,´ğ°¸},{ÎÊÌâ,´ğ°¸},{ÎÊÌâ,´ğ°¸}]
 	 {"questions":
 		 [
 		 {"question":"", "answer":""},
 		 {"question":"", "answer":""}
 		 ] 
 	}
-	 *è·å–ä¸æœ¬èŠ‚è¯¾ç¨‹ç›¸å…³çš„æ‰€ä»¥é¢˜ç›®
+	 *»ñÈ¡Óë±¾½Ú¿Î³ÌÏà¹ØµÄËùÒÔÌâÄ¿
 	*/
 	function getAllQuestionOfLesson($classId,$charpterId,$lessonId)
 	{
@@ -181,12 +181,12 @@
 		}
 	}
 	/**
-	 *@param $classid 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç­çº§
-	 *@param $charpterId å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç« èŠ‚
-	 *@param $lessonId 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹è¯¾æ—¶
-	 *@param $questionids æ•™å¸ˆé€‰ä¸­çš„é—®é¢˜å·
+	 *@param $classid 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®°à¼¶
+	 *@param $charpterId µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®ÕÂ½Ú
+	 *@param $lessonId 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®¿ÎÊ±
+	 *@param $questionids ½ÌÊ¦Ñ¡ÖĞµÄÎÊÌâºÅ
 	 *@return 	true OR false
-	 *å‚¨å­˜è€å¸ˆé€‰ä¸­çš„é—®é¢˜
+	 *´¢´æÀÏÊ¦Ñ¡ÖĞµÄÎÊÌâ
 	*/
 	function saveHomeworkList($classId,$charpterId,$lesson,$questionids,$deadline)
 	{
@@ -221,12 +221,12 @@
 
 
    /**
-	*@param $classid 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç­çº§
-	*@param $charpterId å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹ç« èŠ‚
-	*@param $lessonId 	å½“å‰è¯¾ç¨‹çš„ä¿¡æ¯ä¹‹è¯¾æ—¶
-	*@param $preparation æœ¬èŠ‚è¯¾çš„å¤‡è¯¾ä¿¡æ¯
+	*@param $classid 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®°à¼¶
+	*@param $charpterId µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®ÕÂ½Ú
+	*@param $lessonId 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®¿ÎÊ±
+	*@param $preparation ±¾½Ú¿ÎµÄ±¸¿ÎĞÅÏ¢
 	*@return 	true :save success false :save failed	
-	*ç”¨æ¥ä¿å­˜å½“å‰è¯¾ç¨‹çš„æ•™æ¡ˆ
+	*ÓÃÀ´±£´æµ±Ç°¿Î³ÌµÄ½Ì°¸
 	*/
 	function savePreparationPreClass($classId,$charpter,$lesson,$preparation)
 	{
@@ -254,7 +254,7 @@
 				$courseId = $row['courseId'];
 				//var_dump('courseId '.$courseId);	
 			}
-		//æŸ¥è¯¢æ˜¯å¦å·²ç»æœ‰ç›¸åº”çš„å¤‡æ³¨äº†
+		//²éÑ¯ÊÇ·ñÒÑ¾­ÓĞÏàÓ¦µÄ±¸×¢ÁË
 		$sql = "SELECT Presatation.PREPARATION_ID AS ID 
 		FROM t_preparation Presatation
 		WHERE  Presatation.COURSE_ID= '$courseId'
@@ -267,11 +267,11 @@
 			$result = mysql_query($sql);
 			$formalsql='';
 			//var_dump("SELECT PREPARATION_ID RESULT: ".$result."<br/>");
-			if(mysql_num_rows($result)<1){//æ²¡æœ‰è®°å½•è¦æ–°æ’å…¥ä¸€æ¡è®°å½•
+			if(mysql_num_rows($result)<1){//Ã»ÓĞ¼ÇÂ¼ÒªĞÂ²åÈëÒ»Ìõ¼ÇÂ¼
 				$formalsql = "INSERT INTO t_preparation
 				(COURSE_ID,COURSE_CHARPTER,LESSON_SEQ,CONTENT) 
 				 		VALUES ('$courseId', '$charpter', '$lesson', '$preparation')";	
-			} else{//æœ‰è®°å½•åªè¦æ›´æ–°å°±è¡Œ
+			} else{//ÓĞ¼ÇÂ¼Ö»Òª¸üĞÂ¾ÍĞĞ
 				$row = mysql_fetch_array($result);
 				$presatationid = $row['ID'];
 				$formalsql = "UPDATE t_preparation SET CONTENT ='$preparation'
@@ -283,11 +283,45 @@
 				$status = mysql_query($formalsql);
 				return $status;
 			} catch (Exception $e) {
-				var_dump('Presatation æ’å…¥æˆ–è€…æ›´æ–°å¤±è´¥');
+				var_dump('Presatation ²åÈë»òÕß¸üĞÂÊ§°Ü');
 			}
 		} catch (Exception $e) {
 			var_dump($e->getTrace());
 		}
 	}
+	/**
+	 * »ñÈ¡½Ì°¸µÄ·½·¨
+	 *@param $classid 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®°à¼¶
+	 *@param $charpterId µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®ÕÂ½Ú
+	 *@param $lessonId 	µ±Ç°¿Î³ÌµÄĞÅÏ¢Ö®¿ÎÊ±
+	 *@return $preparation ±¾½Ú¿ÎµÄ±¸¿ÎĞÅÏ¢
+	 */
+	function getPreparationByClassIdCharpterLession($classid,$charpter,$lesson)
+	{
+		$preparation='';
+
+		$sql = "SELECT Presatation.CONTENT AS content  
+		FROM t_preparation As Presatation,t_class_info As Class
+		WHERE  Class.CLASS_ID='$classid'
+		AND Presatation.COURSE_ID= Class.COURSE_ID
+		AND Presatation.COURSE_CHARPTER = '$charpter' 
+		AND Presatation.LESSON_SEQ = '$lesson'
+		Limit 1";
+
+		try {
+			$result = mysql_query($sql);
+			if(mysql_num_rows($result)>=1){//Ã»ÓĞ¼ÇÂ¼ÒªĞÂ²åÈëÒ»Ìõ¼ÇÂ¼
+				$row = mysql_fetch_array($result);
+				$preparation['preparation']=$row['content'];
+			}
+			mysql_free_result($result);
+			return $preparation;
+		} catch (Exception $e) {
+			var_dump($e->getTrace());
+		}
+		return $preparation;
+	}
+
 ?>
+
 

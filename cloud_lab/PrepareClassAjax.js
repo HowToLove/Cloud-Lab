@@ -143,6 +143,7 @@ $(function() {
 				urls = data.snap;
 				videos = data.video;
 				remarks = data.remark;
+				preparation = data.preparation;
 				createPPTs();
 			},
 			complete: function(XMLHttpRequest, textStatus) {},
@@ -225,33 +226,6 @@ $(function() {
 			}
 		});
 	});
-	
-	// 提交本节ppt教案
-	function savePreparation() {
-		$.ajax({
-			url: 'main/prepareclass.php',
-			type: 'POST',
-			dataType: 'json',
-			data: {
-				'classid' : classid,
-				'charpter' : charpter,
-				'lesson' : lesson,
-				'preparation' : $("#txt_preparation").val(),
-			},
-			beforeSend: function(XMLHttpRequest) {},
-			success: function(data) {
-				if(data.status == 'success') {
-					alert("save success");
-				} else {
-					alert("save failed");
-				}
-			},
-			complete: function(XMLHttpRequest, textStatus) {},
-			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
-			}
-		});
-	}
 	
 	// 请求题目
 	$("#btn_completeppt").click(function() {
