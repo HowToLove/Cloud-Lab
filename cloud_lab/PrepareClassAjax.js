@@ -168,6 +168,15 @@ $(function() {
 				"<li><img src=main/"+urls[i]+"></li>"
 			$('#ppt-list').append(snapppt);
 			$('#ppt-content').append(normalppt);
+			$('#pagenote').empty();
+			var classnote = 
+				"<p>本页PPT备注</p>\
+	        	<form>\
+	              	<textarea class='form-control' id='txt_remark'>"+remarks[0]+"</textarea>\
+	              	<input type='button' id='btn_saveremark' value='保存' class='btn btn-primary'>\
+	              	<input type='reset' value='重置' class='btn btn-success'>\
+	            </form>"
+	        $('#pagenote').append(classnote);
 		}
 		prepare_class()
 	}
@@ -179,7 +188,7 @@ $(function() {
 		var classnote = 
 			"<p>本页PPT备注</p>\
         	<form>\
-              	<textarea class='form-control' id='txt_remark'>"+remarks[pptid]+"</textarea>\
+              	<textarea class='form-control' id='txt_remark'>"+remarks[pptid-1]+"</textarea>\
               	<input type='button' id='btn_saveremark' value='保存' class='btn btn-primary'>\
               	<input type='reset' value='重置' class='btn btn-success'>\
             </form>"
@@ -199,13 +208,15 @@ $(function() {
 				'charpter' : charpter,
 				'lesson' : lesson,
 				'pagenum' : pptid,
-				'remark' : $("#txt_remark").text(),
+				'remark' : $("#txt_remark").val(),
 				'action' : 'commitRemark'
 			},
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data) {
 				if(data.status == 'success') {
 					alert("save success");
+				} else {
+					alert("save failed");
 				}
 			},
 			complete: function(XMLHttpRequest, textStatus) {},
