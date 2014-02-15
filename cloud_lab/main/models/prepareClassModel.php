@@ -73,7 +73,7 @@
 		AND Remark.PPT_ID = Info.PPT_ID AND Info.COURSE_CHARPTER = "."$charpter".
 		" AND Info.LESSON_SEQ = "."$lesson"." AND Remark.PPT_PAGE_NUM = "."$pagenum";
 		try {
-			//mysql_query("set names 'gbk'");
+			mysql_query("set names 'gbk'");
 			$result = mysql_query($sql);
 			if(mysql_num_rows($result)<1){//没有记录要新插入一条记录
 				$sql = "SELECT Info.PPT_ID AS PPT_ID FROM t_ppt_info Info,t_class_info Class 
@@ -231,11 +231,18 @@
 	function savePreparationPreClass($classId,$charpter,$lesson,$preparation)
 	{
 		$preparation = addslashes($preparation);
+		if(mb_detect_encoding($preparation)=='UTF-8')
+		{
+			$preparation = iconv('UTF-8','gb2312//IGNORE',$preparation);
+		}else{
+			$preparation = iconv(mb_detect_encoding($preparation),'gb2312//IGNORE',$preparation);
+		}
+		
 		$sql =  "SELECT Class.COURSE_ID AS courseId
 		    	FROM t_class_info Class 
 		    	WHERE CLASS_ID = '$classId'  
 		    	Limit 1";
-			
+		
 			$result = mysql_query($sql);
 			$courseId ='';
 			if(mysql_num_rows($result)<1)
@@ -256,6 +263,7 @@
 		Limit 1";
 		//echo "SELECT PREPARATION_ID: ".$sql."<br/>";
 		try {
+			mysql_query("set names 'gbk'");	
 			$result = mysql_query($sql);
 			$formalsql='';
 			//var_dump("SELECT PREPARATION_ID RESULT: ".$result."<br/>");
