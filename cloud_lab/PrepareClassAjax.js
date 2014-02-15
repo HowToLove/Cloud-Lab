@@ -1,5 +1,5 @@
 var classes;
-var urls, videos, remarks, questions, answers;
+var urls, videos, remarks, questions;
 var classid, classname, imgurl, charpter, coursename, lesson, description, studentsnum, percent, pptid;
 classid = 1;
 charpter = 1;
@@ -263,42 +263,63 @@ $(function() {
 				'classid' : classid,
 				'charpter' : charpter,
 				'lesson' : lesson,
-				'action' : 'homeworklist'
+				'preparation' : $(this).prev().val(),
 			},
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data) {
-				$('#homeworklist').empty();
-				questions = data.questions.question;
-				answers = data.questions.answer;
-				for(var i=0;i<questions.length;i++) {
-					var homework = 
-						"<div class='checkbox exer-list'>\
-							<input type='checkbox' name='' value='' id='exer1'>\
-							<label for='exer1'>\
-								<img class='check' src='img/checkbox.png'>\
-								<div class='checkmark'><img src='img/checkmark.png'></div>\
-								<p class='exer-list-header'><span>说明案例</span><span></span></p>\
-								<p class='exer-question'>"+questions[i]+"</p>\
-							</label>\
-							<a class='button-blue show-answer'>查看答案</a>\
-							<p class='exer-answer'>解答："+answers[i]+"<span></span></p>\
-						</div>"
-					$('#homeworklist').append(homework);
+				if(data.status == 'success') {
+					$.ajax({
+						url: 'main/prepareclass.php',
+						type: 'POST',
+						dataType: 'json',
+						data: {
+							'classid' : classid,
+							'charpter' : charpter,
+							'lesson' : lesson,
+							'action' : 'homeworklist'
+						},
+						beforeSend: function(XMLHttpRequest) {},
+						success: function(data) {
+							$('#homeworklist').empty();
+							questions = data.questions;
+							for(var i=0;i<questions.length;i++) {
+								var homework = 
+									"<div class='checkbox exer-list'>\
+										<input type='checkbox' name='' value='' id='exer1'>\
+										<label for='exer1'>\
+											<img class='check' src='img/checkbox.png'>\
+											<div class='checkmark'><img src='img/checkmark.png'></div>\
+											<p class='exer-list-header'><span>说明案例</span><span></span></p>\
+											<p class='exer-question'>"+questions[i].question+"</p>\
+										</label>\
+										<a class='button-blue show-answer'>查看答案</a>\
+										<p class='exer-answer'>解答："+questions[i].answer+"<span></span></p>\
+									</div>"
+								$('#homeworklist').append(homework);
+							}
+							var from = 
+								"<form role='form' style='text-align:center'>\
+									<label for='deadline'>作业截止时间：</label><input type='date' name='deadline' id='deadline'>\
+									<a class='btn btn-warning' id='btn_completeprepare'>完成备课</a>\
+								</form>"
+							$('#homeworklist').append(from);
+							prepare_class()
+						},
+						complete: function(XMLHttpRequest, textStatus) {},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
+						}
+					});
+				} else {
+					alert("save failed");
 				}
-				var from = 
-					"<form role='form' style='text-align:center'>\
-						<label for='deadline'>作业截止时间：</label><input type='date' name='deadline' id='deadline'>\
-						<a class='btn btn-warning' id='btn_completeprepare'>完成备课</a>\
-					</form>"
-				$('#homeworklist').append(from);
-				prepare_class()
 			},
 			complete: function(XMLHttpRequest, textStatus) {},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
-			
 		});
+
 	});
 
 	// 布置作业
