@@ -16,7 +16,7 @@
 		 " AND Course.COURSE_ID = Class.COURSE_ID";
 
 		$result =  mysql_query($sql);
-
+		$classInfo=array();
 		if(mysql_num_rows($result)<=0){
 			return $classInfo;//空值表示出错
 		}
@@ -96,12 +96,12 @@
 					$next['lesson'] = 1;
 				}
 			}
-			
+
 			mysql_free_result($result);		
 			return $next;
 
 		} catch (Exception $e) {
-			
+			var_dump($e->getTrace());
 		}
 	}
 

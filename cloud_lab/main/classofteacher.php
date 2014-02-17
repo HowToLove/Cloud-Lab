@@ -12,21 +12,7 @@ ini_set("display_errors", "Off");
 if(isset($_SESSION['USER_ID']))//判断用户是否已经已经登录
 {
 	//获取请求参数数据
-	
-	try {
-		//创建数据库连接和选择数据库
-	    $mysql = new Mysql;    
-		//调用API获取数据
-		$result = getClassInfoById($_SESSION['USER_ID']);
-		//关闭数据库
-		$mysql->close();
-		//数据组装
-		$status = array('classes'=>$result);
-		
-		//返回请求结果
-   	 	echo json_encode($status);
-   	 	
-   	 	/**例子
+		/**例子
    	 	*{
 		    "classes": [
 		        {
@@ -58,6 +44,20 @@ if(isset($_SESSION['USER_ID']))//判断用户是否已经已经登录
 		    ]
 		 }
    	 	*/
+	try {
+		//创建数据库连接和选择数据库
+	    $mysql = new Mysql;    
+		//调用API获取数据
+		$result = getClassInfoById($_SESSION['USER_ID']);
+		//关闭数据库
+		$mysql->close();
+		//数据组装
+		$status = array('classes'=>$result);
+		
+		//返回请求结果
+   	 	echo json_encode($status);
+   	 	
+   	 
 	} catch (Exception $e) {
 		echo json_encode($e->getTrace());
 	}
