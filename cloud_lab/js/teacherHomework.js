@@ -16,4 +16,19 @@ $(document).ready(function(){
       $('.comment .close').click(function(){
             $(this).parents('li').find('.comment').hide('normal')
       })
+      $('.backshow').click(function(){
+            $('.back').fadeIn('slow')
+      })
+      $('.back').click(function(){
+            $('.back').fadeOut('slow')
+      })
+      $('.marknow,#accordion li a').click(function(){
+            setTimeout(function(){
+                  $('.student-list').animate({right:"0"},'slow') 
+            },500)
+      })
+      $('.studentli-hide').click(function(){
+            $('.student-list').animate({right:"-100%"},'slow') 
+      })
+      
 })

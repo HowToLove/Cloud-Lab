@@ -54,7 +54,6 @@ ul, ol {
 .step-content{
 	width:65%;
 	margin-left: 5%;
-	float:left;
 }
 .step-content-list{
 	display: block;
@@ -201,11 +200,10 @@ ul, ol {
 }
 .student-list{
 	position: fixed;
-	right: 0;
+	right: -100%;
 	top: 55px;
 	width: 25%;
 	margin-left: 5%;
-	padding:0 20px;
 	height: 100%;
 	background-color: #d2d2d2;
 }
@@ -227,7 +225,46 @@ td.corrected{
 	color:#6dd9aa;
 }
 .back{
-	position: absolute;
-	left: -12%;
+	position: fixed;
+	left: 9%;
 	top: 50%;
+	display: none;
+}
+.close{
+	padding-right: 3px;
+}
+.student-list ul{
+	margin: 0;
+	padding: 0;
+	height: 70%;
+	margin-top: 12%;
+	overflow: hidden;
+}
+.student-list ul li{
+	background: url(../img/stuli.png) no-repeat 10%;
+	padding-left: 18%;
+	font-size: 16px;
+	color:#aaa;
+	height: 65px;
+	padding-top: 10px;
+	cursor: pointer;
+}
+.student-list ul li.stuli-active{
+	background-color: #88abda;
+	color:white;
+}
+.student-list ul li p{
+	margin: 0;
+}
+.student-list ul li p span{
+	color:#88abda;
+}
+.stuli-arrow{
+	position: absolute;
+	font-size: 30px;
+	left: 45%;
+	color:#88abda;
+}
+.stuli-arrow.up{
+	top: 7%;
 }
