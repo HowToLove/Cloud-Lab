@@ -152,7 +152,8 @@
 	{
 		$sql = 
 		"SELECT TQuestion.QUESTION_CONTENT AS question ,
-				TQuestion.ANSWER 		   AS ans
+				TQuestion.ANSWER 		   AS ans,
+				TQuestion.QUESTION_ID AS id,
 		FROM t_question_info TQuestion
 		WHERE TQuestion.QUESTION_ID 
 		in 
@@ -173,6 +174,7 @@
 			{
 				$temp["question"]= $row['question'];
 				$temp["answer"]  = $row['ans'];
+				$temp['id'] = $row['id'];
 				$query[] = $temp;
 			}
 			return $query;

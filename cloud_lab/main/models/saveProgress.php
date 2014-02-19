@@ -24,6 +24,6 @@
 		" WHERE CLASS_ID = "."$classId";
 		$result = mysql_query($sql);
 		//echo $sql;
-		return $result;
+		return mysql_affected_rows();
 	}
 ?>
