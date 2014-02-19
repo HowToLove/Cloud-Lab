@@ -30,5 +30,16 @@ $(document).ready(function(){
       $('.studentli-hide').click(function(){
             $('.student-list').animate({right:"-100%"},'slow') 
       })
-      
+      $('.stuli-arrow.up').click(function(){
+            var mt=parseInt($('.student-list ul').css('margin-top'))
+            if(mt<0){
+                  $('.student-list ul').animate({marginTop:'+=65'})
+            }
+      })
+      $('.stuli-arrow.down').click(function(){
+            var mt=parseInt($('.student-list ul').css('margin-top'))
+            if(mt>($('.stuli').height()-$('.student-list ul').height())){
+                  $('.student-list ul').animate({marginTop:'-=65'})
+            }
+      })
 })
