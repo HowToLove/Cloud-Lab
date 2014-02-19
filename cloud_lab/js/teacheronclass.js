@@ -181,7 +181,18 @@ $('.ppt_slide_content').css('height', sreenHeight+'px');
 	  var pptheight1 = pptwidth1*3/4;
 	 $(".nfull_slide_content").css("width",pptwidth+"px");  
 	  $(".pptm").css("width",pptwidth+"px");  	
-
+var h3sheight=$('.textadjust').prop('scrollHeight');
+var h3height=$('.textadjust').height();
+if(h3sheight>h3height)
+{
+var listlheight=$(".class-list-left").height()+h3sheight-h3height;
+var listheight=$(".class-list").height()+h3sheight-h3height;
+$('.textadjust').css("height",h3sheight+"px"); 
+$(".class-list-left").css("height",listlheight);
+$(".class-list-right").css("height",listlheight);
+$(".class-list").css("height",listheight);
+$(".class-img").css("width",listlheight);
+}
 	if(pptwidth1>pptwidth)
 	  {
 	  
