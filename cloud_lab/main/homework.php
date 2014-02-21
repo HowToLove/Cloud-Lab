@@ -2,6 +2,7 @@
 header('Content-type: text/json');
 @require_once("../main/models/homework.php");
 @require_once('../main/common/mysql_connect.php');
+@require_once('../main/models/common.php');
 
 if(!isset($_SESSION))
 {
@@ -11,25 +12,27 @@ if(!isset($_SESSION))
 
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
 $_SESSION['USER_ID']=5;
-$_SESSION['USER_TYPE']='teacher';
+$_SESSION['USER_TYPE']='student';
 
 //关闭自动输出error或者警告
-ini_set("display_errors", "Off");
+//ini_set("display_errors", "Off");
 if(isset($_SESSION['USER_ID']))
 {
 	$classid   =	$_POST['classid'];
 	$charpter  =	$_POST['charpter'];
 	$lesson    =	$_POST['lesson'];
 	$action	   =	$_POST['action'];
-	
+	$mysql = new Mysql;
 	switch ($_SESSION['USER_TYPE']) {
 		case '1':
 		case 1:
 		case 'student':
-			switch ($action) {
+			switch (strtolower($action)) {
 				case 'handinhomework':
 					$questionid = $_POST['questionid'];
-					$result = stu_handin_a_question_of_homework($classid,$charpter,$lesson,$questionid,$_SESSION['USER_ID'],$answer);
+					$answer = $_POST['answer'];
+					$homeworkid = getHomeworkId($classid,$charpter,$lesson);
+					$result = handin_question($homeworkid,$questionid,$_SESSION['USER_ID'],$answer);
 					if($result >0 )
 					{
 						echo json_encode(array("status"=>"success"));
@@ -42,7 +45,7 @@ if(isset($_SESSION['USER_ID']))
 					echo json_encode(array("homework"=>$result));
 					break;
 				default:
-					.
+					
 					break;
 			}
 			
@@ -62,6 +65,7 @@ if(isset($_SESSION['USER_ID']))
 							echo json_encode(array('status'=>'failure'));
 						}		
 					break;
+					
 				case 'updateremark':
 					$studentid = $_POST['studentid'];
 					$questionid = $_POST['questionid'];
@@ -78,11 +82,8 @@ if(isset($_SESSION['USER_ID']))
 					# code...
 					break;
 			}
-		default:
-			$result  = getUserBaseInfoById($_SESSION['USER_ID']);
-			echo json_encode($result);
-			break;
 	}
+	$mysql->close();
 }else{
 	header("Location: http://localhost/cloud_lab/index.html");
 }
