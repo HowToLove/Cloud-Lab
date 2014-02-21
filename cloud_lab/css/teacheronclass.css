@@ -63,6 +63,7 @@ body {
 	-webkit-transform: translateY(-200px);
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 0.3s;
+	-webkit-transition-delay:0.4s;
 	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
 }
 .topmenu-to-show {
@@ -293,8 +294,8 @@ left: -3px;
 top: -30px;
 }
 .nfullnote .notearea {
-	margin-top: 42px;
-	height: 100%;
+	margin-top: 48px;
+height: 95%;
 	width: 100%;
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 0.2s;
@@ -321,13 +322,13 @@ top: -30px;
 	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
 }
 .nfullnote:hover .notetitle {
-	margin-top: 0px;
+	margin-top: 5px;
 }
 .nfullnote:hover .notearea {
-	height: 80%;
+	height: 55%;
 }
 .nfullnote:hover .btdiv {
-	margin-top: -50px;
+	margin-top: -5px;
 }
 /* /nfulltabbedcontent */
 /* ppttabbedcontent */
@@ -387,9 +388,58 @@ top: -30px;
 	color: #fff;
 	background: url(../img/bubble.png) no-repeat;
 }
+.bubble:hover::before{
+background: #2AA6DF;
+width: 65px;
+height: 25px;
+position: absolute;
+color: #fff;
+content: "查看问题";
+border-radius: 5px;
+left: -10px;
+top: -30px;
+font-size: 15px;
+}
 .bt_notfullsreen {
 	background: url(../img/notfullscreen.png) no-repeat;
 	 position:relative;
+}
+.bt_notfullsreen:hover::before{
+background: #2AA6DF;
+width: 65px;
+height: 25px;
+position: absolute;
+color: #fff;
+content: "退出全屏";
+border-radius: 5px;
+left: -10px;
+top: -30px;
+}
+#bb-nav-next:hover::before{
+background: #2AA6DF;
+width: 65px;
+height: 25px;
+position: absolute;
+color: #fff;
+content: "下一页";
+border-radius: 5px;
+left: -10px;
+top: -30px;
+font-size: 11px;
+line-height:25px;
+}
+#bb-nav-prev:hover::before{
+background: #2AA6DF;
+width: 65px;
+height: 25px;
+position: absolute;
+color: #fff;
+content: "下一页";
+border-radius: 5px;
+left: -10px;
+top: -30px;
+font-size: 11px;
+line-height:25px;
 }
 .bt_fullsreen {
 	background: url(../img/fullscreen.png) no-repeat;

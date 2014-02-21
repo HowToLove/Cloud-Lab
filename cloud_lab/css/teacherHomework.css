@@ -236,9 +236,7 @@ td.corrected{
 .student-list ul{
 	margin: 0;
 	padding: 0;
-	height: 70%;
-	margin-top: 12%;
-	overflow: hidden;
+	margin-top: 0px;
 }
 .student-list ul li{
 	background: url(../img/stuli.png) no-repeat 10%;
@@ -267,4 +265,9 @@ td.corrected{
 }
 .stuli-arrow.up{
 	top: 7%;
+}
+.stuli{
+	height: 70%;
+	overflow: hidden;
+	margin-top: 12%;
 }
