@@ -323,13 +323,13 @@ $(function() {
 	// 暂停、开始视频
 
 	var video = document.getElementById("pptvideo");
-	$("#pptvideo").click(function() {
-		if(video.paused) {
-			video.play();
-		} else {
-			video.pause();
-		}
-	});
+	// $("#pptvideo").click(function() {
+	// 	if(video.paused) {
+	// 		video.play();
+	// 	} else {
+	// 		video.pause();
+	// 	}
+	// });
 	// $("#btn_prepare").click(function() {
 	// 	video.currentTime = 200;
 	// 	console.log(video.currentTime);

@@ -30,7 +30,7 @@ $(function() {
 								<div class='arrow-right'></div>\
 							</div>\
 							<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
-								<h3 class='underline' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
+								<h3 class='underline textadjust' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
 							</a>\
 							<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
 							<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即上课</a>\
@@ -363,5 +363,9 @@ $(function() {
 				</div>"
 			$('#bb-bookblock').append(fullppt);
 		}
+		$.getScript("js/jquery.jscrollpane.min.js");
+		$.getScript("js/jquerypp.custom.js");
+		$.getScript("js/jquery.bookblock.js");
+		$.getScript("js/page.js");
 	}
 });
