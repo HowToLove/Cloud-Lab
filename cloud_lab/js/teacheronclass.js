@@ -161,7 +161,7 @@ $(document).ready(function() {
 new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
 var sreenheight = document.body.clientHeight;
 $(".bb-item img").css("height",sreenheight+"px");
-				Page.init();
+				//Page.init();
 				
 var sreenHeight= document.body.clientHeight;
 document.getElementById( "code_exp").style.height =sreenHeight+"px";
@@ -181,18 +181,21 @@ $('.ppt_slide_content').css('height', sreenHeight+'px');
 	  var pptheight1 = pptwidth1*3/4;
 	 $(".nfull_slide_content").css("width",pptwidth+"px");  
 	  $(".pptm").css("width",pptwidth+"px");  	
-var h3sheight=$('.textadjust').prop('scrollHeight');
-var h3height=$('.textadjust').height();
+	 $(".textadjust").each(function(){
+var h3sheight=$(this).prop('scrollHeight');
+var h3height=$(this).height();
 if(h3sheight>h3height)
 {
-var listlheight=$(".class-list-left").height()+h3sheight-h3height;
-var listheight=$(".class-list").height()+h3sheight-h3height;
-$('.textadjust').css("height",h3sheight+"px"); 
-$(".class-list-left").css("height",listlheight);
-$(".class-list-right").css("height",listlheight);
-$(".class-list").css("height",listheight);
-$(".class-img").css("width",listlheight);
+var listlheight=$(this).parent().parent().parent().find(".class-list-left").height()+h3sheight-h3height;
+var listheight=$(this).parent().parent().parent().parent().find(".class-list").height()+h3sheight-h3height;
+$(this).css("height",h3sheight+"px"); 
+$(this).parent().parent().parent().find(".class-list-left").css("height",listlheight);
+$(this).parent().parent().parent().find(".class-list-right").css("height",listlheight);
+$(this).parent().parent().parent().parent().find(".class-list").css("height",listheight);
+$(this).parent().parent().find(".class-img").css("width",listlheight);
 }
+
+});
 	if(pptwidth1>pptwidth)
 	  {
 	  
