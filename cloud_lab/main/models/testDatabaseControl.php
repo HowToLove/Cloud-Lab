@@ -1,7 +1,7 @@
 <?php
-@require_once('./common.php');
+@require_once('./trainClass.php');
 $conn = mysql_connect('localhost','root','');
 	mysql_select_db('cloud_lab',$conn);
-	print_r(getPPTId(2,1,3)) ;
+	print_r(getCourseTrain(1,1,1)) ;
 	mysql_close($conn);
 ?>
