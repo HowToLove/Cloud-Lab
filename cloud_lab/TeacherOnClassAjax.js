@@ -24,7 +24,8 @@ $(function() {
 				studentsnum = classes[i].studentsnum;
 				percent = classes[i].progress.percent;
 				var classdiv = 
-					"<div class='class-list' style='text-align:left'>\
+					"<div class='fixedtextalign'>\
+					<div class='class-list' style='text-align:left'>\
 						<div class='class-list-left'>\
 							<div class='class-img'><img src=main/"+imgurl+">\
 								<div class='arrow-right'></div>\
@@ -48,9 +49,23 @@ $(function() {
 							<div class='progress-cover' style='width:"+percent+"%'></div>\
 							<p>"+percent+"%</p>\
 						</div>\
+					</div>\
 					</div>"
 				$("#classes-container").append(classdiv);
 			}
+			$(".textadjust").each(function(){
+				var h3sheight=$(this).prop('scrollHeight');
+				var h3height=$(this).height();
+				if(h3sheight>h3height){
+					var listlheight=$(this).parent().parent().parent().find(".class-list-left").height()+h3sheight-h3height;
+					var listheight=$(this).parent().parent().parent().parent().find(".class-list").height()+h3sheight-h3height;
+					$(this).css("height",h3sheight+"px"); 
+					$(this).parent().parent().parent().find(".class-list-left").css("height",listlheight);
+					$(this).parent().parent().parent().find(".class-list-right").css("height",listlheight);
+					$(this).parent().parent().parent().parent().find(".class-list").css("height",listheight);
+					$(this).parent().parent().find(".class-img").css("width",listlheight);
+				}
+			});
 		},
 		complete : function(XMLHttpRequest, textStatus) {},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
