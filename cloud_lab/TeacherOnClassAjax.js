@@ -363,7 +363,9 @@ $(function() {
 		$('#bb-bookblock').empty();
 		for(var i=0;i<urls.length;i++) {
 			var snapppt = 
-				"<div class='tab_item tab_item"+(i+1)+"'></div>"
+				"<div class='tab_item tab_item"+(i+1)+"'>\
+					<img style='width:160px;' src=main/"+urls[i]+">\
+				</div>"
 			$('.nfull_ppt_tabs').append(snapppt);
 
 			var normalppt = 

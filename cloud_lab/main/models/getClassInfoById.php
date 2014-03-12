@@ -53,7 +53,7 @@
 		$next = getNext($classId,$row['charpter'],$row['lesson']);
 		$progress['charpter'] = $next['charpter'];
 		$progress['lesson'] =$next['lesson'];
-		$progress['percent'] = getPercentileByClassId($classId); 
+		$progress['percent'] = round(getPercentileByClassId($classId),2); 
 		mysql_free_result($result);	
 		return $progress; 
 	}

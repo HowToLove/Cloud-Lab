@@ -50,38 +50,4 @@ function getPPTId($classid,$charpter,$lesson)
 			}
 		return -1;
 }
-
-/**
- * 获取教案的方法
- *@param $classid 	当前课程的信息之班级
- *@param $charpterId 当前课程的信息之章节
- *@param $lessonId 	当前课程的信息之课时
- *@return $preparationid 本节课的备课信息的id号
- */
-function getPreparationByClassIdCharpterLession($classid,$charpter,$lesson)
-{
-	$preparation='';
-
-	$sql = "SELECT Presatation.PREPARATION_ID AS id 
-	FROM t_preparation As Presatation,t_class_info As Class
-	WHERE  Class.CLASS_ID='$classid'
-	AND Presatation.COURSE_ID= Class.COURSE_ID
-	AND Presatation.COURSE_CHARPTER = '$charpter' 
-	AND Presatation.LESSON_SEQ = '$lesson'
-	Limit 1";
-
-	try {
-		$result = mysql_query($sql);
-		if(mysql_num_rows($result)>=1){//没有记录要新插入一条记录
-			$row = mysql_fetch_array($result);
-			$preparation['preparationid']=$row['id'];
-		}
-		mysql_free_result($result);
-		return $preparation;
-	} catch (Exception $e) {
-		var_dump($e->getTrace());
-	}
-	return $preparation;
-}
-
 ?>

@@ -29,6 +29,7 @@
 		AND Remark.PPT_ID = Info.PPT_ID AND Info.COURSE_CHARPTER = "."$charpter".
 		" AND Info.LESSON_SEQ = "."$lesson";
 		$result = mysql_query($sql);
+		//echo $sql;
 		while($row = mysql_fetch_array($result)){
 			$remarkTemp[$row['page']] = $row['remark'];		
 		}
@@ -45,6 +46,7 @@
 		$ret['video'] = $video;
 		$ret['remark'] = $remark;
 		mysql_free_result($result);	
+		//var_dump($ret);
 		return $ret;
 	}
 

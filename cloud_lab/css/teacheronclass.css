@@ -126,6 +126,7 @@ body {
 	margin-left: 11px;
 	background-size: cover;
 }
+/*
 .tab_item1 {
 	background: url(../img/ppt01.PNG);
 }
@@ -150,6 +151,7 @@ body {
 .tab_item8 {
 	background: url(../img/ppt03.PNG);
 }
+*/
 .nfull_slide_content {
 	overflow: hidden;
 	background-color: #000000;
@@ -651,5 +653,5 @@ li.solving .qinfo-item-icon{
 }
 .textadjust{
 height:40px;
-overflow:scroll;
+
 }

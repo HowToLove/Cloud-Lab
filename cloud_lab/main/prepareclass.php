@@ -40,7 +40,12 @@ if(isset($_SESSION['USER_ID']))
 						break;
 					case 'getPPTandRemark':
 						$resultOfPPT = getSnapAndRemarkOfPPT($classId,$charpter,$lesson);
+						//var_dump($resultOfPPT);
 						$resultOfPreparation = getPreparationByClassIdCharpterLession($classId,$charpter,$lesson);
+						//var_dump($resultOfPreparation);
+						if($resultOfPreparation == null){
+							$resultOfPreparation['preparation']=' ';
+						}						
 						$result=array_merge($resultOfPPT,$resultOfPreparation);
 						echo json_encode($result);
 						break;
