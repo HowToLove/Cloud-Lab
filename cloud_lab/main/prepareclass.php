@@ -6,7 +6,7 @@ header('Content-type: text/json');
 @require_once('../main/models/getPrepareClassInfoById.php');
 if(!isset($_SESSION))
 {
-	session_start();
+	@session_start();
 }
 
 //当单独测试的时候本行需要使用，集成测试的时候注释掉

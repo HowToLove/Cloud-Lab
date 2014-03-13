@@ -179,6 +179,7 @@ $(function() {
 	            </form>"
 	        $('#pagenote').append(classnote);
 		}
+		$('#ppt-list-01').addClass('ppt-list-active');
 		prepare_class()
 	}
 

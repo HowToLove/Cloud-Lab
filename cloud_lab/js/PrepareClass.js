@@ -1,5 +1,16 @@
 $(document).ready(function(){
       prepare_class()
+      $(document).on('click', '#pbtoggle', function(){            
+            if($('#pbtoggle span').html()=='显示流程'){
+                  $('#carousel-indicators-pc').slideDown()
+                  $('#pbtoggle span').html('隐藏流程')
+                  $('#pbtoggle img').css('transform','rotate(405deg)')
+            }else{
+                  $('#carousel-indicators-pc').slideUp()
+                  $('#pbtoggle span').html('显示流程')
+                  $('#pbtoggle img').css('transform','rotate(0deg)')
+            }
+      })
 })
 function prepare_class(){
       $(".show-answer").click(function(){
@@ -25,17 +36,7 @@ function prepare_class(){
                   $('#carousel-indicators-pc').slideDown()
             },800)
       })
-      $('#pbtoggle').click(function(){
-            if($('#pbtoggle span').html()=='显示流程'){
-                  $('#carousel-indicators-pc').slideDown()
-                  $('#pbtoggle span').html('隐藏流程')
-                  $('#pbtoggle img').css('transform','rotate(405deg)')
-            }else{
-                  $('#carousel-indicators-pc').slideUp()
-                  $('#pbtoggle span').html('显示流程')
-                  $('#pbtoggle img').css('transform','rotate(0deg)')
-            }
-      })
+
       $(window).load(function(){
             changeheight()
       })
