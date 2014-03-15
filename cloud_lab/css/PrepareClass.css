@@ -2,6 +2,9 @@ body{
 	background-color:#e2e2e2;
 	font-family: 微软雅黑;
 }
+h4{
+	font-family: 微软雅黑;
+}
 ::-webkit-scrollbar {
 	width: 5px;
 	background: #2a2e3a;
@@ -272,6 +275,7 @@ p.underline{
 }
 .ppt-list-active{
 	border: 4px solid #05b9dc;
+	box-sizing: initial;
 }
 #show-ppt-left,#show-ppt-middle{
 	float:left;
@@ -299,6 +303,9 @@ p.underline{
 	overflow: hidden;
 	margin-left:5px;
 	position:relative;
+}
+#show-video{
+	text-align: center;
 }
 .ppt-prev,.ppt-next{
 	position: absolute;

@@ -72,10 +72,68 @@ $(function() {
 			alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 		}
 	});
+	
+	
+	
+	//create a new WebSocket object.
+	var wsUri = "ws://localhost:12401/cloud_lab/server.php"; 	
+	websocket = new WebSocket(wsUri); 
+	websocket.onopen = function(ev) { // connection is open 
+		console.log("connected!");
+	}
 
+	// $('.nfull_ppt_tabs .tab_item').click(function(){ //use clicks message send button	
+		
+	// });
+	
+	/*	
+	websocket.onopen=function(){
+			if(websocket.readyState==1){			
+				var msg = {
+					message: "I'M COMMING!!",
+					name: sessionStorage.userName,					
+					userType: sessionStorage.userType,
+					msgType: 'connect',
+					classId:sessionStorage.classId
+				};			
+				websocket.send(JSON.stringify(msg));
+			}
+		}
+	*/
+	//#### Message received from server?
+	websocket.onmessage = function(ev) {
+		alert("hjelkdjioaj");
+		var msg = JSON.parse(ev.data); //PHP sends Json data
+		var msgType = msg.msgType; //message type
+		var umsg = msg.message; //message text
+		var uname = msg.name; //user name			
+		console.log(msg);
+		
+	};
+	
+	websocket.onerror	= function(ev){console.log("error!");}; 
+	websocket.onclose 	= function(ev){console.log("closed!");};
+	//sessionStorage.socket = websocket;
+	
+	
+	
 	// 点击课程名时请求
 	$("#classes_h").live('click', function() {
 		classid = $(this).attr('data-classid');
+		//added by lanxiang
+		sessionStorage.classId = classid;
+		alert(sessionStorage.classId);
+		
+		var msg = {
+					message: "I'M COMMING!!",
+					name: sessionStorage.userName,					
+					userType: sessionStorage.userType,
+					msgType: 'connect',
+					classId:sessionStorage.classId
+				};			
+				websocket.send(JSON.stringify(msg));
+		
+		
 		$.ajax({
 			type : 'POST',
 			url : 'main/coursedetail.php',
@@ -153,6 +211,21 @@ $(function() {
 		classid = $(this).attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
+		//added by lanxiang
+		sessionStorage.classId = classid;
+		alert(sessionStorage.classId);
+		
+		var msg = {
+					message: "I'M COMMING!!",
+					name: sessionStorage.userName,					
+					userType: sessionStorage.userType,
+					msgType: 'connect',
+					classId:sessionStorage.classId
+				};			
+				websocket.send(JSON.stringify(msg));
+
+
+
 		$.ajax({
 			type : 'POST',
 			url : 'main/onclassppt.php',
@@ -363,8 +436,8 @@ $(function() {
 		$('#bb-bookblock').empty();
 		for(var i=0;i<urls.length;i++) {
 			var snapppt = 
-				"<div class='tab_item tab_item"+(i+1)+"'>\
-					<img style='width:160px;' src=main/"+urls[i]+">\
+				"<div class='tab_item' id='tab-item-"+(i+1)+"'>\
+					<img src=main/"+urls[i]+">\
 				</div>"
 			$('.nfull_ppt_tabs').append(snapppt);
 
@@ -380,6 +453,7 @@ $(function() {
 				</div>"
 			$('#bb-bookblock').append(fullppt);
 		}
+		$('#tab-item-1').addClass('ppt-list-active')
 		$.getScript("js/jquery.jscrollpane.min.js");
 		$.getScript("js/jquerypp.custom.js");
 		$.getScript("js/jquery.bookblock.js");

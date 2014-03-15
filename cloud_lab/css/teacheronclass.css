@@ -28,7 +28,7 @@ body {
 	background: #34495e;
 	color: #fff;
 	font-weight: 300;
-	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-family: 微软雅黑;
 	overflow-x: hidden;
 	min-height: 560px;
 }
@@ -116,15 +116,15 @@ body {
 }
 .nfull_ppt_tabs .tab_item {
 	display: block;
-	float: left;
 	width: 160px;
 	height: 120px;
 	text-align: center;
 	position: relative;
 	cursor: pointer;
-	margin-top: 10px;
-	margin-left: 11px;
-	background-size: cover;
+	margin: 5px auto;
+}
+.nfull_ppt_tabs .tab_item img{
+	width:160px;
 }
 /*
 .tab_item1 {
