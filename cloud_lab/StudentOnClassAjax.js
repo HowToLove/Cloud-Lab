@@ -92,7 +92,7 @@ $(function() {
 		message: mymessage,
 		name: sessionStorage.userName,		
 		userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
-		msgType: 'sildePPT',		
+		msgType: 'slidePPT',		
 		classId:sessionStorage.classId
 		};
 		//convert and send data to server
@@ -118,9 +118,21 @@ $(function() {
 		var msg = JSON.parse(ev.data); //PHP sends Json data
 		var msgType = msg.msgType; //message type
 		var umsg = msg.message; //message text
-		var uname = msg.name; //user name			
+		var uname = msg.name; //user name	
+		var userType = msg.userType;
 		console.log(msg);
+		//老师滑动了ppt
+		var targetNum = umsg
+		var nowNum = $('.ppt-list-active').attr('id').substring(9)
+		var width = $('.nfull_slide_content').width();
+		if(userType == 1 && msgType == 'slidePPT'){
+			// $('.nfull_tabslider').animate({marginLeft:-(width*(targetNum-1))+'px'})
+			// $(".nfull_ppt_tabs .tab_item").removeClass('ppt-list-active')
+			// $('#tab-item-'+targetNum).addClass('ppt-list-active')
+			$('#tab-item-'+targetNum).click()
+		}else{
 		
+		}	
 	};
 	
 	websocket.onerror	= function(ev){console.log("error!");}; 
@@ -433,8 +445,8 @@ $(function() {
 		$('#bb-bookblock').empty();
 		for(var i=0;i<urls.length;i++) {
 			var snapppt = 
-				"<div class='tab_item tab_item"+(i+1)+"'>\
-					<img style='width:160px;' src=main/"+urls[i]+">\
+				"<div class='tab_item' id='tab-item-"+(i+1)+"'>\
+					<img src=main/"+urls[i]+">\
 				</div>"
 			$('.nfull_ppt_tabs').append(snapppt);
 
@@ -450,6 +462,7 @@ $(function() {
 				</div>"
 			$('#bb-bookblock').append(fullppt);
 		}
+		$('#tab-item-1').addClass('ppt-list-active')
 		$.getScript("js/jquery.jscrollpane.min.js");
 		$.getScript("js/jquerypp.custom.js");
 		$.getScript("js/jquery.bookblock.js");

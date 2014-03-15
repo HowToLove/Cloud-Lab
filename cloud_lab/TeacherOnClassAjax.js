@@ -102,7 +102,6 @@ $(function() {
 	*/
 	//#### Message received from server?
 	websocket.onmessage = function(ev) {
-		alert("hjelkdjioaj");
 		var msg = JSON.parse(ev.data); //PHP sends Json data
 		var msgType = msg.msgType; //message type
 		var umsg = msg.message; //message text

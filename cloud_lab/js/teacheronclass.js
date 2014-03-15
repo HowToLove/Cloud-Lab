@@ -117,27 +117,23 @@ var NotFullScreenTabbedContent = {
 			nfullpptindex=this;
 			NotFullScreenTabbedContent.slideContent($(this),500);
 			$(this).addClass('ppt-list-active')
-            $(this).prevAll().removeClass('ppt-list-active')
-            $(this).nextAll().removeClass('ppt-list-active')
+			$(this).prevAll().removeClass('ppt-list-active')
+			$(this).nextAll().removeClass('ppt-list-active')
+			//sessionStorage.userName = $("#username").val();
+			//sessionStorage.userType = data.userType;
+			var myname =sessionStorage.userName;			
+			var mymessage = $('.ppt-list-active').attr('id').substring(9);
 
-
-            alert($('.ppt-list-active').attr('id').substring(9,10))
-		//sessionStorage.userName = $("#username").val();
-		//sessionStorage.userType = data.userType;
-		var myname =sessionStorage.userName;
-		
-		var mymessage = $('.ppt-list-active').attr('id').substring(9,10);
-
-		//prepare json data
-		var msg = {
-		message: mymessage,
-		name: sessionStorage.userName,		
-		userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
-		msgType: 'sildePPT',		
-		classId:sessionStorage.classId
-		};
-		//convert and send data to server
-		websocket.send(JSON.stringify(msg));
+			//prepare json data
+			var msg = {
+				message: mymessage,
+				name: sessionStorage.userName,		
+				userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
+				msgType: 'slidePPT',		
+				classId:sessionStorage.classId
+			};
+			//convert and send data to server
+			websocket.send(JSON.stringify(msg));
 		});
 		$(".bt-to-ppt").live('click', function() {
 
@@ -177,33 +173,33 @@ $(document).ready(function() {
 	new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
 	var sreenheight = document.body.clientHeight;
 	$(".bb-item img").css("height",sreenheight+"px");
-				//Page.init();
-				
-				var sreenHeight= document.body.clientHeight;
-				document.getElementById( "code_exp").style.height =sreenHeight+"px";
-				document.getElementById( "video").style.height =sreenHeight+"px";
-				document.getElementById( "stuquestion").style.height =sreenHeight+"px";
-				document.getElementById( "taskeva").style.height =sreenHeight+"px";
-				document.getElementById( "bookreq").style.height =sreenHeight+"px";
-				$('.ppt_slide_content').css('height', sreenHeight+'px');
-				TabbedContent.init();
-				PPTTabbedContent.init();
-				NotFullScreenTabbedContent.init();
-				var pptheight = $('.ppt_tabslider').height()-55;
-				var sreenwidth = document.body.clientWidth;
-				$(".nfull_tabbed_content").css("height",pptheight+"px"); 
-				var pptwidth = $('.nfull_tabbed_content').height()*4/3;
-				var pptwidth1 = $('.nfull_tabbed_content').width()-190;
-				var pptheight1 = pptwidth1*3/4;
-				$(".nfull_slide_content").css("width",pptwidth+"px");  
-				$(".pptm").css("width",pptwidth+"px");  	
+	//Page.init();
+	
+	var sreenHeight= document.body.clientHeight;
+	document.getElementById( "code_exp").style.height =sreenHeight+"px";
+	document.getElementById( "video").style.height =sreenHeight+"px";
+	document.getElementById( "stuquestion").style.height =sreenHeight+"px";
+	document.getElementById( "taskeva").style.height =sreenHeight+"px";
+	document.getElementById( "bookreq").style.height =sreenHeight+"px";
+	$('.ppt_slide_content').css('height', sreenHeight+'px');
+	TabbedContent.init();
+	PPTTabbedContent.init();
+	NotFullScreenTabbedContent.init();
+	var pptheight = $('.ppt_tabslider').height()-55;
+	var sreenwidth = document.body.clientWidth;
+	$(".nfull_tabbed_content").css("height",pptheight+"px"); 
+	var pptwidth = $('.nfull_tabbed_content').height()*4/3;
+	var pptwidth1 = $('.nfull_tabbed_content').width()-190;
+	var pptheight1 = pptwidth1*3/4;
+	$(".nfull_slide_content").css("width",pptwidth+"px");  
+	$(".pptm").css("width",pptwidth+"px");  	
 
-				if(pptwidth1>pptwidth)
-				{
+	if(pptwidth1>pptwidth)
+	{
 
 
-				}
-				else{
+	}
+	else{
 	//  $(".nfull_slide_content").css("width",pptwidth1+"px");  
 	  //$(".pptm").css("width",pptwidth1+"px"); 
 
