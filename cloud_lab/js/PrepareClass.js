@@ -43,7 +43,7 @@ function prepare_class(){
       $(window).resize(function(){
             changeheight()
             var str=parseInt($('li.ppt-list-active').attr('id').substring(9))-1
-            $('#ppt-content').css('margin-left',-$('#ppt-content li').width()*str);
+            $('#ppt-content').css('margin-left',-$('#ppt-content li').width()*str)
       })
       function changeheight(){
             var height = $(window).height() - $('#carousel-indicators-pc').height() - 60

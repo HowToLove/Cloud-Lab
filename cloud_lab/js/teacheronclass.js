@@ -119,10 +119,14 @@ var NotFullScreenTabbedContent = {
 			$(this).addClass('ppt-list-active')
 			$(this).prevAll().removeClass('ppt-list-active')
 			$(this).nextAll().removeClass('ppt-list-active')
+			var id = $(this).attr('id').substring(9)
+			var height = (id-2)*($('.nfull_ppt_tabs .tab_item').height()+5)
+			$('.nfull_ppt_tabs').animate({scrollTop:height})
+
 			//sessionStorage.userName = $("#username").val();
 			//sessionStorage.userType = data.userType;
-			var myname =sessionStorage.userName;			
-			var mymessage = $('.ppt-list-active').attr('id').substring(9);
+			var myname =sessionStorage.userName		
+			var mymessage = id
 
 			//prepare json data
 			var msg = {

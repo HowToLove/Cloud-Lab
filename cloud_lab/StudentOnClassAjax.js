@@ -123,12 +123,7 @@ $(function() {
 		console.log(msg);
 		//老师滑动了ppt
 		var targetNum = umsg
-		var nowNum = $('.ppt-list-active').attr('id').substring(9)
-		var width = $('.nfull_slide_content').width();
 		if(userType == 1 && msgType == 'slidePPT'){
-			// $('.nfull_tabslider').animate({marginLeft:-(width*(targetNum-1))+'px'})
-			// $(".nfull_ppt_tabs .tab_item").removeClass('ppt-list-active')
-			// $('#tab-item-'+targetNum).addClass('ppt-list-active')
 			$('#tab-item-'+targetNum).click()
 		}else{
 		

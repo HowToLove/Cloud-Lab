@@ -161,8 +161,8 @@ $(function() {
 		$('#ppt-content').empty();
 		for(var i=0;i<urls.length;i++) {
 			var snapppt =
-				"<li id='ppt-list-0"+(i+1)+"'>\
-					<a class='snapppt' data-pptid="+(i+1)+" href='#ppt-list-0"+(i+1)+"'>\
+				"<li id='ppt-list-"+(i+1)+"'>\
+					<a class='snapppt' data-pptid="+(i+1)+" href='#ppt-list-"+(i+1)+"'>\
 					<img src=main/"+urls[i]+">\
 				</li>"
 			var normalppt = 
@@ -179,7 +179,7 @@ $(function() {
 	            </form>"
 	        $('#pagenote').append(classnote);
 		}
-		$('#ppt-list-01').addClass('ppt-list-active');
+		$('#ppt-list-1').addClass('ppt-list-active');
 		prepare_class()
 	}
 
