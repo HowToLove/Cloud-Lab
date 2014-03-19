@@ -108,7 +108,8 @@ var NotFullScreenTabbedContent = {
 			$(".nfull_tabbed_content").css("height",pptheight+"px"); 
 			var pptwidth = $('.nfull_tabbed_content').height()*4/3;
 			$(".nfull_slide_content").css("width",pptwidth+"px");  
-			$(".pptm").css("width",pptwidth+"px");  
+			$(".pptm").attr("width",pptwidth+"px");  
+			$(".pptm").attr("height",pptheight+"px");  
 			var sreenwidth = document.body.clientWidth;
 			var nfullrwidth=sreenwidth-pptwidth-210;
 			$(".nfullr").css("width",nfullrwidth+"px");  
@@ -309,14 +310,11 @@ $(document).ready(function(){
 	})
 
 	var startx,starty,endx,endy
+	var pstartx,pstarty,pendx,pendy
 	
 	$('canvas').live('mousedown',function(e){
 		startx = e.pageX - 190
 		starty = e.pageY - 55
-		if(linetag){
-			paint = true
-			addClick(e.pageX - 190, e.pageY - 55)
-		}
 	})
 	$('canvas').live('mouseup',function(e){
 		endx = e.pageX - 190
@@ -337,12 +335,47 @@ $(document).ready(function(){
 		context.lineTo(endx, endy);
 		context.closePath();
 		context.stroke();
+		ptrans1()
 	}
 	function draw_rect(){
 		context.strokeStyle = "red"
 		context.lineJoin = "round"
 		context.lineWidth = 10
 		context.strokeRect(startx,starty,endx-startx,endy-starty);
+		ptrans2()
 	}
-	
+	function ptrans1(){		
+		pstartx = startx/$('canvas').width()
+		pstarty = starty/$('canvas').height()
+		pendx = endx/$('canvas').width()
+		pendy = endy/$('canvas').height()
+		
+		var mymessage = pstartx+" "+pstarty+" "+pendx+" "+pendy;
+		var msg = {
+			message: mymessage,
+			name: sessionStorage.userName,		
+			userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
+			msgType: 'drawLine',		
+			classId:sessionStorage.classId
+		};
+		//convert and send data to server
+		websocket.send(JSON.stringify(msg));
+	}
+	function ptrans2(){		
+		pstartx = startx/$('canvas').width()
+		pstarty = starty/$('canvas').height()
+		pendx = endx/$('canvas').width()
+		pendy = endy/$('canvas').height()
+		
+		var mymessage = pstartx+" "+pstarty+" "+pendx+" "+pendy;
+		var msg = {
+			message: mymessage,
+			name: sessionStorage.userName,		
+			userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
+			msgType: 'drawRect',		
+			classId:sessionStorage.classId
+		};
+		//convert and send data to server
+		websocket.send(JSON.stringify(msg));
+	}
 })

@@ -123,10 +123,18 @@ $(function() {
 		console.log(msg);
 		//老师滑动了ppt
 		var targetNum = umsg
-		if(userType == 1 && msgType == 'slidePPT'){
-			$('#tab-item-'+targetNum).click()
+		if(userType == 1){
+			if( msgType == 'slidePPT'){
+				$('#tab-item-'+targetNum).click()
+			}else if( msgType == 'drawRect'){
+				var points = umsg.split(" ");
+				console.log(points);
+			}else if(msgType == 'drawLine'){
+				var points = umsg.split(" ");
+				console.log(points);
+			}
 		}else{
-		
+			
 		}	
 	};
 	
@@ -446,9 +454,7 @@ $(function() {
 			$('.nfull_ppt_tabs').append(snapppt);
 
 			var normalppt = 
-				"<div class='pptm'>\
-					<img src=main/"+urls[i]+" class='pptm_img'>\
-				</div>"
+				"<canvas class='pptm' id='canvas-"+(i+1)+"' style ='background-image:url(main/"+urls[i]+")'></canvas>"
 			$('.nfull_tabslider').append(normalppt);
 
 			var fullppt =
@@ -458,6 +464,12 @@ $(function() {
 			$('#bb-bookblock').append(fullppt);
 		}
 		$('#tab-item-1').addClass('ppt-list-active')
+
+		var pptheight = $('.ppt_tabslider').height()-55
+		var pptwidth = $('.nfull_tabbed_content').height()*4/3
+		$('canvas').attr('width',pptwidth)
+		$('canvas').attr('height',pptheight)
+		
 		$.getScript("js/jquery.jscrollpane.min.js");
 		$.getScript("js/jquerypp.custom.js");
 		$.getScript("js/jquery.bookblock.js");

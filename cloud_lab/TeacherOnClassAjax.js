@@ -107,7 +107,8 @@ $(function() {
 		var umsg = msg.message; //message text
 		var uname = msg.name; //user name			
 		console.log(msg);
-		
+		var points = umsg.split(" ");
+		console.log(points);
 	};
 	
 	websocket.onerror	= function(ev){console.log("error!");}; 
