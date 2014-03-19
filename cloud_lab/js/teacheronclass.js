@@ -1,4 +1,6 @@
-
+//flags about canvas
+var linetag=0
+var recttag=0
 /*full mask tabbed content*/
 var fullindex=0;
 var TabbedContent = {
@@ -114,6 +116,12 @@ var NotFullScreenTabbedContent = {
 		});
 
 		$(".nfull_ppt_tabs .tab_item").live('click', function() {
+			//Added by zr
+			recttag=0
+			$('canvas').css('cursor','default')
+			linetag=0
+			$('canvas').css('cursor','default')
+			//Added by zr end
 			nfullpptindex=this;
 			NotFullScreenTabbedContent.slideContent($(this),500);
 			$(this).addClass('ppt-list-active')
@@ -196,18 +204,18 @@ $(document).ready(function() {
 	var pptwidth1 = $('.nfull_tabbed_content').width()-190;
 	var pptheight1 = pptwidth1*3/4;
 	$(".nfull_slide_content").css("width",pptwidth+"px");  
-	$(".pptm").css("width",pptwidth+"px");  	
+	//$(".pptm").css("width",pptwidth+"px");deleted by zr
 
-	if(pptwidth1>pptwidth)
-	{
+	// if(pptwidth1>pptwidth)
+	// {
 
 
-	}
-	else{
-	//  $(".nfull_slide_content").css("width",pptwidth1+"px");  
-	  //$(".pptm").css("width",pptwidth1+"px"); 
+	// }
+	// else{
+	// //  $(".nfull_slide_content").css("width",pptwidth1+"px");  
+	//   //$(".pptm").css("width",pptwidth1+"px"); 
 
-	}
+	// }
 
 	var nfullrwidth=sreenwidth-pptwidth-210;
 	$(".nfullr").css("width",nfullrwidth+"px");  
@@ -261,4 +269,80 @@ $(document).ready(function(){
 	$(document).on("click", "#btn_prepare", function() {
 		window.location.href="PrepareClass.html";
 	});
+})
+//about canvas added by zr
+$(document).ready(function(){
+	var canvas,context
+	var marginLeft,pageNum
+	$('#draw-line').click(function(){
+		if(linetag){
+			linetag=0
+			recttag=0
+			$('canvas').css('cursor','default')
+		}else{
+			linetag=1
+			recttag=0
+			$('canvas').css('cursor','url("img/pen.cur"),pointer')
+		}
+		//获取当前PPT的页数
+		marginLeft = -parseInt($('.nfull_tabslider').css('margin-left'))
+		pageNum = marginLeft/($('.nfull_slide_content').width()) + 1
+		canvas = document.getElementById('canvas-'+pageNum)
+		context = canvas.getContext("2d")
+	})
+
+	$('#draw-rect').click(function(){
+		if(recttag){
+			recttag=0
+			linetag=0
+			$('canvas').css('cursor','default')
+		}else{
+			recttag=1
+			linetag=0
+			$('canvas').css('cursor','url("img/cross.cur"),crosshair')
+		}
+		//获取当前PPT的页数
+		marginLeft = -parseInt($('.nfull_tabslider').css('margin-left'))
+		pageNum = marginLeft/($('.nfull_slide_content').width()) + 1
+		canvas = document.getElementById('canvas-'+pageNum)
+		context = canvas.getContext("2d")
+	})
+
+	var startx,starty,endx,endy
+	
+	$('canvas').live('mousedown',function(e){
+		startx = e.pageX - 190
+		starty = e.pageY - 55
+		if(linetag){
+			paint = true
+			addClick(e.pageX - 190, e.pageY - 55)
+		}
+	})
+	$('canvas').live('mouseup',function(e){
+		endx = e.pageX - 190
+		endy = e.pageY - 55
+		if(recttag){
+			draw_rect()
+		}
+		if(linetag){
+			draw_line()
+		}
+	})
+	function draw_line(){
+		context.strokeStyle = "red"
+		context.lineJoin = "round"
+		context.lineWidth = 10
+		context.beginPath()
+		context.moveTo(startx, starty)
+		context.lineTo(endx, endy);
+		context.closePath();
+		context.stroke();
+	}
+	function draw_rect(){
+		context.strokeStyle = "red"
+		context.lineJoin = "round"
+		context.lineWidth = 10
+		context.strokeRect(startx,starty,endx-startx,endy-starty);
+	}
+	
 })
