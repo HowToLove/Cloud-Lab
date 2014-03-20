@@ -349,8 +349,8 @@ $(document).ready(function(){
 		pstarty = starty/$('canvas').height()
 		pendx = endx/$('canvas').width()
 		pendy = endy/$('canvas').height()
-		
-		var mymessage = pstartx+" "+pstarty+" "+pendx+" "+pendy;
+
+		var mymessage = pageNum+" "+pstartx+" "+pstarty+" "+pendx+" "+pendy;
 		var msg = {
 			message: mymessage,
 			name: sessionStorage.userName,		
@@ -367,7 +367,7 @@ $(document).ready(function(){
 		pendx = endx/$('canvas').width()
 		pendy = endy/$('canvas').height()
 		
-		var mymessage = pstartx+" "+pstarty+" "+pendx+" "+pendy;
+		var mymessage = pageNum+" "+pstartx+" "+pstarty+" "+pendx+" "+pendy;
 		var msg = {
 			message: mymessage,
 			name: sessionStorage.userName,		

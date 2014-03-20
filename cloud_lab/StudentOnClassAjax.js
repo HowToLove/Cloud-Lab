@@ -24,33 +24,33 @@ $(function() {
 				studentsnum = classes[i].studentsnum;
 				percent = classes[i].progress.percent;
 				var classdiv = 
-					"<div class='fixedtextalign'>\
-					<div class='class-list' style='text-align:left'>\
-						<div class='class-list-left'>\
-							<div class='class-img'><img src=main/"+imgurl+">\
-								<div class='arrow-right'></div>\
-							</div>\
-							<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
-								<h3 class='underline textadjust' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
-							</a>\
-							<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
-							<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即上课</a>\
-						</div>\
-						<div class='class-list-right'>\
-							<div class='class-questions'>\
-								<p>未解答疑问</p>\
-								<span>1</span>\
-								<div class='arrow-bottom'></div>\
-							</div>\
-							<p class='underline'>"+description+"</p>\
-							<p>上课人数："+studentsnum+"人</p>\
-						</div>\
-						<div class='class-progress'>\
-							<div class='progress-cover' style='width:"+percent+"%'></div>\
-							<p>"+percent+"%</p>\
-						</div>\
-					</div>\
-					</div>"
+				"<div class='fixedtextalign'>\
+				<div class='class-list' style='text-align:left'>\
+				<div class='class-list-left'>\
+				<div class='class-img'><img src=main/"+imgurl+">\
+				<div class='arrow-right'></div>\
+				</div>\
+				<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
+				<h3 class='underline textadjust' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
+				</a>\
+				<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
+				<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即上课</a>\
+				</div>\
+				<div class='class-list-right'>\
+				<div class='class-questions'>\
+				<p>未解答疑问</p>\
+				<span>1</span>\
+				<div class='arrow-bottom'></div>\
+				</div>\
+				<p class='underline'>"+description+"</p>\
+				<p>上课人数："+studentsnum+"人</p>\
+				</div>\
+				<div class='class-progress'>\
+				<div class='progress-cover' style='width:"+percent+"%'></div>\
+				<p>"+percent+"%</p>\
+				</div>\
+				</div>\
+				</div>"
 				$("#classes-container").append(classdiv);
 			}
 			$(".textadjust").each(function(){
@@ -74,8 +74,8 @@ $(function() {
 	});
 
 		//create a new WebSocket object.
-	var wsUri = "ws://localhost:12401/cloud_lab/server.php"; 	
-	websocket = new WebSocket(wsUri); 
+		var wsUri = "ws://localhost:12401/cloud_lab/server.php"; 	
+		websocket = new WebSocket(wsUri); 
 	websocket.onopen = function(ev) { // connection is open 
 		console.log("connected!");
 	}
@@ -89,12 +89,12 @@ $(function() {
 		var mymessage = '1';
 		//prepare json data
 		var msg = {
-		message: mymessage,
-		name: sessionStorage.userName,		
+			message: mymessage,
+			name: sessionStorage.userName,		
 		userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
 		msgType: 'slidePPT',		
 		classId:sessionStorage.classId
-		};
+	};
 		//convert and send data to server
 		websocket.send(JSON.stringify(msg));
 	});
@@ -112,7 +112,7 @@ $(function() {
 				websocket.send(JSON.stringify(msg));
 			}
 		}
-	*/
+		*/
 	//#### Message received from server?
 	websocket.onmessage = function(ev) {
 		var msg = JSON.parse(ev.data); //PHP sends Json data
@@ -120,24 +120,57 @@ $(function() {
 		var umsg = msg.message; //message text
 		var uname = msg.name; //user name	
 		var userType = msg.userType;
+		var startx,starty,endx,endy
 		console.log(msg);
-		//老师滑动了ppt
-		var targetNum = umsg
+		
 		if(userType == 1){
-			if( msgType == 'slidePPT'){
+			if( msgType == 'slidePPT'){//老师滑动了ppt
+				var targetNum = umsg
 				$('#tab-item-'+targetNum).click()
-			}else if( msgType == 'drawRect'){
+			}else if( msgType == 'drawRect'){//老师画了个矩形框
 				var points = umsg.split(" ");
 				console.log(points);
-			}else if(msgType == 'drawLine'){
+				
+				startx = points[1]*($('canvas').width())
+				starty = points[2]*($('canvas').height())
+				endx = points[3]*($('canvas').width())
+				endy = points[4]*($('canvas').height())
+				
+				var pageNum = points[0]
+				$('#tab-item-'+pageNum).click()
+				canvas = document.getElementById('canvas-'+pageNum)
+				context = canvas.getContext("2d")
+				context.strokeStyle = "red"
+				context.lineJoin = "round"
+				context.lineWidth = 10
+				context.strokeRect(startx,starty,endx-startx,endy-starty);
+			}else if(msgType == 'drawLine'){//老师画了条线
 				var points = umsg.split(" ");
 				console.log(points);
-			}
+				
+				startx = points[1]*($('canvas').width())
+				starty = points[2]*($('canvas').height())
+				endx = points[3]*($('canvas').width())
+				endy = points[4]*($('canvas').height())
+				
+				var pageNum = points[0]
+				$('#tab-item-'+pageNum).click()
+				canvas = document.getElementById('canvas-'+pageNum)
+				context = canvas.getContext("2d")
+				context.strokeStyle = "red"
+				context.lineJoin = "round"
+				context.lineWidth = 10
+				context.beginPath()
+				context.moveTo(startx, starty)
+				context.lineTo(endx, endy);
+				context.closePath();
+				context.stroke();
+			}			
 		}else{
 			
 		}	
 	};
-	
+
 	websocket.onerror	= function(ev){console.log("error!");}; 
 	websocket.onclose 	= function(ev){console.log("closed!");};
 	//sessionStorage.socket = websocket;
@@ -152,13 +185,13 @@ $(function() {
 		alert(sessionStorage.classId);
 		
 		var msg = {
-					message: "I'M COMMING!!",
-					name: sessionStorage.userName,					
-					userType: sessionStorage.userType,
-					msgType: 'connect',
-					classId:sessionStorage.classId
-				};			
-				websocket.send(JSON.stringify(msg));
+			message: "I'M COMMING!!",
+			name: sessionStorage.userName,					
+			userType: sessionStorage.userType,
+			msgType: 'connect',
+			classId:sessionStorage.classId
+		};			
+		websocket.send(JSON.stringify(msg));
 		
 		
 		$.ajax({
@@ -174,27 +207,27 @@ $(function() {
 				$('#accordion').empty();
 				for(var i=1;i<=data.charpter.length;i++) {
 					var charpterpanel = 
-						"<div class='panel panel-default'>\
-							<div class='panel-heading'>\
-								<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"'>\
-									<h4 class='panel-title'>第"+i+"章</h4>\
-								</a>\
-							</div>\
-							<div id='collapse"+i+"' class='panel-collapse collapse in'>\
-								<div class='panel-body'>\
-									<ul class=charpter"+i+">\
-									</ul>\
-								</div>\
-							</div>\
-						</div>"
+					"<div class='panel panel-default'>\
+					<div class='panel-heading'>\
+					<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"'>\
+					<h4 class='panel-title'>第"+i+"章</h4>\
+					</a>\
+					</div>\
+					<div id='collapse"+i+"' class='panel-collapse collapse in'>\
+					<div class='panel-body'>\
+					<ul class=charpter"+i+">\
+					</ul>\
+					</div>\
+					</div>\
+					</div>"
 					$('#accordion').append(charpterpanel);
 					for(var j=1;j<=data.charpter[i-1];j++) {
 						var lessonpanel = 
-							"<li>\
-								<a href='#prepare-class' class='start-lesson' data-slide='next' data-toggle='tab' data-charpter="+i+" data-lesson="+j+">\
-									<p>第"+j+"节</p>\
-								</a>\
-							</li>"
+						"<li>\
+						<a href='#prepare-class' class='start-lesson' data-slide='next' data-toggle='tab' data-charpter="+i+" data-lesson="+j+">\
+						<p>第"+j+"节</p>\
+						</a>\
+						</li>"
 						$(".charpter"+i).append(lessonpanel);
 					}
 				}
@@ -204,7 +237,7 @@ $(function() {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
-	});
+});
 
 	// 点击对应章节时请求
 	$('.start-lesson').live('click', function() {
@@ -448,19 +481,19 @@ $(function() {
 		$('#bb-bookblock').empty();
 		for(var i=0;i<urls.length;i++) {
 			var snapppt = 
-				"<div class='tab_item' id='tab-item-"+(i+1)+"'>\
-					<img src=main/"+urls[i]+">\
-				</div>"
+			"<div class='tab_item' id='tab-item-"+(i+1)+"'>\
+			<img src=main/"+urls[i]+">\
+			</div>"
 			$('.nfull_ppt_tabs').append(snapppt);
 
 			var normalppt = 
-				"<canvas class='pptm' id='canvas-"+(i+1)+"' style ='background-image:url(main/"+urls[i]+")'></canvas>"
+			"<canvas class='pptm' id='canvas-"+(i+1)+"' style ='background-image:url(main/"+urls[i]+")'></canvas>"
 			$('.nfull_tabslider').append(normalppt);
 
 			var fullppt =
-				"<div class='bb-item' id='item"+(i+1)+"'>\
-					<img src=main/"+urls[i]+">\
-				</div>"
+			"<div class='bb-item' id='item"+(i+1)+"'>\
+			<img src=main/"+urls[i]+">\
+			</div>"
 			$('#bb-bookblock').append(fullppt);
 		}
 		$('#tab-item-1').addClass('ppt-list-active')
