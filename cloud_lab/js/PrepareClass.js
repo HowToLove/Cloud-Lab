@@ -10,7 +10,6 @@ $(document).ready(function(){
                   $('#pbtoggle img').css('transform','rotate(0deg)')
             }
       })
-
       $(document).delegate(".show-answer",'click',function(){
             $(this).next().toggle("normal")
             if($(this).html()=='查看答案') {
@@ -22,17 +21,6 @@ $(document).ready(function(){
       $(document).delegate('.exer-list label','click',function(){
             var checkmark = $(this).find('.checkmark')
             checkmark.width()==0 ? checkmark.animate({width:"22px"}) : checkmark.animate({width:"0px"})
-      })
-      $(document).delegate('.indicator-hide','click',function(){
-            setTimeout(function(){
-                  $('#carousel-indicators-pc').slideUp()
-                  changeheight()
-            },800)
-      })
-      $(document).delegate('.indicator-show','click',function(){
-            setTimeout(function(){
-                  $('#carousel-indicators-pc').slideDown()
-            },800)
       })
 
       $(window).load(function(){
