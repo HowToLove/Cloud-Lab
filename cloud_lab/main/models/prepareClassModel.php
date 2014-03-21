@@ -137,6 +137,7 @@
 		$ret['answer'] = $answer;
 		return $ret;
 	}
+		
 	/**
 	 *@param $classid 	当前课程的信息之班级
 	 *@param $charpterId 当前课程的信息之章节
@@ -155,7 +156,7 @@
 		$sql = 
 		"SELECT TQuestion.QUESTION_CONTENT AS question ,
 				TQuestion.ANSWER 		   AS ans,
-				TQuestion.QUESTION_ID AS id,
+				TQuestion.QUESTION_ID AS id
 		FROM t_question_info TQuestion
 		WHERE TQuestion.QUESTION_ID 
 		in 
@@ -171,11 +172,12 @@
 				)
 		    )";
 		try {
+			mysql_query("set names 'GB2312'");	
 			$result = mysql_query($sql);
 			while($row = mysql_fetch_array($result))
 			{
-				$temp["question"]= $row['question'];
-				$temp["answer"]  = $row['ans'];
+				$temp["question"]= iconv('gb2312//IGNORE','UTF-8',$row['question']);			
+				$temp["answer"]  = iconv('gb2312//IGNORE','UTF-8',$row['ans']);
 				$temp['id'] = $row['id'];
 				$query[] = $temp;
 			}
