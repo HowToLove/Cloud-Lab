@@ -3,3 +3,20 @@
 	bottom: 0;
 	left:0;
 }
+.note{
+	position: absolute;
+	height: 120px;
+	width: 200px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	resize: none;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.notesign{
+	position: absolute;
+	height: 32px;
+	width: 32px;
+	background-image: url(../img/notesign.png);
+	cursor: pointer;
+}

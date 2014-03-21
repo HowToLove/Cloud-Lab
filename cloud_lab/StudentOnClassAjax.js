@@ -167,7 +167,7 @@ $(function() {
 				context.stroke();
 			}			
 		}else{
-			
+
 		}	
 	};
 
@@ -182,7 +182,7 @@ $(function() {
 		classid = $(this).attr('data-classid');
 		//added by lanxiang
 		sessionStorage.classId = classid;
-		alert(sessionStorage.classId);
+		//alert(sessionStorage.classId);
 		
 		var msg = {
 			message: "I'M COMMING!!",
@@ -487,7 +487,7 @@ $(function() {
 			$('.nfull_ppt_tabs').append(snapppt);
 
 			var normalppt = 
-			"<canvas class='pptm' id='canvas-"+(i+1)+"' style ='background-image:url(main/"+urls[i]+")'></canvas>"
+			"<div class='pptm'><canvas id='canvas-"+(i+1)+"' style ='background-image:url(main/"+urls[i]+")'></canvas></div>"
 			$('.nfull_tabslider').append(normalppt);
 
 			var fullppt =
@@ -502,7 +502,7 @@ $(function() {
 		var pptwidth = $('.nfull_tabbed_content').height()*4/3
 		$('canvas').attr('width',pptwidth)
 		$('canvas').attr('height',pptheight)
-		
+
 		$.getScript("js/jquery.jscrollpane.min.js");
 		$.getScript("js/jquerypp.custom.js");
 		$.getScript("js/jquery.bookblock.js");

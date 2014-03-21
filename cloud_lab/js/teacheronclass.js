@@ -108,8 +108,10 @@ var NotFullScreenTabbedContent = {
 			$(".nfull_tabbed_content").css("height",pptheight+"px"); 
 			var pptwidth = $('.nfull_tabbed_content').height()*4/3;
 			$(".nfull_slide_content").css("width",pptwidth+"px");  
-			$(".pptm").attr("width",pptwidth+"px");  
-			$(".pptm").attr("height",pptheight+"px");  
+			$(".pptm canvas").attr("width",pptwidth+"px");  
+			$(".pptm canvas").attr("height",pptheight+"px"); 
+			$('.pptm').css('width',pptwidth)
+			$('.pptm').css('height',pptheight) 
 			var sreenwidth = document.body.clientWidth;
 			var nfullrwidth=sreenwidth-pptwidth-210;
 			$(".nfullr").css("width",nfullrwidth+"px");  
@@ -280,10 +282,14 @@ $(document).ready(function(){
 			linetag=0
 			recttag=0
 			$('canvas').css('cursor','default')
+			$('#draw-line').css('opacity',0.5)
+			$('#draw-rect').css('opacity',0.5)
 		}else{
 			linetag=1
 			recttag=0
 			$('canvas').css('cursor','url("img/pen.cur"),pointer')
+			$('#draw-line').css('opacity',1)
+			$('#draw-rect').css('opacity',0.5)
 		}
 		//获取当前PPT的页数
 		marginLeft = -parseInt($('.nfull_tabslider').css('margin-left'))
@@ -297,10 +303,14 @@ $(document).ready(function(){
 			recttag=0
 			linetag=0
 			$('canvas').css('cursor','default')
+			$('#draw-line').css('opacity',0.5)
+			$('#draw-rect').css('opacity',0.5)
 		}else{
 			recttag=1
 			linetag=0
 			$('canvas').css('cursor','url("img/cross.cur"),crosshair')
+			$('#draw-line').css('opacity',0.5)
+			$('#draw-rect').css('opacity',1)
 		}
 		//获取当前PPT的页数
 		marginLeft = -parseInt($('.nfull_tabslider').css('margin-left'))
