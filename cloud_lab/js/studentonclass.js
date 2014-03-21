@@ -68,7 +68,44 @@ $(document).ready(function(){
 		}else{//如果元素存在则直接改变内容
 			$('#'+id).attr('title',content).show('normal')
 		}
-		$(this).hide('normal')
+		$(this).hide('normal');
+		var insert_id =$(this).attr("insert_id");
+		if(insert_id==null){
+			insert_id = -1;
+		}
+		
+		//added by lanxiang
+		var mythis = $(this);
+		$.ajax({
+			type : 'POST',
+			url : 'main/studentOnClass.php',
+			timeout : 6000,
+			data : {
+				'classid' : classid,
+				'charpter' : charpter,
+				'lesson' : lesson,
+				'pleft' : pleft,
+				'ptop' : ptop,
+				'content' : content,
+				'pagenum':pageNum,
+				'isInsert':insert_id,
+				'pstartx' : pstartx,
+				'pstarty' : pstarty,
+				'pendx' : pendx,
+				'pendy' : pendy
+			},
+			dataType : 'json',
+			beforeSend : function(XMLHttpRequest) {},
+			success : function(data) {
+				if(data.insert_id!=-1){
+				mythis.attr('insert_id', data.insert_id);
+				}
+			},
+			complete : function(XMLHttpRequest, textStatus) {},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
+			}
+		});
 	})
 	$('.notesign').live('click',function(){
 		var id = $(this).attr('id').substring(5)
