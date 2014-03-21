@@ -52,7 +52,6 @@ $(function() {
 						</div>\
 					</div>"
 				$("#class_container").append(classdiv);
-				prepare_class()
 			}
 		},
 		complete : function(XMLHttpRequest, textStatus) {},
@@ -101,7 +100,6 @@ $(function() {
 							</li>"
 						$(".charpter"+i).append(lessonpanel);
 					}
-					prepare_class()
 				}
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
@@ -151,7 +149,6 @@ $(function() {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
-		prepare_class()
 	}
 
 	// 生成PPT
@@ -180,7 +177,6 @@ $(function() {
 	        $('#pagenote').append(classnote);
 		}
 		$('#ppt-list-1').addClass('ppt-list-active');
-		prepare_class()
 	}
 
 	// 点击相应snapppt
@@ -196,7 +192,6 @@ $(function() {
             </form>"
         $('#pagenote').append(classnote);
         // video.currentTime = videos[pptid];
-        prepare_class()
 	});
 
 	// 提交本页ppt备注
@@ -278,7 +273,6 @@ $(function() {
 									<a class='btn btn-warning' id='btn_completeprepare'>完成备课</a>\
 								</form>"
 							$('#homeworklist').append(from);
-							prepare_class()
 						},
 						complete: function(XMLHttpRequest, textStatus) {},
 						error: function(XMLHttpRequest, textStatus, errorThrown) {
