@@ -98,14 +98,14 @@ $(document).ready(function(){
 			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				if(data.insert_id!=-1){
-				mythis.attr('insert_id', data.insert_id);
+					mythis.attr('insert-id', data.insert_id);
 				}
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
-		});
+		})
 	})
 	$('.notesign').live('click',function(){
 		var id = $(this).attr('id').substring(5)

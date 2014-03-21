@@ -2,6 +2,29 @@
 	position: absolute;
 	bottom: 0;
 	left:0;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+	width:50px;
+	height:50px;
+	outline:none;
+	border:none;
+	opacity: 0.5;
+	background: url(../img/take-note.png) no-repeat;
+}
+#take-note:hover{
+	opacity:1;
+}
+#take-note:hover::before{
+	background: #2AA6DF;
+	width: 50px;
+	height: 25px;
+	position: absolute;
+	color: #fff;	
+	border-radius: 5px;
+	left: -3px;
+	top: -30px;
+	content: "笔记";
 }
 .note{
 	position: absolute;
