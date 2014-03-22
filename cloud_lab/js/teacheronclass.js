@@ -117,6 +117,13 @@ $(document).ready(function(){
 	//讨论区高度
 	var pptheight = $('.ppt_tabslider').height()-55;	
 	$('.chat-body').css('height',pptheight-480)
+	$( window ).resize(function(){
+		var pptheight = $('.ppt_tabslider').height()-55;	
+		$('.chat-body').css('height',pptheight-480)
+		$('.ego .chat-content').css('left',$('.nfullr').width()-240)
+		var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+		$('.chat-body').animate({scrollTop:height})
+	})
 
 	$('.chat-footer button').click(function(){
 		var content = $('.chat-footer textarea').val()
@@ -126,7 +133,7 @@ $(document).ready(function(){
 			$('.chat-footer textarea').val('')
 			var height = $('.chat-body-list').height()-$('.chat-body').height()+10
 			$('.chat-body').animate({scrollTop:height})
-
+			$('.ego .chat-content').css('left',$('.nfullr').width()-240)
 			var msg = {
 				message: content,
 				name: sessionStorage.userName,		

@@ -452,16 +452,16 @@ a.button-blue:hover{
 .exer-list .button-blue,#ppt .button-blue{
 	float: right;
 }
-.exer-list p.exer-question,.exer-list p.exer-answer{
+.exer-list .exer-question,.exer-list .exer-answer{
 	line-height:2;
 	font-size:16px;
 }
-.exer-list p.exer-question{
+.exer-list .exer-question{
 	margin-top:5px;
 	padding-top:5px;
 	border-top: 1px solid #d5d5d5;
 }
-.exer-list p.exer-answer{
+.exer-list .exer-answer{
 	display: none;
 	margin-top:55px;
 }
@@ -485,4 +485,7 @@ a.button-blue:hover{
 	left: 18px;
 	width:0px;
 	overflow: hidden;
+}
+code{
+	background-color: inherit;
 }

@@ -47,8 +47,8 @@ $(function() {
 							<p>上课人数："+studentsnum+"人</p>\
 						</div>\
 						<div>\
-							<div class='progress-cover' style='width:"+percent+"%'></div>\
-							<p>"+percent+"%</p>\
+							<div class='progress-cover' style='width:"+Math.round(percent*100)+"%'></div>\
+							<p>"+Math.round(percent*100)+"%</p>\
 						</div>\
 					</div>"
 				$("#class_container").append(classdiv);
@@ -264,7 +264,7 @@ $(function() {
 											<p class='exer-question'>"+questions[i].question+"</p>\
 										</label>\
 										<a class='button-blue show-answer'>查看答案</a>\
-										<p class='exer-answer'>解答："+questions[i].answer+"<span></span></p>\
+										<div class='exer-answer'>解答："+questions[i].answer+"</div>\
 									</div>"
 								$('#homeworklist').append(homework);
 							}
@@ -274,7 +274,6 @@ $(function() {
 									<a class='btn btn-warning' id='btn_completeprepare'>完成备课</a>\
 								</form>"
 							$('#homeworklist').append(from);
-							prepare_class()
 						},
 						complete: function(XMLHttpRequest, textStatus) {},
 						error: function(XMLHttpRequest, textStatus, errorThrown) {
