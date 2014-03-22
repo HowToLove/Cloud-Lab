@@ -12,3 +12,8 @@
 .back{
 	left:7%;
 }
+.show_answer{
+position: absolute;
+margin-left: -150px;
+margin-top: -10px;
+}
