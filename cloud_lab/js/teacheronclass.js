@@ -47,11 +47,11 @@ $(document).ready(function(){
 	var startx,starty,endx,endy
 	var pstartx,pstarty,pendx,pendy
 
-	$('canvas').live('mousedown',function(e){
+	$(document).delegate('canvas','mousedown',function(e){
 		startx = e.pageX - 190
 		starty = e.pageY - 55
 	})
-	$('canvas').live('mouseup',function(e){
+	$(document).delegate('canvas','mouseup',function(e){
 		endx = e.pageX - 190
 		endy = e.pageY - 55
 		if(recttag){

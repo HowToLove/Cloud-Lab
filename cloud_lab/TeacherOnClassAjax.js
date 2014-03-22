@@ -46,8 +46,8 @@ $(function() {
 				<p>上课人数："+studentsnum+"人</p>\
 				</div>\
 				<div class='class-progress'>\
-				<div class='progress-cover' style='width:"+percent+"%'></div>\
-				<p>"+percent+"%</p>\
+				<div class='progress-cover' style='width:"+Math.round(percent*100)+"%'></div>\
+				<p>"+Math.round(percent*100)+"%</p>\
 				</div>\
 				</div>\
 				</div>"
@@ -115,7 +115,6 @@ $(function() {
 				if(content.length!=0){
 					var newchat = '<li class="student others"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
 					$('.chat-body-list').append(newchat)
-					$('.chat-footer textarea').val('')
 					var height = $('.chat-body-list').height()-$('.chat-body').height()+10
 					$('.chat-body').animate({scrollTop:height})
 				}
@@ -131,7 +130,7 @@ $(function() {
 	
 	
 	// 点击课程名时请求
-	$("#classes_h").live('click', function() {
+	$(document).delegate("#classes_h",'click', function() {
 		classid = $(this).attr('data-classid');
 		//added by lanxiang
 		sessionStorage.classId = classid;
@@ -193,7 +192,7 @@ $(function() {
 });
 
 	// 点击对应章节时请求
-	$('.start-lesson').live('click', function() {
+	$(document).delegate('.start-lesson','click', function() {
 		charpter = $(this).attr('data-charpter');
 		lesson = $(this).attr('data-lesson');
 		$.ajax({
@@ -220,7 +219,7 @@ $(function() {
 	});
 
 	// 点击开始上课时请求
-	$('.bt-to-ppt').live('click', function() {
+	$(document).delegate('.bt-to-ppt','click', function() {
 		classid = $(this).attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
@@ -380,7 +379,8 @@ $(function() {
 			dataType : 'json',
 			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
-				alert(data.url);
+				//alert(data.url);
+				$('#video source').attr('src',data.url)
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -437,7 +437,7 @@ $(function() {
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
+				//alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
 	});

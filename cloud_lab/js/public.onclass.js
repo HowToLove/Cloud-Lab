@@ -54,10 +54,10 @@ var PPTTabbedContent = {
 				$(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
 			}
 		});
-		$(".bt_fullsreen").live('click', function() {
+		$(document).delegate(".bt_fullsreen",'click', function() {
 			PPTTabbedContent.slideToFull($(this));			
 		});
-		$(".bt_notfullsreen").live('click', function() {
+		$(document).delegate(".bt_notfullsreen",'click', function() {
 			PPTTabbedContent.slideToNotFull($(this));			
 		});
 	},
@@ -119,7 +119,7 @@ var NotFullScreenTabbedContent = {
 			NotFullScreenTabbedContent.slideContent($(nfullpptindex),0);
 		});
 
-		$(".nfull_ppt_tabs .tab_item").live('click', function() {
+		$(document).delegate(".nfull_ppt_tabs .tab_item",'click', function() {
 			//Added by zr
 			recttag=0
 			$('canvas').css('cursor','default')
@@ -172,7 +172,7 @@ var NotFullScreenTabbedContent = {
 			//convert and send data to server
 			websocket.send(JSON.stringify(msg));
 		});
-$(".bt-to-ppt").live('click', function() {
+$(document).delegate(".bt-to-ppt",'click', function() {
 
 	$(".progress_bar").addClass("progress-to-hide");
 	$(".mp-menu-act").css("margin-left",0+"px");
@@ -181,7 +181,7 @@ $(".bt-to-ppt").live('click', function() {
 	$(".mp-menu ul li .function2").addClass('active');
 	$("#prepare-class").css("marginTop",55+"px");
 });
-$(".choose-to-ppt ul li").live('click', function() {
+$(document).delegate(".choose-to-ppt ul li",'click', function() {
 	$(".progress_bar").addClass("progress-to-hide");
 	$(".mp-menu-act").css("margin-left",0+"px");
 	$("#nav-left").css("margin-left",30+"px");
