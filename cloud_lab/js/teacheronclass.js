@@ -46,7 +46,7 @@ $(document).ready(function(){
 
 	var startx,starty,endx,endy
 	var pstartx,pstarty,pendx,pendy
-	
+
 	$('canvas').live('mousedown',function(e){
 		startx = e.pageX - 190
 		starty = e.pageY - 55
@@ -113,4 +113,31 @@ $(document).ready(function(){
 		//convert and send data to server
 		websocket.send(JSON.stringify(msg));
 	}
+
+	//讨论区高度
+	var pptheight = $('.ppt_tabslider').height()-55;	
+	$('.chat-body').css('height',pptheight-480)
+
+	$('.chat-footer button').click(function(){
+		var content = $('.chat-footer textarea').val()
+		if(content.length!=0){
+			var newchat = '<li class="teacher ego"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
+			$('.chat-body-list').append(newchat)
+			$('.chat-footer textarea').val('')
+			var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+			$('.chat-body').animate({scrollTop:height})
+
+			var msg = {
+				message: content,
+				name: sessionStorage.userName,		
+			userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
+			msgType: 'onlineQuestion',		
+			classId:sessionStorage.classId
+		};
+		console.log("teacher message:"+msg);
+		//convert and send data to server
+		websocket.send(JSON.stringify(msg));
+
+	}
+})
 })

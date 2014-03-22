@@ -114,7 +114,8 @@ var NotFullScreenTabbedContent = {
 			$('.pptm').css('height',pptheight) 
 			var sreenwidth = document.body.clientWidth;
 			var nfullrwidth=sreenwidth-pptwidth-210;
-			$(".nfullr").css("width",nfullrwidth+"px");  
+			$(".nfullr").css("width",nfullrwidth+"px");
+			$('.chat-body').css('height',pptheight-180)
 			NotFullScreenTabbedContent.slideContent($(nfullpptindex),0);
 		});
 
@@ -134,6 +135,27 @@ var NotFullScreenTabbedContent = {
 			var height = (id-2)*($('.nfull_ppt_tabs .tab_item').height()+5)
 			$('.nfull_ppt_tabs').animate({scrollTop:height})
 
+			//此处插入Ajax
+			$.ajax({
+				url: 'main/retrieveRemark.php',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					'classid' : classid,
+					'charpter' : charpter,
+					'lesson' : lesson,
+					'pagenum' : id				
+				},
+				beforeSend: function(XMLHttpRequest) {},
+				success: function(data) {
+					console.log(data);
+					$('.note-content p').html(data.remark)
+				},
+				complete: function(XMLHttpRequest, textStatus) {},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
+				}
+			})
 			//sessionStorage.userName = $("#username").val();
 			//sessionStorage.userType = data.userType;
 			var myname =sessionStorage.userName		
@@ -150,38 +172,38 @@ var NotFullScreenTabbedContent = {
 			//convert and send data to server
 			websocket.send(JSON.stringify(msg));
 		});
-		$(".bt-to-ppt").live('click', function() {
+$(".bt-to-ppt").live('click', function() {
 
-			$(".progress_bar").addClass("progress-to-hide");
-			$(".mp-menu-act").css("margin-left",0+"px");
-			$("#nav-left").css("margin-left",30+"px");
-			$(".mp-menu ul li .function2").addClass('function-act');
-			$(".mp-menu ul li .function2").addClass('active');
-			$("#prepare-class").css("marginTop",55+"px");
-		});
-		$(".choose-to-ppt ul li").live('click', function() {
-			$(".progress_bar").addClass("progress-to-hide");
-			$(".mp-menu-act").css("margin-left",0+"px");
-			$("#nav-left").css("margin-left",30+"px");
-			$(".mp-menu ul li .function2").addClass('function-act');
-			$(".mp-menu ul li .function2").addClass('active');
-			$("#prepare-class").css("marginTop",55+"px");
-			
-		});
-	},
-	
-	slideContent: function(obj,durationtime){
-		
-		var margin = $(obj).parent().parent().find(".nfull_slide_content").width();
-		margin = margin * $(obj).prevAll().size();
-		margin = margin * -1;
-		
-		$(obj).parent().parent().find(".nfull_tabslider").stop().animate({
-			marginLeft: margin + "px"
-		}, {
-			duration: durationtime
-		});
-	}
+	$(".progress_bar").addClass("progress-to-hide");
+	$(".mp-menu-act").css("margin-left",0+"px");
+	$("#nav-left").css("margin-left",30+"px");
+	$(".mp-menu ul li .function2").addClass('function-act');
+	$(".mp-menu ul li .function2").addClass('active');
+	$("#prepare-class").css("marginTop",55+"px");
+});
+$(".choose-to-ppt ul li").live('click', function() {
+	$(".progress_bar").addClass("progress-to-hide");
+	$(".mp-menu-act").css("margin-left",0+"px");
+	$("#nav-left").css("margin-left",30+"px");
+	$(".mp-menu ul li .function2").addClass('function-act');
+	$(".mp-menu ul li .function2").addClass('active');
+	$("#prepare-class").css("marginTop",55+"px");
+
+});
+},
+
+slideContent: function(obj,durationtime){
+
+	var margin = $(obj).parent().parent().find(".nfull_slide_content").width();
+	margin = margin * $(obj).prevAll().size();
+	margin = margin * -1;
+
+	$(obj).parent().parent().find(".nfull_tabslider").stop().animate({
+		marginLeft: margin + "px"
+	}, {
+		duration: durationtime
+	});
+}
 }
 
 $(document).ready(function() {
@@ -221,7 +243,7 @@ $(document).ready(function() {
 	// }
 
 	var nfullrwidth=sreenwidth-pptwidth-210;
-	$(".nfullr").css("width",nfullrwidth+"px");  
+	$(".nfullr").css("width",nfullrwidth+"px");
 });
 //Added by zr
 $(document).ready(function(){
@@ -273,4 +295,5 @@ $(document).ready(function(){
 	// $(document).on("click", "#btn_prepare", function() {
 	// 	window.location.href="PrepareClass.html";
 	// });
+
 })

@@ -157,6 +157,7 @@ $(function() {
 		$('#ppt-list').empty();
 		$('#ppt-content').empty();
 		for(var i=0;i<urls.length;i++) {
+			if(!remarks[i]) remarks[i]=' ';
 			var snapppt =
 				"<li id='ppt-list-"+(i+1)+"'>\
 					<a class='snapppt' data-pptid="+(i+1)+" href='#ppt-list-"+(i+1)+"'>\
@@ -211,7 +212,7 @@ $(function() {
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data) {
 				if(data.status == 'success') {
-					alert("save success");
+					//alert("save success");
 				} else {
 					alert("save failed");
 				}
@@ -273,6 +274,7 @@ $(function() {
 									<a class='btn btn-warning' id='btn_completeprepare'>完成备课</a>\
 								</form>"
 							$('#homeworklist').append(from);
+							prepare_class()
 						},
 						complete: function(XMLHttpRequest, textStatus) {},
 						error: function(XMLHttpRequest, textStatus, errorThrown) {

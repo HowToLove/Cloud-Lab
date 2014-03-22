@@ -165,9 +165,31 @@ $(function() {
 				context.lineTo(endx, endy);
 				context.closePath();
 				context.stroke();
+			}else if(msgType == 'onlineQuestion'){//这里是收到老师消息的代码。
+				if(uname !=sessionStorage.userName){
+					var content = umsg
+					if(content.length!=0){
+						var newchat = '<li class="teacher others"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
+						$('.chat-body-list').append(newchat)
+						$('.chat-footer textarea').val('')
+						var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+						$('.chat-body').animate({scrollTop:height})
+					}
+				}
 			}			
-		}else{
-
+		}else{//这里是收到学生消息的代码
+			if(msgType == 'onlineQuestion'){
+				if(uname !=sessionStorage.userName){
+					var content = umsg
+					if(content.length!=0){
+						var newchat = '<li class="student others"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
+						$('.chat-body-list').append(newchat)
+						$('.chat-footer textarea').val('')
+						var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+						$('.chat-body').animate({scrollTop:height})
+					}
+				}
+			}
 		}	
 	};
 
@@ -271,6 +293,18 @@ $(function() {
 		classid = $(this).attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
+
+		sessionStorage.classId = classid;
+		//alert(sessionStorage.classId);
+		
+		var msg = {
+			message: "I'M COMMING!!",
+			name: sessionStorage.userName,					
+			userType: sessionStorage.userType,
+			msgType: 'connect',
+			classId:sessionStorage.classId
+		};			
+		websocket.send(JSON.stringify(msg));
 		$.ajax({
 			type : 'POST',
 			url : 'main/onclassppt.php',

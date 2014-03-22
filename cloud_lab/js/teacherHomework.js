@@ -42,4 +42,16 @@ $(document).ready(function(){
                   $('.student-list ul').animate({marginTop:'-=65'})
             }
       })
+      
+})
+$(document).ready(function(){
+      $('tbody').css('display','none');
+var obj = document.getElementsByClassName("question-block"); 
+      if(obj)
+      {
+     $('#bt_show_answer').css('display','inline-block');
+      }
+      $('#bt_show_answer').click(function(){
+            $('tbody').css('display','block');
+      })
 })

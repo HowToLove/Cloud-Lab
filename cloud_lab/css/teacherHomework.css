@@ -148,10 +148,9 @@ ul, ol {
 	border-radius: 5px;
 	height: 150px;
 	margin: 10px 0;
-	overflow: auto;
 }
 .solution-block.answer{
-	height:250px;
+	min-height:250px;
 }
 .question-block.comment{
 	background-color: #fff;
@@ -209,14 +208,14 @@ ul, ol {
 }
 table{
 	width:100%;
-	text-align: center;
+	text-align: left;
 }
 tr{
 	height:40px;
 	border-bottom: 1px solid #eee;
 }
 tr:first-child{
-	background-color: #eee;
+	background-color: #fff;
 }
 td.uncorrected{
 	color:#fa5050;
@@ -270,4 +269,9 @@ td.corrected{
 	height: 70%;
 	overflow: hidden;
 	margin-top: 12%;
+}
+.container{
+overflow-x: auto;
+width: 880px;
+
 }

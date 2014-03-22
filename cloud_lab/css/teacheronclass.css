@@ -200,11 +200,21 @@ body {
 }
 .nfullnote {
 	width: 100%;
-	height: 40%;
-	overflow: hidden;
+	height: 230px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 10px
+}
+.note-content{
+	color: black;
+	height: 188px;
+	overflow: overlay;
+	padding: 10px;
+	text-align: left;
+	line-height: 1.5;
 }
 .nfullqa {
-	width: 100%;
+	width: 98%;
 	height: 55%;
 }
 .qatitle {
@@ -299,7 +309,7 @@ body {
 	left: -3px;
 	top: -30px;
 }
-.nfullnote .notearea {
+/*.nfullnote .notearea {
 	margin-top: 48px;
 	height: 95%;
 	width: 100%;
@@ -316,26 +326,11 @@ body {
 	margin-top: 10px;
 	margin-right: 15px;
 }
-.nfullnote .notetitle {
-	margin-top: -42px;
-	-webkit-transition-property: all;
-	-webkit-transition-duration: 0.2s;
-	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
-}
 .btdiv {
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 0.2s;
 	-webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
-}
-.nfullnote:hover .notetitle {
-	margin-top: 5px;
-}
-.nfullnote:hover .notearea {
-	height: 55%;
-}
-.nfullnote:hover .btdiv {
-	margin-top: -5px;
-}
+}*/
 /* /nfulltabbedcontent */
 /* ppttabbedcontent */
 
@@ -701,4 +696,89 @@ li.solving .qinfo-item-icon{
 }
 #draw-rect:hover::before{
 	content: "矩形";
+}
+.chat-body{
+	overflow: overlay;
+	padding-right: 10px;
+	color:black;
+}
+.chat-body-list li{
+	position: relative;
+	margin-bottom: 10px;
+}
+.chat-header{
+	background-color: #428bca;
+	font-size: 16px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+.chat-header p{
+	margin:0;
+	line-height: 2.5;
+}
+.head{
+	height:40px;
+	width:40px;
+	background-size: cover;
+	border-radius: 5px;
+	position: absolute;
+}
+.teacher .head{
+	background-image: url(../img/teacher.jpg);
+}
+.student .head{
+	background-image: url(../img/student.jpg);
+}
+.others .head{
+	top:0;
+	left:0;
+}
+.ego .head{
+	top:0;
+	right:0;
+}
+.chat-content{
+	position: relative;
+	min-height: 40px;
+	padding: 3px 8px;
+	line-height: 2;
+	border-radius: 5px;
+	text-align: left;
+	max-width: 180px;
+}
+.others .chat-content{
+	left:50px;
+	background-color: #99CC00;
+}
+.ego .chat-content{
+	left:58px;
+	background-color: #66ccff;
+}
+.others .arrow{
+	position: absolute;
+	border-width: 7px 7px 7px 0px;
+	border-style: solid;
+	border-color: transparent;
+	border-right-color: #99CC00;
+	top: 13px;
+	left: -7px;
+}
+.ego .arrow{
+	position: absolute;
+	border-width: 7px 0px 7px 7px;
+	border-style: solid;
+	border-color: transparent;
+	border-left-color: #66ccff;
+	top: 13px;
+	right: -7px;
+}
+.chat-footer textarea{
+	width:100%;
+	height:120px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	margin: 10px 0;
+}
+.chat-footer button{
+	float: right;
 }
