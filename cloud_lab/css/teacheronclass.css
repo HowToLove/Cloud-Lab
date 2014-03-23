@@ -751,7 +751,7 @@ li.solving .qinfo-item-icon{
 .chat-content{
 	position: relative;
 	min-height: 40px;
-	padding: 3px 8px;
+	padding: 3px 5px;
 	line-height: 2;
 	border-radius: 5px;
 	text-align: left;
@@ -792,4 +792,9 @@ li.solving .qinfo-item-icon{
 }
 .chat-footer button{
 	float: right;
+}
+.chat-footer p{
+	color:black;
+	margin:0;
+	padding:6px;
 }

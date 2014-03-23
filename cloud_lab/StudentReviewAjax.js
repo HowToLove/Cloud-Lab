@@ -446,7 +446,7 @@ $(function() {
 			dataType : 'json',
 			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
-				alert(data.url);
+				//$('#video source').attr('src',data.url)
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {

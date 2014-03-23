@@ -245,7 +245,7 @@ $(document).ready(function(){
 		var ptop = top/$('canvas').height()
 		if($('#'+id).length==0){//如果元素不存在则创建元素
 			var newnote = '<div class="note" id="'+id+'"style="top:'+ptop*100+'%;\
-				left:'+pleft*100+'%"><button type="button" class="close">×</button>'+content+'</div>'
+			left:'+pleft*100+'%"><button type="button" class="close">×</button>'+content+'</div>'
 			$(this).parent().append(newnote)
 		}else{
 			$('#'+id).css('display','block')	
@@ -256,5 +256,34 @@ $(document).ready(function(){
 		var id = $(this).parent().attr('id').substring(5)
 		$(this).parent().css('display','none')
 		$('#'+id).show('normal')
+	})
+	$('.chat-footer button').click(function(){
+		var content = $('.chat-footer textarea').val()
+		if(content.length!=0){
+			var newchat = '<li class="student ego"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
+			$('.chat-body-list').append(newchat)
+			$('.chat-footer textarea').val('')
+			var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+			$('.chat-body').animate({scrollTop:height})
+			$('.ego .chat-content').css('width',$('.nfullr').width()-118)
+		}
+	})
+	//讨论区高度
+	var pptheight = $('.ppt_tabslider').height()-55;	
+	$('.chat-body').css('height',pptheight-250)
+	$('.ego .chat-content').css('width',$('.nfullr').width()-118)
+	$( window ).resize(function(){
+		var pptheight = $('.ppt_tabslider').height()-55;	
+		$('.chat-body').css('height',pptheight-250)
+		$('.ego .chat-content').css('width',$('.nfullr').width()-118)
+		var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+		$('.chat-body').animate({scrollTop:height})
+	})
+
+	$('.chat-footer textarea').keydown(function(e){
+		if(e.which == 13 && e.ctrlKey){
+			$('.chat-footer button').click()
+			$('.chat-footer textarea').val('')
+		}
 	})
 })

@@ -114,7 +114,7 @@
                   <div class="tab-a-logo tab-a-logo-1"></div>
                   复习</a>
                 </li>
-                <li><a class="tab-a">
+                <li><a class="tab-a" href="StudentTask.html">
                   <div class="tab-a-logo tab-a-logo-3"></div>
                   实验</a>
                 </li>
@@ -236,60 +236,16 @@
                         </div>
                         <div class="nfullr">
                           <div class="chat-header">
-                            <p>讨论区</p>
+                            <p>离线讨论</p>
                           </div>
                           <div class="chat-body">
-                            <ul class="chat-body-list">
-                              <li class="teacher others">
-                                <div class="head"></div>
-                                <div class="chat-content">
-                                  <span>你好你好你好你好你好你好你好你好你好你好你好你好</span>
-                                  <div class="arrow"></div>
-                                </div>
-                              </li>
-                              <li class="student others">
-                                <div class="head"></div>
-                                <div class="chat-content">
-                                  <span>你好你好你好你好你好你好你好你好你好你好你好你好</span>
-                                  <div class="arrow"></div>
-                                </div>
-                              </li>
-                              <li class="student ego">
-                                <div class="head"></div>
-                                <div class="chat-content">
-                                  <span>你好你好你好你好你好你好你好你好你好你好你好你好</span>
-                                  <div class="arrow"></div>
-                                </div>
-                              </li>
-                              <li class="student ego">
-                                <div class="head"></div>
-                                <div class="chat-content">
-                                  <span>你好你好你好你好你好你好你好你好你好你好你好你好</span>
-                                  <div class="arrow"></div>
-                                </div>
-                              </li>
-                              <li class="student ego">
-                                <div class="head"></div>
-                                <div class="chat-content">
-                                  <span>你好你好你好你好你好你好你好你好你好你好你好你好</span>
-                                  <div class="arrow"></div>
-                                </div>
-                              </li>
-                              <li class="student ego">
-                                <div class="head"></div>
-                                <div class="chat-content">
-                                  <span>你好你好你好你好你好你好你好你好你好你好你好你好</span>
-                                  <div class="arrow"></div>
-                                </div>
-                              </li>
-                              <li class="student ego">
-                                <div class="head"></div>
-                                <div class="chat-content">
-                                  <span>你好你好你好你好你好你好你好你好你好你好你好你好</span>
-                                  <div class="arrow"></div>
-                                </div>
-                              </li>
+                            <ul class="chat-body-list">                            
                             </ul>
+                          </div>
+                          <div class="chat-footer">
+                            <textarea></textarea>
+                            <button class="btn btn-primary">提交</button>
+                            <p>按Ctrl+Enter提交</p>
                           </div>
                         </div>
                       </div>
@@ -324,485 +280,305 @@
               </ul>
               <div class="tab-content" style="height:100%;margin: 0 10px;">
                 <div class="tab-pane fade in active" id="exp1" style="height:100%;">
+                  <textarea class="codearea form-control " style="height:95%;"></textarea>
+                </div>
+                <div class="tab-pane fade" id="exp2" style="height:100%;">
                   <textarea class="codearea form-control " style="height:95%;">
-                    /*nfull ppt tabbed content*/
-                    var PPTTabbedContent = {
-                    init: function() {  
-                    $( window ).resize(function() {
-                    var sreenwidth = document.body.clientWidth;
-                    var initmargin=0;
-                    var sreenheight = document.body.clientHeight;
-                    $(".bb-item img").css("height",sreenheight+"px");
 
-                    if($(".ppt_tabslider").css("marginLeft")!=0+"px")
-                    {
+                  </textarea>
+                </div>
+                <div class="tab-pane fade" id="exp3" style="height:100%;">
+                  <textarea class="codearea form-control " style="height:95%;">
+                  </textarea>
+                </div>
+              </div>
+            </div>
+            <div id="video">
+              <video height="100%" controls id="pptvideo">
+                <source src="main/video/Principles of Database/1-1.mp4" type="video/mp4"/>
+                Your browser does not support the video tag. 
+              </video>
+            </div>
+            <div id="stuquestion"> 
+             <div class="qinfo">
+              <div class="qinfo-header">
+                <p>最新回答：
+                  <span class="latest-answer-count">1</span>个 已提问：
+                  <span class="question-count">10</span>个 已回答
+                  <span class="answer-count">10</span>个</p>
+                </div>
+                <ul class="qinfo-body">
+                  <li class="solved" id="qinfo-1">
+                    <div class="qinfo-item-header">
+                      <div class="qinfo-item-icon"></div>
+                      <p>这是问题xxxxxxxx</p>
+                    </div>
+                    <div class="qinfo-item-body">
+                      <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
+                    </div>
+                  </li>
+                  <li class="submitted" id="qinfo-2">
+                    <div class="qinfo-item-header">
+                      <div class="qinfo-item-icon"></div>
+                      <p>这是问题xxxxxxxx</p>
+                    </div>
+                    <div class="qinfo-item-body">
+                      <p class="qinfo-item-answer">暂无回答</p>
+                    </div>
+                  </li>
+                  <li class="unsolved" id="qinfo-3">
+                    <div class="qinfo-item-header">
+                      <div class="qinfo-item-icon"></div>
+                      <p>这是问题xxxxxxxx</p>
+                    </div>
+                    <div class="qinfo-item-body">
+                      <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
+                      <button class="btn btn-primary">标记为已读</button>
+                    </div>
+                  </li>
+                  <li class="unsolved" id="qinfo-4">
+                    <div class="qinfo-item-header">
+                      <div class="qinfo-item-icon"></div>
+                      <p>这是问题xxxxxxxx</p>
+                    </div>
+                    <div class="qinfo-item-body">
+                      <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
+                      <button class="btn btn-primary">标记为已读</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="qchat">
+                <ul class="nav nav-pills nav-stacked">
+                  <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 讨论区 </a> </li>
+                </ul>
+                <div class="chatbubble">
+                  <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
+                    <div class="talkbubble"> 
 
-                    $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
-                  }
-                });
-                $(".bt_fullsreen").live('click', function() {
+                      <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                      </textarea>
+                    </div>
+                  </div>
+                  <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
+                    <div class="talkbubble2"> 
+                     <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                     </textarea>
+                   </div>
 
-                PPTTabbedContent.slideToFull($(this));
+                 </div>
+                 <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
+                  <div class="talkbubble"> 
 
-              });
-              $(".bt_notfullsreen").live('click', function() {
+                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
+                </div>
+                <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
+                  <div class="talkbubble2"> 
+                   <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                   </textarea>
+                 </div>
 
-              PPTTabbedContent.slideToNotFull($(this));
+               </div>
 
-            });
-          },
-
-
-          slideToFull: function(obj) {
-          $(".topmenu").removeClass("topmenu-to-show");
-          $(".topmenu").addClass("topmenu-to-hide");
-          $(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-          //$(".mp-menu-act").css("opacity",0.5);
-          var margin = $(".ppt_slide_content").width();
-          margin = margin * (1);
-          margin = margin * -1;
-
-          $(".ppt_tabslider").stop().animate({
-          marginLeft: margin+ "px"
-        }, {
-        duration: 600
-      });
-    },
-    slideToNotFull: function(obj) {
-    $(".topmenu").addClass("topmenu-to-show");
-    $(".topmenu").removeClass("topmenu-to-hide");
-
-    $(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
-    var margin = $(".ppt_slide_content").width();
-    margin = margin * (0);
-    margin = margin * 1;
-
-    $(".ppt_tabslider").stop().animate({
-    marginLeft: margin+ "px"
-  }, {
-  duration: 600
-});
-}
-}
-/*nfull mask tabbed content*/
-</textarea>
-</div>
-<div class="tab-pane fade" id="exp2" style="height:100%;">
-  <textarea class="codearea form-control " style="height:95%;">
-    /*nfull ppt tabbed content*/
-    var PPTTabbedContent = {
-    init: function() {  
-    $( window ).resize(function() {
-    var sreenwidth = document.body.clientWidth;
-    var initmargin=0;
-    var sreenheight = document.body.clientHeight;
-    $(".bb-item img").css("height",sreenheight+"px");
-
-    if($(".ppt_tabslider").css("marginLeft")!=0+"px")
-    {
-
-    $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
-  }
-});
-$(".bt_fullsreen").live('click', function() {
-
-PPTTabbedContent.slideToFull($(this));
-
-});
-$(".bt_notfullsreen").live('click', function() {
-
-PPTTabbedContent.slideToNotFull($(this));
-
-});
-},
-
-
-slideToFull: function(obj) {
-$(".topmenu").removeClass("topmenu-to-show");
-$(".topmenu").addClass("topmenu-to-hide");
-$(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-//$(".mp-menu-act").css("opacity",0.5);
-var margin = $(".ppt_slide_content").width();
-margin = margin * (1);
-margin = margin * -1;
-
-$(".ppt_tabslider").stop().animate({
-marginLeft: margin+ "px"
-}, {
-duration: 600
-});
-},
-slideToNotFull: function(obj) {
-$(".topmenu").addClass("topmenu-to-show");
-$(".topmenu").removeClass("topmenu-to-hide");
-
-$(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
-var margin = $(".ppt_slide_content").width();
-margin = margin * (0);
-margin = margin * 1;
-
-$(".ppt_tabslider").stop().animate({
-marginLeft: margin+ "px"
-}, {
-duration: 600
-});
-}
-}
-/*nfull mask tabbed content*/
-</textarea>
-</div>
-<div class="tab-pane fade" id="exp3" style="height:100%;">
-  <textarea class="codearea form-control " style="height:95%;">
-    /*nfull ppt tabbed content*/
-    var PPTTabbedContent = {
-    init: function() {  
-    $( window ).resize(function() {
-    var sreenwidth = document.body.clientWidth;
-    var initmargin=0;
-    var sreenheight = document.body.clientHeight;
-    $(".bb-item img").css("height",sreenheight+"px");
-
-    if($(".ppt_tabslider").css("marginLeft")!=0+"px")
-    {
-
-    $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
-  }
-});
-$(".bt_fullsreen").live('click', function() {
-
-PPTTabbedContent.slideToFull($(this));
-
-});
-$(".bt_notfullsreen").live('click', function() {
-
-PPTTabbedContent.slideToNotFull($(this));
-
-});
-},
+             </div>
+             <div class="chatpost">
+              <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
+              <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">发送</button>
+            </div>
+          </div>
 
 
-slideToFull: function(obj) {
-$(".topmenu").removeClass("topmenu-to-show");
-$(".topmenu").addClass("topmenu-to-hide");
-$(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-//$(".mp-menu-act").css("opacity",0.5);
-var margin = $(".ppt_slide_content").width();
-margin = margin * (1);
-margin = margin * -1;
 
-$(".ppt_tabslider").stop().animate({
-marginLeft: margin+ "px"
-}, {
-duration: 600
-});
-},
-slideToNotFull: function(obj) {
-$(".topmenu").addClass("topmenu-to-show");
-$(".topmenu").removeClass("topmenu-to-hide");
 
-$(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
-var margin = $(".ppt_slide_content").width();
-margin = margin * (0);
-margin = margin * 1;
-
-$(".ppt_tabslider").stop().animate({
-marginLeft: margin+ "px"
-}, {
-duration: 600
-});
-}
-}
-/*nfull mask tabbed content*/
-</textarea>
-</div>
-</div>
-</div>
-<div id="video">
-  <video height="100%" controls id="pptvideo">
-    <source src="../1.mp4" type="video/mp4"/>
-    Your browser does not support the video tag. 
-  </video>
-</div>
-<div id="stuquestion"> 
- <div class="qinfo">
-  <div class="qinfo-header">
-    <p>最新回答：
-      <span class="latest-answer-count">1</span>个 已提问：
-      <span class="question-count">10</span>个 已回答
-      <span class="answer-count">10</span>个</p>
-    </div>
-    <ul class="qinfo-body">
-      <li class="solved" id="qinfo-1">
-        <div class="qinfo-item-header">
-          <div class="qinfo-item-icon"></div>
-          <p>这是问题xxxxxxxx</p>
         </div>
-        <div class="qinfo-item-body">
-          <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
+        <div id="taskeva">
+          <div class="taskq" style="margin-top:55px">
+            <div class="taskq1" >
+              <ul class="nav nav-pills nav-stacked" style="margin-top: 5px;">
+                <li class="active" > <a href="#" style="font-size: 16px;"> 题目1 </a> </li>
+              </ul>
+              <textarea class="form-control" style="height:100%"></textarea>
+            </div>
+            <div class="taska" style="margin-top:55px">
+              <ul class="nav nav-pills nav-stacked" >
+                <li class="active" > <a href="#" style="font-size: 16px;"> 解答 </a> </li>
+              </ul>
+              <textarea class="form-control" rows="28"></textarea>
+            </div>
+          </div>
         </div>
-      </li>
-      <li class="submitted" id="qinfo-2">
-        <div class="qinfo-item-header">
-          <div class="qinfo-item-icon"></div>
-          <p>这是问题xxxxxxxx</p>
-        </div>
-        <div class="qinfo-item-body">
-          <p class="qinfo-item-answer">暂无回答</p>
-        </div>
-      </li>
-      <li class="unsolved" id="qinfo-3">
-        <div class="qinfo-item-header">
-          <div class="qinfo-item-icon"></div>
-          <p>这是问题xxxxxxxx</p>
-        </div>
-        <div class="qinfo-item-body">
-          <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
-          <button class="btn btn-primary">标记为已读</button>
-        </div>
-      </li>
-      <li class="unsolved" id="qinfo-4">
-        <div class="qinfo-item-header">
-          <div class="qinfo-item-icon"></div>
-          <p>这是问题xxxxxxxx</p>
-        </div>
-        <div class="qinfo-item-body">
-          <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
-          <button class="btn btn-primary">标记为已读</button>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="qchat">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 讨论区 </a> </li>
-    </ul>
-    <div class="chatbubble">
-      <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
-        <div class="talkbubble"> 
+        <div id="bookreq">
+          <div class="component">
+            <ul class="align">
+              <li>
+                <figure class='book'> 
 
-          <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-          </textarea>
+                  <!-- Front -->
+
+                  <ul class='hardcover_front'>
+                    <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Pages -->
+
+                  <ul class='page'>
+                    <li></li>
+                    <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Back -->
+
+                  <ul class='hardcover_back'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <ul class='book_spine'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <figcaption>
+                    <h1>数据库系统教程</h1>
+                    <span>王能斌 著</span>
+                    <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class='book'> 
+
+                  <!-- Front -->
+
+                  <ul class='hardcover_front'>
+                    <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Pages -->
+
+                  <ul class='page'>
+                    <li></li>
+                    <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Back -->
+
+                  <ul class='hardcover_back'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <ul class='book_spine'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <figcaption>
+                    <h1>Compilers: principles techniques and tools</h1>
+                    <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
+                    <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class='book'> 
+
+                  <!-- Front -->
+
+                  <ul class='hardcover_front'>
+                    <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Pages -->
+
+                  <ul class='page'>
+                    <li></li>
+                    <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Back -->
+
+                  <ul class='hardcover_back'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <ul class='book_spine'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <figcaption>
+                    <h1>数据库系统教程</h1>
+                    <span>王能斌 著</span>
+                    <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class='book'> 
+
+                  <!-- Front -->
+
+                  <ul class='hardcover_front'>
+                    <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Pages -->
+
+                  <ul class='page'>
+                    <li></li>
+                    <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+
+                  <!-- Back -->
+
+                  <ul class='hardcover_back'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <ul class='book_spine'>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                  <figcaption>
+                    <h1>Compilers: principles techniques and tools</h1>
+                    <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
+                    <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-        <div class="talkbubble2"> 
-         <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-         </textarea>
-       </div>
-
-     </div>
-     <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
-      <div class="talkbubble"> 
-
-        <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        </textarea>
-      </div>
+      <!-- /pusher --> 
     </div>
-    <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-      <div class="talkbubble2"> 
-       <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-       </textarea>
-     </div>
+    <!-- /container --> 
 
-   </div>
+    <!--leftmenujs--> 
+    <script src="js/classie.js"></script> 
+    <script src="js/mlpushmenu.js"></script> 
+    <script>
+    new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+    </script> 
 
- </div>
- <div class="chatpost">
-  <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
-  <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">发送</button>
-</div>
-</div>
-
-
-
-
-</div>
-<div id="taskeva">
-  <div class="taskq" style="margin-top:55px">
-    <div class="taskq1" >
-      <ul class="nav nav-pills nav-stacked" style="margin-top: 5px;">
-        <li class="active" > <a href="#" style="font-size: 16px;"> 题目1 </a> </li>
-      </ul>
-      <textarea class="form-control" style="height:100%"></textarea>
-    </div>
-    <div class="taska" style="margin-top:55px">
-      <ul class="nav nav-pills nav-stacked" >
-        <li class="active" > <a href="#" style="font-size: 16px;"> 解答 </a> </li>
-      </ul>
-      <textarea class="form-control" rows="28"></textarea>
-    </div>
-  </div>
-</div>
-<div id="bookreq">
-  <div class="component">
-    <ul class="align">
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>数据库系统教程</h1>
-            <span>王能斌 著</span>
-            <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>Compilers: principles techniques and tools</h1>
-            <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
-            <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>数据库系统教程</h1>
-            <span>王能斌 著</span>
-            <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>Compilers: principles techniques and tools</h1>
-            <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
-            <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
-          </figcaption>
-        </figure>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
-<!-- /pusher --> 
-</div>
-<!-- /container --> 
-
-<!--leftmenujs--> 
-<script src="js/classie.js"></script> 
-<script src="js/mlpushmenu.js"></script> 
-<script>
-new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
-</script> 
-
-<!--pptfullsreenjs--> 
-<script src="js/jquery.jscrollpane.min.js"></script> 
-<script src="js/jquerypp.custom.js"></script> 
-<script src="js/jquery.bookblock.js"></script> 
-<script src="js/page.js"></script>
-</body>
-</html>
+    <!--pptfullsreenjs--> 
+    <script src="js/jquery.jscrollpane.min.js"></script> 
+    <script src="js/jquerypp.custom.js"></script> 
+    <script src="js/jquery.bookblock.js"></script> 
+    <script src="js/page.js"></script>
+  </body>
+  </html>
