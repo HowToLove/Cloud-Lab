@@ -27,6 +27,8 @@
 	content: "笔记";
 }
 .note{
+	color:black;
+	text-align: left;
 	position: absolute;
 	height: 120px;
 	width: 200px;
@@ -35,6 +37,7 @@
 	resize: none;
 	padding: 10px;
 	background-color: rgba(255, 255, 255, 0.8);
+	overflow: overlay;
 }
 .notesign{
 	position: absolute;
@@ -42,4 +45,9 @@
 	width: 32px;
 	background-image: url(../img/notesign.png);
 	cursor: pointer;
+}
+.close{
+	position: absolute;
+	right:5px;
+	top:0px;
 }

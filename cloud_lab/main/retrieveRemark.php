@@ -15,7 +15,7 @@
 	mysql_select_db(dbname, $con);
 	
 	mysql_query("set names 'gbk'");	
-	$remark;
+	$remark=' ';
 	$sql = "SELECT Remark.REMARK AS pptremark FROM t_ppt_remark Remark,t_ppt_info Info,t_class_info Class 
 		WHERE Class.CLASS_ID = "."$classId"." AND Class.COURSE_ID = Info.COURSE_ID 
 		AND Remark.PPT_ID = Info.PPT_ID AND Info.COURSE_CHARPTER = "."$charpter".

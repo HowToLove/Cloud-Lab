@@ -19,6 +19,7 @@
 				'pendy' = pendy
 	}
 	*/
+	//var_dump($_SESSION);
 	$userid = $_SESSION['USER_ID'];
 	$classid = $_POST['classid'];
 	$charpter = $_POST['charpter'];

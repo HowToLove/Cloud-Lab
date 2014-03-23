@@ -34,7 +34,7 @@ $(function() {
 				<h3 class='underline textadjust' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
 				</a>\
 				<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
-				<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即上课</a>\
+				<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即复习</a>\
 				</div>\
 				<div class='class-list-right'>\
 				<div class='class-questions'>\
@@ -537,6 +537,63 @@ $(function() {
 		$('canvas').attr('width',pptwidth)
 		$('canvas').attr('height',pptheight)
 
+
+			var canvas,context
+	var pageNum,content
+	var pleft,ptop
+	var startx,starty,endx,endy
+	var pstartx,pstarty,pendx,pendy
+	$.ajax({
+		type : 'POST',
+		url : 'main/studentReview.php',
+		timeout : 6000,
+		data : {
+			'classid' : 3,
+			'charpter' : 1,
+			'lesson' : 1
+		},
+		dataType : 'json',
+		beforeSend : function(XMLHttpRequest) {},
+		success : function(data) {
+				for(i=0;i<data.length;i++){
+					console.log(data[i])
+					pageNum = data[i].pageNum
+					content = data[i].content
+					pleft = data[i].pleft
+					ptop = data[i].ptop
+					pstartx = data[i].pstartx
+					pstarty = data[i].pstarty
+					pendx = data[i].pendx
+					pendy = data[i].pendy
+					canvas = document.getElementById('canvas-'+pageNum)
+					context = canvas.getContext("2d")
+					ptrans1()
+					draw_line()
+					var newnotesign = '<div class="notesign" id="'+i+'" title="'+content+'" style="top:'+ptop*100+'%;left:'+pleft*100+'%"></div>'
+					$('#canvas-'+pageNum).parent().append(newnotesign)
+				}
+			},
+			complete : function(XMLHttpRequest, textStatus) {},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
+			}
+		});
+	function draw_line(){
+		context.strokeStyle = "black"
+		context.lineJoin = "round"
+		context.lineWidth = 10
+		context.beginPath()
+		context.moveTo(startx, starty)
+		context.lineTo(endx, endy);
+		context.closePath();
+		context.stroke();
+	}
+	function ptrans1(){		
+		startx = pstartx*$('canvas').width()
+		starty = pstarty*$('canvas').height()
+		endx = pendx*$('canvas').width()
+		endy = pendy*$('canvas').height()
+	}
 		$.getScript("js/jquery.jscrollpane.min.js");
 		$.getScript("js/jquerypp.custom.js");
 		$.getScript("js/jquery.bookblock.js");
