@@ -248,6 +248,7 @@ ul.nav li a:hover{
 	margin:0 auto;
 	background-color: #313131;
 	border-radius: 10px;
+	padding:20px 0;
 }
 #aboutus h1{
 	line-height: 3;
@@ -402,4 +403,16 @@ ul.nav li a:hover{
 }
 .next a:hover, .prev a:hover, .close a:hover{
 	background-color: red;
+}
+#aboutus table{
+	margin:0 auto;
+	font-size:16px;
+	width:44%;
+}
+#aboutus tr{
+	height:30px;
+}
+#aboutus th{
+	font-size:23px;
+	font-weight: bold;
 }
