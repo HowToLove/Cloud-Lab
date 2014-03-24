@@ -3,15 +3,15 @@ header('Content-type: text/json');
 session_start();
 @require_once('../main/models/prepareHomeworkModel.php');
 @require_once('../main/common/mysql_connect.php');
-//å½“å•ç‹¬æµ‹è¯•çš„æ—¶å€™æœ¬è¡Œéœ€è¦ä½¿ç”¨ï¼Œé›†æˆæµ‹è¯•çš„æ—¶å€™æ³¨é‡ŠæŽ‰
-$_SESSION['USER_ID']='5';
+//µ±µ¥¶À²âÊÔµÄÊ±ºò±¾ÐÐÐèÒªÊ¹ÓÃ£¬¼¯³É²âÊÔµÄÊ±ºò×¢ÊÍµô
+//$_SESSION['USER_ID']='5';
 
-//å…³é—­è‡ªåŠ¨è¾“å‡ºerroræˆ–è€…è­¦å‘Š
+//¹Ø±Õ×Ô¶¯Êä³öerror»òÕß¾¯¸æ
 ini_set("display_errors", "Off");
 
 if(isset($_SESSION['USER_ID']))
 {
-	//èŽ·å–æ•°æ®
+	//»ñÈ¡Êý¾Ý
 	$classId   =	$_POST['classid'];
 	$charpter  =	$_POST['charpter'];
 	$lesson    =	$_POST['lesson'];
@@ -23,16 +23,16 @@ if(isset($_SESSION['USER_ID']))
 			case 'homework':
 				$question = $_POST['questionid'];
 				TsaveAssignHomework($classId,$charpter,$lesson,$question);
-				//æ•°æ®ç»„è£…
+				//Êý¾Ý×é×°
 				$pptStatu = array('status'=>
 "success");
-				//è¿”å›žè¯·æ±‚ç»“æžœ
+				//·µ»ØÇëÇó½á¹û
 		    	echo json_encode($pptStatu);
 				break;
 			case 'homeworklist':
 				$result = 
 				getAllQuestionOfLesson($classId,$charpter,$lesson);
-				//è¿”å›žè¯·æ±‚ç»“æžœ
+				//·µ»ØÇëÇó½á¹û
 		    	echo json_encode($result);
 				break;
 			default:
@@ -48,6 +48,6 @@ if(isset($_SESSION['USER_ID']))
 	header("Location: http://localhost/cloud_lab/index.html");
 }
 
-//æ‰“å¼€è‡ªåŠ¨è¾“å‡ºé”™è¯¯ä¸Žè­¦å‘Š
+//´ò¿ª×Ô¶¯Êä³ö´íÎóÓë¾¯¸æ
 ini_set("display_errors", "On");
 ?>

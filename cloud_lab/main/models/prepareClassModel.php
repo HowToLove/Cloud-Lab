@@ -28,10 +28,10 @@
 		WHERE Class.CLASS_ID = "."$classId"." AND Class.COURSE_ID = Info.COURSE_ID 
 		AND Remark.PPT_ID = Info.PPT_ID AND Info.COURSE_CHARPTER = "."$charpter".
 		" AND Info.LESSON_SEQ = "."$lesson";
+		mysql_query("set names 'gbk'");
 		$result = mysql_query($sql);
-		//echo $sql;
 		while($row = mysql_fetch_array($result)){
-			$remarkTemp[$row['page']] = $row['remark'];		
+			$remarkTemp[$row['page']] = iconv('gbk//IGNORE','UTF-8',$row['remark']);		
 		}
 
 		for($i=0;$i<count($slides);$i++){
@@ -60,8 +60,11 @@
 	*@return 	true :save success false :save failed	
 	*用来保存当前ppt的备注
 	*/
-	function savePPTRemarkPreClass($classId,$charpter,$lesson,$pagenum,$remark)
-	{		
+	function savePPTRemarkPreClass($classId,$charpter,$lesson,$pagenum=1,$remark)
+	{	
+		if(!$pagenum){
+			$pagenum=1;
+		}
 		//判断保存remark的编码方式
 		if(mb_detect_encoding($remark)=='UTF-8')
 		{
@@ -69,14 +72,16 @@
 		}else{
 			$remark2 = iconv(mb_detect_encoding($remark),'gb2312//IGNORE',$remark);
 		}
+		$userid = $_SESSION['USER_ID'];
 		//查询是否已经有相应的备注了
 		$sql = "SELECT Remark.PPT_ID AS PPT_ID FROM t_ppt_remark Remark,t_ppt_info Info,t_class_info Class 
 		WHERE Class.CLASS_ID = "."$classId"." AND Class.COURSE_ID = Info.COURSE_ID 
 		AND Remark.PPT_ID = Info.PPT_ID AND Info.COURSE_CHARPTER = "."$charpter".
-		" AND Info.LESSON_SEQ = "."$lesson"." AND Remark.PPT_PAGE_NUM = "."$pagenum";
+		" AND Info.LESSON_SEQ = "."$lesson"." AND Remark.PPT_PAGE_NUM = "."$pagenum AND Remark.user_id = $userid";
 		try {
 			mysql_query("set names 'gbk'");
 			$result = mysql_query($sql);
+			//echo $sql;
 			if(mysql_num_rows($result)<1){//没有记录要新插入一条记录
 				$sql = "SELECT Info.PPT_ID AS PPT_ID FROM t_ppt_info Info,t_class_info Class 
 				WHERE Class.CLASS_ID = "."$classId"." AND Class.COURSE_ID = Info.COURSE_ID 
@@ -85,20 +90,22 @@
 				$result = mysql_query($sql);
 				$row = mysql_fetch_array($result);
 				$pptId = $row['PPT_ID'];
-				$sql = "INSERT INTO t_ppt_remark (CLASS_ID,PPT_ID,PPT_PAGE_NUM,REMARK) 
-				VALUES ($classId, $pptId, $pagenum, '$remark2')";			
+				$sql = "INSERT INTO t_ppt_remark (CLASS_ID,PPT_ID,PPT_PAGE_NUM,REMARK,USER_ID) 
+				VALUES ($classId, $pptId, $pagenum, '$remark2',$userid)";			
 			} else{//有记录只要更新就行
 				$row = mysql_fetch_array($result);
 				$pptId = $row['PPT_ID'];
 				$sql = "UPDATE t_ppt_remark SET REMARK = "."'$remark2'".
 				" WHERE PPT_ID = "."$pptId"." AND CLASS_ID = "."$classId".
-				" AND PPT_PAGE_NUM = "."$pagenum";			
+				" AND PPT_PAGE_NUM = "."$pagenum"." AND user_id = $userid";	
+					
 			}
 			//echo $sql;
 			mysql_free_result($result);
 			
 			try {
 				$status = mysql_query($sql);
+				//echo $sql;
 				return $status;
 			} catch (Exception $e) {
 				var_dump('Remark 插入或者更新失败');
@@ -137,6 +144,7 @@
 		$ret['answer'] = $answer;
 		return $ret;
 	}
+		
 	/**
 	 *@param $classid 	当前课程的信息之班级
 	 *@param $charpterId 当前课程的信息之章节
@@ -155,7 +163,7 @@
 		$sql = 
 		"SELECT TQuestion.QUESTION_CONTENT AS question ,
 				TQuestion.ANSWER 		   AS ans,
-				TQuestion.QUESTION_ID AS id,
+				TQuestion.QUESTION_ID AS id
 		FROM t_question_info TQuestion
 		WHERE TQuestion.QUESTION_ID 
 		in 
@@ -171,11 +179,12 @@
 				)
 		    )";
 		try {
+			mysql_query("set names 'GB2312'");	
 			$result = mysql_query($sql);
 			while($row = mysql_fetch_array($result))
 			{
-				$temp["question"]= $row['question'];
-				$temp["answer"]  = $row['ans'];
+				$temp["question"]= iconv('gb2312//IGNORE','UTF-8',$row['question']);			
+				$temp["answer"]  = iconv('gb2312//IGNORE','UTF-8',$row['ans']);
 				$temp['id'] = $row['id'];
 				$query[] = $temp;
 			}

@@ -10,8 +10,8 @@ if(!isset($_SESSION))
 	//header("Location: http://localhost/cloud_lab/index.html");
 
 //当单独测试的时候本行需要使用，集成测试的时候注释掉
-$_SESSION['USER_ID']=5;
-$_SESSION['USER_TYPE']='teacher';
+//$_SESSION['USER_ID']=5;
+//$_SESSION['USER_TYPE']='teacher';
 
 //关闭自动输出error或者警告
 ini_set("display_errors", "Off");

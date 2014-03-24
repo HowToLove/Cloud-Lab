@@ -24,33 +24,33 @@ $(function() {
 				studentsnum = classes[i].studentsnum;
 				percent = classes[i].progress.percent;
 				var classdiv = 
-					"<div class='fixedtextalign'>\
-					<div class='class-list' style='text-align:left'>\
-						<div class='class-list-left'>\
-							<div class='class-img'><img src=main/"+imgurl+">\
-								<div class='arrow-right'></div>\
-							</div>\
-							<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
-								<h3 class='underline textadjust' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
-							</a>\
-							<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
-							<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即上课</a>\
-						</div>\
-						<div class='class-list-right'>\
-							<div class='class-questions'>\
-								<p>未解答疑问</p>\
-								<span>1</span>\
-								<div class='arrow-bottom'></div>\
-							</div>\
-							<p class='underline'>"+description+"</p>\
-							<p>上课人数："+studentsnum+"人</p>\
-						</div>\
-						<div class='class-progress'>\
-							<div class='progress-cover' style='width:"+percent+"%'></div>\
-							<p>"+percent+"%</p>\
-						</div>\
-					</div>\
-					</div>"
+				"<div class='fixedtextalign'>\
+				<div class='class-list' style='text-align:left'>\
+				<div class='class-list-left'>\
+				<div class='class-img'><img src=main/"+imgurl+">\
+				<div class='arrow-right'></div>\
+				</div>\
+				<a href='#prepare-class' data-slide='next' data-toggle='tab'>\
+				<h3 class='underline textadjust' id='classes_h' data-classid='"+classid+"'>"+coursename+"</h3>\
+				</a>\
+				<p style='color:#000' data-charpter="+charpter+" data-lesson="+lesson+">已上至第"+charpter+"章第"+lesson+"节</p>\
+				<a class='button-blue indicator-hide bt-to-ppt' href='#prepare-class' role='button' data-toggle='tab' data-slide-to='2' data-classid='"+classid+"'>立即上课</a>\
+				</div>\
+				<div class='class-list-right'>\
+				<div class='class-questions'>\
+				<p>未解答疑问</p>\
+				<span>1</span>\
+				<div class='arrow-bottom'></div>\
+				</div>\
+				<p class='underline'>"+description+"</p>\
+				<p>上课人数："+studentsnum+"人</p>\
+				</div>\
+				<div class='class-progress'>\
+				<div class='progress-cover' style='width:"+Math.round(percent*100)+"%'></div>\
+				<p>"+Math.round(percent*100)+"%</p>\
+				</div>\
+				</div>\
+				</div>"
 				$("#classes-container").append(classdiv);
 			}
 			$(".textadjust").each(function(){
@@ -73,9 +73,79 @@ $(function() {
 		}
 	});
 
+
+
+	//create a new WebSocket object.
+	var wsUri = "ws://localhost:12401/cloud_lab/server.php"; 	
+	websocket = new WebSocket(wsUri); 
+	websocket.onopen = function(ev) { // connection is open 
+		console.log("connected!");
+	}
+
+	// $('.nfull_ppt_tabs .tab_item').click(function(){ //use clicks message send button	
+		
+	// });
+
+	/*	
+	websocket.onopen=function(){
+			if(websocket.readyState==1){			
+				var msg = {
+					message: "I'M COMMING!!",
+					name: sessionStorage.userName,					
+					userType: sessionStorage.userType,
+					msgType: 'connect',
+					classId:sessionStorage.classId
+				};			
+				websocket.send(JSON.stringify(msg));
+			}
+		}
+		*/
+	//#### Message received from server?
+	websocket.onmessage = function(ev) {
+		var msg = JSON.parse(ev.data); //PHP sends Json data
+		var msgType = msg.msgType; //message type
+		var umsg = msg.message; //message text
+		var uname = msg.name; //user name	
+		var userType = msg.userType;		
+		console.log(msg);		
+		if(msgType == 'onlineQuestion'){//这里是收到学生消息的代码。
+			//console.log(sessionStorage);
+			if(uname !=sessionStorage.userName){
+				var content = umsg
+				if(content.length!=0){
+					var newchat = '<li class="student others"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
+					$('.chat-body-list').append(newchat)
+					var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+					$('.chat-body').animate({scrollTop:height})
+				}
+			}
+		}			
+		
+	};
+	
+	websocket.onerror	= function(ev){console.log("error!");}; 
+	websocket.onclose 	= function(ev){console.log("closed!");};
+	//sessionStorage.socket = websocket;
+	
+	
+	
 	// 点击课程名时请求
-	$("#classes_h").live('click', function() {
+	$(document).delegate("#classes_h",'click', function() {
 		classid = $(this).attr('data-classid');
+		//added by lanxiang
+		sessionStorage.classId = classid;
+		//alert(sessionStorage.classId);
+		
+		var msg = {
+			message: "I'M COMMING!!",
+			name: sessionStorage.userName,					
+			userType: sessionStorage.userType,
+			msgType: 'connect',
+			classId:sessionStorage.classId
+		};			
+		websocket.send(JSON.stringify(msg));
+		
+		
 		$.ajax({
 			type : 'POST',
 			url : 'main/coursedetail.php',
@@ -89,27 +159,27 @@ $(function() {
 				$('#accordion').empty();
 				for(var i=1;i<=data.charpter.length;i++) {
 					var charpterpanel = 
-						"<div class='panel panel-default'>\
-							<div class='panel-heading'>\
-								<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"'>\
-									<h4 class='panel-title'>第"+i+"章</h4>\
-								</a>\
-							</div>\
-							<div id='collapse"+i+"' class='panel-collapse collapse in'>\
-								<div class='panel-body'>\
-									<ul class=charpter"+i+">\
-									</ul>\
-								</div>\
-							</div>\
-						</div>"
+					"<div class='panel panel-default'>\
+					<div class='panel-heading'>\
+					<a data-toggle='collapse' data-parent='#accordion' href='#collapse"+i+"'>\
+					<h4 class='panel-title'>第"+i+"章</h4>\
+					</a>\
+					</div>\
+					<div id='collapse"+i+"' class='panel-collapse collapse in'>\
+					<div class='panel-body'>\
+					<ul class=charpter"+i+">\
+					</ul>\
+					</div>\
+					</div>\
+					</div>"
 					$('#accordion').append(charpterpanel);
 					for(var j=1;j<=data.charpter[i-1];j++) {
 						var lessonpanel = 
-							"<li>\
-								<a href='#prepare-class' class='start-lesson' data-slide='next' data-toggle='tab' data-charpter="+i+" data-lesson="+j+">\
-									<p>第"+j+"节</p>\
-								</a>\
-							</li>"
+						"<li>\
+						<a href='#prepare-class' class='start-lesson' data-slide='next' data-toggle='tab' data-charpter="+i+" data-lesson="+j+">\
+						<p>第"+j+"节</p>\
+						</a>\
+						</li>"
 						$(".charpter"+i).append(lessonpanel);
 					}
 				}
@@ -119,10 +189,10 @@ $(function() {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
-	});
+});
 
 	// 点击对应章节时请求
-	$('.start-lesson').live('click', function() {
+	$(document).delegate('.start-lesson','click', function() {
 		charpter = $(this).attr('data-charpter');
 		lesson = $(this).attr('data-lesson');
 		$.ajax({
@@ -149,10 +219,25 @@ $(function() {
 	});
 
 	// 点击开始上课时请求
-	$('.bt-to-ppt').live('click', function() {
+	$(document).delegate('.bt-to-ppt','click', function() {
 		classid = $(this).attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
+		//added by lanxiang
+		sessionStorage.classId = classid;
+		//alert(sessionStorage.classId);
+		
+		var msg = {
+			message: "I'M COMMING!!",
+			name: sessionStorage.userName,					
+			userType: sessionStorage.userType,
+			msgType: 'connect',
+			classId:sessionStorage.classId
+		};			
+		websocket.send(JSON.stringify(msg));
+
+
+
 		$.ajax({
 			type : 'POST',
 			url : 'main/onclassppt.php',
@@ -294,7 +379,8 @@ $(function() {
 			dataType : 'json',
 			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
-				alert(data.url);
+				//alert(data.url);
+				$('#video source').attr('src',data.url)
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -351,7 +437,7 @@ $(function() {
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
+				//alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
 	});
@@ -363,23 +449,28 @@ $(function() {
 		$('#bb-bookblock').empty();
 		for(var i=0;i<urls.length;i++) {
 			var snapppt = 
-				"<div class='tab_item tab_item"+(i+1)+"'>\
-					<img style='width:160px;' src=main/"+urls[i]+">\
-				</div>"
+			"<div class='tab_item' id='tab-item-"+(i+1)+"'>\
+			<img src=main/"+urls[i]+">\
+			</div>"
 			$('.nfull_ppt_tabs').append(snapppt);
 
 			var normalppt = 
-				"<div class='pptm'>\
-					<img src=main/"+urls[i]+" class='pptm_img'>\
-				</div>"
+			"<div class='pptm'><canvas id='canvas-"+(i+1)+"' style ='background-image:url(main/"+urls[i]+")'></canvas></div>"
 			$('.nfull_tabslider').append(normalppt);
 
 			var fullppt =
-				"<div class='bb-item' id='item"+(i+1)+"'>\
-					<img src=main/"+urls[i]+">\
-				</div>"
+			"<div class='bb-item' id='item"+(i+1)+"'>\
+			<img src=main/"+urls[i]+">\
+			</div>"
 			$('#bb-bookblock').append(fullppt);
 		}
+		$('#tab-item-1').addClass('ppt-list-active')
+
+		var pptheight = $('.ppt_tabslider').height()-55
+		var pptwidth = $('.nfull_tabbed_content').height()*4/3
+		$('canvas').attr('width',pptwidth)
+		$('canvas').attr('height',pptheight)
+		$('#tab-item-1').click()
 		$.getScript("js/jquery.jscrollpane.min.js");
 		$.getScript("js/jquerypp.custom.js");
 		$.getScript("js/jquery.bookblock.js");

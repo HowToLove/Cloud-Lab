@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="js/jquery-1.8.2.min.js"></script>
-  <script src="js/modernizr.custom.js"></script>
-  <script src="js/bootstrap.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <link rel="stylesheet" type="text/css" href="css/book.css" />
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="css/teacheronclass.css" />
   <link rel="stylesheet" type="text/css" href="css/studentonclass.css" />
   <link rel="stylesheet" type="text/css" href="css/leftmenu.css" />
   <link rel="stylesheet" type="text/css" href="css/PrepareClass.css" />
   <link rel="stylesheet" type="text/css" href="css/bookblock.css" />
-  <link href="css/nav.css" rel="stylesheet" media="screen"/>
-  <script src="js/teacheronclass.js"></script>
-  <script type="text/javascript" src="TeacherOnClassAjax.js"></script>
-  <script src="js/PrepareClass.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/nav.css" />
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/modernizr.custom.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/public.onclass.js"></script>
+  <script src="js/studentonclass.js"></script>
+  <script src="StudentOnClassAjax.js"></script>
+  <script src="js/public.js"></script>
   <title>学生上课</title>
 </head>
 <body>
   <div class="onclasscontainer">
     <!-- Push Wrapper -->
     <div class="mp-pusher" id="mp-pusher">
-
       <!-- mp-menu -->
       <nav id="mp-menu" class="mp-menu">
         <div class="mp-level">
@@ -60,748 +60,445 @@
             </li>
             <li class="tab_item"><a class="function2">
               <div class="function_icon function_icon2"  ></div>
-              PPT演示</a></li>
-              <li class="tab_item"><a class="function3">
-                <div class="function_icon function_icon3" ></div>
-                示例程序</a></li>
-                <li class="tab_item"><a class="function4">
-                  <div class="function_icon function_icon4" ></div>
-                  授课视频</a></li>
-                  <li class="tab_item"><a class="function8">
-                    <div class="function_icon function_icon8" ></div>
-                    答疑互动</a></li>
-                    <li class="tab_item"><a class="function5">
-                      <div class="function_icon function_icon5" ></div>
-                      作业讲评</a></li>
-                      <li class="tab_item"><a class="function6">
-                        <div class="function_icon function_icon6" ></div>
-                        推荐书目</a></li>
-                      </ul>
+              PPT演示</a>
+            </li>
+            <li class="tab_item"><a class="function3">
+              <div class="function_icon function_icon3" ></div>
+              示例程序</a>
+            </li>
+            <li class="tab_item"><a class="function4">
+              <div class="function_icon function_icon4" ></div>
+              授课视频</a>
+            </li>
+            <li class="tab_item"><a class="function8">
+              <div class="function_icon function_icon8" ></div>
+              答疑互动</a>
+            </li>
+            <li class="tab_item"><a class="function5">
+              <div class="function_icon function_icon5" ></div>
+              作业讲评</a>
+            </li>
+            <li class="tab_item"><a class="function6">
+              <div class="function_icon function_icon6" ></div>
+              推荐书目</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- /mp-menu --> 
+      <a href="#" id="trigger" class="mp-menu-act"></a>
+      <div class="Pconf">
+        <div class="topmenu" >
+          <nav id='nav'>
+            <div id="nav-left"> <img src="img/logo.png">
+              <h4>Cloud Class</h4>
+            </div>
+            <div id="nav-right">
+              <ul class="nav">
+                <li><a class="tab-a">
+                  <div class="tab-a-logo tab-a-logo-0"></div>
+                </a></li>
+              </ul>
+            </div>
+            <div id="nav-center">
+              <ul class="nav">
+                <li><a class="tab-a" id="btn_home" href="StudentHomepage.html">
+                  <div class="tab-a-logo tab-a-logo-5"></div>
+                  主页</a>
+                </li>
+                <li><a class="tab-a active-a">
+                  <div class="tab-a-logo tab-a-logo-2"></div>
+                  上课</a>
+                </li>
+                <li><a class="tab-a " href="StudentReview.html">
+                  <div class="tab-a-logo tab-a-logo-1"></div>
+                  复习</a>
+                </li>
+                <li><a class="tab-a"  href="StudentTask.html">
+                  <div class="tab-a-logo tab-a-logo-3"></div>
+                  实验</a>
+                </li>
+                <li><a class="tab-a last-btn" href="StudentHomework.html">
+                  <div class="tab-a-logo tab-a-logo-4"></div>
+                  作业</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class='slide_content'>
+        <div class="fullmask">
+          <div class='ppt_slide_content' id="ppt_slide_content">
+            <div class='ppt_tabslider' id="ppt_tabslider"> 
+
+              <!-- content goes here -->
+              <div class="ppt_content_notfull" id="ppt_content_notfull" >
+                <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
+                  <div class="progress_bar Pconf">
+                    <ol class="carousel-indicators" id="carousel-indicators-pc">
+                      <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
+                      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
+                      <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>上课</span></li>
+                    </ol>
+                  </div>
+                  <div class="carousel-inner" id="carousel-inner-pc">
+                    <div class="item active" style="padding-top:80px;" id="classes-container"></div>
+                    <div class="item" style="padding-top:80px;">
+                      <div class="panel-group choose-to-ppt" id="accordion"></div>
                     </div>
-                  </nav>
-                  <!-- /mp-menu --> 
-                  <a href="#" id="trigger" class="mp-menu-act"></a>
-                  <div class="Pconf">
-                    <div class="topmenu" >
-                      <nav id='nav'>
-                        <div id="nav-left"> <img src="img/logo.png">
-                          <h4>GecLab</h4>
+                    <div class="item" >
+                      <div class='nfull_tabbed_content'>
+                        <div class='nfull_ppt_tabs'>
                         </div>
-                        <div id="nav-right">
-                          <ul class="nav">
-                            <li><a class="tab-a">
-                              <div class="tab-a-logo tab-a-logo-0"></div>
-                            </a></li>
-                          </ul>
-                        </div>
-                        <div id="nav-center">
-                          <ul class="nav">
-                            <li><a class="tab-a active-a">
-                              <div class="tab-a-logo tab-a-logo-2"></div>
-                              上课</a></li>
-                              <li><a class="tab-a ">
-                                <div class="tab-a-logo tab-a-logo-1"></div>
-                                复习</a></li>
-                                <li><a class="tab-a">
-                                  <div class="tab-a-logo tab-a-logo-3"></div>
-                                  实验</a></li>
-                                  <li><a class="tab-a last-btn">
-                                    <div class="tab-a-logo tab-a-logo-4"></div>
-                                    作业</a></li>
-                                  </ul>
-                                </div>
-                              </nav>
-                            </div>
+                        <div class='nfull_slide_content' >
+                          <!--div class="Pconf" style="text-align: left;">
+                            <button class="bt_preclass btn btn-primary " id="btn_prevlesson">上一节</button>
                           </div>
-                          <div class='slide_content'>
-                            <div class="fullmask">
-                              <div class='ppt_slide_content' id="ppt_slide_content">
-                                <div class='ppt_tabslider' id="ppt_tabslider"> 
-
-                                  <!-- content goes here -->
-                                  <div class="ppt_content_notfull" id="ppt_content_notfull" >
-                                    <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
-                                      <div class="progress_bar Pconf">
-                                        <ol class="carousel-indicators" id="carousel-indicators-pc">
-                                          <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
-                                          <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
-                                          <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>上课</span></li>
-                                        </ol>
-                                      </div>
-                                      <div class="carousel-inner" id="carousel-inner-pc">
-                                        <div class="item active" style="padding-top:80px;" id="classes-container">
-                                          <div class="class-list" style="text-align:left;">
-                                            <div class="class-list-left">
-                                              <div class="class-img"><img src="img/course-html5.png">
-                                                <div class="arrow-right"></div>
-                                              </div>
-                                              <a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                <h3 class="underline">HTML5基础</h3>
-                                              </a>
-                                              <p style="color:#000;">已上至第x章第x节xxxxxx</p>
-                                              <a class="button-blue indicator-hide bt-to-ppt" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="2">立即上课</a> </div>
-                                              <div class="class-list-right">
-                                                <div class="class-questions">
-                                                  <p>未解答提问</p>
-                                                  <span>1</span>
-                                                  <div class="arrow-bottom"></div>
-                                                </div>
-                                                <p class="underline">课时安排：1-16周 64课时</p>
-                                                <p>星期一 3-4节</p>
-                                                <p>星期五[单周] 1-2节</p>
-                                              </div>
-                                              <div class="class-progress">
-                                                <div class="progress-cover" style="width:50%"></div>
-                                                <p>50%</p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="item" style="padding-top:80px;">
-                                            <div class="panel-group choose-to-ppt" id="accordion">
-                                              <div class="panel panel-default">
-                                                <div class="panel-heading "> <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                  <h4 class="panel-title">第一章xxxxxxxxx</h4>
-                                                </a> </div>
-                                                <div id="collapseOne" class="panel-collapse collapse in">
-                                                  <div class="panel-body">
-                                                    <ul>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第一节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第二节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第三节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第四节</p>
-                                                      </a></li>
-                                                    </ul>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div class="panel panel-default">
-                                                <div class="panel-heading"> <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                                  <h4 class="panel-title">第二章</h4>
-                                                </a> </div>
-                                                <div id="collapseTwo" class="panel-collapse collapse">
-                                                  <div class="panel-body">
-                                                    <ul>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第一节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第二节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第三节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第四节</p>
-                                                      </a></li>
-                                                    </ul>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div class="panel panel-default">
-                                                <div class="panel-heading"> <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                                  <h4 class="panel-title">第三章</h4>
-                                                </a> </div>
-                                                <div id="collapseThree" class="panel-collapse collapse">
-                                                  <div class="panel-body">
-                                                    <ul>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第一节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第二节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第三节</p>
-                                                      </a></li>
-                                                      <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
-                                                        <p>第四节</p>
-                                                      </a></li>
-                                                    </ul>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="item" >
-                                            <div class='nfull_tabbed_content'>
-                                              <div class='nfull_ppt_tabs'>
-                                                <div class='tab_item tab_item1'> </div>
-                                                <div class='tab_item tab_item2'> </div>
-                                                <div class='tab_item tab_item3'> </div>
-                                                <div class='tab_item tab_item4'> </div>
-                                                <div class='tab_item tab_item5'> </div>
-                                                <div class='tab_item tab_item6'> </div>
-                                                <div class='tab_item tab_item7'> </div>
-                                                <div class='tab_item tab_item8'> </div>
-                                              </div>
-                                              <div class='nfull_slide_content' >
-                                                <div class="Pconf" style="text-align: left;">
-                                                  <button class="bt_preclass btn btn-primary " id="btn_prevlesson">上一节</button>
-                                                </div>
-                                                <div class="Pconf"  style="text-align: right;">
-                                                  <button class="bt_nextclass btn btn-primary " id="btn_nextlesson">下一节</button>
-                                                </div>
-                                                <div class='nfull_tabslider'>
-                                                  <div class="pptm" > <img src="img/ppt01.PNG" class="pptm_img"></img> </div>
-                                                  <div class="pptm"> <img src="img/ppt02.PNG" class="pptm_img"></img> </div>
-                                                  <div class="pptm "> <img src="img/ppt03.PNG" class="pptm_img"></img> </div>
-                                                  <div class="pptm "> <img src="img/ppt04.PNG" class="pptm_img"></img> </div>
-                                                  <div class="pptm "> <img src="img/ppt05.PNG" class="pptm_img"></img> </div>
-                                                  <div class="pptm "> <img src="img/ppt01.PNG" class="pptm_img"></img> </div>
-                                                  <div class="pptm "> <img src="img/ppt02.PNG" class="pptm_img"></img> </div>
-                                                  <div class="pptm "> <img src="img/ppt03.PNG" class="pptm_img"></img> </div>
-                                                </div>
-
-                                                <div class="Pconf">
-                                                  <button class="bt_fullsreen"></button>
-                                                </div>
-                                              </div>
-                                              <div class="nfullr">
-                                                <div class="nfullqa">
-                                                  <ul class="nav nav-pills nav-stacked">
-                                                    <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 讨论区 </a> </li>
-                                                  </ul>
-                                                  <div class="stuqa">
-                                                    <div style="margin-top:5px;text-align:left;height:70px;"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:15px;">
-                                                      <div  style=" width:300px;height:70px;background:url(img/tdialog.png) no-repeat;background-size:contain;float:left;margin-left:10px;"> </div>
-                                                    </div>
-                                                    <div style="margin-top:5px;text-align:right;height:70px;"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-                                                      <div  style=" width:300px;height:70px;background:url(img/sdialog.png) no-repeat right;background-size:contain;float:right;margin-right:10px;"> </div>
-                                                    </div>
-                                                    <div style="margin-top:5px;text-align:left;height:70px;"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:15px;">
-                                                      <div  style=" width:300px;height:70px;background:url(img/tdialog.png) no-repeat;background-size:contain;float:left;margin-left:10px;"> </div>
-                                                    </div>
-                                                    <div style="margin-top:5px;text-align:right;height:70px;"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-                                                      <div  style=" width:300px;height:70px;background:url(img/sdialog.png) no-repeat right;background-size:contain;float:right;margin-right:10px;"> </div>
-                                                    </div>
-
-                                                    <div style="margin-top:5px;text-align:right;height:70px;"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-                                                      <div  style=" width:300px;height:70px;background:url(img/sdialog.png) no-repeat right;background-size:contain;float:right;margin-right:10px;"> </div>
-                                                    </div>
-
-                                                  </div>
-                                                  <textarea class="form-control" rows="4" style="margin-top:5px;">This is the html named 'teacherOnClass' with version 0.9.6.In order to derive tribute at my deficiencies please correct me criticism.This page is powered by Jan Du(qq:526097589).</textarea>
-                                                  <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">提交</button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="ppt_content_full" id="ppt_content_full">
-                                      <div class="bb-custom-wrapper">
-                                        <div id="bb-bookblock" class="bb-bookblock">
-                                          <div class="bb-item" id="item1"> <img src="img/ppt01.png"/> </div>
-                                          <div class="bb-item" id="item2"> <img src="img/ppt02.png"/> </div>
-                                          <div class="bb-item" id="item3"> <img src="img/ppt03.png"/> </div>
-                                          <div class="bb-item" id="item4"> <img src="img/ppt04.png"/> </div>
-                                          <div class="bb-item" id="item5"> <img src="img/ppt05.png"/> </div>
-                                        </div>
-                                      </div>
-                                      <div class="Pconf">
-                                        <div class="bottommenu">
-                                          <button class="bt_notfullsreen"></button>
-                                          <button class="bubble">0</button>
-                                          <span id="bb-nav-next">&rarr;</span> <span id="bb-nav-prev">&larr;</span> </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div id="code_exp">
-                                    <ul class="nav nav-tabs " >
-                                      <li class="active"><a href="#exp1" data-toggle="tab">示例程序1</a></li>
-                                      <li><a href="#exp2" data-toggle="tab">示例程序2</a></li>
-                                      <li><a href="#exp3" data-toggle="tab">示例程序3</a></li>
-                                    </ul>
-                                    <div class="tab-content" style="height:100%;margin: 0 10px;">
-                                      <div class="tab-pane fade in active" id="exp1" style="height:100%;">
-                                        <textarea class="codearea form-control " style="height:95%;">
-                                          /*nfull ppt tabbed content*/
-                                          var PPTTabbedContent = {
-                                          init: function() {	
-                                          $( window ).resize(function() {
-                                          var sreenwidth = document.body.clientWidth;
-                                          var initmargin=0;
-                                          var sreenheight = document.body.clientHeight;
-                                          $(".bb-item img").css("height",sreenheight+"px");
-
-                                          if($(".ppt_tabslider").css("marginLeft")!=0+"px")
-                                          {
-
-                                          $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
-                                        }
-                                      });
-                                      $(".bt_fullsreen").live('click', function() {
-
-                                      PPTTabbedContent.slideToFull($(this));
-
-                                    });
-                                    $(".bt_notfullsreen").live('click', function() {
-
-                                    PPTTabbedContent.slideToNotFull($(this));
-
-                                  });
-                                },
-
-
-                                slideToFull: function(obj) {
-                                $(".topmenu").removeClass("topmenu-to-show");
-                                $(".topmenu").addClass("topmenu-to-hide");
-                                $(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-                                //$(".mp-menu-act").css("opacity",0.5);
-                                var margin = $(".ppt_slide_content").width();
-                                margin = margin * (1);
-                                margin = margin * -1;
-
-                                $(".ppt_tabslider").stop().animate({
-                                marginLeft: margin+ "px"
-                              }, {
-                              duration: 600
-                            });
-                          },
-                          slideToNotFull: function(obj) {
-                          $(".topmenu").addClass("topmenu-to-show");
-                          $(".topmenu").removeClass("topmenu-to-hide");
-
-                          $(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
-                          var margin = $(".ppt_slide_content").width();
-                          margin = margin * (0);
-                          margin = margin * 1;
-
-                          $(".ppt_tabslider").stop().animate({
-                          marginLeft: margin+ "px"
-                        }, {
-                        duration: 600
-                      });
-                    }
-                  }
-                  /*nfull mask tabbed content*/
+                          <div class="Pconf"  style="text-align: right;">
+                            <button class="bt_nextclass btn btn-primary " id="btn_nextlesson">下一节</button>
+                          </div-->
+                          <div class='nfull_tabslider'>
+                          </div>
+                          <button id="take-note"></button>
+                          <!--div class="Pconf">
+                            <button class="bt_fullsreen"></button>
+                          </div-->
+                        </div>
+                        <div class="nfullr">
+                          <div class="chat-header">
+                            <p>讨论区</p>
+                          </div>
+                          <div class="chat-body">
+                            <ul class="chat-body-list">                             
+                            </ul>
+                          </div>
+                          <div class="chat-footer">
+                            <textarea></textarea>
+                            <button class="btn btn-primary">提交</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ppt_content_full" id="ppt_content_full">
+                <div class="bb-custom-wrapper">
+                  <div id="bb-bookblock" class="bb-bookblock">
+                    <div class="bb-item" id="item1"> <img src="img/ppt01.png"/> </div>
+                  </div>
+                </div>
+                <div class="Pconf">
+                  <div class="bottommenu">
+                    <button class="bt_notfullsreen"></button>
+                    <button class="bubble">0</button>
+                    <span id="bb-nav-next">&rarr;</span> <span id="bb-nav-prev">&larr;</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="code_exp">
+            <ul class="nav nav-tabs " >
+              <li class="active"><a href="#exp1" data-toggle="tab">示例程序1</a></li>
+              <li><a href="#exp2" data-toggle="tab">示例程序2</a></li>
+              <li><a href="#exp3" data-toggle="tab">示例程序3</a></li>
+            </ul>
+            <div class="tab-content" style="height:100%;margin: 0 10px;">
+              <div class="tab-pane fade in active" id="exp1" style="height:100%;">
+                <textarea class="codearea form-control " style="height:95%;">
                 </textarea>
               </div>
               <div class="tab-pane fade" id="exp2" style="height:100%;">
+                <textarea class="codearea form-control " style="height:95%;">                     
+                </textarea>
+              </div>
+              <div class="tab-pane fade" id="exp3" style="height:100%;">
                 <textarea class="codearea form-control " style="height:95%;">
-                  /*nfull ppt tabbed content*/
-                  var PPTTabbedContent = {
-                  init: function() {	
-                  $( window ).resize(function() {
-                  var sreenwidth = document.body.clientWidth;
-                  var initmargin=0;
-                  var sreenheight = document.body.clientHeight;
-                  $(".bb-item img").css("height",sreenheight+"px");
 
-                  if($(".ppt_tabslider").css("marginLeft")!=0+"px")
-                  {
+                </textarea>
+              </div>
+            </div>
+          </div>
+          <div id="video">
+            <video height="100%" controls id="pptvideo">
+              <source src="main/video/Principles of Database/1-1.mp4" type="video/mp4"/>
+              Your browser does not support the video tag. 
+            </video>
+          </div>
+          <div id="stuquestion"> 
+           <div class="qinfo">
+            <div class="qinfo-header">
+              <p>最新回答：
+                <span class="latest-answer-count">1</span>个 已提问：
+                <span class="question-count">10</span>个 已回答
+                <span class="answer-count">10</span>个</p>
+              </div>
+              <ul class="qinfo-body">
+                <li class="solved" id="qinfo-1">
+                  <div class="qinfo-item-header">
+                    <div class="qinfo-item-icon"></div>
+                    <p>这是问题xxxxxxxx</p>
+                  </div>
+                  <div class="qinfo-item-body">
+                    <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
+                  </div>
+                </li>
+                <li class="submitted" id="qinfo-2">
+                  <div class="qinfo-item-header">
+                    <div class="qinfo-item-icon"></div>
+                    <p>这是问题xxxxxxxx</p>
+                  </div>
+                  <div class="qinfo-item-body">
+                    <p class="qinfo-item-answer">暂无回答</p>
+                  </div>
+                </li>
+                <li class="unsolved" id="qinfo-3">
+                  <div class="qinfo-item-header">
+                    <div class="qinfo-item-icon"></div>
+                    <p>这是问题xxxxxxxx</p>
+                  </div>
+                  <div class="qinfo-item-body">
+                    <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
+                    <button class="btn btn-primary">标记为已读</button>
+                  </div>
+                </li>
+                <li class="unsolved" id="qinfo-4">
+                  <div class="qinfo-item-header">
+                    <div class="qinfo-item-icon"></div>
+                    <p>这是问题xxxxxxxx</p>
+                  </div>
+                  <div class="qinfo-item-body">
+                    <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
+                    <button class="btn btn-primary">标记为已读</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="qchat">
+              <ul class="nav nav-pills nav-stacked">
+                <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 讨论区 </a> </li>
+              </ul>
+              <div class="chatbubble">
+                <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
+                  <div class="talkbubble"> 
+                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
+                </div>
+                <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
+                  <div class="talkbubble2"> 
+                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
+                </div>
+                <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
+                  <div class="talkbubble">
+                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
+                </div>
+                <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
+                  <div class="talkbubble2"> 
+                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="chatpost">
+                <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
+                <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">发送</button>
+              </div>
+            </div>
+          </div>
+          <div id="taskeva">
+            <div class="taskq" style="margin-top:55px">
+              <div class="taskq1" >
+                <ul class="nav nav-pills nav-stacked" style="margin-top: 5px;">
+                  <li class="active" > <a href="#" style="font-size: 16px;"> 题目1 </a> </li>
+                </ul>
+                <textarea class="form-control" style="height:100%"></textarea>
+              </div>
+              <div class="taska" style="margin-top:55px">
+                <ul class="nav nav-pills nav-stacked" >
+                  <li class="active" > <a href="#" style="font-size: 16px;"> 解答 </a> </li>
+                </ul>
+                <textarea class="form-control" rows="28"></textarea>
+              </div>
+            </div>
+          </div>
+          <div id="bookreq">
+            <div class="component">
+              <ul class="align">
+                <li>
+                  <figure class='book'> 
 
-                  $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
-                }
-              });
-              $(".bt_fullsreen").live('click', function() {
+                    <!-- Front -->
 
-              PPTTabbedContent.slideToFull($(this));
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
 
-            });
-            $(".bt_notfullsreen").live('click', function() {
+                    <!-- Pages -->
 
-            PPTTabbedContent.slideToNotFull($(this));
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
 
-          });
-        },
+                    <!-- Back -->
 
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>数据库系统教程</h1>
+                      <span>王能斌 著</span>
+                      <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure class='book'> 
 
-        slideToFull: function(obj) {
-        $(".topmenu").removeClass("topmenu-to-show");
-        $(".topmenu").addClass("topmenu-to-hide");
-        $(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-        //$(".mp-menu-act").css("opacity",0.5);
-        var margin = $(".ppt_slide_content").width();
-        margin = margin * (1);
-        margin = margin * -1;
+                    <!-- Front -->
 
-        $(".ppt_tabslider").stop().animate({
-        marginLeft: margin+ "px"
-      }, {
-      duration: 600
-    });
-  },
-  slideToNotFull: function(obj) {
-  $(".topmenu").addClass("topmenu-to-show");
-  $(".topmenu").removeClass("topmenu-to-hide");
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
 
-  $(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
-  var margin = $(".ppt_slide_content").width();
-  margin = margin * (0);
-  margin = margin * 1;
+                    <!-- Pages -->
 
-  $(".ppt_tabslider").stop().animate({
-  marginLeft: margin+ "px"
-}, {
-duration: 600
-});
-}
-}
-/*nfull mask tabbed content*/
-</textarea>
-</div>
-<div class="tab-pane fade" id="exp3" style="height:100%;">
-  <textarea class="codearea form-control " style="height:95%;">
-    /*nfull ppt tabbed content*/
-    var PPTTabbedContent = {
-    init: function() {	
-    $( window ).resize(function() {
-    var sreenwidth = document.body.clientWidth;
-    var initmargin=0;
-    var sreenheight = document.body.clientHeight;
-    $(".bb-item img").css("height",sreenheight+"px");
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
 
-    if($(".ppt_tabslider").css("marginLeft")!=0+"px")
-    {
+                    <!-- Back -->
 
-    $(".ppt_tabslider").css("marginLeft",-sreenwidth+"px");
-  }
-});
-$(".bt_fullsreen").live('click', function() {
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>Compilers: principles techniques and tools</h1>
+                      <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
+                      <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure class='book'> 
 
-PPTTabbedContent.slideToFull($(this));
+                    <!-- Front -->
 
-});
-$(".bt_notfullsreen").live('click', function() {
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
 
-PPTTabbedContent.slideToNotFull($(this));
+                    <!-- Pages -->
 
-});
-},
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
 
+                    <!-- Back -->
 
-slideToFull: function(obj) {
-$(".topmenu").removeClass("topmenu-to-show");
-$(".topmenu").addClass("topmenu-to-hide");
-$(".mp-menu-act").css("background","url(img/menuf.png) no-repeat");
-//$(".mp-menu-act").css("opacity",0.5);
-var margin = $(".ppt_slide_content").width();
-margin = margin * (1);
-margin = margin * -1;
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>数据库系统教程</h1>
+                      <span>王能斌 著</span>
+                      <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure class='book'> 
 
-$(".ppt_tabslider").stop().animate({
-marginLeft: margin+ "px"
-}, {
-duration: 600
-});
-},
-slideToNotFull: function(obj) {
-$(".topmenu").addClass("topmenu-to-show");
-$(".topmenu").removeClass("topmenu-to-hide");
+                    <!-- Front -->
 
-$(".mp-menu-act").css("background","url(img/menu.png) no-repeat");
-var margin = $(".ppt_slide_content").width();
-margin = margin * (0);
-margin = margin * 1;
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
 
-$(".ppt_tabslider").stop().animate({
-marginLeft: margin+ "px"
-}, {
-duration: 600
-});
-}
-}
-/*nfull mask tabbed content*/
-</textarea>
-</div>
-</div>
-</div>
-<div id="video">
-  <video height="100%" controls id="pptvideo">
-    <source src="../1.mp4" type="video/mp4"/>
-    Your browser does not support the video tag. 
-  </video>
-</div>
-<div id="stuquestion"> 
- <div class="qinfo">
-  <div class="qinfo-header">
-    <p>最新回答：
-      <span class="latest-answer-count">1</span>个 已提问：
-      <span class="question-count">10</span>个 已回答
-      <span class="answer-count">10</span>个</p>
-  </div>
-  <ul class="qinfo-body">
-    <li class="solved" id="qinfo-1">
-      <div class="qinfo-item-header">
-        <div class="qinfo-item-icon"></div>
-        <p>这是问题xxxxxxxx</p>
+                    <!-- Pages -->
+
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Back -->
+
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>Compilers: principles techniques and tools</h1>
+                      <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
+                      <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
+                    </figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /pusher --> 
       </div>
-      <div class="qinfo-item-body">
-        <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
-      </div>
-    </li>
-    <li class="submitted" id="qinfo-2">
-      <div class="qinfo-item-header">
-        <div class="qinfo-item-icon"></div>
-        <p>这是问题xxxxxxxx</p>
-      </div>
-      <div class="qinfo-item-body">
-        <p class="qinfo-item-answer">暂无回答</p>
-      </div>
-    </li>
-    <li class="unsolved" id="qinfo-3">
-      <div class="qinfo-item-header">
-        <div class="qinfo-item-icon"></div>
-        <p>这是问题xxxxxxxx</p>
-      </div>
-      <div class="qinfo-item-body">
-        <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
-        <button class="btn btn-primary">标记为已读</button>
-      </div>
-    </li>
-    <li class="unsolved" id="qinfo-4">
-      <div class="qinfo-item-header">
-        <div class="qinfo-item-icon"></div>
-        <p>这是问题xxxxxxxx</p>
-      </div>
-      <div class="qinfo-item-body">
-        <p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>
-        <button class="btn btn-primary">标记为已读</button>
-      </div>
-    </li>
-  </ul>
-</div>
-<div class="qchat">
-  <ul class="nav nav-pills nav-stacked">
-    <li class="active"> <a href="#" style="font-size: 16px;"> <span class="badge pull-right" style="font-size: 16px;">3</span> 讨论区 </a> </li>
-  </ul>
-  <div class="chatbubble">
-    <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
-      <div class="talkbubble"> 
-
-        <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        </textarea>
-      </div>
+      <!-- /container --> 
     </div>
-    <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-      <div class="talkbubble2"> 
-       <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-       </textarea>
-     </div>
-
-   </div>
-   <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
-    <div class="talkbubble"> 
-
-      <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      </textarea>
-    </div>
   </div>
-  <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-    <div class="talkbubble2"> 
-     <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-     </textarea>
-   </div>
+  <!--leftmenujs--> 
+  <script src="js/classie.js"></script> 
+  <script src="js/mlpushmenu.js"></script> 
+  <script>
+  new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+  </script> 
 
- </div>
-
-</div>
-<div class="chatpost">
-  <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
-  <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">发送</button>
-</div>
-</div>
-
-
-
-
-</div>
-<div id="taskeva">
-  <div class="taskq" style="margin-top:55px">
-    <div class="taskq1" >
-      <ul class="nav nav-pills nav-stacked" style="margin-top: 5px;">
-        <li class="active" > <a href="#" style="font-size: 16px;"> 题目1 </a> </li>
-      </ul>
-      <textarea class="form-control" style="height:100%"></textarea>
-    </div>
-    <div class="taska" style="margin-top:55px">
-      <ul class="nav nav-pills nav-stacked" >
-        <li class="active" > <a href="#" style="font-size: 16px;"> 解答 </a> </li>
-      </ul>
-      <textarea class="form-control" rows="28"></textarea>
-    </div>
-  </div>
-</div>
-<div id="bookreq">
-  <div class="component">
-    <ul class="align">
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>数据库系统教程</h1>
-            <span>王能斌 著</span>
-            <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>Compilers: principles techniques and tools</h1>
-            <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
-            <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>数据库系统教程</h1>
-            <span>王能斌 著</span>
-            <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class='book'> 
-
-          <!-- Front -->
-
-          <ul class='hardcover_front'>
-            <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
-            <li></li>
-          </ul>
-
-          <!-- Pages -->
-
-          <ul class='page'>
-            <li></li>
-            <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-
-          <!-- Back -->
-
-          <ul class='hardcover_back'>
-            <li></li>
-            <li></li>
-          </ul>
-          <ul class='book_spine'>
-            <li></li>
-            <li></li>
-          </ul>
-          <figcaption>
-            <h1>Compilers: principles techniques and tools</h1>
-            <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
-            <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
-          </figcaption>
-        </figure>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
-<!-- /pusher --> 
-</div>
-<!-- /container --> 
-
-<!--leftmenujs--> 
-<script src="js/classie.js"></script> 
-<script src="js/mlpushmenu.js"></script> 
-<script>
-new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
-</script> 
-
-<!--pptfullsreenjs--> 
-<script src="js/jquery.jscrollpane.min.js"></script> 
-<script src="js/jquerypp.custom.js"></script> 
-<script src="js/jquery.bookblock.js"></script> 
-<script src="js/page.js"></script>
+  <!--pptfullsreenjs--> 
+  <script src="js/jquery.jscrollpane.min.js"></script> 
+  <script src="js/jquerypp.custom.js"></script> 
+  <script src="js/jquery.bookblock.js"></script> 
+  <script src="js/page.js"></script>
 </body>
 </html>

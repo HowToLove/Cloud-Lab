@@ -47,12 +47,11 @@ $(function() {
 							<p>上课人数："+studentsnum+"人</p>\
 						</div>\
 						<div>\
-							<div class='progress-cover' style='width:"+percent+"%'></div>\
-							<p>"+percent+"%</p>\
+							<div class='progress-cover' style='width:"+Math.round(percent*100)+"%'></div>\
+							<p>"+Math.round(percent*100)+"%</p>\
 						</div>\
 					</div>"
 				$("#class_container").append(classdiv);
-				prepare_class()
 			}
 		},
 		complete : function(XMLHttpRequest, textStatus) {},
@@ -101,7 +100,6 @@ $(function() {
 							</li>"
 						$(".charpter"+i).append(lessonpanel);
 					}
-					prepare_class()
 				}
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
@@ -151,7 +149,6 @@ $(function() {
 				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
-		prepare_class()
 	}
 
 	// 生成PPT
@@ -160,9 +157,10 @@ $(function() {
 		$('#ppt-list').empty();
 		$('#ppt-content').empty();
 		for(var i=0;i<urls.length;i++) {
+			if(!remarks[i]) remarks[i]=' ';
 			var snapppt =
-				"<li id='ppt-list-0"+(i+1)+"'>\
-					<a class='snapppt' data-pptid="+(i+1)+" href='#ppt-list-0"+(i+1)+"'>\
+				"<li id='ppt-list-"+(i+1)+"'>\
+					<a class='snapppt' data-pptid="+(i+1)+" href='#ppt-list-"+(i+1)+"'>\
 					<img src=main/"+urls[i]+">\
 				</li>"
 			var normalppt = 
@@ -179,8 +177,7 @@ $(function() {
 	            </form>"
 	        $('#pagenote').append(classnote);
 		}
-		$('#ppt-list-01').addClass('ppt-list-active');
-		prepare_class()
+		$('#ppt-list-1').addClass('ppt-list-active');
 	}
 
 	// 点击相应snapppt
@@ -196,7 +193,6 @@ $(function() {
             </form>"
         $('#pagenote').append(classnote);
         // video.currentTime = videos[pptid];
-        prepare_class()
 	});
 
 	// 提交本页ppt备注
@@ -216,7 +212,7 @@ $(function() {
 			beforeSend: function(XMLHttpRequest) {},
 			success: function(data) {
 				if(data.status == 'success') {
-					alert("save success");
+					//alert("save success");
 				} else {
 					alert("save failed");
 				}
@@ -268,7 +264,7 @@ $(function() {
 											<p class='exer-question'>"+questions[i].question+"</p>\
 										</label>\
 										<a class='button-blue show-answer'>查看答案</a>\
-										<p class='exer-answer'>解答："+questions[i].answer+"<span></span></p>\
+										<div class='exer-answer'>解答："+questions[i].answer+"</div>\
 									</div>"
 								$('#homeworklist').append(homework);
 							}
@@ -278,7 +274,6 @@ $(function() {
 									<a class='btn btn-warning' id='btn_completeprepare'>完成备课</a>\
 								</form>"
 							$('#homeworklist').append(from);
-							prepare_class()
 						},
 						complete: function(XMLHttpRequest, textStatus) {},
 						error: function(XMLHttpRequest, textStatus, errorThrown) {

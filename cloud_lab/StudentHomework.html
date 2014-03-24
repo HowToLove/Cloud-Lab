@@ -17,7 +17,7 @@
   <nav id='nav'>
     <div id="nav-left">
       <img src="img/logo.png">
-      <h4>Oracle 云教学实验室</h4>
+      <h4>Cloud Class</h4>
     </div>
     <div id="nav-right">
       <ul class="nav">
@@ -26,14 +26,29 @@
     </div>
     <div id="nav-center">
       <ul class="nav">
-        <li><a class="tab-a" id="btn_prepare"><div class="tab-a-logo tab-a-logo-1"></div>备课</a></li>
-        <li><a class="tab-a" id="btn_onclass"><div class="tab-a-logo tab-a-logo-2"></div>上课</a></li>
-        <li><a class="tab-a" id="btn_lab"><div class="tab-a-logo tab-a-logo-3"></div>实验</a></li>
-        <li><a class="tab-a  active-a last-btn" id="btn_homework"><div class="tab-a-logo tab-a-logo-4"></div>作业</a></li>
+        <li><a class="tab-a" id="btn_home" href="StudentHomepage.html">
+          <div class="tab-a-logo tab-a-logo-5"></div>
+          主页</a>
+        </li>
+        <li><a class="tab-a" href="StudentOnClass.html">
+          <div class="tab-a-logo tab-a-logo-2"></div>
+          上课</a>
+        </li>
+        <li><a class="tab-a " href="StudentReview.html">
+          <div class="tab-a-logo tab-a-logo-1"></div>
+          复习</a>
+        </li>
+        <li><a class="tab-a"  href="StudentTask.html">
+          <div class="tab-a-logo tab-a-logo-3"></div>
+          实验</a>
+        </li>
+        <li><a class="tab-a active-a last-btn">
+          <div class="tab-a-logo tab-a-logo-4"></div>
+          作业</a>
+        </li>
       </ul>
     </div>
   </nav>
-  
   <div id="teacher-homework" class="carousel slide" data-ride="carousel" data-interval="false">
     <ol class="carousel-indicators" id="carousel-indicators-pc">
       <li data-target="#teacher-homework" data-toggle="tab" class="active"><span>选择课程</span></li>
@@ -45,9 +60,9 @@
       <div class="item active" id="class_container">
         <div class="class-list">
           <div class="class-list-left">
-            <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
-            <a href="#teacher-homework" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
-            <p>已布置至第x章第x节xxxxxx</p>
+            <div class="class-img"><img src="main//image/course-PLSQL.png"><div class="arrow-right"></div></div>
+            <a href="#teacher-homework" data-slide="next" data-toggle="tab"><h3 class="underline">PLSQL</h3></a>
+            <p>已布置至第1章第1节</p>
             <a class="button-blue indicator-hide" href="#teacher-homework" role="button" data-toggle="tab" data-slide-to="2">立即完成</a>
             <a class="button-grey indicator-hide" href="#teacher-homework" role="button" data-toggle="tab" data-slide-to="3">查看历史分数</a>
           </div>
@@ -57,13 +72,12 @@
               <span>1</span>
               <div class="arrow-bottom"></div>
             </div>
-            <p class="underline">课时安排：1-16周 64课时</p>
-            <p>星期一 3-4节</p>
-            <p>星期五[单周] 1-2节</p>
+            <p class="underline">Practice SQL in the actual training.</p>
+            <p>上课人数：60人</p>
           </div>
           <div class="class-progress">
-            <div class="progress-cover" style="width:50%"></div>
-            <p>50%</p>
+            <div class="progress-cover" style="width:5%"></div>
+            <p>5%</p>
           </div>
         </div>
       </div>
@@ -73,16 +87,16 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                <h4 class="panel-title">第一章</h4>
+                <h4 class="panel-title">第1章</h4>
               </a>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
                 <ul>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第1节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第2节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第3节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第4节</p></a></li>
                 </ul>
               </div>
             </div>
@@ -90,16 +104,16 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                <h4 class="panel-title">第二章</h4>
+                <h4 class="panel-title">第2章</h4>
               </a>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
               <div class="panel-body">
                 <ul>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第1节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第2节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第3节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第4节</p></a></li>
                 </ul>
               </div>
             </div>
@@ -107,16 +121,16 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                <h4 class="panel-title">第三章</h4>
+                <h4 class="panel-title">第3章</h4>
               </a>
             </div>
             <div id="collapseThree" class="panel-collapse collapse">
               <div class="panel-body">
                 <ul>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
-                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第1节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第2节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第3节</p></a></li>
+                  <li><a href="#teacher-homework" data-slide="next" data-toggle="tab"><p>第4节</p></a></li>
                 </ul>
               </div>
             </div>
@@ -130,7 +144,7 @@
               <div class="list-icon" style="visibility: visible;">1</div>
               <div class="question-block">
                 <div class="header-blue">题目</div>
-                <span>求1-100之间的素数</span>
+                <span>编写一个PL/SQL程序块，计算100以内的奇数和。</span>
               </div>
               <div class="solution-block answer">
                 <div class="header-blue">解答</div>
@@ -141,7 +155,18 @@
               <div class="list-icon" style="visibility: visible;">2</div>
               <div class="question-block">
                 <div class="header-blue">题目</div>
-                <span>求1-100之间的素数</span>
+                <span>编写一个PL/SQL程序块，根据输入员工号，如果职务是CLERK工资提高5%，如果职务是MANAGER工资提高10%，其他工资提高8%。</span>
+              </div>
+              <div class="solution-block answer">
+                <div class="header-blue">解答</div>
+                <textarea ></textarea>
+              </div>
+            </li>
+            <li class="step-content-list" id="step-2">
+              <div class="list-icon" style="visibility: visible;">3</div>
+              <div class="question-block">
+                <div class="header-blue">题目</div>
+                <span>编写一个PL/SQL程序块，将输入的字符串反向输出。</span>
               </div>
               <div class="solution-block answer">
                 <div class="header-blue">解答</div>
@@ -177,14 +202,14 @@
               <td>评价</td>
             </tr>
             <tr>
-              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next" class="backshow">第x次作业</a></td>
+              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next" class="backshow">第1次作业</a></td>
               <td>90</td>
-              <td>这是评价嘿</td>
+              <td>完成得很好</td>
             </tr>
             <tr>
-              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next" class="backshow">第x次作业</a></td>
+              <td><a href="#teacher-homework" role="button" data-toggle="tab" data-slide="next" class="backshow">第2次作业</a></td>
               <td>90</td>
-              <td>这是评价嘿</td>
+              <td>完成得很好，但格式比较乱，编码习惯有待进一步提高。</td>
             </tr>
           </table>
         </div>
@@ -196,21 +221,21 @@
               <div class="list-icon" style="visibility: visible;">1</div>
               <div class="question-block">
                 <div class="header-blue">题目</div>
-                <span>求1-100之间的素数</span>
+                <span>编写一个PL/SQL程序块，计算100以内的奇数和。</span>
               </div>
               <div class="solution-block answer">
                 <div class="header-blue">解答</div>
-                <span>这是解答</span>
+                <div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">v_num integer:=1;</code></div><div class="line number3 index2 alt2"><code class="plain plain">v_sum integer:=0;</code></div><div class="line number4 index3 alt1"><code class="plain plain">begin</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">while v_num&lt;100</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">loop</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_sum:=v_sum+v_num;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_num:=v_num+2;</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">end loop;</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line(v_sum);</code></div><div class="line number11 index10 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
               </div>
               <div class="solution-block stanswer">
                 <div class="close"><img src="img/close.png"/></div>
                 <div class="header-blue">标准答案</div>
-                <span>这是标准答案</span>
+                <div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">v_num integer:=1;</code></div><div class="line number3 index2 alt2"><code class="plain plain">v_sum integer:=0;</code></div><div class="line number4 index3 alt1"><code class="plain plain">begin</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">while v_num&lt;100</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">loop</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_sum:=v_sum+v_num;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_num:=v_num+2;</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">end loop;</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line(v_sum);</code></div><div class="line number11 index10 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
               </div>
               <div class="solution-block comment">
                 <div class="close"><img src="img/close.png"/></div>
                 <div class="header-blue">评价</div>
-                <span>这是评价</span>
+                <div>完成的很好</div>
               </div>
               <div class="buttons">
                 <div class="button-stanswer">
@@ -225,21 +250,50 @@
               <div class="list-icon" style="visibility: visible;">2</div>
               <div class="question-block">
                 <div class="header-blue">题目</div>
-                <span>求1-100之间的素数</span>
+                <span>编写一个PL/SQL程序块，根据输入员工号，如果职务是CLERK工资提高5%，如果职务是MANAGER工资提高10%，其他工资提高8%。</span>
               </div>
               <div class="solution-block answer">
                 <div class="header-blue">我的解答</div>
-                <span>这是解答</span>
+                <div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">k emp.empno%TYPE;</code></div><div class="line number3 index2 alt2"><code class="plain plain">theJob emp.job%TYPE;</code></div><div class="line number4 index3 alt1"><code class="plain plain">theSal emp.sal%TYPE;</code></div><div class="line number5 index4 alt2"><code class="plain plain">begin</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">k:=&amp;num;</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select job into theJob from emp where empno=k;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select sal into theSal from emp where empno=k;</code></div><div class="line number9 index8 alt2"><code class="plain plain">if theJob= 'CLERK'then</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.05 where empno=k;</code></div><div class="line number11 index10 alt2"><code class="plain plain">elsif theJob= 'MANAGER' then</code></div><div class="line number12 index11 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.1 where empno=k;</code></div><div class="line number13 index12 alt2"><code class="plain plain">else</code></div><div class="line number14 index13 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.08 where empno=k;</code></div><div class="line number15 index14 alt2"><code class="plain plain">end if;</code></div><div class="line number16 index15 alt1"><code class="plain plain">EXCEPTION</code></div><div class="line number17 index16 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">when NO_DATA_FOUND then</code></div><div class="line number18 index17 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line('警告：没有这个员工！');</code></div><div class="line number19 index18 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
               </div>
               <div class="solution-block stanswer">
                 <div class="close"><img src="img/close.png"/></div>
                 <div class="header-blue">标准答案</div>
-                <span>这是标准答案</span>
+                <div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">k emp.empno%TYPE;</code></div><div class="line number3 index2 alt2"><code class="plain plain">theJob emp.job%TYPE;</code></div><div class="line number4 index3 alt1"><code class="plain plain">theSal emp.sal%TYPE;</code></div><div class="line number5 index4 alt2"><code class="plain plain">begin</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">k:=&amp;num;</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select job into theJob from emp where empno=k;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select sal into theSal from emp where empno=k;</code></div><div class="line number9 index8 alt2"><code class="plain plain">if theJob= 'CLERK'then</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.05 where empno=k;</code></div><div class="line number11 index10 alt2"><code class="plain plain">elsif theJob= 'MANAGER' then</code></div><div class="line number12 index11 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.1 where empno=k;</code></div><div class="line number13 index12 alt2"><code class="plain plain">else</code></div><div class="line number14 index13 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.08 where empno=k;</code></div><div class="line number15 index14 alt2"><code class="plain plain">end if;</code></div><div class="line number16 index15 alt1"><code class="plain plain">EXCEPTION</code></div><div class="line number17 index16 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">when NO_DATA_FOUND then</code></div><div class="line number18 index17 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line('警告：没有这个员工！');</code></div><div class="line number19 index18 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
               </div>
               <div class="solution-block comment">
                 <div class="close"><img src="img/close.png"/></div>
                 <div class="header-blue">评价</div>
-                <span>这是评价</span>
+                <div>很好</div>
+              </div>
+              <div class="buttons">
+                <div class="button-stanswer">
+                  <img src="img/standard-answer.png"/>标准答案
+                </div>
+                <div class="button-comment">
+                  <img src="img/comment.png"/>评价
+                </div>
+              </div>
+            </li>
+            <li class="step-content-list" id="astep-2">
+              <div class="list-icon" style="visibility: visible;">3</div>
+              <div class="question-block">
+                <div class="header-blue">题目</div>
+                <span>编写一个PL/SQL程序块，将输入的字符串反向输出。</span>
+              </div>
+              <div class="solution-block answer">
+                <div class="header-blue">我的解答</div>
+                <div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">TYPE sample_array IS TABLE OF VARCHAR2(1) INDEX BY BINARY_INTEGER;</code></div><div class="line number3 index2 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">theString varchar2(50);</code></div><div class="line number4 index3 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">temp sample_array;</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">reverseString varchar2(50);</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">i integer;</code></div><div class="line number7 index6 alt2"><code class="plain plain">begin</code></div><div class="line number8 index7 alt1"><code class="plain plain">theString:= '&amp;myString';</code></div><div class="line number9 index8 alt2"><code class="plain plain">dbms_output.put_line(theString);</code></div><div class="line number10 index9 alt1"><code class="plain plain">i:= length(theString);</code></div><div class="line number11 index10 alt2"><code class="plain plain">while i&gt;=1</code></div><div class="line number12 index11 alt1"><code class="plain plain">loop</code></div><div class="line number13 index12 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">temp(i):=substr(theString,i,1);</code></div><div class="line number14 index13 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">reverseString:=reverseString||temp(i);</code></div><div class="line number15 index14 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">i:=i-1;</code></div><div class="line number16 index15 alt1"><code class="plain plain">end loop;</code></div><div class="line number17 index16 alt2"><code class="plain plain">dbms_output.put_line(reverseString);</code></div><div class="line number18 index17 alt1"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
+              </div>
+              <div class="solution-block stanswer">
+                <div class="close"><img src="img/close.png"/></div>
+                <div class="header-blue">标准答案</div>
+                <div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">TYPE sample_array IS TABLE OF VARCHAR2(1) INDEX BY BINARY_INTEGER;</code></div><div class="line number3 index2 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">theString varchar2(50);</code></div><div class="line number4 index3 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">temp sample_array;</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">reverseString varchar2(50);</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">i integer;</code></div><div class="line number7 index6 alt2"><code class="plain plain">begin</code></div><div class="line number8 index7 alt1"><code class="plain plain">theString:= '&amp;myString';</code></div><div class="line number9 index8 alt2"><code class="plain plain">dbms_output.put_line(theString);</code></div><div class="line number10 index9 alt1"><code class="plain plain">i:= length(theString);</code></div><div class="line number11 index10 alt2"><code class="plain plain">while i&gt;=1</code></div><div class="line number12 index11 alt1"><code class="plain plain">loop</code></div><div class="line number13 index12 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">temp(i):=substr(theString,i,1);</code></div><div class="line number14 index13 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">reverseString:=reverseString||temp(i);</code></div><div class="line number15 index14 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">i:=i-1;</code></div><div class="line number16 index15 alt1"><code class="plain plain">end loop;</code></div><div class="line number17 index16 alt2"><code class="plain plain">dbms_output.put_line(reverseString);</code></div><div class="line number18 index17 alt1"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
+              </div>
+              <div class="solution-block comment">
+                <div class="close"><img src="img/close.png"/></div>
+                <div class="header-blue">评价</div>
+                <div>很好</div>
               </div>
               <div class="buttons">
                 <div class="button-stanswer">
@@ -258,7 +312,7 @@
               </div>
               <div class="solution-block">
                 <div class="header-orange">总评</div>
-                <span>这是总评</span>
+                <span>完成得很好，但格式比较乱，编码习惯有待进一步提高。</span>
               </div>
             </li>
           </ol>

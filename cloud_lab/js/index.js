@@ -183,10 +183,14 @@ $(document).ready(function () {
 						alert("密码不能为空！");
 						break;
 					case 2:
-						if(data.userType == 1) {
-							window.location.href = 'TeacherOnClass.html';
-						} else {
+						sessionStorage.userName = $("#username").val();
+						//alert(sessionStorage.userName);
+						sessionStorage.userType = data.userType;
+						//alert(sessionStorage.userType);
+						if(data.userType == 1) {							 
 							window.location.href = 'TeacherHomepage.html';
+						} else {
+							window.location.href = 'StudentOnClass.html';
 						}
 						break;
 					case 3:

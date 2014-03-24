@@ -6,7 +6,38 @@
 	*/
 	function getClassInfoById($userId)
 	{
+		if($_SESSION['USER_TYPE']==2){
 		$classInfo;
+		
+		$sql = "SELECT Class.CLASS_ID AS classid, Class.CLASS_NAME AS classname,
+		 Course.COURSE_NAME AS coursename, Course.COURSE_IMAGE AS imgurl,
+		 Course.COURSE_DESC AS description 
+		 FROM t_class_info Class, t_course_info Course, t_class_user_rel Rel
+		 WhERE Rel.user_id = ". "$userId".
+		 " AND Course.COURSE_ID = Class.COURSE_ID".
+		 " AND Rel.class_id = Class.class_id";
+	
+		$result =  mysql_query($sql);
+		$classInfo=array();
+		if(mysql_num_rows($result)<=0){
+			return $classInfo;//空值表示出错
+		}
+
+		$i = 0;
+		while($row=mysql_fetch_array($result)){
+			$classInfo[$i]['classid'] = $row['classid'];
+			$classInfo[$i]['classname'] = $row['classname'];
+			$classInfo[$i]['coursename'] = $row['coursename'];
+			$classInfo[$i]['imgurl'] = $row['imgurl'];
+			$classInfo[$i]['progress'] = getProgressByClassId($classInfo[$i]['classid']);
+			$classInfo[$i]['description'] = $row['description'];
+			$classInfo[$i++]['studentsnum'] = getStudentNumByClassId($row['classid']);
+		}
+		mysql_free_result($result);	
+		return $classInfo;
+		}
+		else{
+			$classInfo;
 		
 		$sql = "SELECT Class.CLASS_ID AS classid, Class.CLASS_NAME AS classname,
 		 Course.COURSE_NAME AS coursename, Course.COURSE_IMAGE AS imgurl,
@@ -33,6 +64,7 @@
 		}
 		mysql_free_result($result);	
 		return $classInfo;
+		}
 	}
 	/**
 	*@param $classid

@@ -1,6 +1,5 @@
 $(document).ready(function(){
-      prepare_class()
-      $(document).on('click', '#pbtoggle', function(){            
+      $(document).delegate('#pbtoggle','click',function(){            
             if($('#pbtoggle span').html()=='显示流程'){
                   $('#carousel-indicators-pc').slideDown()
                   $('#pbtoggle span').html('隐藏流程')
@@ -11,9 +10,7 @@ $(document).ready(function(){
                   $('#pbtoggle img').css('transform','rotate(0deg)')
             }
       })
-})
-function prepare_class(){
-      $(".show-answer").click(function(){
+      $(document).delegate(".show-answer",'click',function(){
             $(this).next().toggle("normal")
             if($(this).html()=='查看答案') {
                   $(this).html('隐藏答案')
@@ -21,20 +18,9 @@ function prepare_class(){
                   $(this).html('查看答案')
             }
       })
-      $('.exer-list label').click(function(){
+      $(document).delegate('.exer-list label','click',function(){
             var checkmark = $(this).find('.checkmark')
             checkmark.width()==0 ? checkmark.animate({width:"22px"}) : checkmark.animate({width:"0px"})
-      })
-      $('.indicator-hide').click(function(){
-            setTimeout(function(){
-                  $('#carousel-indicators-pc').slideUp()
-                  changeheight()
-            },800)
-      })
-      $('.indicator-show').click(function(){
-            setTimeout(function(){
-                  $('#carousel-indicators-pc').slideDown()
-            },800)
       })
 
       $(window).load(function(){
@@ -43,7 +29,7 @@ function prepare_class(){
       $(window).resize(function(){
             changeheight()
             var str=parseInt($('li.ppt-list-active').attr('id').substring(9))-1
-            $('#ppt-content').css('margin-left',-$('#ppt-content li').width()*str);
+            $('#ppt-content').css('margin-left',-$('#ppt-content li').width()*str)
       })
       function changeheight(){
             var height = $(window).height() - $('#carousel-indicators-pc').height() - 60
@@ -56,7 +42,7 @@ function prepare_class(){
             var rwidth = $('#show-ppt').width() - $('#show-ppt-left').width() - $('#show-ppt-middle').width() - 15
             $('#show-ppt-right').width(rwidth)
       }
-      $(document).on('click', 'ul#ppt-list li a,a.ppt-prev,a.ppt-next', function(){
+      $(document).delegate('ul#ppt-list li a,a.ppt-prev,a.ppt-next','click',function(){
             var href=$(this).attr('href')
             $(href).addClass('ppt-list-active')
             $(href).prevAll().removeClass('ppt-list-active')
@@ -68,12 +54,4 @@ function prepare_class(){
                   $('.ppt-next').attr('href','#'+$('li.ppt-list-active').next().attr('id'))
             },500)
       });
-
-      $(document).on("click", "#btn_onclass", function() {
-            window.location.href="TeacherOnClass.html";
-      });
-
-      $(document).on("click", "#btn_home", function() {
-            window.location.href="TeacherHomepage.html";
-      });
-}
+})

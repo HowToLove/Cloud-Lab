@@ -9,13 +9,14 @@
   <script src="js/jquery-1.9.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/PrepareClass.js"></script>
+  <script src="js/public.js"></script>
   <script type="text/javascript" src="PrepareClassAjax.js"></script>
 </head>
 <body>
   <nav id='nav'>
     <div id="nav-left">
       <img src="img/logo.png">
-      <h4>Oracle 云教学实验室</h4>
+      <h4>Cloud Class</h4>
     </div>
     <div id="nav-right">
       <ul class="nav">
@@ -24,220 +25,212 @@
     </div>
     <div id="nav-center">
       <ul class="nav">
-	  <li><a class="tab-a" id="btn_home"><div class="tab-a-logo tab-a-logo-5"></div>主页</a></li>
-        <li><a class="tab-a active-a" id="btn_prepare"><div class="tab-a-logo tab-a-logo-1"></div>备课</a></li>
-        <li><a class="tab-a" id="btn_onclass"><div class="tab-a-logo tab-a-logo-2"></div>上课</a></li>
-        <li><a class="tab-a" id="btn_lab"><div class="tab-a-logo tab-a-logo-3"></div>实验</a></li>
-        <li><a class="tab-a last-btn" id="btn_homework"><div class="tab-a-logo tab-a-logo-4"></div>作业</a></li>
-      </ul>
+       <li><a class="tab-a" href="TeacherHomepage.html"><div class="tab-a-logo tab-a-logo-5"></div>主页</a></li>
+       <li><a class="tab-a active-a" id="btn_prepare"><div class="tab-a-logo tab-a-logo-1"></div>备课</a></li>
+       <li><a class="tab-a" href="TeacherOnClass.html"><div class="tab-a-logo tab-a-logo-2"></div>上课</a></li>
+       <li><a class="tab-a" href="TeacherTask.html"><div class="tab-a-logo tab-a-logo-3"></div>实验</a></li>
+       <li><a class="tab-a last-btn" href="TeacherHomework.html"><div class="tab-a-logo tab-a-logo-4"></div>作业</a></li>
+     </ul>
+   </div>
+ </nav>
+
+ <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
+  <ol class="carousel-indicators" id="carousel-indicators-pc">
+    <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
+    <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
+    <li data-target="#prepare-class" data-toggle="tab" class="next"><span>环境准备</span></li>
+    <li data-target="#prepare-class" data-toggle="tab" class="next"><span>准备PPT</span></li>
+    <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>布置作业</span></li>
+  </ol>
+
+  <div class="carousel-inner" id="carousel-inner-pc">
+    <div class="item active" id="class_container">
+      <div class="class-list">
+        <div class="class-list-left">
+          <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
+          <a href="#prepare-class" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
+          <p>已上至第x章第x节xxxxxx</p>
+          <a class="button-blue indicator-hide" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="3">立即准备PPT</a>
+        </div>
+        <div class="class-list-right">
+          <div class="class-questions">
+            <p>未解答提问</p>
+            <span>1</span>
+            <div class="arrow-bottom"></div>
+          </div>
+          <p class="underline">课时安排：1-16周 64课时</p>
+          <p>星期一 3-4节</p>
+          <p>星期五[单周] 1-2节</p>
+        </div>
+        <div class="class-progress">
+          <div class="progress-cover" style="width:50%"></div>
+          <p>50%</p>
+        </div>
+      </div>
+      <div class="class-list">
+        <div class="class-list-left">
+          <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
+          <a href="#prepare-class" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
+          <p>已上至第x章第x节xxxxxx</p>
+          <a class="button-blue indicator-hide" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="3">立即准备PPT</a>
+        </div>
+        <div class="class-list-right">
+          <div class="class-questions">
+            <p>未解答提问</p>
+            <span>1</span>
+            <div class="arrow-bottom"></div>
+          </div>
+          <p class="underline">课时安排：1-16周 64课时</p>
+          <p>星期一 3-4节</p>
+          <p>星期五[单周] 1-2节</p>
+        </div>
+        <div class="class-progress">
+          <div class="progress-cover" style="width:30%"></div>
+          <p>30%</p>
+        </div>
+      </div>
     </div>
-  </nav>
 
-  <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
-    <ol class="carousel-indicators" id="carousel-indicators-pc">
-      <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
-      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
-      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>环境准备</span></li>
-      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>准备PPT</span></li>
-      <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>布置作业</span></li>
-    </ol>
-    
-    <div class="carousel-inner" id="carousel-inner-pc">
-      <div class="item active" id="class_container">
-        <div class="class-list">
-          <div class="class-list-left">
-            <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
-            <a href="#prepare-class" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
-            <p>已上至第x章第x节xxxxxx</p>
-            <a class="button-blue indicator-hide" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="3">立即准备PPT</a>
+    <div class="item">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <h4 class="panel-title">第一章</h4>
+            </a>
           </div>
-          <div class="class-list-right">
-            <div class="class-questions">
-              <p>未解答提问</p>
-              <span>1</span>
-              <div class="arrow-bottom"></div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <ul>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
+              </ul>
             </div>
-            <p class="underline">课时安排：1-16周 64课时</p>
-            <p>星期一 3-4节</p>
-            <p>星期五[单周] 1-2节</p>
-          </div>
-          <div class="class-progress">
-            <div class="progress-cover" style="width:50%"></div>
-            <p>50%</p>
           </div>
         </div>
-        <div class="class-list">
-          <div class="class-list-left">
-            <div class="class-img"><img src="img/course-html5.png"><div class="arrow-right"></div></div>
-            <a href="#prepare-class" data-slide="next" data-toggle="tab"><h3 class="underline">HTML5基础</h3></a>
-            <p>已上至第x章第x节xxxxxx</p>
-            <a class="button-blue indicator-hide" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="3">立即准备PPT</a>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              <h4 class="panel-title">第二章</h4>
+            </a>
           </div>
-          <div class="class-list-right">
-            <div class="class-questions">
-              <p>未解答提问</p>
-              <span>1</span>
-              <div class="arrow-bottom"></div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
+              </ul>
             </div>
-            <p class="underline">课时安排：1-16周 64课时</p>
-            <p>星期一 3-4节</p>
-            <p>星期五[单周] 1-2节</p>
-          </div>
-          <div class="class-progress">
-            <div class="progress-cover" style="width:30%"></div>
-            <p>30%</p>
           </div>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="panel-group" id="accordion">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                <h4 class="panel-title">第一章</h4>
-              </a>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <ul>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
-                </ul>
-              </div>
-            </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              <h4 class="panel-title">第三章</h4>
+            </a>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                <h4 class="panel-title">第二章</h4>
-              </a>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-              <div class="panel-body">
-                <ul>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                <h4 class="panel-title">第三章</h4>
-              </a>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-              <div class="panel-body">
-                <ul>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
-                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
-                </ul>
-              </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第一节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第二节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第三节</p></a></li>
+                <li><a href="#prepare-class" data-slide="next" data-toggle="tab"><p>第四节</p></a></li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="item">
-        <div id="environment">
-          <div id="environment-header">本节课所需环境配置</div>
-          <div id="environment-body"><p>本课需xx环境</p></div>
-          <a class="button-blue indicator-hide" href="#prepare-class" data-slide="next" role="button" data-toggle="tab">我知道了</a>
+    </div>
+    <div class="item">
+      <div id="environment">
+        <div id="environment-header">本节课所需环境配置</div>
+        <div id="environment-body">
+          <p>CPU：3.1GHz及以上</p>
+          <p>内存：1G及以上</p>
+          <p>VGA：分辨率800*600及以上</p>
+          <p>网卡：100M及以上</p>
+          <p>操作系统：Windows 7 / Windows XP</p>
+          <p>数据库： MySQL</p>
+          <p>浏览器：Google Chrome</p>
         </div>
+        <a class="button-blue indicator-hide" href="#prepare-class" data-slide="next" role="button" data-toggle="tab">我知道了</a>
       </div>
-      <div class="item">
-        <div id="ppt">
-          <div id="pbtoggle">
-            <span>显示流程</span>
-            <img src="img/showpb.png">
-          </div>
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#show-ppt" data-toggle="tab">PPT</a></li>
-            <li><a href="#show-video" data-toggle="tab">视频</a></li>
-            <li><a href="#show-others" data-toggle="tab">检索章节</a></li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="show-ppt">
-              <div id="show-ppt-left">
-                <ul id="ppt-list">
-                  <li id="ppt-list-01" class="ppt-list-active"><a href="#ppt-list-01"><img src="img/ppt01.PNG"></a></li>
-                  <li id="ppt-list-02"><a href="#ppt-list-02"><img src="img/ppt02.PNG"></a></li>
-                  <li id="ppt-list-03"><a href="#ppt-list-03"><img src="img/ppt03.PNG"></a></li>
-                  <li id="ppt-list-04"><a href="#ppt-list-04"><img src="img/ppt04.PNG"></a></li>
-                  <li id="ppt-list-05"><a href="#ppt-list-05"><img src="img/ppt05.PNG"></a></li>
-                  <li id="ppt-list-06"><a href="#ppt-list-06"><img src="img/ppt01.PNG"></a></li>
-                  <li id="ppt-list-07"><a href="#ppt-list-07"><img src="img/ppt02.PNG"></a></li>
-                  <li id="ppt-list-08"><a href="#ppt-list-08"><img src="img/ppt03.PNG"></a></li>
-                </ul>
-              </div>
-              <div id="show-ppt-middle">
-                <a href="#" class="ppt-prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                <a href="#ppt-list-02" class="ppt-next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-                <ul id="ppt-content">
-                  <li><img src="img/ppt01.PNG"></li>
-                  <li><img src="img/ppt02.PNG"></li>
-                  <li><img src="img/ppt03.PNG"></li>
-                  <li><img src="img/ppt04.PNG"></li>
-                  <li><img src="img/ppt05.PNG"></li>
-                  <li><img src="img/ppt01.PNG"></li>
-                  <li><img src="img/ppt02.PNG"></li>
-                  <li><img src="img/ppt03.PNG"></li>
-                </ul>
-              </div>
-              <div id="show-ppt-right">
-                <div id="pagenote">
-                  <p>本页PPT备注</p>
-                  <form>
-                    <textarea class="form-control"></textarea>
-                    <input type="submit" value="保存" class="btn btn-primary">
-                    <input type="reset" value="重置" class="btn btn-success">
-                  </form>
-                </div>
-                <div id="classnote">
-                  <p>教案</p>
+    </div>
+    <div class="item">
+      <div id="ppt">
+        <div id="pbtoggle">
+          <span>显示流程</span>
+          <img src="img/showpb.png">
+        </div>
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#show-ppt" data-toggle="tab">PPT</a></li>
+          <li><a href="#show-video" data-toggle="tab">视频</a></li>
+          <!--li><a href="#show-others" data-toggle="tab">检索章节</a></li-->
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="show-ppt">
+            <div id="show-ppt-left">
+              <ul id="ppt-list">
+                <li id="ppt-list-1" class="ppt-list-active"><a href="#ppt-list-1"><img src="img/ppt01.PNG"></a></li>
+                <li id="ppt-list-2"><a href="#ppt-list-2"><img src="img/ppt02.PNG"></a></li>
+              </ul>
+            </div>
+            <div id="show-ppt-middle">
+              <a href="#" class="ppt-prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+              <a href="#ppt-list-2" class="ppt-next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+              <ul id="ppt-content">
+                <li><img src="img/ppt01.PNG"></li>
+              </ul>
+            </div>
+            <div id="show-ppt-right">
+              <div id="pagenote">
+                <p>本页PPT备注</p>
+                <form>
                   <textarea class="form-control"></textarea>
-                  <a class="button-blue indicator-show" href="#prepare-class" data-slide="next" role="button" data-toggle="tab" id="btn_completeppt">完成PPT</a>
-                </div>
+                  <input type="submit" value="保存" class="btn btn-primary">
+                  <input type="reset" value="重置" class="btn btn-success">
+                </form>
+              </div>
+              <div id="classnote">
+                <p>教案</p>
+                <textarea class="form-control"></textarea>
+                <a class="button-blue indicator-show" href="#prepare-class" data-slide="next" role="button" data-toggle="tab" id="btn_completeppt">完成PPT</a>
               </div>
             </div>
-            <div class="tab-pane fade" id="show-video">
-              <video height="100%" controls="controls" id="pptvideo">
-                <source src="main/video/Principles of Database/1-1.mp4" type="video/mp4"/>
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="tab-pane fade" id="show-others">
-
-            </div>
           </div>
+          <div class="tab-pane fade" id="show-video">
+            <video height="100%" controls="controls" id="pptvideo">
+              <source src="main/video/Principles of Database/1-1.mp4" type="video/mp4"/>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <!--div class="tab-pane fade" id="show-others"></div-->
         </div>
       </div>
-      <div class="item" id="homeworklist">
-        <div class="checkbox exer-list">
-          <input type="checkbox" name="" value="" id="exer1">
-          <label for="exer1">
-            <img class="check" src="img/checkbox.png">
-            <div class="checkmark"><img src="img/checkmark.png"></div>
-            <p class="exer-list-header"><span>说明案例</span><span>编号xxx</span></p>
-            <p class="exer-question">我是问题啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
-          </label>
-          <a class="button-blue show-answer">查看答案</a>
-          <p class="exer-answer">解答：<span>我是答案啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</span></p>
-        </div>
-
-        <form role="form" style="text-align:center">
-          <label for="deadline">作业截止时间：</label><input type="date" name="deadline" id="deadline">
-          <a class="btn btn-warning">完成备课</a>
-        </form>
+    </div>
+    <div class="item" id="homeworklist">
+      <div class="checkbox exer-list">
+        <input type="checkbox" name="" value="" id="exer1">
+        <label for="exer1">
+          <img class="check" src="img/checkbox.png">
+          <div class="checkmark"><img src="img/checkmark.png"></div>
+          <p class="exer-list-header"><span>说明案例</span><span>编号xxx</span></p>
+          <p class="exer-question">我是问题</p>
+        </label>
+        <a class="button-blue show-answer">查看答案</a>
+        <p class="exer-answer">解答：<span>我是答案</span></p>
       </div>
+      <form role="form" style="text-align:center">
+        <label for="deadline">作业截止时间：</label><input type="date" name="deadline" id="deadline">
+        <a class="btn btn-warning">完成备课</a>
+      </form>
     </div>
   </div>
+</div>
 </body>
 </html>

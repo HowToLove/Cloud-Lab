@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>学生实验</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+  <link href="css/PrepareClass.css" rel="stylesheet" media="screen"/>
+  <link href="css/nav.css" rel="stylesheet" media="screen"/>
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/PrepareClass.js"></script>
+  <script src="js/animatescroll.js"></script>
+  <link href="css/teacherexp.css" rel="stylesheet" />
+</head>
+<body>
+  <nav id='nav' >
+    <div id="nav-left"> <img src="img/logo.png">
+      <h4>Cloud Class</h4>
+    </div>
+    <div id="nav-right">
+      <ul class="nav">
+        <li><a class="tab-a">
+          <div class="tab-a-logo tab-a-logo-0"></div>
+        </a></li>
+      </ul>
+    </div>
+    <div id="nav-center">
+      <ul class="nav">
+        <li><a class="tab-a" id="btn_home" href="StudentHomepage.html">
+          <div class="tab-a-logo tab-a-logo-5"></div>
+          主页</a>
+        </li>
+        <li><a class="tab-a" href="StudentOnClass.html">
+          <div class="tab-a-logo tab-a-logo-2"></div>
+          上课</a>
+        </li>
+        <li><a class="tab-a " href="StudentReview.html">
+          <div class="tab-a-logo tab-a-logo-1"></div>
+          复习</a>
+        </li>
+        <li><a class="tab-a active-a" >
+          <div class="tab-a-logo tab-a-logo-3"></div>
+          实验</a>
+        </li>
+        <li><a class="tab-a last-btn" href="StudentHomework.html">
+          <div class="tab-a-logo tab-a-logo-4"></div>
+          作业</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
+    <div class="progress_bar Pconf">
+      <ol class="carousel-indicators" id="carousel-indicators-pc">
+        <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
+        <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
+        <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>完成实验</span></li>
+      </ol>
+    </div>
+    <div class="carousel-inner" id="carousel-inner-pc">
+      <div class="item active"  id="classes-container">
+        <div class="class-list" style="text-align:left;">
+          <div class="class-list-left">
+            <div class="class-img"><img src="main//image/course-PLSQL.png">
+              <div class="arrow-right"></div>
+            </div>
+            <a href="#prepare-class" data-slide="next" data-toggle="tab">
+              <h3 class="underline">PLSQL</h3>
+            </a>
+            <p style="color:#000;">已实验至第1章第1节</p>
+            <a class="button-blue indicator-hide bt-to-ppt" href="#prepare-class" role="button" data-toggle="tab"data-slide-to="2">立即实验</a>
+          </div>
+          <div class="class-list-right">
+            <div class="class-questions">
+              <p>未解答提问</p>
+              <span>1</span>
+              <div class="arrow-bottom"></div>
+            </div>
+            <p class="underline">Practice SQL in the actual training.</p>
+            <p>上课人数：11人</p>
+          </div>
+          <div class="class-progress">
+            <div class="progress-cover" style="width:5%"></div>
+            <p>5%</p>
+          </div>
+        </div>
+      </div>
+      <div class="item" >
+        <div class="panel-group choose-to-ppt" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading "> <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <h4 class="panel-title">第1章</h4></a>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <ul>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第1节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第2节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第3节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第4节</p>
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading"> <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              <h4 class="panel-title">第2章</h4>
+            </a> </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第1节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第2节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第3节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第4节</p>
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading"> <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              <h4 class="panel-title">第3章</h4>
+            </a> </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第1节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第2节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第3节</p>
+                  </a></li>
+                  <li><a href="#prepare-class" data-slide="next" data-toggle="tab">
+                    <p>第4节</p>
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item" >
+       <div class="step-content" >
+         <h2>实验名称：PL/SQL如何给固定用户分组</h2>
+         <h3  style="border-bottom:1px solid #999">实验要求</h3>
+         <h4>给固定用户设置分组</h4>
+         <h3  style="border-bottom:1px solid #999">实验步骤</h3>
+         <ol>
+           <li class="step-content-list list-item-1 " id="step-1">
+             <div class="list-icon" style="visibility: visible;">1</div>
+             <h4>在电脑中安装oracle，plsql，且两者可以连接成功.</h4>
+           </li>
+           <li class="step-content-list" id="step-2">
+             <div class="list-icon" style="visibility: visible;">2</div>
+             <h4>打开首选项对话框：</h4>
+             <img src="img/exp1.jpg"></img>
+           </li>
+           <li class="step-content-list" id="step-3">
+             <div class="list-icon" style="visibility: visible;">3</div>
+             <h4>选择登陆历史，固定用户选项：</h4>
+             <img src="img/exp2.jpg"></img>
+           </li>
+           <li class="step-content-list" id="step-4">
+             <div class="list-icon" style="visibility: visible;">4</div>
+             <h4>添加 在要分组的用户名上面添加： > 分组名称 </h4>
+           </li>
+           <li class="step-content-list" id="step-5">
+             <div class="list-icon" style="visibility: visible;">5</div>
+             <h4>添加完成，在登陆的时候就可以很清楚的看出来了。 </h4>
+             <img src="img/exp3.jpg"></img>
+           </li>
+           <div style="margin-left: -37px;"><span>END</span></div>
+         </ol>
+         <div class="step-nav" >
+          <a class="list-icon-link link1" title="点击返回第1步" onclick="$('#step-1').animatescroll();">1</a>
+          <a class="list-icon-link link2" title="点击返回第2步" onclick="$('#step-2').animatescroll();">2</a>
+          <a class="list-icon-link link3" title="点击返回第3步" onclick="$('#step-3').animatescroll();">3</a>
+          <a class="list-icon-link link4" title="点击返回第4步" onclick="$('#step-4').animatescroll();">4</a>
+          <a class="list-icon-link link5" title="点击返回第5步" onclick="$('#step-5').animatescroll();">5</a>
+         </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

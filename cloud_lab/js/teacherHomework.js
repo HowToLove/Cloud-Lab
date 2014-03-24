@@ -42,4 +42,5 @@ $(document).ready(function(){
                   $('.student-list ul').animate({marginTop:'-=65'})
             }
       })
+      
 })

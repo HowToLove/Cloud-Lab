@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../main/models/User.php";
 header('Content-type: text/json');
 
@@ -24,6 +25,7 @@ else
         $_SESSION['USER_ID']    =   $user['USER_ID'];
         $_SESSION['USERNAME']   =   $user['USER_NAME'];
         $_SESSION['USER_TYPE']  =   $user['USER_TYPE'];
+		//var_dump($_SESSION);
     }else{
         $stat = 3;
         

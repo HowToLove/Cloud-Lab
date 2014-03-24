@@ -146,12 +146,13 @@ ul, ol {
 .solution-block{
 	background-color: #fff;
 	border-radius: 5px;
-	height: 150px;
 	margin: 10px 0;
-	overflow: auto;
 }
 .solution-block.answer{
-	height:250px;
+	min-height:250px;
+}
+.solution-block.answer code{
+	color:#000;
 }
 .question-block.comment{
 	background-color: #fff;
@@ -189,7 +190,7 @@ ul, ol {
 	margin: 0 auto;
 }
 .button-stanswer,.button-comment{
-	background-color: #7ef49f;
+	background-color: #5cb85c;
 	float: left;
 	padding: 5px 10px;
 	font-size: 16px;
@@ -209,14 +210,14 @@ ul, ol {
 }
 table{
 	width:100%;
-	text-align: center;
+	text-align: left;
 }
 tr{
 	height:40px;
 	border-bottom: 1px solid #eee;
 }
 tr:first-child{
-	background-color: #eee;
+	background-color: #fff;
 }
 td.uncorrected{
 	color:#fa5050;
@@ -270,4 +271,11 @@ td.corrected{
 	height: 70%;
 	overflow: hidden;
 	margin-top: 12%;
+}
+.container{
+	overflow-x: auto;
+	width: 100%;
+}
+.class-list table{
+	text-align: center;
 }
