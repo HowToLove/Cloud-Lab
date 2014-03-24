@@ -274,7 +274,7 @@ td.corrected{
 }
 .container{
 	overflow-x: auto;
-	width: 880px;
+	width: 100%;
 }
 .class-list table{
 	text-align: center;
