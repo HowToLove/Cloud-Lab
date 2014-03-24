@@ -200,7 +200,7 @@ $(function() {
 	
 	
 	// 点击课程名时请求
-	$("#classes_h").live('click', function() {
+	$(document).delegate("#classes_h",'click', function() {
 		classid = $(this).attr('data-classid');
 		//added by lanxiang
 		sessionStorage.classId = classid;
@@ -262,7 +262,7 @@ $(function() {
 });
 
 	// 点击对应章节时请求
-	$('.start-lesson').live('click', function() {
+	$(document).delegate('.start-lesson','click', function() {
 		charpter = $(this).attr('data-charpter');
 		lesson = $(this).attr('data-lesson');
 		$.ajax({
@@ -289,7 +289,7 @@ $(function() {
 	});
 
 	// 点击开始上课时请求
-	$('.bt-to-ppt').live('click', function() {
+	$(document).delegate('.bt-to-ppt','click', function() {
 		classid = $(this).attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
@@ -446,7 +446,7 @@ $(function() {
 			dataType : 'json',
 			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
-				alert(data.url);
+				//alert(data.url);
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -503,7 +503,7 @@ $(function() {
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
+				//alert("ajax request failed" + " " + XMLHttpRequest.readyState + " " + XMLHttpRequest.status + " " + textStatus);
 			}
 		});
 	});

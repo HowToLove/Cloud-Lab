@@ -163,6 +163,9 @@ p.underline{
 	line-height: 2;
 	margin: 20px 150px 10px 0;
 }
+.panel-group{
+	text-align: center;
+}
 #accordion .panel-title{
 	font-size: 24px;
 	color:#333;

@@ -17,11 +17,11 @@ $(document).ready(function(){
 		canvas = document.getElementById('canvas-'+pageNum)
 		context = canvas.getContext("2d")
 	})
-	$('canvas').live('mousedown',function(e){
+	$(document).delegate('canvas','mousedown',function(e){
 		startx = e.pageX - 190
 		starty = e.pageY - 55
 	})
-	$('canvas').live('mouseup',function(e){
+	$(document).delegate('canvas','mouseup',function(e){
 		endx = e.pageX - 190
 		endy = e.pageY - 55
 		if(noteflag){
@@ -55,7 +55,7 @@ $(document).ready(function(){
 		$('#canvas-'+pageNum).parent().append(newnote)
 		$('.note').focus()
 	}
-	$('.note').live('blur',function(){//每次blur都要保存笔记内容对应相应的id
+	$(document).delegate('.note','blur',function(){//每次blur都要保存笔记内容对应相应的id
 		var content = $(this).val()
 		var id = 'sign-'+$(this).attr('id')
 		var left = parseInt($(this).css('left'))+5
@@ -108,7 +108,7 @@ $(document).ready(function(){
 		})
 	});
 	//
-	$('.notesign').live('click',function(){
+	$(document).delegate('.notesign','click',function(){
 		var id = $(this).attr('id').substring(5)
 		$('#'+id).show('normal').focus()
 		$(this).hide('normal')

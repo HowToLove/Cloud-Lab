@@ -291,9 +291,11 @@ $(document).ready(function(){
 		$(this).parent().html('<p class="qinfo-item-answer">这是回答xxxxxxxxxx</p>')
 	})
 
-	//deleted by zr reason:add href to the html a
-	// $(document).on("click", "#btn_prepare", function() {
-	// 	window.location.href="PrepareClass.html";
-	// });
-
+	//讨论区ctrl+enter发送
+	$('.chat-footer textarea').keydown(function(e){
+		if(e.which == 13 && e.ctrlKey){
+			$('.chat-footer button').click()
+			$('.chat-footer textarea').val('')
+		}
+	})
 })
