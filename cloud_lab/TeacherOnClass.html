@@ -109,7 +109,7 @@
         <div class="topmenu" >
           <nav id='nav'>
             <div id="nav-left"> <img src="img/logo.png">
-              <h4>Cloud Class</h4>
+              <h4>Oracle云教学实验室</h4>
             </div>
             <div id="nav-right">
               <ul class="nav">
@@ -346,18 +346,22 @@
         </div>
       </div>
       <div id="taskeva">
-        <div class="taskq" style="margin-top:55px">
-          <div class="taskq1" >
-            <ul class="nav nav-pills nav-stacked" style="margin-top: 5px;">
-              <li class="active" > <a href="#" style="font-size: 16px;"> 题目1 </a> </li>
-            </ul>
-            <textarea class="form-control" style="height:100%"></textarea>
+        <div class="taskq">
+          <div class="taskq-question">
+            <div class="taskq-header">题目1</div>
+            <div class="taskq-body">编写一个PL/SQL程序块，计算100以内的奇数和。</div>
           </div>
-          <div class="taska" style="margin-top:55px">
-            <ul class="nav nav-pills nav-stacked" >
-              <li class="active" > <a href="#" style="font-size: 16px;"> 解答 </a> </li>
-            </ul>
-            <textarea class="form-control" rows="28"></textarea>
+          <div class="taskq-answer">
+            <div class="taskq-header">解答</div>
+            <div class="taskq-body"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">v_num integer:=1;</code></div><div class="line number3 index2 alt2"><code class="plain plain">v_sum integer:=0;</code></div><div class="line number4 index3 alt1"><code class="plain plain">begin</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">while v_num&lt;100</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">loop</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_sum:=v_sum+v_num;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_num:=v_num+2;</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">end loop;</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line(v_sum);</code></div><div class="line number11 index10 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
+          </div>
+          <div class="taskq-question">
+            <div class="taskq-header">题目2</div>
+            <div class="taskq-body">编写一个PL/SQL程序块，根据输入员工号，如果职务是CLERK工资提高5%，如果职务是MANAGER工资提高10%，其他工资提高8%。</div>
+          </div>
+          <div class="taskq-answer">
+            <div class="taskq-header">解答</div>
+            <div class="taskq-body"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">k emp.empno%TYPE;</code></div><div class="line number3 index2 alt2"><code class="plain plain">theJob emp.job%TYPE;</code></div><div class="line number4 index3 alt1"><code class="plain plain">theSal emp.sal%TYPE;</code></div><div class="line number5 index4 alt2"><code class="plain plain">begin</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">k:=&amp;num;</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select job into theJob from emp where empno=k;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select sal into theSal from emp where empno=k;</code></div><div class="line number9 index8 alt2"><code class="plain plain">if theJob= 'CLERK'then</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.05 where empno=k;</code></div><div class="line number11 index10 alt2"><code class="plain plain">elsif theJob= 'MANAGER' then</code></div><div class="line number12 index11 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.1 where empno=k;</code></div><div class="line number13 index12 alt2"><code class="plain plain">else</code></div><div class="line number14 index13 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.08 where empno=k;</code></div><div class="line number15 index14 alt2"><code class="plain plain">end if;</code></div><div class="line number16 index15 alt1"><code class="plain plain">EXCEPTION</code></div><div class="line number17 index16 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">when NO_DATA_FOUND then</code></div><div class="line number18 index17 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line('警告：没有这个员工！');</code></div><div class="line number19 index18 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
           </div>
         </div>
       </div>
