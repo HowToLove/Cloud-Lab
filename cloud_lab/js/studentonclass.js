@@ -34,7 +34,7 @@ $(document).ready(function(){
 	function draw_line(){
 		context.strokeStyle = "black"
 		context.lineJoin = "round"
-		context.lineWidth = 10
+		context.lineWidth = 5
 		context.beginPath()
 		context.moveTo(startx, starty)
 		context.lineTo(endx, endy);

@@ -158,48 +158,68 @@
           </div>
         </div>
       </div>
-      <div class="item" >
-       <div class="step-content" >
-         <h2>实验名称：PL/SQL如何给固定用户分组</h2>
-         <h3  style="border-bottom:1px solid #999">实验要求</h3>
-         <h4>给固定用户设置分组</h4>
-         <h3  style="border-bottom:1px solid #999">实验步骤</h3>
-         <ol>
-           <li class="step-content-list list-item-1 " id="step-1">
-             <div class="list-icon" style="visibility: visible;">1</div>
-             <h4>在电脑中安装oracle，plsql，且两者可以连接成功.</h4>
-           </li>
-           <li class="step-content-list" id="step-2">
-             <div class="list-icon" style="visibility: visible;">2</div>
-             <h4>打开首选项对话框：</h4>
-             <img src="img/exp1.jpg"></img>
-           </li>
-           <li class="step-content-list" id="step-3">
-             <div class="list-icon" style="visibility: visible;">3</div>
-             <h4>选择登陆历史，固定用户选项：</h4>
-             <img src="img/exp2.jpg"></img>
-           </li>
-           <li class="step-content-list" id="step-4">
-             <div class="list-icon" style="visibility: visible;">4</div>
-             <h4>添加 在要分组的用户名上面添加： > 分组名称 </h4>
-           </li>
-           <li class="step-content-list" id="step-5">
-             <div class="list-icon" style="visibility: visible;">5</div>
-             <h4>添加完成，在登陆的时候就可以很清楚的看出来了。 </h4>
-             <img src="img/exp3.jpg"></img>
-           </li>
-           <div style="margin-left: -37px;"><span>END</span></div>
-         </ol>
-         <div class="step-nav" >
-          <a class="list-icon-link link1" title="点击返回第1步" onclick="$('#step-1').animatescroll();">1</a>
-          <a class="list-icon-link link2" title="点击返回第2步" onclick="$('#step-2').animatescroll();">2</a>
-          <a class="list-icon-link link3" title="点击返回第3步" onclick="$('#step-3').animatescroll();">3</a>
-          <a class="list-icon-link link4" title="点击返回第4步" onclick="$('#step-4').animatescroll();">4</a>
-          <a class="list-icon-link link5" title="点击返回第5步" onclick="$('#step-5').animatescroll();">5</a>
-         </div>
-       </div>
+      <div class="item">
+        <div class="step-content">
+          <h2>实验名称：PL/SQL如何设置固定用户和对固定用户分组</h2>
+          <h3 style="border-bottom:1px solid #999">实验要求</h3>
+          <h4>设置固定用户、给固定用户设置分组</h4>
+          <h3 style="border-bottom:1px solid #999">实验步骤</h3>
+          <ol>
+            <li class="step-content-list list-item-1 " id="step-1">
+              <div class="list-icon" style="visibility: visible;">1</div>
+              <h4>在电脑中安装oracle，plsql，且两者可以连接成功.</h4>
+            </li>
+            <li class="step-content-list" id="step-2">
+              <div class="list-icon" style="visibility: visible;">2</div>
+              <h4>打开首选项对话框：</h4>
+              <img src="img/exp1.jpg"></img>
+            </li>
+            <li class="step-content-list" id="step-3">
+              <div class="list-icon" style="visibility: visible;">3</div>
+              <h4>选定登陆历史，下面有个固定用户选项：</h4>
+              <img src="img/exp2.jpg"></img>
+            </li>
+            <li class="step-content-list" id="step-4">
+              <div class="list-icon" style="visibility: visible;">4</div>
+              <h4>添加固定用户：如 USERNAME/PASSWORD@TNSNAME
+                <h4 style="margin-left: 125px;">解释：username 为 用户名</h4>
+                <h4 style="margin-left: 125px;">password 为 密码</h4>
+                <h4 style="margin-left: 125px;">tnsname 为 要登陆的tns</h4>
+              </h4>
+              <img src="img/exp3.jpg"></img>
+            </li>
+            <li class="step-content-list" id="step-5">
+              <div class="list-icon" style="visibility: visible;">5</div>
+              <h4>添加完成，使用方式如下，即可方便登陆：</h4>
+              <img src="img/exp4.jpg"></img>
+            </li>
+            <li class="step-content-list" id="step-6">
+              <div class="list-icon" style="visibility: visible;">6</div>
+              <h4>下面给固定用户分组，打开首选项对话框：</h4>
+              <img src="img/exp1.jpg"></img>
+            </li>
+            <li class="step-content-list" id="step-7">
+              <div class="list-icon" style="visibility: visible;">7</div>
+              <h4>选择登陆历史，固定用户选项：</h4>
+              <img src="img/exp5.jpg"></img>
+            </li>
+            <li class="step-content-list" id="step-8">
+              <div class="list-icon" style="visibility: visible;">8</div>
+              <h4>添加 在要分组的用户名上面添加： > 分组名称 </h4>
+            </li>
+            <li class="step-content-list" id="step-9">
+              <div class="list-icon" style="visibility: visible;">9</div>
+              <h4>添加完成，在登陆的时候就可以很清楚的看出来了。</h4>
+              <img src="img/exp3.jpg"></img>
+            </li>
+            <div style="margin-left: -37px;">
+              <span>END</span>
+            </div>
+          </ol>
+          <div class="step-nav"><a class="list-icon-link link1" title="点击返回第1步" onclick="$('#step-1').animatescroll();">1</a><a class="list-icon-link link2" title="点击返回第2步" onclick="$('#step-2').animatescroll();">2</a><a class="list-icon-link link3" title="点击返回第3步" onclick="$('#step-3').animatescroll();">3</a><a class="list-icon-link link4" title="点击返回第4步" onclick="$('#step-4').animatescroll();">4</a><a class="list-icon-link link5" title="点击返回第5步" onclick="$('#step-5').animatescroll();">5</a><a class="list-icon-link link5" title="点击返回第6步" onclick="$('#step-6').animatescroll();">6</a><a class="list-icon-link link5" title="点击返回第7步" onclick="$('#step-7').animatescroll();">7</a><a class="list-icon-link link5" title="点击返回第8步" onclick="$('#step-8').animatescroll();">8</a><a class="list-icon-link link5" title="点击返回第9步" onclick="$('#step-9').animatescroll();">9</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
