@@ -73,18 +73,17 @@ $(document).ready(function () {
 	});
 
 	$('.btn-close').click(function(){
-		if($('.subtab.show').attr('id')=='subtab-courseinfo'){
+		if($('.tab.show').find($('.subtab.show')).attr('id')=='subtab-courseinfo'){
 			supersubtab(1);
 			height=$('#subtab-courselist').height()+50;
 			$('.subtab-container').height(height);
 			$('#tab-container').height(height);
-		}else if($('.subtab.show').attr('id')=='subtab-traininfo'){
+		}else if($('.tab.show').find($('.subtab.show')).attr('id')=='subtab-traininfo'){
 			supersubtab(2);
 			height=$('#subtab-trainlist').height()+50;
 			$('.subtab-container').height(height);
 			$('#tab-container').height(height);
-		}
-		
+		}		
 	});
 
 	//课程详情之间切换
@@ -181,7 +180,7 @@ $(document).ready(function () {
 		// if(checkForm()) {
 			$.ajax({
 				type : "POST",
-				url : "http://localhost/cloud_lab/main/login.php",
+				url : "./main/login.php",
 				data : {
 					username : $("#username").val(),
 					password : $("#password").val()
@@ -231,7 +230,7 @@ return false;
 		// if(checkForm()){
 			$.ajax({
 				type : "POST",
-				url : "http://localhost/cloud_lab/main/register.php",
+				url : "./main/register.php",
 				data : {
 					email : $("#remail").val(),
 					username : $("#rusername").val(),

@@ -4,6 +4,7 @@
 #bookreq *, #bookreq *:after, #bookreq *:before {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
 	box-sizing: border-box;
 }
 ul {
@@ -26,6 +27,7 @@ a {
 	text-align: center;
 	-webkit-transition: color 0.3s, border-color 0.3s;
 	-moz-transition: color 0.3s, border-color 0.3s;
+	-o-transition: color 0.3s, border-color 0.3s;
 	transition: color 0.3s, border-color 0.3s;
 }
 #bookreq .btn:hover {
