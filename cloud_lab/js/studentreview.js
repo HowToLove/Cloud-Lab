@@ -1,6 +1,3 @@
-//flags about canvas
-var linetag=0
-var recttag=0
 /*full mask tabbed content*/
 var fullindex=0;
 var TabbedContent = {
@@ -164,7 +161,6 @@ var NotFullScreenTabbedContent = {
 		});
 	}
 }
-
 $(document).ready(function() {
 	new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
 	var sreenheight = document.body.clientHeight;
@@ -279,7 +275,6 @@ $(document).ready(function(){
 		var height = $('.chat-body-list').height()-$('.chat-body').height()+10
 		$('.chat-body').animate({scrollTop:height})
 	})
-
 	$('.chat-footer textarea').keydown(function(e){
 		if(e.which == 13 && e.ctrlKey){
 			$('.chat-footer button').click()

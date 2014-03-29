@@ -9,17 +9,21 @@ $(document).ready(function () {
 
 		var href=$(this).attr('href');
 		var content=href+"-content";
+		var type=href.substring(5)
 		var logo=href+"-logo"
 
 		$('.tab-logo').removeClass('active-logo hideprev hidenext');
 		$(logo).prevAll().addClass('hideprev');
 		$(logo).nextAll().addClass('hidenext');
 		$(logo).addClass('active-logo');
-
+		
+		$('#subtab-'+type+'list').removeClass('hideright').addClass('show')
+		$('#subtab-'+type+'list').prev().removeClass('show').addClass('hideleft')
 		$('.tab').removeClass('show hideleft hideright');
 		$(content).prevAll().addClass('hideleft');
 		$(content).nextAll().addClass('hideright');
 		$(content).addClass('show');
+		
 		supersubtab();
 		
 		if(content=='#tab-about-content'){
@@ -69,10 +73,17 @@ $(document).ready(function () {
 	});
 
 	$('.btn-close').click(function(){
-		supersubtab();
-		height=$('#subtab-courselist').height()+50;
-		$('.subtab-container').height(height);
-		$('#tab-container').height(height);
+		if($('.tab.show').find($('.subtab.show')).attr('id')=='subtab-courseinfo'){
+			supersubtab(1);
+			height=$('#subtab-courselist').height()+50;
+			$('.subtab-container').height(height);
+			$('#tab-container').height(height);
+		}else if($('.tab.show').find($('.subtab.show')).attr('id')=='subtab-traininfo'){
+			supersubtab(2);
+			height=$('#subtab-trainlist').height()+50;
+			$('.subtab-container').height(height);
+			$('#tab-container').height(height);
+		}		
 	});
 
 	//课程详情之间切换
@@ -148,9 +159,14 @@ $(document).ready(function () {
 		});
 	}
 	//show the list page and hide the info page of subtabs
-	function supersubtab(){
-		$('#subtab-courseinfo').removeClass('show').addClass('hideleft');
-		$('#subtab-courseinfo').next().addClass('show').removeClass('hideright');
+	function supersubtab(flag){
+		if(flag==1){
+			$('#subtab-courseinfo').removeClass('show').addClass('hideleft');
+			$('#subtab-courseinfo').next().addClass('show').removeClass('hideright');
+		}else if(flag==2){
+			$('#subtab-traininfo').removeClass('show').addClass('hideleft');
+			$('#subtab-traininfo').next().addClass('show').removeClass('hideright');
+		}
 		button_hide();
 		$('.btn-prev').css('opacity','1');
 		$('.btn-next').css('opacity','1');
@@ -164,7 +180,7 @@ $(document).ready(function () {
 		// if(checkForm()) {
 			$.ajax({
 				type : "POST",
-				url : "http://localhost/cloud_lab/main/login.php",
+				url : "./main/login.php",
 				data : {
 					username : $("#username").val(),
 					password : $("#password").val()
@@ -174,15 +190,15 @@ $(document).ready(function () {
 				},
 				success : function(data) {
 					switch(data.loginStatus){
-					case -1:
+						case -1:
 						break;
-					case 0:
+						case 0:
 						alert("用户名不能为空！");
 						break;
-					case 1:
+						case 1:
 						alert("密码不能为空！");
 						break;
-					case 2:
+						case 2:
 						sessionStorage.userName = $("#username").val();
 						//alert(sessionStorage.userName);
 						sessionStorage.userType = data.userType;
@@ -190,10 +206,10 @@ $(document).ready(function () {
 						if(data.userType == 1) {							 
 							window.location.href = 'TeacherHomepage.html';
 						} else {
-							window.location.href = 'StudentOnClass.html';
+							window.location.href = 'StudentHomePage.html';
 						}
 						break;
-					case 3:
+						case 3:
 						alert("用户名或密码错误！");
 						break;
 					}
@@ -205,7 +221,7 @@ $(document).ready(function () {
 						+ " " + textStatus);
 				}
 			});
-			return false;
+return false;
 		// }
 	});
 
@@ -214,7 +230,7 @@ $(document).ready(function () {
 		// if(checkForm()){
 			$.ajax({
 				type : "POST",
-				url : "http://localhost/cloud_lab/main/register.php",
+				url : "./main/register.php",
 				data : {
 					email : $("#remail").val(),
 					username : $("#rusername").val(),
@@ -229,41 +245,41 @@ $(document).ready(function () {
 				},
 				success : function(data) {
 					switch(data.registerStatus){
-					case -2:
-					   alert('注册失败');
+						case -2:
+						alert('注册失败');
 						break;
-					case -1:
-					   alert('验证码错误');
+						case -1:
+						alert('验证码错误');
 						break;
-					case 0:
+						case 0:
 						alert("用户名或者密码错误");
 						break;
-					case 1:
+						case 1:
 						alert("注册成功！");
 						window.location.href = 'index.html'
 						break;
-					case 2:
+						case 2:
 						alert("用户名或密码不能为空");
 						break;
-					case 3:
+						case 3:
 						alert("身份证号错误");
 						break;
-					case 4:
+						case 4:
 						alert("生日格式为1999-09-10");
 						break;
-					case 5:
+						case 5:
 						alert("邮箱错误");
 						break;
-					case 6:
+						case 6:
 						alert("用户名已经被占用");
 						break;
-					case 7:
+						case 7:
 						alert("邮箱已经被占用");
 						break;
-					case 8:
+						case 8:
 						alert("该身份证已经被使用");
 						break;
-					default:
+						default:
 						alert("请检查注册信息");
 					}
 				},
@@ -274,7 +290,7 @@ $(document).ready(function () {
 						+ " " + textStatus);
 				}
 			});
-			return false;
+return false;
 		// }
 	});
 });

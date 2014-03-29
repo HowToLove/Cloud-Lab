@@ -64,7 +64,7 @@ $(document).ready(function(){
 	function draw_line(){
 		context.strokeStyle = "red"
 		context.lineJoin = "round"
-		context.lineWidth = 10
+		context.lineWidth = 5
 		context.beginPath()
 		context.moveTo(startx, starty)
 		context.lineTo(endx, endy);
@@ -75,7 +75,7 @@ $(document).ready(function(){
 	function draw_rect(){
 		context.strokeStyle = "red"
 		context.lineJoin = "round"
-		context.lineWidth = 10
+		context.lineWidth = 5
 		context.strokeRect(startx,starty,endx-startx,endy-starty);
 		ptrans2()
 	}

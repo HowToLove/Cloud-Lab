@@ -142,7 +142,7 @@ $(function() {
 				context = canvas.getContext("2d")
 				context.strokeStyle = "red"
 				context.lineJoin = "round"
-				context.lineWidth = 10
+				context.lineWidth = 5
 				context.strokeRect(startx,starty,endx-startx,endy-starty);
 			}else if(msgType == 'drawLine'){//老师画了条线
 				var points = umsg.split(" ");
@@ -159,7 +159,7 @@ $(function() {
 				context = canvas.getContext("2d")
 				context.strokeStyle = "red"
 				context.lineJoin = "round"
-				context.lineWidth = 10
+				context.lineWidth = 5
 				context.beginPath()
 				context.moveTo(startx, starty)
 				context.lineTo(endx, endy);

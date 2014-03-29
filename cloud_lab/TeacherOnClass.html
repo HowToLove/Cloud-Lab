@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="css/leftmenu.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="css/bookblock.css" media="screen"/>
   <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen"/>
+  <link href="img/favicon.ico" type='image/x-icon' rel="shortcut icon" />
   <script src="js/jquery-1.9.1.min.js"></script>
   <script src="js/modernizr.custom.js"></script>
   <script src="js/bootstrap.js"></script>  
@@ -18,7 +19,6 @@
   <script src="js/public.onclass.js"></script>
   <script src="js/teacheronclass.js"></script>
   <script src="js/public.js"></script>
-
   <title>教师上课</title>
 </head>
 <body>
@@ -109,78 +109,77 @@
         <div class="topmenu" >
           <nav id='nav'>
             <div id="nav-left"> <img src="img/logo.png">
-              <h4>Cloud Class</h4>
+              <h4>GecLab</h4>
             </div>
             <div id="nav-right">
               <ul class="nav">
                 <li><a class="tab-a">
-                  <div class="tab-a-logo tab-a-logo-0"></div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div id="nav-center">
-            <ul class="nav">
-              <li><a class="tab-a" id="btn_home" href="TeacherHomepage.html">
-                <div class="tab-a-logo tab-a-logo-5"></div>
-                主页</a>
-              </li>
-              <li><a class="tab-a " id="btn_prepare" href="PrepareClass.html">
-                <div class="tab-a-logo tab-a-logo-1"></div>
-                备课</a>
-              </li>
-              <li><a class="tab-a active-a">
-                <div class="tab-a-logo tab-a-logo-2"></div>
-                上课</a>
-              </li>
-              <li><a class="tab-a" href="TeacherTask.html">
-                <div class="tab-a-logo tab-a-logo-3"></div>
-                实验</a>
-              </li>
-              <li><a class="tab-a last-btn" href="TeacherHomework.html">
-                <div class="tab-a-logo tab-a-logo-4"></div>
-                作业</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                  <div class="tab-a-logo tab-a-logo-0"></div></a>
+                </li>
+              </ul>
+            </div>
+            <div id="nav-center">
+              <ul class="nav">
+                <li><a class="tab-a" id="btn_home" href="TeacherHomepage.html">
+                  <div class="tab-a-logo tab-a-logo-5"></div>
+                  主页</a>
+                </li>
+                <li><a class="tab-a " id="btn_prepare" href="PrepareClass.html">
+                  <div class="tab-a-logo tab-a-logo-1"></div>
+                  备课</a>
+                </li>
+                <li><a class="tab-a active-a">
+                  <div class="tab-a-logo tab-a-logo-2"></div>
+                  上课</a>
+                </li>
+                <li><a class="tab-a" href="TeacherTask.html">
+                  <div class="tab-a-logo tab-a-logo-3"></div>
+                  实验</a>
+                </li>
+                <li><a class="tab-a last-btn" href="TeacherHomework.html">
+                  <div class="tab-a-logo tab-a-logo-4"></div>
+                  作业</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
-    </div>
-    <div class='slide_content'>
-      <div class="fullmask">
-        <div class='ppt_slide_content' id="ppt_slide_content">
-          <div class='ppt_tabslider' id="ppt_tabslider"> 
-            <!-- content goes here -->
-            <div class="ppt_content_notfull" id="ppt_content_notfull" >
-              <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
-                <div class="progress_bar Pconf">
-                  <ol class="carousel-indicators" id="carousel-indicators-pc">
-                    <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
-                    <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
-                    <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>上课</span></li>
-                  </ol>
-                </div>
-                <div class="carousel-inner" id="carousel-inner-pc">
-                  <div class="item active" style="padding-top:80px;" id="classes-container"></div>
-                  <div class="item" style="padding-top:80px;">
-                    <div class="panel-group choose-to-ppt" id="accordion"></div>
+      <div class='slide_content'>
+        <div class="fullmask">
+          <div class='ppt_slide_content' id="ppt_slide_content">
+            <div class='ppt_tabslider' id="ppt_tabslider"> 
+              <!-- content goes here -->
+              <div class="ppt_content_notfull" id="ppt_content_notfull" >
+                <div id="prepare-class" class="carousel slide" data-ride="carousel" data-interval="false">
+                  <div class="progress_bar Pconf">
+                    <ol class="carousel-indicators" id="carousel-indicators-pc">
+                      <li data-target="#prepare-class" data-toggle="tab" class="active"><span>选择课程</span></li>
+                      <li data-target="#prepare-class" data-toggle="tab" class="next"><span>选择章节</span></li>
+                      <li data-target="#prepare-class" data-toggle="tab" class="next li-last"><span>上课</span></li>
+                    </ol>
                   </div>
-                  <div class="item" >
-                    <div class='nfull_tabbed_content'>
-                      <div class='nfull_ppt_tabs'></div>
-                      <div class='nfull_slide_content' >
-                        <div class="Pconf" style="text-align: left;">
-                          <button class="bt_preclass " id="btn_prevlesson"></button>
-                        </div>
-                        <div class="Pconf"  style="text-align: right;">
-                          <button class="bt_nextclass  " id="btn_nextlesson"></button>
-                        </div>
-                        <div class='nfull_tabslider'></div>
-                        <button id="draw-line"></button>
-                        <button id="draw-rect"></button>
-                        <div class="Pconf">
-                          <button class="btn_over" id="btn_over"></button>
-                        </div>
+                  <div class="carousel-inner" id="carousel-inner-pc">
+                    <div class="item active" style="padding-top:80px;" id="classes-container"></div>
+                    <div class="item" style="padding-top:80px;">
+                      <div class="panel-group choose-to-ppt" id="accordion"></div>
+                    </div>
+                    <div class="item" >
+                      <div class='nfull_tabbed_content'>
+                        <div class='nfull_ppt_tabs'></div>
+                        <div class='nfull_slide_content' >
+                          <div class="Pconf" style="text-align: left;">
+                            <button class="bt_preclass " id="btn_prevlesson"></button>
+                          </div>
+                          <div class="Pconf"  style="text-align: right;">
+                            <button class="bt_nextclass  " id="btn_nextlesson"></button>
+                          </div>
+                          <div class='nfull_tabslider'></div>
+                          <button id="draw-line"></button>
+                          <button id="draw-rect"></button>
+                          <div class="Pconf">
+                            <button class="btn_over" id="btn_over"></button>
+                          </div>
                         <!--div class="Pconf">
                           <button class="bt_fullsreen"></button>
                         </div-->
@@ -237,31 +236,27 @@
             </ul>
             <div class="tab-content" style="">
               <div class="tab-pane fade in active" id="exp1" style="height:100%;">
-                <table border="0" cellpadding="0" cellspacing="0">
-                  <tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">v_num integer:=1;</code></div><div class="line number3 index2 alt2"><code class="plain plain">v_sum integer:=0;</code></div><div class="line number4 index3 alt1"><code class="plain plain">begin</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">while v_num&lt;100</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">loop</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_sum:=v_sum+v_num;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_num:=v_num+2;</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">end loop;</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line(v_sum);</code></div><div class="line number11 index10 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table>
-                </div>
-                <div class="tab-pane fade" id="exp2" style="height:100%;">
-                  <textarea class="codearea form-control " style="height:95%;">
-
-                  </textarea>
-                </div>
-                <div class="tab-pane fade" id="exp3" style="height:100%;">
-                  <textarea class="codearea form-control " style="height:95%;">
-
-                  </textarea>
-                </div>
+                <table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">v_num integer:=1;</code></div><div class="line number3 index2 alt2"><code class="plain plain">v_sum integer:=0;</code></div><div class="line number4 index3 alt1"><code class="plain plain">begin</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">while v_num&lt;100</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">loop</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_sum:=v_sum+v_num;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_num:=v_num+2;</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">end loop;</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line(v_sum);</code></div><div class="line number11 index10 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table>
+              </div>
+              <div class="tab-pane fade" id="exp2">
+              </div>
+              <div class="tab-pane fade" id="exp3">
               </div>
             </div>
-            <div id="video">
-              <video height="100%" controls id="pptvideo">
-                <source src="main/video/Principles of Database/1-1.mp4" type="video/mp4"/>
-                Your browser does not support the video tag. 
-              </video>
-            </div>
-            <div id="stuquestion"> 
-             <div class="qinfo">
+          </div>
+          <div id="video">
+            <video height="100%" controls id="pptvideo">
+              <source src="main/video/Principles of Database/1-1.mp4" type="video/mp4"/>
+              Your browser does not support the video tag. 
+            </video>
+          </div>
+          <div id="stuquestion">
+            <div class="qinfo">
               <div class="qinfo-header">
-                <p>已解决问题：<span class="solved-count">10</span>个 未解决问题：<span class="unsolved-count">0</span>个</p>
+                <p>已解决问题：
+                  <span class="solved-count">10</span>个 未解决问题：
+                  <span class="unsolved-count">0</span>个
+                </p>
               </div>
               <ul class="qinfo-body">
                 <li class="solved" id="qinfo-1">
@@ -310,223 +305,219 @@
               </ul>
               <div class="chatbubble">
                 <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
-                  <div class="talkbubble"> 
-
-                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                  <div class="talkbubble">
+                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                     </textarea>
                   </div>
                 </div>
                 <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-                  <div class="talkbubble2"> 
-                   <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                   </textarea>
-                 </div>
-
-               </div>
-               <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
-                <div class="talkbubble"> 
-
-                  <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                  </textarea>
+                  <div class="talkbubble2">
+                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
                 </div>
+                <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
+                  <div class="talkbubble">
+                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
+                </div>
+                <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
+                  <div class="talkbubble2">
+                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </textarea>
+                  </div>
+                </div>
+
               </div>
-              <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-                <div class="talkbubble2"> 
-                 <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                 </textarea>
-               </div>
+              <div class="chatpost">
+                <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
+                <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">发送</button>
+              </div>
+            </div>
+          </div>
+          <div id="taskeva">
+            <div class="taskq">
+              <div class="taskq-question">
+                <div class="taskq-header">题目1</div>
+                <div class="taskq-body">编写一个PL/SQL程序块，计算100以内的奇数和。</div>
+              </div>
+              <div class="taskq-answer">
+                <div class="taskq-header">解答</div>
+                <div class="taskq-body"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">v_num integer:=1;</code></div><div class="line number3 index2 alt2"><code class="plain plain">v_sum integer:=0;</code></div><div class="line number4 index3 alt1"><code class="plain plain">begin</code></div><div class="line number5 index4 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">while v_num&lt;100</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">loop</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_sum:=v_sum+v_num;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">v_num:=v_num+2;</code></div><div class="line number9 index8 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">end loop;</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line(v_sum);</code></div><div class="line number11 index10 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
+              </div>
+              <div class="taskq-question">
+                <div class="taskq-header">题目2</div>
+                <div class="taskq-body">编写一个PL/SQL程序块，根据输入员工号，如果职务是CLERK工资提高5%，如果职务是MANAGER工资提高10%，其他工资提高8%。</div>
+              </div>
+              <div class="taskq-answer">
+                <div class="taskq-header">解答</div>
+                <div class="taskq-body"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">declare</code></div><div class="line number2 index1 alt1"><code class="plain plain">k emp.empno%TYPE;</code></div><div class="line number3 index2 alt2"><code class="plain plain">theJob emp.job%TYPE;</code></div><div class="line number4 index3 alt1"><code class="plain plain">theSal emp.sal%TYPE;</code></div><div class="line number5 index4 alt2"><code class="plain plain">begin</code></div><div class="line number6 index5 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">k:=&amp;num;</code></div><div class="line number7 index6 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select job into theJob from emp where empno=k;</code></div><div class="line number8 index7 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">select sal into theSal from emp where empno=k;</code></div><div class="line number9 index8 alt2"><code class="plain plain">if theJob= 'CLERK'then</code></div><div class="line number10 index9 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.05 where empno=k;</code></div><div class="line number11 index10 alt2"><code class="plain plain">elsif theJob= 'MANAGER' then</code></div><div class="line number12 index11 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.1 where empno=k;</code></div><div class="line number13 index12 alt2"><code class="plain plain">else</code></div><div class="line number14 index13 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">update emp set sal=theSal*1.08 where empno=k;</code></div><div class="line number15 index14 alt2"><code class="plain plain">end if;</code></div><div class="line number16 index15 alt1"><code class="plain plain">EXCEPTION</code></div><div class="line number17 index16 alt2"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">when NO_DATA_FOUND then</code></div><div class="line number18 index17 alt1"><code class="plain spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain plain">dbms_output.put_line('警告：没有这个员工！');</code></div><div class="line number19 index18 alt2"><code class="plain plain">end;</code></div></div></td></tr></tbody></table></div>
+              </div>
+            </div>
+          </div>
+          <div id="bookreq">
+            <div class="component">
+              <ul class="align">
+                <li>
+                  <figure class='book'> 
 
-             </div>
+                    <!-- Front -->
 
-           </div>
-           <div class="chatpost">
-            <textarea class="form-control" rows="4" style="margin-top:5px;"></textarea>
-            <button type="button" class="btn btn-primary" style="float:right;margin-top: 10px;">发送</button>
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Pages -->
+
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Back -->
+
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>数据库系统教程</h1>
+                      <span>王能斌 著</span>
+                      <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure class='book'> 
+
+                    <!-- Front -->
+
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Pages -->
+
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Back -->
+
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>Compilers: principles techniques and tools</h1>
+                      <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
+                      <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure class='book'> 
+
+                    <!-- Front -->
+
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Pages -->
+
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Back -->
+
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>数据库系统教程</h1>
+                      <span>王能斌 著</span>
+                      <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li>
+                  <figure class='book'> 
+
+                    <!-- Front -->
+
+                    <ul class='hardcover_front'>
+                      <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Pages -->
+
+                    <ul class='page'>
+                      <li></li>
+                      <li> <a class="btn" href="#">从亚马逊购买</a> </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+
+                    <!-- Back -->
+
+                    <ul class='hardcover_back'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                    <figcaption>
+                      <h1>Compilers: principles techniques and tools</h1>
+                      <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
+                      <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
+                    </figcaption>
+                  </figure>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      <div id="taskeva">
-        <div class="taskq" style="margin-top:55px">
-          <div class="taskq1" >
-            <ul class="nav nav-pills nav-stacked" style="margin-top: 5px;">
-              <li class="active" > <a href="#" style="font-size: 16px;"> 题目1 </a> </li>
-            </ul>
-            <textarea class="form-control" style="height:100%"></textarea>
-          </div>
-          <div class="taska" style="margin-top:55px">
-            <ul class="nav nav-pills nav-stacked" >
-              <li class="active" > <a href="#" style="font-size: 16px;"> 解答 </a> </li>
-            </ul>
-            <textarea class="form-control" rows="28"></textarea>
-          </div>
-        </div>
-      </div>
-      <div id="bookreq">
-        <div class="component">
-          <ul class="align">
-            <li>
-              <figure class='book'> 
-
-                <!-- Front -->
-
-                <ul class='hardcover_front'>
-                  <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
-                  <li></li>
-                </ul>
-
-                <!-- Pages -->
-
-                <ul class='page'>
-                  <li></li>
-                  <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-
-                <!-- Back -->
-
-                <ul class='hardcover_back'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <ul class='book_spine'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <figcaption>
-                  <h1>数据库系统教程</h1>
-                  <span>王能斌 著</span>
-                  <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure class='book'> 
-
-                <!-- Front -->
-
-                <ul class='hardcover_front'>
-                  <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
-                  <li></li>
-                </ul>
-
-                <!-- Pages -->
-
-                <ul class='page'>
-                  <li></li>
-                  <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-
-                <!-- Back -->
-
-                <ul class='hardcover_back'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <ul class='book_spine'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <figcaption>
-                  <h1>Compilers: principles techniques and tools</h1>
-                  <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
-                  <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure class='book'> 
-
-                <!-- Front -->
-
-                <ul class='hardcover_front'>
-                  <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
-                  <li></li>
-                </ul>
-
-                <!-- Pages -->
-
-                <ul class='page'>
-                  <li></li>
-                  <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-
-                <!-- Back -->
-
-                <ul class='hardcover_back'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <ul class='book_spine'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <figcaption>
-                  <h1>数据库系统教程</h1>
-                  <span>王能斌 著</span>
-                  <p>《数据库系统教程(第2版上)》是普通高等教育“十一五”国家级规划教材，是一部全面、系统、深入阐述数据库系统原理的教程和科技参考书。全书共分6篇23章，分上、下两册。第1、2篇分在上册，共有12章；第3～6篇分在下册，共有11章。其中，上册于2008年全面修订。</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li>
-              <figure class='book'> 
-
-                <!-- Front -->
-
-                <ul class='hardcover_front'>
-                  <li> <img src="img/cover2.jpg" alt="" width="100%" height="100%"> </li>
-                  <li></li>
-                </ul>
-
-                <!-- Pages -->
-
-                <ul class='page'>
-                  <li></li>
-                  <li> <a class="btn" href="#">从亚马逊购买</a> </li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-
-                <!-- Back -->
-
-                <ul class='hardcover_back'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <ul class='book_spine'>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <figcaption>
-                  <h1>Compilers: principles techniques and tools</h1>
-                  <span>By Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman </span>
-                  <p>It is affectionately known as the Dragon Book to a generation of computer scientists [3][4] as its cover depicts a knight and a dragon in battle, a metaphor for conquering complexity. This name can also refer to Aho and Ullman's older Principles of Compiler Design.</p>
-                </figcaption>
-              </figure>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>             
-
-</div><!-- /mp-pusher --> 
-
-</div> <!--onclasscontainer--> 
-
-<script src="js/classie.js"></script> 
-<script src="js/mlpushmenu.js"></script> 
-<script>
-new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
-</script> 
-
+    </div><!-- /mp-pusher --> 
+  </div> <!--onclasscontainer--> 
+  <script src="js/classie.js"></script> 
+  <script src="js/mlpushmenu.js"></script> 
+  <script>
+  new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+  </script> 
 </body>
 </html>
