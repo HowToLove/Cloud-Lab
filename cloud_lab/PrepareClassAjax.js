@@ -354,4 +354,13 @@ $(function() {
 		var video = document.getElementById("pptvideo");
 		video.currentTime = videos[pptid];
 	});
+
+
+	$("a[href='#show-video']").click(function() {
+		video.play();
+	});
+
+	$("a[href='#show-ppt']").click(function() {
+		video.pause();
+	});
 });
