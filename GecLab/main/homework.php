@@ -85,7 +85,7 @@ if(isset($_SESSION['USER_ID']))
 	}
 	$mysql->close();
 }else{
-	header("Location: http://localhost/cloud_lab/index.html");
+	header("Location: http://localhost/GecLab/index.html");
 }
 //打开自动输出错误与警告
 ini_set("display_errors", "On");

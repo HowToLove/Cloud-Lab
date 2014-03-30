@@ -74,7 +74,7 @@ $(function() {
 	});
 
 		//create a new WebSocket object.
-		var wsUri = "ws://localhost:12401/cloud_lab/server.php"; 	
+		var wsUri = "ws://localhost:12401/GecLab/server.php"; 	
 		websocket = new WebSocket(wsUri); 
 	websocket.onopen = function(ev) { // connection is open 
 		console.log("connected!");

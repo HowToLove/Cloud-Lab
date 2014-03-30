@@ -12,11 +12,12 @@
 	text-align: center;
 }
 ::-webkit-scrollbar {
-	width: 5px;
+	width: 8px;
 	background: #2a2e3a;
 }
 ::-webkit-scrollbar-thumb {
 	background: #05b9dc;
+	border-radius: 10px;
 }
 ::-webkit-input-placeholder{
 	color:#666;
@@ -30,7 +31,7 @@ html{
 body{
 	background: url("../img/indexbg.png") center no-repeat;
 	background-attachment:fixed;
-	background-size: 100% 100%
+	background-size: 100% 100%;
 	height:100%;
 }
 header{
@@ -138,6 +139,7 @@ ul.nav li a:hover{
 
 #tab-container {
 	position:relative;
+	overflow: hidden;
 }
 .tab{
 	width:100%;
@@ -246,6 +248,7 @@ ul.nav li a:hover{
 	margin:0 auto;
 	background-color: #313131;
 	border-radius: 10px;
+	padding:20px 0;
 }
 #aboutus h1{
 	line-height: 3;
@@ -279,7 +282,7 @@ ul.nav li a:hover{
 #password{
 	border-radius: 0px 0px 5px 5px;
 }
-#btn-register,#btn-login,#rbtn-register{
+#tab-login-content button{
 	width: 130px;
 	height: 58px;
 	font-size: 20px;
@@ -325,12 +328,17 @@ ul.nav li a:hover{
 #rbtn-register{
 	background-color: #006dcc;
 }
+#rbtn-back{
+	background-color: #5bb75b;
+}
 .subtab{
 	position: absolute;
 	width:100%;
 }
 .images{
-	width: 930px;
+	position: absolute;
+	left: 10%;
+	width: 80%;
 	display: inline-block;
 	margin: 0 auto;
 	overflow: hidden;
@@ -339,7 +347,7 @@ ul.nav li a:hover{
 	background: #333745;
 	padding: 0 15px 15px 15px;
 	min-height: 400px;
-	min-width: 520px;
+	width:96%;
 	display: inline-block;
 }
 .img-f {
@@ -349,8 +357,7 @@ ul.nav li a:hover{
 }
 
 .image img {
-	max-width: 100%;
-	min-width: 520px;
+	width: 100%;
 	height: auto;
 	border-radius: 15px;
 }
@@ -361,15 +368,18 @@ ul.nav li a:hover{
 	padding: 5px;
 }
 .next,.close {
-	right: -6%;
+	right: -70px;
 	border-bottom-left-radius: 50px;
 	border-top-left-radius: 50px;
 }
 .next,.prev{
-	top:100px;
+	top:300px;
+}
+.close{
+	top:150px;
 }
 .prev {
-	left: -6%;
+	left: -70px;
 	border-bottom-right-radius: 50px;
 	border-top-right-radius: 50px;
 }
@@ -379,6 +389,7 @@ ul.nav li a:hover{
 	height: 50px;
 	margin: 3px;
 	border-radius: 50%;
+	cursor: pointer;
 	transition: background-color 0.1s ease-in-out;
 }
 .next a{
@@ -392,4 +403,16 @@ ul.nav li a:hover{
 }
 .next a:hover, .prev a:hover, .close a:hover{
 	background-color: red;
+}
+#aboutus table{
+	margin:0 auto;
+	font-size:16px;
+	width:44%;
+}
+#aboutus tr{
+	height:30px;
+}
+#aboutus th{
+	font-size:23px;
+	font-weight: bold;
 }

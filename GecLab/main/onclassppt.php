@@ -76,7 +76,7 @@ if(isset($_SESSION['USER_ID']))
 			echo json_encode($e->getTrace());
 		}
 }else{
-	header("Location: http://localhost/cloud_lab/index.html");
+	header("Location: http://localhost/GecLab/index.html");
 }
 
 //打开自动输出错误与警告

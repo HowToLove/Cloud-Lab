@@ -38,7 +38,7 @@ if(isset($_SESSION['USER_ID']) )//判断用户是否已经已经登录
 		echo json_encode($e->getTrace());
 	}
 }else{
-	header("Location: http://localhost/cloud_lab/#tab-login");
+	header("Location: http://localhost/GecLab/#tab-login");
 }
 ini_set("display_errors", "On");
 ?>
