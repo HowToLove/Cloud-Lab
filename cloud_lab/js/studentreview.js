@@ -281,4 +281,5 @@ $(document).ready(function(){
 			$('.chat-footer textarea').val('')
 		}
 	})
+
 })
