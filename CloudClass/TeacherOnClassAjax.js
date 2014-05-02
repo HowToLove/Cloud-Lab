@@ -73,32 +73,19 @@ $(function() {
 		}
 	});
 
-		//create a new WebSocket object.
-		var wsUri = "ws://localhost:12401/GecLab/server.php"; 	
-		websocket = new WebSocket(wsUri); 
+
+
+	//create a new WebSocket object.
+	var wsUri = "ws://localhost:12401/CloudClass/server.php"; 	
+	websocket = new WebSocket(wsUri); 
 	websocket.onopen = function(ev) { // connection is open 
 		console.log("connected!");
 	}
 
-	$('#lanxiangUsed').click(function(){ //use clicks message send button	
+	// $('.nfull_ppt_tabs .tab_item').click(function(){ //use clicks message send button	
 		
-		//sessionStorage.userName = $("#username").val();
-		//sessionStorage.userType = data.userType;
-		var myname =sessionStorage.userName;
-		
-		var mymessage = '1';
-		//prepare json data
-		var msg = {
-			message: mymessage,
-			name: sessionStorage.userName,		
-		userType: sessionStorage.userType,//1 stands for the teacher and 2 stands for the student
-		msgType: 'slidePPT',		
-		classId:sessionStorage.classId
-	};
-		//convert and send data to server
-		websocket.send(JSON.stringify(msg));
-	});
-	
+	// });
+
 	/*	
 	websocket.onopen=function(){
 			if(websocket.readyState==1){			
@@ -119,80 +106,23 @@ $(function() {
 		var msgType = msg.msgType; //message type
 		var umsg = msg.message; //message text
 		var uname = msg.name; //user name	
-		var userType = msg.userType;
-		var startx,starty,endx,endy
-		console.log(msg);
-		
-		if(userType == 1){
-			if( msgType == 'slidePPT'){//老师滑动了ppt
-				var targetNum = umsg
-				$('#tab-item-'+targetNum).click()
-			}else if( msgType == 'drawRect'){//老师画了个矩形框
-				var points = umsg.split(" ");
-				console.log(points);
-				
-				startx = points[1]*($('canvas').width())
-				starty = points[2]*($('canvas').height())
-				endx = points[3]*($('canvas').width())
-				endy = points[4]*($('canvas').height())
-				
-				var pageNum = points[0]
-				$('#tab-item-'+pageNum).click()
-				canvas = document.getElementById('canvas-'+pageNum)
-				context = canvas.getContext("2d")
-				context.strokeStyle = "red"
-				context.lineJoin = "round"
-				context.lineWidth = 5
-				context.strokeRect(startx,starty,endx-startx,endy-starty);
-			}else if(msgType == 'drawLine'){//老师画了条线
-				var points = umsg.split(" ");
-				console.log(points);
-				
-				startx = points[1]*($('canvas').width())
-				starty = points[2]*($('canvas').height())
-				endx = points[3]*($('canvas').width())
-				endy = points[4]*($('canvas').height())
-				
-				var pageNum = points[0]
-				$('#tab-item-'+pageNum).click()
-				canvas = document.getElementById('canvas-'+pageNum)
-				context = canvas.getContext("2d")
-				context.strokeStyle = "red"
-				context.lineJoin = "round"
-				context.lineWidth = 5
-				context.beginPath()
-				context.moveTo(startx, starty)
-				context.lineTo(endx, endy);
-				context.closePath();
-				context.stroke();
-			}else if(msgType == 'onlineQuestion'){//这里是收到老师消息的代码。
-				if(uname !=sessionStorage.userName){
-					var content = umsg
-					if(content.length!=0){
-						var newchat = '<li class="teacher others"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
-						$('.chat-body-list').append(newchat)
-						$('.chat-footer textarea').val('')
-						var height = $('.chat-body-list').height()-$('.chat-body').height()+10
-						$('.chat-body').animate({scrollTop:height})
-					}
-				}
-			}			
-		}else{//这里是收到学生消息的代码
-			if(msgType == 'onlineQuestion'){
-				if(uname !=sessionStorage.userName){
-					var content = umsg
-					if(content.length!=0){
-						var newchat = '<li class="student others"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
-						$('.chat-body-list').append(newchat)
-						$('.chat-footer textarea').val('')
-						var height = $('.chat-body-list').height()-$('.chat-body').height()+10
-						$('.chat-body').animate({scrollTop:height})
-					}
+		var userType = msg.userType;		
+		console.log(msg);		
+		if(msgType == 'onlineQuestion'){//这里是收到学生消息的代码。
+			//console.log(sessionStorage);
+			if(uname !=sessionStorage.userName){
+				var content = umsg
+				if(content.length!=0){
+					var newchat = '<li class="student others"><div class="head"></div><div class="chat-content"><span>'+content+'</span><div class="arrow"></div></div></li>'
+					$('.chat-body-list').append(newchat)
+					var height = $('.chat-body-list').height()-$('.chat-body').height()+10
+					$('.chat-body').animate({scrollTop:height})
 				}
 			}
-		}	
+		}			
+		
 	};
-
+	
 	websocket.onerror	= function(ev){console.log("error!");}; 
 	websocket.onclose 	= function(ev){console.log("closed!");};
 	//sessionStorage.socket = websocket;
@@ -293,7 +223,7 @@ $(function() {
 		classid = $(this).attr('data-classid');
 		charpter = $(this).prevAll('p').attr('data-charpter');
 		lesson = $(this).prevAll('p').attr('data-lesson');
-
+		//added by lanxiang
 		sessionStorage.classId = classid;
 		//alert(sessionStorage.classId);
 		
@@ -305,6 +235,9 @@ $(function() {
 			classId:sessionStorage.classId
 		};			
 		websocket.send(JSON.stringify(msg));
+
+
+
 		$.ajax({
 			type : 'POST',
 			url : 'main/onclassppt.php',
@@ -447,6 +380,7 @@ $(function() {
 			beforeSend : function(XMLHttpRequest) {},
 			success : function(data) {
 				//alert(data.url);
+				$('#video source').attr('src',data.url)
 			},
 			complete : function(XMLHttpRequest, textStatus) {},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -536,7 +470,7 @@ $(function() {
 		var pptwidth = $('.nfull_tabbed_content').height()*4/3
 		$('canvas').attr('width',pptwidth)
 		$('canvas').attr('height',pptheight)
-
+		$('#tab-item-1').click()
 		$.getScript("js/jquery.jscrollpane.min.js");
 		$.getScript("js/jquerypp.custom.js");
 		$.getScript("js/jquery.bookblock.js");

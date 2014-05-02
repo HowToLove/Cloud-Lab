@@ -16,10 +16,11 @@
   <script src="js/jquery-1.9.1.min.js"></script>
   <script src="js/modernizr.custom.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/studentreview.js"></script>
-  <script src="StudentReviewAjax.js"></script>
+  <script src="js/public.onclass.js"></script>
+  <script src="js/studentonclass.js"></script>
+  <script src="StudentOnClassAjax.js"></script>
   <script src="js/public.js"></script>
-  <title>学生复习</title>
+  <title>学生上课</title>
 </head>
 <body>
   <div class="onclasscontainer">
@@ -91,7 +92,7 @@
         <div class="topmenu" >
           <nav id='nav'>
             <div id="nav-left"> <img src="img/logo.png">
-              <h4>GecLab</h4>
+              <h4>Cloud Class</h4>
             </div>
             <div id="nav-right">
               <ul class="nav">
@@ -106,15 +107,15 @@
                   <div class="tab-a-logo tab-a-logo-5"></div>
                   主页</a>
                 </li>
-                <li><a class="tab-a" href="StudentOnClass.html">
+                <li><a class="tab-a active-a">
                   <div class="tab-a-logo tab-a-logo-2"></div>
                   上课</a>
                 </li>
-                <li><a class="tab-a active-a">
+                <li><a class="tab-a " href="StudentReview.html">
                   <div class="tab-a-logo tab-a-logo-1"></div>
                   复习</a>
                 </li>
-                <li><a class="tab-a" href="StudentTask.html">
+                <li><a class="tab-a"  href="StudentTask.html">
                   <div class="tab-a-logo tab-a-logo-3"></div>
                   实验</a>
                 </li>
@@ -148,16 +149,28 @@
                     </div>
                     <div class="item" >
                       <div class='nfull_tabbed_content'>
-                        <div class='nfull_ppt_tabs'></div>
+                        <div class='nfull_ppt_tabs'>
+                        </div>
                         <div class='nfull_slide_content' >
-                          <div class='nfull_tabslider'></div>
+                          <!--div class="Pconf" style="text-align: left;">
+                            <button class="bt_preclass btn btn-primary " id="btn_prevlesson">上一节</button>
+                          </div>
+                          <div class="Pconf"  style="text-align: right;">
+                            <button class="bt_nextclass btn btn-primary " id="btn_nextlesson">下一节</button>
+                          </div-->
+                          <div class='nfull_tabslider'>
+                          </div>
+                          <button id="take-note"></button>
+                          <!--div class="Pconf">
+                            <button class="bt_fullsreen"></button>
+                          </div-->
                         </div>
                         <div class="nfullr">
                           <div class="chat-header">
-                            <p>离线讨论</p>
+                            <p>讨论区</p>
                           </div>
                           <div class="chat-body">
-                            <ul class="chat-body-list">                            
+                            <ul class="chat-body-list">                             
                             </ul>
                           </div>
                           <div class="chat-footer">
@@ -173,14 +186,15 @@
               </div>
               <div class="ppt_content_full" id="ppt_content_full">
                 <div class="bb-custom-wrapper">
-                  <div id="bb-bookblock" class="bb-bookblock"></div>
+                  <div id="bb-bookblock" class="bb-bookblock">
+                    <div class="bb-item" id="item1"> <img src="img/ppt01.png"/> </div>
+                  </div>
                 </div>
                 <div class="Pconf">
                   <div class="bottommenu">
                     <button class="bt_notfullsreen"></button>
                     <button class="bubble">0</button>
-                    <span id="bb-nav-next">&rarr;</span>
-                    <span id="bb-nav-prev">&larr;</span>
+                    <span id="bb-nav-next">&rarr;</span> <span id="bb-nav-prev">&larr;</span>
                   </div>
                 </div>
               </div>
@@ -208,14 +222,13 @@
               Your browser does not support the video tag. 
             </video>
           </div>
-          <div id="stuquestion">
-            <div class="qinfo">
-              <div class="qinfo-header">
-                <p>最新回答：
-                  <span class="latest-answer-count">1</span>个 已提问：
-                  <span class="question-count">10</span>个 已回答
-                  <span class="answer-count">10</span>个
-                </p>
+          <div id="stuquestion"> 
+           <div class="qinfo">
+            <div class="qinfo-header">
+              <p>最新回答：
+                <span class="latest-answer-count">1</span>个 已提问：
+                <span class="question-count">10</span>个 已回答
+                <span class="answer-count">10</span>个</p>
               </div>
               <ul class="qinfo-body">
                 <li class="solved" id="qinfo-1">
@@ -265,13 +278,13 @@
               <div class="chatbubble">
                 <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:left;margin-top:20px;">
                   <div class="talkbubble"> 
-                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    <textarea class="bubbletext" readOnly>请问xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                     </textarea>
                   </div>
                 </div>
                 <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
                   <div class="talkbubble2"> 
-                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                     </textarea>
                   </div>
                 </div>
@@ -282,8 +295,8 @@
                   </div>
                 </div>
                 <div class="singleb"> <img src="img/people.png" alt="..." class="img-rounded" style=" background:#5bc0de;width:40px;height:40px;float:right;margin-top:15px;">
-                  <div class="talkbubble2">
-                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                  <div class="talkbubble2"> 
+                    <textarea class="bubbletext" readOnly>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                     </textarea>
                   </div>
                 </div>
@@ -318,7 +331,7 @@
             <div class="component">
               <ul class="align">
                 <li>
-                  <figure class='book'>
+                  <figure class='book'> 
                     <!-- Front -->
                     <ul class='hardcover_front'>
                       <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
@@ -380,7 +393,7 @@
                   </figure>
                 </li>
                 <li>
-                  <figure class='book'> 
+                  <figure class='book'>
                     <!-- Front -->
                     <ul class='hardcover_front'>
                       <li> <img src="img/cover1.jpg" alt="" width="100%" height="100%"> </li>
@@ -455,7 +468,8 @@
   <script src="js/mlpushmenu.js"></script> 
   <script>
   new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
-  </script>
+  </script> 
+
   <!--pptfullsreenjs--> 
   <script src="js/jquery.jscrollpane.min.js"></script> 
   <script src="js/jquerypp.custom.js"></script> 
